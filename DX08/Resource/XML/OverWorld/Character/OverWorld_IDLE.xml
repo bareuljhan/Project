@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="OverWorld_IDLE.png" width="102" height="682" scale="1" format="RGBA8888">
+  <sprite n="OverWorld_IDLE1.png" x="0" y="392" w="50" h="97" pX="0.5" pY="0.5" oX="25" oY="5" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE2.png" x="0" y="101" w="52" h="97" pX="0.5" pY="0.5" oX="24" oY="3" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE3.png" x="0" y="0" w="58" h="101" pX="0.5" pY="0.5" oX="21" oY="6" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE4.png" x="0" y="586" w="52" h="96" pX="0.5" pY="0.5" oX="25" oY="3" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE5.png" x="51" y="295" w="49" h="95" pX="0.5" pY="0.5" oX="25" oY="8" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE6.png" x="50" y="392" w="52" h="96" pX="0.5" pY="0.5" oX="26" oY="9" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE7.png" x="0" y="489" w="50" h="97" pX="0.5" pY="0.5" oX="25" oY="8" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE8.png" x="0" y="295" w="51" h="97" pX="0.5" pY="0.5" oX="24" oY="6" oW="101" oH="111"/>
+  <sprite n="OverWorld_IDLE9.png" x="0" y="198" w="52" h="97" pX="0.5" pY="0.5" oX="25" oY="7" oW="101" oH="111"/>
+</TextureAtlas>

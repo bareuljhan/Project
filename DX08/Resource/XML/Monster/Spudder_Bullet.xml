@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Bullet.png" width="373" height="511" scale="1" format="RGBA8888">
+  <sprite n="Spudder_Bullet.png" x="247" y="0" w="126" h="115" pX="0.5" pY="0.5" oX="4" oY="23" oW="133" oH="138"/>
+  <sprite n="Spudder_Bullet2.png" x="0" y="138" w="133" h="130" pX="0.5" pY="0.5" oX="0" oY="8" oW="133" oH="138"/>
+  <sprite n="Spudder_Bullet3.png" x="0" y="0" w="132" h="138" pX="0.5" pY="0.5" oX="1" oY="0" oW="133" oH="138"/>
+  <sprite n="Spudder_Bullet4.png" x="133" y="126" w="132" h="116" pX="0.5" pY="0.5" oX="0" oY="23" oW="132" oH="139"/>
+  <sprite n="Spudder_Bullet5.png" x="0" y="268" w="116" h="124" pX="0.5" pY="0.5" oX="8" oY="14" oW="133" oH="138"/>
+  <sprite n="Spudder_Bullet6.png" x="132" y="0" w="115" h="126" pX="0.5" pY="0.5" oX="9" oY="12" oW="133" oH="138"/>
+  <sprite n="Spudder_Bullet7.png" x="116" y="268" w="113" h="117" pX="0.5" pY="0.5" oX="9" oY="21" oW="132" oH="138"/>
+  <sprite n="Spudder_Bullet8.png" x="0" y="392" w="125" h="119" pX="0.5" pY="0.5" oX="4" oY="19" oW="133" oH="138"/>
+</TextureAtlas>

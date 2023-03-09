@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="specialEffect.png" width="1973" height="1076" scale="1" format="RGBA8888">
+  <sprite n="special_effect1.png" x="1006" y="796" w="302" h="280" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect2'.png" x="1006" y="475" w="350" h="321" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect3.png" x="1527" y="409" w="403" h="375" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect4.png" x="1527" y="0" w="446" h="409" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect5.png" x="518" y="449" w="488" h="432" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect6.png" x="518" y="0" w="510" h="449" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect7.png" x="0" y="0" w="518" h="463" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect8.png" x="1028" y="0" w="499" h="475" pX="0.5" pY="0.5"/>
+  <sprite n="special_effect9.png" x="0" y="463" w="471" h="468" pX="0.5" pY="0.5"/>
+</TextureAtlas>

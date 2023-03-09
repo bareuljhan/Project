@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Spawn.png" width="2046" height="2030" scale="1" format="RGBA8888">
+  <sprite n="SpudderIntro1.png" x="383" y="1846" w="310" h="102" pX="0.5" pY="0.5" oX="122" oY="357" oW="556" oH="459"/>
+  <sprite n="SpudderIntro2.png" x="1078" y="871" w="478" h="459" pX="0.5" pY="0.5" oX="78" oY="0" oW="556" oH="459"/>
+  <sprite n="SpudderIntro3.png" x="0" y="895" w="393" h="157" pX="0.5" pY="0.5" oX="81" oY="302" oW="556" oH="459"/>
+  <sprite n="SpudderIntro4.png" x="0" y="1052" w="391" h="158" pX="0.5" pY="0.5" oX="82" oY="301" oW="556" oH="459"/>
+  <sprite n="SpudderIntro5.png" x="0" y="1846" w="383" h="176" pX="0.5" pY="0.5" oX="85" oY="283" oW="555" oH="459"/>
+  <sprite n="SpudderIntro6.png" x="556" y="0" w="556" h="184" pX="0.5" pY="0.5" oX="0" oY="275" oW="556" oH="459"/>
+  <sprite n="SpudderIntro7.png" x="693" y="1290" w="385" h="212" pX="0.5" pY="0.5" oX="86" oY="247" oW="556" oH="459"/>
+  <sprite n="SpudderIntro8.png" x="516" y="612" w="397" h="244" pX="0.5" pY="0.5" oX="79" oY="215" oW="555" oH="459"/>
+  <sprite n="SpudderIntro9.png" x="1635" y="419" w="400" h="381" pX="0.5" pY="0.5" oX="77" oY="78" oW="556" oH="459"/>
+  <sprite n="SpudderIntro10.png" x="1635" y="0" w="404" h="419" pX="0.5" pY="0.5" oX="76" oY="40" oW="556" oH="459"/>
+  <sprite n="SpudderIntro11.png" x="516" y="856" w="396" h="434" pX="0.5" pY="0.5" oX="79" oY="25" oW="556" oH="459"/>
+  <sprite n="SpudderIntro12.png" x="1556" y="1184" w="414" h="459" pX="0.5" pY="0.5" oX="70" oY="0" oW="555" oH="459"/>
+  <sprite n="SpudderIntro13.png" x="0" y="436" w="516" h="459" pX="0.5" pY="0.5" oX="0" oY="0" oW="556" oH="459"/>
+  <sprite n="SpudderIntro14.png" x="1078" y="436" w="489" h="435" pX="0.5" pY="0.5" oX="33" oY="22" oW="556" oH="457"/>
+  <sprite n="SpudderIntro15.png" x="556" y="184" w="522" h="428" pX="0.5" pY="0.5" oX="17" oY="31" oW="556" oH="459"/>
+  <sprite n="SpudderIntro16.png" x="0" y="0" w="556" h="429" pX="0.5" pY="0.5" oX="0" oY="30" oW="556" oH="459"/>
+  <sprite n="SpudderIntro17.png" x="1112" y="0" w="523" h="436" pX="0.5" pY="0.5" oX="16" oY="23" oW="555" oH="459"/>
+  <sprite n="SpudderIntro18.png" x="0" y="1210" w="387" h="126" pX="0.5" pY="0.5" oX="84" oY="333" oW="555" oH="459"/>
+  <sprite n="SpudderIdle1.png" x="674" y="1502" w="236" h="260" pX="0.5" pY="0.5" oX="144" oY="250" oW="524" oH="510"/>
+  <sprite n="SpudderIdle2.png" x="0" y="1336" w="385" h="510" pX="0.5" pY="0.5" oX="139" oY="0" oW="524" oH="510"/>
+  <sprite n="SpudderIdle3.png" x="387" y="1290" w="287" h="380" pX="0.5" pY="0.5" oX="118" oY="130" oW="524" oH="510"/>
+  <sprite n="SpudderIdle4.png" x="1556" y="1643" w="396" h="387" pX="0.5" pY="0.5" oX="64" oY="123" oW="524" oH="510"/>
+  <sprite n="SpudderIdle5.png" x="1567" y="800" w="479" h="384" pX="0.5" pY="0.5" oX="22" oY="126" oW="524" oH="510"/>
+</TextureAtlas>
