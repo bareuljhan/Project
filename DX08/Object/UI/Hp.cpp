@@ -4,13 +4,10 @@
 Hp::Hp(Vector2 size)
 {
 	_hp1 = make_shared<Quad>(L"Resource/Texture/CupHead/Hp/hp1.png", size);
-	_hp1->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 	
 	_hp2 = make_shared<Quad>(L"Resource/Texture/CupHead/Hp/hp2.png", size);
-	_hp2->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 
 	_hp3 = make_shared<Quad>(L"Resource/Texture/CupHead/Hp/hp3.png", size);
-	_hp3->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 	
 	_hp4 = make_shared<Quad>(L"Resource/Texture/CupHead/Hp/hp4.png", size);
 	_hp4->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
@@ -44,27 +41,23 @@ void Hp::PostRender()
 	_hp4->Render();
 }
 
-void Hp::SetOne(wstring file, Vector2 size)
+void Hp::SetOne()
 {
-	_hp1 = make_shared<Quad>(file, size);
 	_hp1->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 }
 
-void Hp::SetTwo(wstring file, Vector2 size)
+void Hp::SetTwo()
 {
-	_hp2 = make_shared<Quad>(file, size);
 	_hp2->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 }
 
-void Hp::SetThree(wstring file, Vector2 size)
+void Hp::SetThree()
 {
-	_hp3 = make_shared<Quad>(file, size);
 	_hp3->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 }
 
-void Hp::SetFour(wstring file, Vector2 size)
+void Hp::SetFour()
 {
-	_hp4 = make_shared<Quad>(file, size);
 	_hp4->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 }
 

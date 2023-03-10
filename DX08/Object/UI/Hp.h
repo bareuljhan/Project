@@ -11,10 +11,10 @@ public:
 	void SetPosition(Vector2 pos);
 	void SetScale(Vector2 scale);
 
-	void SetOne(wstring file, Vector2 size);
-	void SetTwo(wstring file, Vector2 size);
-	void SetThree(wstring file, Vector2 size);
-	void SetFour(wstring file, Vector2 size);
+	void SetOne();
+	void SetTwo();
+	void SetThree();
+	void SetFour();
 	void Dead(wstring file, Vector2 size);
 
 	void SetRatio(float value) { _buffer->_data.ratio = value; }

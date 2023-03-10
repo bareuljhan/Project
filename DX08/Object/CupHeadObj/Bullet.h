@@ -28,6 +28,7 @@ public:
 
 
 	shared_ptr<Collider> GetCollider() { return _collider; }
+	shared_ptr<Collider> GetCollider_Skill() { return _collider2; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 

@@ -138,6 +138,7 @@ void Spudder::GetDamaged(float amount)
 	if (_hp <= 0)
 	{
 		_hp = 0.0f;
+		
 		/*SetAction(DIE);*/
 	}
 }

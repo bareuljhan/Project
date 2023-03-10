@@ -32,6 +32,7 @@ Player::Player()
 	_hitCollider = make_shared<RectCollider>(Vector2(100, 100));
 	_hitCollider->SetRed();
 	_hitCollider->GetTransform()->SetParent(_transform);
+
 	_origin = _hitCollider->GetTransform()->GetScale();
 	_originPos = _hitCollider->GetTransform()->GetPos();
 
@@ -67,7 +68,6 @@ Player::Player()
 
 	_health = make_shared<Hp>(Vector2(80, 40));
 	_health->SetPosition(Vector2(50, 50));
-
 }
 
 Player::~Player()
@@ -99,9 +99,31 @@ void Player::Update()
 
 	_transform->UpdateSRT();
 
+
+
 	_health->Update();
 
-	_health->SetRatio(_hp);
+	_health->SetRatio(1.0f);
+
+	if (_hp < 4 && _hp > 2)
+	{
+		_health->SetFour();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+	else if (_hp < 3 && _hp > 1)
+	{
+		_health->SetThree();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+	else if (_hp < 2 && _hp > 0)
+	{
+		_health->SetTwo();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+
 }
 
 void Player::Render()

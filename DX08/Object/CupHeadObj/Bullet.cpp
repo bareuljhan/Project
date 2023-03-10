@@ -7,6 +7,7 @@ Bullet::Bullet()
 
 	_collider = make_shared<CircleCollider>(10);
 	_collider2 = make_shared<CircleCollider>(60);
+
 	CreateAction("Bullet_Loop", Action::Type::LOOP);
 	CreateAction("Special_Bullet_Loop", Action::Type::LOOP);
 
@@ -14,11 +15,12 @@ Bullet::Bullet()
 	{
 		sprite->GetTransform()->SetParent(_transform);
 		sprite->GetTransform()->GetScale() *= 0.8f;
-		_collider->GetTransform()->SetParent(sprite->GetTransform());
-		_collider2->GetTransform()->SetParent(sprite->GetTransform());
+		_collider->GetTransform()->SetParent(_transform);
+		_collider2->GetTransform()->SetParent(_transform);
 	}
-	_collider->GetTransform()->GetPos().y += 60;
-	_collider2->GetTransform()->GetPos().y += 150;
+
+	_collider->GetTransform()->GetPos().x += 60;
+	_collider2->GetTransform()->GetPos().x += 110;
 
 	wstring file = L"Resource/Texture/CupHead/Effect/bulletDeath.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.084f);
@@ -54,14 +56,13 @@ void Bullet::Update()
 	}
 
 	_transform->GetPos() += _direction * _speed * DELTA_TIME;
-	for (auto sprite : _sprites)
-	{
-		sprite->Update();
-	}
 
+	for (auto sprite : _sprites)
+		sprite->Update();
 	for (auto action : _actions)
 		action->Update();
-	_transform->Update();
+
+	_transform->UpdateSRT();
 }
 
 void Bullet::Render()
@@ -134,7 +135,6 @@ bool Bullet::Collision(shared_ptr<Collider> col)
 		else if (_curState == SPECIAL)
 		{
 			EFFECT->Play("specialEffect", _collider2->GetTransform()->GetWorldPos(), false);
-
 		}
 	}
 
