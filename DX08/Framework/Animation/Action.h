@@ -43,6 +43,7 @@ public:
 	void SetTargetClip(int value) { _targetClip = value; }
 	void SetCallBack_Target(function<void(void)> endEvent) { _spudderATKEvent = endEvent; }
 	void SetCallBack_Skill(function<void(void)> endEvent) { _skillEvent = endEvent; }
+	void CallBack_SpudderDead(function<void(void)> endEvent) { _deathEvent = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -70,7 +71,6 @@ private:
 	int _skillTargetClip = 6;
 	function<void(void)> _skillEvent = nullptr;
 	
-
+	int _spudderDeathTargetClip = 7;
+	function<void(void)> _deathEvent = nullptr;
 };
-
-

@@ -12,13 +12,18 @@ Spudder::Spudder()
 	_support->GetTransform()->GetPos().x += 400;
 	_support->GetTransform()->GetPos().y -= 100;
 
+
 	CreateAction("Spawn", Action::Type::END);
 	CreateAction("Spudder", Action::Type::LOOP);
+	CreateAction("death", Action::Type::PINGPONG);
 
-	_actions[1]->SetCallBack_Target(std::bind(&Spudder::AttackToPlayer, this));
+	if(_hp > 0.0f)
+		_actions[1]->SetCallBack_Target(std::bind(&Spudder::AttackToPlayer, this));
 
 	for (auto sprite : _sprites)
+	{
 		sprite->GetTransform()->SetParent(_transform);
+	}
 
 	_oldState = State::SPAWN;
 	_actions[State::SPAWN]->Play();
@@ -38,6 +43,9 @@ Spudder::Spudder()
 
 	_collider = make_shared<RectCollider>(Vector2(285, 400));
 	_collider->GetTransform()->SetParent(_transform);
+
+	_mosaicBuffer = make_shared<CupMosaicBuffer>();
+	_mosaicBuffer->_data.value1 = 2500;
 }
 
 Spudder::~Spudder()
@@ -46,39 +54,47 @@ Spudder::~Spudder()
 
 void Spudder::Update()
 {
-	if (_hp == 0.0f) return;
+	if (_mosaicBuffer->_data.value1 == 0) return;
+
+	if (isDead == true)
+		Dead();
+
 	_collider->Update();
+
 
 	for (auto bullet : _bullets)
 		bullet->Update();
 
 	a += DELTA_TIME;
 
-	if (a > 2.0)
+	if (a > 2.0 && isDead == false)
 	{
 		Init();
 	}
 
 	_transform->Update();
 
-	
+
 	for (auto sprite : _sprites)
 		sprite->Update();
 
 	for (auto action : _actions)
 		action->Update();
-	
 
+	_mosaicBuffer->Update();
 }
 
 void Spudder::Render()
 {
-	if (_hp == 0.0f) return;
+	if (_mosaicBuffer->_data.value1 == 0) return;
+
+	_mosaicBuffer->SetPSBuffer(2);
 
 	for (auto bullet : _bullets)
 		bullet->Render();
 
 	_support->Render();
+
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
@@ -124,7 +140,7 @@ void Spudder::AttackToPlayer()
 			bullet->SetFireDir(dir);
 			bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
 			bullet->GetTransform()->Update();
-			break;
+			break; 
 		}
 	}
 }
@@ -138,9 +154,18 @@ void Spudder::GetDamaged(float amount)
 	if (_hp <= 0)
 	{
 		_hp = 0.0f;
-		
-		/*SetAction(DIE);*/
+		isDead = true;
 	}
+}
+
+void Spudder::Dead()
+{
+	for (auto sprite : _sprites)
+	{
+		sprite->SetPS(ADD_PS(L"Shader/MosaicPixelShader.hlsl"));
+	}
+	SetAction(State::DEAD);
+	_mosaicBuffer->_data.value1 -= DELTA_TIME;
 }
 
 void Spudder::CreateAction(string name, Action::Type type)

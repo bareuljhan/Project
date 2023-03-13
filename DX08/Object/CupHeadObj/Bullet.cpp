@@ -15,12 +15,9 @@ Bullet::Bullet()
 	{
 		sprite->GetTransform()->SetParent(_transform);
 		sprite->GetTransform()->GetScale() *= 0.8f;
-		_collider->GetTransform()->SetParent(_transform);
-		_collider2->GetTransform()->SetParent(_transform);
 	}
-
-	_collider->GetTransform()->GetPos().x += 60;
-	_collider2->GetTransform()->GetPos().x += 110;
+	_collider->GetTransform()->SetParent(_transform);
+	_collider2->GetTransform()->SetParent(_transform);
 
 	wstring file = L"Resource/Texture/CupHead/Effect/bulletDeath.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.084f);

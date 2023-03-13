@@ -32,11 +32,14 @@ void Action::Update()
 			if (_curClipIndex == 6 && _skillEvent != nullptr)
 			{
 				_skillEvent();
+			}	
+			if (_curClipIndex == 7 && _deathEvent != nullptr)
+			{
+				_deathEvent();
 			}
 			if (_curClipIndex >= _clips.size())
 			{
 				Stop();
-				
 			}
 		}
 			break;

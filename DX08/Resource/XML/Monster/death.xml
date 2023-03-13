@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="death.png" width="892" height="1716" scale="1" format="RGBA8888">
+  <sprite n="dead1.png" x="590" y="0" w="302" h="410" pX="0.5" pY="0.5" oX="0" oY="28" oW="302" oH="438"/>
+  <sprite n="dead2.png" x="600" y="410" w="292" h="408" pX="0.5" pY="0.5" oX="5" oY="30" oW="302" oH="438"/>
+  <sprite n="dead3.png" x="298" y="1285" w="292" h="407" pX="0.5" pY="0.5" oX="5" oY="28" oW="302" oH="435"/>
+  <sprite n="dead4.png" x="294" y="866" w="296" h="419" pX="0.5" pY="0.5" oX="3" oY="17" oW="303" oH="436"/>
+  <sprite n="dead5.png" x="0" y="436" w="300" h="430" pX="0.5" pY="0.5" oX="0" oY="4" oW="300" oH="434"/>
+  <sprite n="dead6.png" x="0" y="0" w="302" h="436" pX="0.5" pY="0.5" oX="0" oY="0" oW="303" oH="436"/>
+  <sprite n="dead7.png" x="0" y="866" w="294" h="428" pX="0.5" pY="0.5" oX="3" oY="9" oW="302" oH="437"/>
+  <sprite n="dead8.png" x="300" y="436" w="300" h="411" pX="0.5" pY="0.5" oX="0" oY="26" oW="300" oH="437"/>
+  <sprite n="dead9.png" x="0" y="1294" w="298" h="422" pX="0.5" pY="0.5" oX="0" oY="14" oW="300" oH="436"/>
+</TextureAtlas>

@@ -29,7 +29,7 @@ struct PixelInput
 
 float4 Mosaic(float2 uv)
 {
-	float x = floor(uv.x * value1); // floor 평탄화 : 소수 들어오면 소수점 뒤 다 날려버린다.
+	float x = floor(uv.x * value1);
 	float y = floor(uv.y * value1);
 
 	float2 temp;
@@ -48,5 +48,7 @@ float4 PS(PixelInput input) : SV_TARGET
 	spriteUV.x = input.uv.x * (size.x / imageSize.x) + (startPos.x / imageSize.x);
 	spriteUV.y = input.uv.y * (size.y / imageSize.y) + (startPos.y / imageSize.y);
 
-	return map.Sample(samp, spriteUV);
+	return Mosaic(spriteUV);
+
+	//return map.Sample(samp, spriteUV);
 }

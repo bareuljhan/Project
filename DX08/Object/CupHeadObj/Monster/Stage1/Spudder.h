@@ -1,10 +1,13 @@
 #pragma once
 class Spudder
 {
-public:	enum State
+public:	
+
+enum State
 {
 	SPAWN,
 	IDLE,
+	DEAD,
 	NONE
 };
 	Spudder();
@@ -20,6 +23,7 @@ public:	enum State
 	
 	void AttackToPlayer();
 	void GetDamaged(float amount);
+	void Dead();
 
 	vector<shared_ptr<Monster_Bullet>> GetBullets() { return _bullets; }
 
@@ -43,6 +47,8 @@ private:
 	shared_ptr<Quad> _support;
 
 	vector<shared_ptr<Monster_Bullet>> _bullets;
+
+	shared_ptr<CupMosaicBuffer> _mosaicBuffer;
 
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;

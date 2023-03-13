@@ -98,31 +98,8 @@ void Player::Update()
 	_actions[_curState]->Update();
 
 	_transform->UpdateSRT();
-
-
-
-	_health->Update();
-
-	_health->SetRatio(1.0f);
-
-	if (_hp < 4 && _hp > 2)
-	{
-		_health->SetFour();
-		_health->SetRatio(0.0f);
-		_health->Update();
-	}
-	else if (_hp < 3 && _hp > 1)
-	{
-		_health->SetThree();
-		_health->SetRatio(0.0f);
-		_health->Update();
-	}
-	else if (_hp < 2 && _hp > 0)
-	{
-		_health->SetTwo();
-		_health->SetRatio(0.0f);
-		_health->Update();
-	}
+	
+	ScreenHP();
 
 }
 
@@ -318,7 +295,6 @@ void Player::Shot()
 {
 	if (_curState != IDLE)
 		return;
-
 	if (KEY_DOWN(VK_LBUTTON))
 	{
 		SetAction(State::SHOT);
@@ -654,6 +630,38 @@ void Player::GetDamaged(float amount)
 	if (_hp <= 0.0f)
 	{
 		_hp == 0.0f;
+	}
+}
+
+void Player::ScreenHP()
+{
+	if (_hp == 4)
+	{
+		_health->Update();
+		_health->SetRatio(1.0f);
+	}
+	if (_hp < 4 && _hp > 2)
+	{
+		_health->SetFour();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+	else if (_hp < 3 && _hp > 1)
+	{
+		_health->SetThree();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+	else if (_hp < 2 && _hp > 0)
+	{
+		_health->SetTwo();
+		_health->SetRatio(0.0f);
+		_health->Update();
+	}
+	else if (_hp == 0)
+	{
+		_health->SetOne();
+		_health->Update();
 	}
 }
 
