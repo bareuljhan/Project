@@ -54,8 +54,11 @@ Spudder::~Spudder()
 
 void Spudder::Update()
 {
-	if (_mosaicBuffer->_data.value1 == 0) return;
-
+	if (_mosaicBuffer->_data.value1 == 0)
+	{
+		isNextMonster = true;
+		return;
+	}
 	if (isDead == true)
 		Dead();
 
@@ -129,7 +132,6 @@ void Spudder::AttackToPlayer()
 	if (isDead == true) return;
 	if (_curState != IDLE) return;
 
-
 	for (auto bullet : _bullets)
 	{
 		Vector2 dir = Vector2(-1, 0);
@@ -166,6 +168,7 @@ void Spudder::Dead()
 	}
 	SetAction(State::DEAD);
 	_mosaicBuffer->_data.value1 -= DELTA_TIME;
+	_collider->isActive = false;
 }
 
 void Spudder::CreateAction(string name, Action::Type type)

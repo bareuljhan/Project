@@ -12,6 +12,7 @@ public:
 
 	void SetPlayer(shared_ptr<Player> player) { _player = player; }
 
+	shared_ptr<Transform> GetTransform() { return _transform; }
 private:
 	weak_ptr<Player> _player;
 

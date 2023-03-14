@@ -24,7 +24,7 @@ Player::Player()
 	_actions[State::RUNSHOT]->SetCallBack(std::bind(&Player::SetRun, this));
 
 	_blockCollider = make_shared<CircleCollider>(73);
-	_blockCollider->GetTransform()->GetPos().y -= 100;
+	_blockCollider->GetTransform()->SetPosition(Vector2(0, -120));
 
 
 	_transform = _blockCollider->GetTransform();
@@ -48,7 +48,7 @@ Player::Player()
 
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_transform);
-	_muzzle->GetPos().x = 50;
+	_muzzle->SetPosition(Vector2(50, 0));
 
 	_oldState = State::IDLE;
 	_actions[State::IDLE]->Play();
@@ -160,7 +160,7 @@ void Player::Input()
 	{
 		if (_curState != State::JUMP)
 			SetAction(State::GROUNDDASH);
-		_transform->GetPos().x -= _dashSpeed * DELTA_TIME;
+		_transform->GetPos().x -= _dashSpeed * DELTA_TIME * DELTA_TIME;
 	}
 	if (KEY_PRESS('D'))
 	{
@@ -178,7 +178,7 @@ void Player::Input()
 	{
 		if (_curState != State::JUMP)
 			SetAction(State::GROUNDDASH);
-		_transform->GetPos().x -= _dashSpeed * DELTA_TIME;
+		_transform->GetPos().x -= _dashSpeed * DELTA_TIME * DELTA_TIME;
 	}
 	if (KEY_PRESS('S'))
 	{
@@ -662,6 +662,7 @@ void Player::ScreenHP()
 	{
 		_health->SetOne();
 		_health->Update();
+		isDead = true;
 	}
 }
 

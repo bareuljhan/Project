@@ -31,6 +31,7 @@ enum State
 	shared_ptr<Collider> GetBodyCollider() { return _collider; }
 
 	bool isDead = false;
+	bool isNextMonster = false;
 private:
 	void CreateAction(string name, Action::Type type);
 
@@ -60,6 +61,6 @@ private:
 
 	float a = 0.0f;
 
-	float _hp = 100.0f;
+	float _hp = 200.0f;
 };
 

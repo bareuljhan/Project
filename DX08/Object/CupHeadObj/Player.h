@@ -58,6 +58,8 @@ public:
 	float GetATK() { return _atk; }
 
 	shared_ptr<Hp> GetHpPNG() { return _health; }
+
+	bool isDead = false;
 protected:
 	void CreateAction(string name, Action::Type type);
 

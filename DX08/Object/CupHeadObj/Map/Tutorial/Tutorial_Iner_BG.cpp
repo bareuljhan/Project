@@ -16,31 +16,28 @@ Tutorial_Iner_BG::Tutorial_Iner_BG()
 
 	_floorCol = make_shared<RectCollider>(Vector2(4000, 100));
 	_floorCol->GetTransform()->SetParent(_transform);
-	_floorCol->GetTransform()->GetPos().y -= 325.0f;
-	_floorCol->GetTransform()->GetPos().x += 1400.0f;
+	_floorCol->GetTransform()->SetPosition(Vector2(1400, -320));
 
 	_cubeCol = make_shared<RectCollider>(Vector2(170,150));
 	_cubeCol->GetTransform()->SetParent(_transform);
 	_cubeCol->GetTransform()->SetPosition(_jumpCube->GetTransform()->GetPos());
-	_cubeCol->GetTransform()->GetPos().x -= 70.0f;
-	_cubeCol->GetTransform()->GetPos().y -= 200.0f;
+	_cubeCol->GetTransform()->SetPosition(Vector2(-70, -200));
 
 	_cylinder1Col = make_shared<RectCollider>(Vector2(170, 330));
 	_cylinder1Col->GetTransform()->SetParent(_transform);
 	_cylinder1Col->GetTransform()->SetPosition(_cylinder1->GetTransform()->GetPos());
-	_cylinder1Col->GetTransform()->GetPos().x += 690.0f;
-	_cylinder1Col->GetTransform()->GetPos().y -= 100.0f;
+	_cylinder1Col->GetTransform()->SetPosition(Vector2(690, -100));
 
 	_cylinder2Col = make_shared<RectCollider>(Vector2(175, 330));
 	_cylinder2Col->GetTransform()->SetParent(_cylinder2->GetTransform());
 	_cylinder2Col->GetTransform()->SetPosition(_cylinder2->GetTransform()->GetPos());
-	_cylinder2Col->GetTransform()->GetPos().x -= 95.0f;
+	_cylinder2Col->GetTransform()->SetPosition(Vector2(-95, 0));
+	
 
 	_cylinder3Col = make_shared<RectCollider>(Vector2(160, 70));
 	_cylinder3Col->GetTransform()->SetParent(_cylinder2->GetTransform());
 	_cylinder3Col->GetTransform()->SetPosition(_cylinder2->GetTransform()->GetPos());
-	_cylinder3Col->GetTransform()->GetPos().x += 90.0f;
-	_cylinder3Col->GetTransform()->GetPos().y -= 90.0f;
+	_cylinder3Col->GetTransform()->SetPosition(Vector2(90, -90));
 	
 	_exitCol = make_shared<RectCollider>(Vector2(170, 200));
 	_exitCol->GetTransform()->SetParent(_exit->GetTransform());
@@ -50,48 +47,34 @@ Tutorial_Iner_BG::Tutorial_Iner_BG()
 	_targetCol->GetTransform()->SetParent(_target->GetTransform());
 	_targetCol->GetTransform()->SetPosition(_target->GetTransform()->GetPos());
 
-
-	_mainSheet->GetTransform()->GetPos() = CENTER;
-	_jumpCube->GetTransform()->GetPos() = CENTER;
-
 	_mainSheet->GetTransform()->GetScale() *= 7.0f;
-	_mainSheet->GetTransform()->GetPos().y -= 300.0f;
-	_mainSheet->GetTransform()->GetPos().x += 300.0f;
+	_mainSheet->GetTransform()->SetPosition(Vector2(CENTER_X + 300, CENTER_Y -300));
 	_mainSheet->GetTransform()->SetParent(_transform);
 
 	_jumpCube->GetTransform()->SetParent(_transform);
-	_jumpCube->GetTransform()->GetPos().x -= 700.0f;
-	_jumpCube->GetTransform()->GetPos().y -= 550.0f;
+	_jumpCube->GetTransform()->SetPosition(Vector2(CENTER_X -700, CENTER_Y -550));
 
 	_exit->GetTransform()->SetParent(_transform);
-	_exit->GetTransform()->GetPos().x += 3200.0f;
-	_exit->GetTransform()->GetPos().y -= 150.0f;
+	_exit->GetTransform()->SetPosition(Vector2(3200, -150));
 
 	_cylinder1->GetTransform()->SetParent(_transform);
-	_cylinder1->GetTransform()->GetPos().x += 700.0f;
-	_cylinder1->GetTransform()->GetPos().y -= 100.0f;
+	_cylinder1->GetTransform()->SetPosition(Vector2(700, -100));
 
 	_cylinder2->GetTransform()->SetParent(_transform);
-	_cylinder2->GetTransform()->GetPos().x += 1500.0f;
-	_cylinder2->GetTransform()->GetPos().y -= 100.0f;
+	_cylinder2->GetTransform()->SetPosition(Vector2(1500, -100));
 
 	_pyramidTarget->GetTransform()->GetScale() *= 2.2f;
 	_pyramidTarget->GetTransform()->SetParent(_transform);
-	_pyramidTarget->GetTransform()->GetPos().x += 2400.0f;
-	_pyramidTarget->GetTransform()->GetPos().y -= 90.0f;
+	_pyramidTarget->GetTransform()->SetPosition(Vector2(2400, -90));
 
 	_target->GetTransform()->SetParent(_transform);
-	_target->GetTransform()->GetPos().x += 2390.0f;
-	_target->GetTransform()->GetPos().y += 115.0f;
-
+	_target->GetTransform()->SetPosition(Vector2(2390, 115));
 
 	_colliders.push_back(_floorCol);
 	_colliders.push_back(_cubeCol);
 	_colliders.push_back(_cylinder1Col);
 	_colliders.push_back(_cylinder2Col);
 	_colliders.push_back(_cylinder3Col);
-
-
 }
 Tutorial_Iner_BG::~Tutorial_Iner_BG()
 {

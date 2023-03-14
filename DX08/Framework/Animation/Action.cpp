@@ -29,13 +29,17 @@ void Action::Update()
 		{
 			_curClipIndex++;
 
+			if (_curClipIndex == 4 && _carretMove != nullptr)
+			{
+				_carretMove();
+			}	
 			if (_curClipIndex == 6 && _skillEvent != nullptr)
 			{
 				_skillEvent();
 			}	
-			if (_curClipIndex == 7 && _deathEvent != nullptr)
+			if (_curClipIndex == 26 && _carretIntro != nullptr)
 			{
-				_deathEvent();
+				_carretIntro();
 			}
 			if (_curClipIndex >= _clips.size())
 			{

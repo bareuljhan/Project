@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Carret_Intro.png" width="787" height="2045" scale="1" format="RGBA8888">
+  <sprite n="radish_intro_0001.png" x="178" y="1536" w="61" h="56" pX="0.5" pY="0.5" oX="2" oY="2" oW="65" oH="58"/>
+  <sprite n="radish_intro_0002.png" x="480" y="843" w="92" h="98" pX="0.5" pY="0.5" oX="2" oY="1" oW="96" oH="99"/>
+  <sprite n="radish_intro_0003.png" x="345" y="1360" w="94" h="149" pX="0.5" pY="0.5" oX="2" oY="1" oW="98" oH="150"/>
+  <sprite n="radish_intro_0004.png" x="439" y="601" w="138" h="242" pX="0.5" pY="0.5" oX="1" oY="2" oW="141" oH="246"/>
+  <sprite n="radish_intro_0005.png" x="323" y="929" w="157" h="260" pX="0.5" pY="0.5" oX="2" oY="2" oW="161" oH="264"/>
+  <sprite n="radish_intro_0006.png" x="0" y="1294" w="178" h="303" pX="0.5" pY="0.5" oX="2" oY="2" oW="181" oH="307"/>
+  <sprite n="radish_intro_0007.png" x="192" y="316" w="190" h="315" pX="0.5" pY="0.5" oX="2" oY="2" oW="194" oH="319"/>
+  <sprite n="radish_intro_0008.png" x="0" y="332" w="192" h="323" pX="0.5" pY="0.5" oX="2" oY="2" oW="196" oH="327"/>
+  <sprite n="radish_intro_0009.png" x="0" y="0" w="192" h="332" pX="0.5" pY="0.5" oX="2" oY="2" oW="196" oH="336"/>
+  <sprite n="radish_intro_0010.png" x="172" y="1597" w="228" h="267" pX="0.5" pY="0.5" oX="2" oY="2" oW="232" oH="271"/>
+  <sprite n="radish_intro_0011.png" x="210" y="1864" w="271" h="173" pX="0.5" pY="0.5" oX="2" oY="2" oW="275" oH="177"/>
+  <sprite n="radish_intro_0012.png" x="345" y="1189" w="254" h="171" pX="0.5" pY="0.5" oX="2" oY="2" oW="258" oH="175"/>
+  <sprite n="radish_intro_0013.png" x="0" y="1882" w="210" h="163" pX="0.5" pY="0.5" oX="2" oY="2" oW="214" oH="167"/>
+  <sprite n="radish_intro_0014.png" x="549" y="291" w="182" h="216" pX="0.5" pY="0.5" oX="2" oY="2" oW="186" oH="220"/>
+  <sprite n="radish_intro_0015.png" x="178" y="1271" w="167" h="265" pX="0.5" pY="0.5" oX="2" oY="2" oW="171" oH="269"/>
+  <sprite n="radish_intro_0016.png" x="0" y="1597" w="172" h="285" pX="0.5" pY="0.5" oX="2" oY="1" oW="176" oH="288"/>
+  <sprite n="radish_intro_0017.png" x="382" y="310" w="167" h="291" pX="0.5" pY="0.5" oX="2" oY="2" oW="169" oH="295"/>
+  <sprite n="radish_intro_0018.png" x="161" y="973" w="162" h="298" pX="0.5" pY="0.5" oX="2" oY="2" oW="166" oH="302"/>
+  <sprite n="radish_intro_0019.png" x="0" y="975" w="161" h="319" pX="0.5" pY="0.5" oX="2" oY="2" oW="165" oH="323"/>
+  <sprite n="radish_intro_0020.png" x="0" y="655" w="152" h="320" pX="0.5" pY="0.5" oX="2" oY="1" oW="156" oH="323"/>
+  <sprite n="radish_intro_0021.png" x="192" y="0" w="137" h="316" pX="0.5" pY="0.5" oX="2" oY="2" oW="141" oH="320"/>
+  <sprite n="radish_intro_0022.png" x="152" y="655" w="143" h="318" pX="0.5" pY="0.5" oX="2" oY="2" oW="147" oH="322"/>
+  <sprite n="radish_intro_0023.png" x="329" y="0" w="145" h="310" pX="0.5" pY="0.5" oX="2" oY="2" oW="149" oH="314"/>
+  <sprite n="radish_intro_0024.png" x="295" y="631" w="144" h="298" pX="0.5" pY="0.5" oX="2" oY="2" oW="148" oH="302"/>
+  <sprite n="radish_intro_0025.png" x="474" y="0" w="152" h="291" pX="0.5" pY="0.5" oX="2" oY="2" oW="156" oH="295"/>
+  <sprite n="radish_intro_0026.png" x="626" y="0" w="161" h="195" pX="0.5" pY="0.5" oX="2" oY="2" oW="165" oH="199"/>
+</TextureAtlas>

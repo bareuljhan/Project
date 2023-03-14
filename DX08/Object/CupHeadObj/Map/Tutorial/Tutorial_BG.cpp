@@ -5,7 +5,7 @@ Tutorial_BG::Tutorial_BG()
 {
 	_backGround = make_shared<Quad>(L"Resource/Texture/CupHead/Tutorial/Tutorial_backGround2.png");
 
-	_backGround->GetTransform()->GetPos() = CENTER;
+	_backGround->GetTransform()->SetPosition(CENTER);
 	_backGround->GetTransform()->GetScale() *= 1.256f;
 }
 

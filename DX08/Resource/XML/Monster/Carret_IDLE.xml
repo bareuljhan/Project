@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Carret_IDLE.png" width="663" height="186" scale="1" format="RGBA8888">
+  <sprite n="radish_intro_0027.png" x="230" y="0" w="222" h="89" pX="0.5" pY="0.5" oX="2" oY="0" oW="224" oH="91"/>
+  <sprite n="radish_intro_0028.png" x="230" y="89" w="210" h="97" pX="0.5" pY="0.5" oX="2" oY="0" oW="212" oH="99"/>
+  <sprite n="radish_intro_0029.png" x="452" y="0" w="211" h="96" pX="0.5" pY="0.5" oX="2" oY="0" oW="215" oH="99"/>
+  <sprite n="radish_intro_0030.png" x="0" y="0" w="230" h="121" pX="0.5" pY="0.5" oX="2" oY="0" oW="233" oH="123"/>
+</TextureAtlas>

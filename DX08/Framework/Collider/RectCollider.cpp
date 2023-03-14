@@ -116,7 +116,6 @@ HIT_RESULT RectCollider::Block(shared_ptr<CircleCollider> other)
     {
         Vector2 circlePos = other->GetTransform()->GetWorldPos();
         Vector2 rectPos = _transform->GetWorldPos();
-
         Vector2 leftTop = Vector2(Left(), Top());
         Vector2 rightTop = Vector2(Right(), Top());
         Vector2 leftBottom = Vector2(Left(), Bottom());
@@ -124,6 +123,30 @@ HIT_RESULT RectCollider::Block(shared_ptr<CircleCollider> other)
 
         Vector2 halfSize = GetWorldHalfSize();
 
+        if (IsCollision(circlePos))
+        {
+            Vector2 closerVertex = other->GetCloserVertex(shared_from_this());
+
+            Vector2 dir = closerVertex - circlePos;
+            if (abs(dir.x) > abs(dir.y))
+            {
+                dir.x = 0;
+                if (dir.y > 0)
+                    dir.y += other->WorldRadius();
+                else
+                    dir.y -= other->WorldRadius();
+                other->GetTransform()->GetPos() += dir;
+            }
+            else
+            {
+                dir.y = 0;
+                if (dir.x > 0)
+                    dir.x += other->WorldRadius();
+                else
+                    dir.x -= other->WorldRadius();
+                other->GetTransform()->GetPos() += dir;
+            }
+        }
         if (circlePos.x > leftTop.x && circlePos.x < rightTop.x)
         {
             Vector2 dir = Vector2(0.0f, (circlePos.y - rectPos.y));

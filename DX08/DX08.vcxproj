@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Carrot.h" />
     <ClInclude Include="Object\UI\Hp.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Epilogue\EpilogueAni.h" />
     <ClInclude Include="Object\UI\Button.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="Framework\Math\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Carrot.cpp" />
     <ClCompile Include="Object\UI\Hp.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Epilogue\EpilogueAni.cpp" />
     <ClCompile Include="Object\UI\Button.cpp" />

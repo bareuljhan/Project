@@ -110,6 +110,7 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Player.h"
 #include "Object/CupHeadObj/Monster/Monster_Bullet.h"
 #include "Object/CupHeadObj/Monster/Stage1/Spudder.h"
+#include "Object/CupHeadObj/Monster/Stage1/Carrot.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_BG.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_Player.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_BG.h"

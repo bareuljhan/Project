@@ -189,6 +189,9 @@
     <ClInclude Include="Object\UI\Hp.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Carrot.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX08.cpp">
@@ -348,6 +351,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\UI\Hp.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Carrot.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

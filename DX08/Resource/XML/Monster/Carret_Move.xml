@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Carret_Move.png" width="666" height="274" scale="1" format="RGBA8888">
+  <sprite n="radish_move_0002.png" x="0" y="0" w="226" h="138" pX="0.5" pY="0.5" oX="2" oY="0" oW="228" oH="140"/>
+  <sprite n="radish_move_0001.png" x="226" y="0" w="224" h="142" pX="0.5" pY="0.5" oX="2" oY="0" oW="226" oH="144"/>
+  <sprite n="radish_move_0004.png" x="0" y="138" w="222" h="136" pX="0.5" pY="0.5" oX="2" oY="1" oW="224" oH="139"/>
+  <sprite n="radish_move_0003.png" x="450" y="0" w="216" h="139" pX="0.5" pY="0.5" oX="2" oY="0" oW="220" oH="141"/>
+</TextureAtlas>
