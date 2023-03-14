@@ -32,7 +32,7 @@ void Effect::Play(Vector2 pos)
 {
 	_isActive = true;
 	_action->Play();
-	_sprite->GetTransform()->GetPos() = pos;
+	_sprite->GetTransform()->SetPosition(pos);
 }
 
 void Effect::End()

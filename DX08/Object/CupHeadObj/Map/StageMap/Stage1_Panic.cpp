@@ -83,7 +83,7 @@ Stage1_Panic::Stage1_Panic()
 
 	_floorCol = make_shared<RectCollider>(Vector2(1280, 100));
 	_floorCol->GetTransform()->SetParent(_transform);
-	_floorCol->GetTransform()->SetPosition(Vector2(0, -320.0));
+	_floorCol->GetTransform()->SetPosition(Vector2(0, -350.0));
 
 	_sideCol = make_shared<RectCollider>(Vector2(100, 1280));
 	_sideCol->GetTransform()->SetParent(_transform);

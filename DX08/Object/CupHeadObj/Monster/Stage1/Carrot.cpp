@@ -27,6 +27,8 @@ Carrot::Carrot()
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
 	_mosaicBuffer->_data.value1 = 2500;
+
+	_transform->SetPosition(Vector2(1050, 150));
 }
 
 Carrot::~Carrot()
@@ -66,7 +68,7 @@ void Carrot::SetMove()
 {
 	SetAction(State::MOVE);
 
-	this->GetTransform()->GetPos().y -= 20.0f;
+	_transform->SetPosition(Vector2(1050, 130));
 }
 
 void Carrot::GetDamaged(float amount)
@@ -119,7 +121,10 @@ void Carrot::Move(shared_ptr<Player> player)
 
 	Vector2 dir = (player->GetTransform()->GetWorldPos() - _transform->GetPos()).NormalVector2();
 
-	_transform->GetPos().x += dir.x * _speed * DELTA_TIME;
+
+	Vector2 temp = _transform->GetPos();
+	temp.x += dir.x * _speed * DELTA_TIME;
+	_transform->SetPosition(temp);
 }
 
 void Carrot::CreateAction(string name, Action::Type type)

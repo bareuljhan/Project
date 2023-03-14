@@ -8,9 +8,7 @@ Spudder::Spudder()
 
 	_support = make_shared<Quad>(L"Resource/Texture/CupHead/Monster/support.png");
 	_support->GetTransform()->GetScale() *= 1.1f;
-	_support->GetTransform()->GetPos() = CENTER;
-	_support->GetTransform()->GetPos().x += 400;
-	_support->GetTransform()->GetPos().y -= 100;
+	_support->GetTransform()->SetPosition(Vector2(CENTER_X+400, CENTER_Y-100));
 
 
 	CreateAction("Spawn", Action::Type::END);
@@ -38,8 +36,7 @@ Spudder::Spudder()
 
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_transform);
-	_muzzle->GetPos().x -= 250;
-	_muzzle->GetPos().y -= 120;
+	_muzzle->SetPosition(Vector2(-250, -120));
 
 	_collider = make_shared<RectCollider>(Vector2(285, 400));
 	_collider->GetTransform()->SetParent(_transform);
@@ -140,7 +137,7 @@ void Spudder::AttackToPlayer()
 		{
 			bullet->Enable();
 			bullet->SetFireDir(dir);
-			bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+			bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			bullet->GetTransform()->Update();
 			break; 
 		}

@@ -16,135 +16,110 @@ OverWorld_BG::OverWorld_BG()
 
 
 	_home->GetTransform()->GetScale() *= 0.25f;
-	_home->GetTransform()->GetPos().x += 250.0f;
-	_home->GetTransform()->GetPos().y += 470.0f;
+	_home->GetTransform()->SetPosition(Vector2(250, 470));
 	_homeAction->Play();
 	
 	_panic->GetTransform()->GetScale() *= 0.25f;
-	_panic->GetTransform()->GetPos().x += 585.0f;
-	_panic->GetTransform()->GetPos().y += 228.0f;
+	_panic->GetTransform()->SetPosition(Vector2(585, 228));
 	_panicAction->Play();
 
 	_ship->GetTransform()->GetScale() *= 0.25f;
-	_ship->GetTransform()->GetPos().x += 665.0f;
-	_ship->GetTransform()->GetPos().y += 110.0f;
+	_ship->GetTransform()->SetPosition(Vector2(665, 110));
 	_shipAction->Play();
 
 	_shop->GetTransform()->GetScale() *= 0.25f;
-	_shop->GetTransform()->GetPos().x += 705.0f;
-	_shop->GetTransform()->GetPos().y += 345.0f;
+	_shop->GetTransform()->SetPosition(Vector2(705, 345));
 	_shopAction->Play();
 
 	_mausoleum->GetTransform()->GetScale() *= 0.21f;
-	_mausoleum->GetTransform()->GetPos().x += 1015.0f;
-	_mausoleum->GetTransform()->GetPos().y += 191.0f;
+	_mausoleum->GetTransform()->SetPosition(Vector2(1015, 191));
 	_mausoleumAction->Play();
 
 	_ooze->GetTransform()->GetScale() *= 0.35f;
-	_ooze->GetTransform()->GetPos().x += 690.0f;
-	_ooze->GetTransform()->GetPos().y += 500.0f;
+	_ooze->GetTransform()->SetPosition(Vector2(690, 500));
 	_oozeWaveAction->Play();
 
 	_zeppelin->GetTransform()->GetScale() *= 0.35f;
-	_zeppelin->GetTransform()->GetPos().x += 1020.0f;
-	_zeppelin->GetTransform()->GetPos().y += 620.0f;
+	_zeppelin->GetTransform()->SetPosition(Vector2(1020, 620));
 	_zeppelinAction->Play();
 	
 	_dieHouse->GetTransform()->GetScale() *= 0.35f;
-	_dieHouse->GetTransform()->GetPos().x += 1220.0f;
-	_dieHouse->GetTransform()->GetPos().y += 320.0f;
+	_dieHouse->GetTransform()->SetPosition(Vector2(1220, 320));
 	_dieHouseAction->Play();
 
 
 	_seaRight = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Ocean/oceanRight.png");
-	_seaRight->GetTransform()->GetPos() = CENTER;
-	_seaRight->GetTransform()->GetPos().x += 313;
+	_seaRight->GetTransform()->SetPosition(Vector2(CENTER_X + 313, CENTER_Y));
 	_seaRight->GetTransform()->GetScale() *= 0.35f;
 
 	_seaLeft = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Ocean/oceanLeft.png");
 	_seaLeft->GetTransform()->GetScale() *= 0.35;
-	_seaLeft->GetTransform()->GetPos().x += 320.0f;
-	_seaLeft->GetTransform()->GetPos().y += 360.0f;
+	_seaLeft->GetTransform()->SetPosition(Vector2(320, 360));
 
 	_leftMain = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_large_left.png");
 	_leftMain->GetTransform()->GetScale() *= 0.31;
-	_leftMain->GetTransform()->GetPos().x += 668.0f;
-	_leftMain->GetTransform()->GetPos().y += 391.0f;
+	_leftMain->GetTransform()->SetPosition(Vector2(668.0f, 391.0f));
 
 	_rightMain = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_large_right.png");
 	_rightMain->GetTransform()->GetScale() *= 0.31;
-	_rightMain->GetTransform()->GetPos().x += 1051.0f;
-	_rightMain->GetTransform()->GetPos().y += 385.0f;
+	_rightMain->GetTransform()->SetPosition(Vector2(1051.0f, 385.0f));
 
 	_leftSide = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_small_island_main.png");
 	_leftSide->GetTransform()->GetScale() *= 0.31;
-	_leftSide->GetTransform()->GetPos().x += 300.0f;
-	_leftSide->GetTransform()->GetPos().y += 405.0f;
+	_leftSide->GetTransform()->SetPosition(Vector2(300.0f, 405.0f));
 
 	_islandTree = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_tree_island.png");
 	_islandTree->GetTransform()->GetScale() *= 0.35f;
-	_islandTree->GetTransform()->GetPos().x += 750.0f;
-	_islandTree->GetTransform()->GetPos().y += 90.0f;
+	_islandTree->GetTransform()->SetPosition(Vector2(750.0f, 90.0f));
 
 	_sideDock = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_dock.png");
 	_sideDock->GetTransform()->GetScale() *= 0.3f;
-	_sideDock->GetTransform()->GetPos().x += 170.0f;
-	_sideDock->GetTransform()->GetPos().y += 295.0f;
+	_sideDock->GetTransform()->SetPosition(Vector2(170.0f, 295.0f));
 
 	_sideBoat = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_boat.png");
 	_sideBoat->GetTransform()->GetScale() *= 0.26f;
-	_sideBoat->GetTransform()->GetPos().x += 135.0f;
-	_sideBoat->GetTransform()->GetPos().y += 295.0f;
+	_sideBoat->GetTransform()->SetPosition(Vector2(135.0f, 295.0f));
 
 	_lightHouse = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_lighthouse.png");
 	_lightHouse->GetTransform()->GetScale() *= 0.3f;
-	_lightHouse->GetTransform()->GetPos().x += 93.0f;
-	_lightHouse->GetTransform()->GetPos().y += 530.0f;
+	_lightHouse->GetTransform()->SetPosition(Vector2(93.0f, 530.0f));
 
 	_buoy = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_buoy.png");
 	_buoy->GetTransform()->GetScale() *= 0.3f;
-	_buoy->GetTransform()->GetPos().x += 33.0f;
-	_buoy->GetTransform()->GetPos().y += 430.0f;
+	_buoy->GetTransform()->SetPosition(Vector2(33.0f, 430.0f));
 
 	_mainBridge = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge_main.png");
 	_mainBridge->GetTransform()->GetScale() *= 0.3f;
-	_mainBridge->GetTransform()->GetPos().x += 505.0f;
-	_mainBridge->GetTransform()->GetPos().y += 375.0f;
+	_mainBridge->GetTransform()->SetPosition(Vector2(505.0f, 375.0f));
 
 	_frogsBridge = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge_frogs.png");
 	_frogsBridge->GetTransform()->GetScale() *= 0.3f;
-	_frogsBridge->GetTransform()->GetPos().x += 845.0f;
-	_frogsBridge->GetTransform()->GetPos().y += 270.0f;
+	_frogsBridge->GetTransform()->SetPosition(Vector2(845.0f, 270.0f));
 
 	_slimeStairs = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_stairs_slime.png");
 	_slimeStairs->GetTransform()->GetScale() *= 0.35f;
-	_slimeStairs->GetTransform()->GetPos().x += 1020.0f;
-	_slimeStairs->GetTransform()->GetPos().y += 540;
+	_slimeStairs->GetTransform()->SetPosition(Vector2(1020.0f, 540.0f));
 
 	_slimeStairs2 = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_stairs_slime.png");
 	_slimeStairs2->GetTransform()->GetScale() *= 0.28f;
-	_slimeStairs2->GetTransform()->GetPos().x += 640.0f;
-	_slimeStairs2->GetTransform()->GetPos().y += 530;
+	_slimeStairs2->GetTransform()->SetPosition(Vector2(640.0f, 530.0f));
 
 	_rightStairs = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_stairs_king_dice.png");
 	_rightStairs->GetTransform()->GetScale() *= 0.25f;
-	_rightStairs->GetTransform()->GetPos().x += 1080.0f;
-	_rightStairs->GetTransform()->GetPos().y += 370;
+	_rightStairs->GetTransform()->SetPosition(Vector2(1080.0f, 370.0f));
 
 	_veggieStairs = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_stairs_veggie.png");
 	_veggieStairs->GetTransform()->GetScale() *= 0.22f;
-	_veggieStairs->GetTransform()->GetPos().x += 670.0f;
-	_veggieStairs->GetTransform()->GetPos().y += 210;
+	_veggieStairs->GetTransform()->SetPosition(Vector2(670.0f, 210.0f));
 
 	_bridge = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge.png");
 	_bridge->GetTransform()->GetScale() *= 0.22f;
-	_bridge->GetTransform()->GetPos().x += 926.0f;
-	_bridge->GetTransform()->GetPos().y += 580;
+	_bridge->GetTransform()->SetPosition(Vector2(926.0f, 580.0f));
+
 
 	_bridge2 = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge2.png");
 	_bridge2->GetTransform()->GetScale() *= 0.27f;
-	_bridge2->GetTransform()->GetPos().x += 740.0f;
-	_bridge2->GetTransform()->GetPos().y += 420;
+	_bridge2->GetTransform()->SetPosition(Vector2(740.0f, 420.0f));
 
 }
 
@@ -349,7 +324,7 @@ void OverWorld_BG::CreateRoute()
 		{
 			shared_ptr<Quad> block = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/AbleQuad.png");
 			block->SetType(Quad::Type::DISABLE);
-			block->GetTransform()->GetPos() = { 230, 150 };
+			block->GetTransform()->SetPosition(Vector2(230, 150));
 			Vector2 distance = Vector2(32.9f * x, 32.9f * y);
 			block->GetTransform()->GetScale() *= 0.21f;
 			block->GetTransform()->SetPosition(block->GetTransform()->GetPos() + distance);

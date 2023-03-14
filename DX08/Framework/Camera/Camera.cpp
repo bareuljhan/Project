@@ -23,9 +23,7 @@ Camera::~Camera()
 
 void Camera::Update()
 {
-	if (_target == nullptr)
-		FreeMode();
-	else
+	if (_target != nullptr)
 		FollowMode();
 
 	Shake();
@@ -90,21 +88,6 @@ void Camera::Shake()
 	if (_duration <= 0.0f)
 	{
 		_transform->SetPosition(_originPos);
-	}
-}
-
-void Camera::FreeMode()
-{
-	if (KEY_PRESS(VK_RBUTTON))
-	{
-		if (KEY_PRESS('W'))
-			_transform->GetPos().y -= _speed * DELTA_TIME;
-		if (KEY_PRESS('S'))
-			_transform->GetPos().y += _speed * DELTA_TIME;
-		if (KEY_PRESS('A'))
-			_transform->GetPos().x += _speed * DELTA_TIME;
-		if (KEY_PRESS('D'))
-			_transform->GetPos().x -= _speed * DELTA_TIME;
 	}
 }
 

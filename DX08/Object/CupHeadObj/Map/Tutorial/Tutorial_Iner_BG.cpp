@@ -191,10 +191,14 @@ void Tutorial_Iner_BG::Init()
 {
 	if (KEY_PRESS('A') || KEY_PRESS('Z'))
 	{
-		_transform->GetPos().x += _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x += _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
 	}
 	if (KEY_PRESS('D') || KEY_PRESS('C'))
 	{
-		_transform->GetPos().x -= _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x -= _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
 	}
 }

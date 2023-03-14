@@ -150,7 +150,9 @@ void Player::Input()
 		if (_curState != State::JUMP)
 			SetAction(State::RUN);
 
-		_transform->GetPos().x -= _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x -= _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
 
 		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
 
@@ -160,13 +162,19 @@ void Player::Input()
 	{
 		if (_curState != State::JUMP)
 			SetAction(State::GROUNDDASH);
-		_transform->GetPos().x -= _dashSpeed * DELTA_TIME * DELTA_TIME;
+
+		Vector2 temp = _transform->GetPos();
+		temp.x -= _dashSpeed * DELTA_TIME * DELTA_TIME;
+		_transform->SetPosition(temp);
 	}
 	if (KEY_PRESS('D'))
 	{
 		if (_curState == GROUNDDASH) return;
 
-		_transform->GetPos().x += _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x += _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+
 		if (_curState != State::JUMP)
 			SetAction(State::RUN);
 
@@ -178,7 +186,10 @@ void Player::Input()
 	{
 		if (_curState != State::JUMP)
 			SetAction(State::GROUNDDASH);
-		_transform->GetPos().x -= _dashSpeed * DELTA_TIME * DELTA_TIME;
+
+		Vector2 temp = _transform->GetPos();
+		temp.x += _dashSpeed * DELTA_TIME;
+		_transform->SetPosition(temp);
 	}
 	if (KEY_PRESS('S'))
 	{
@@ -195,11 +206,13 @@ void Player::Input()
 		if (_curState != State::JUMP)
 			SetAction(State::RUNSHOT);
 
-		_transform->GetPos().x -= _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x -= _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+
 		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
 		Vector2 dir = Vector2(-1, 0);
-		_muzzle->GetPos().x = -50;
-		_muzzle->GetPos().y = -15;
+		_muzzle->SetPosition(Vector2(-50, -15));
 		if (KEY_DOWN(VK_LBUTTON))
 		{
 			for (auto bullet : _bullets)
@@ -212,7 +225,7 @@ void Player::Input()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -227,11 +240,15 @@ void Player::Input()
 		if (_curState != State::JUMP)
 			SetAction(State::RUNSHOT);
 
-		_transform->GetPos().x += _speed * DELTA_TIME;
+		Vector2 temp = _transform->GetPos();
+		temp.x += _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+
 		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x - 50.0f, _transform->GetPos().y - 40.0f), false);
 		Vector2 dir = Vector2(1, 0);
-		_muzzle->GetPos().x = 50;
-		_muzzle->GetPos().y = -15;
+
+		_muzzle->SetPosition(Vector2(50, -15));
+
 		if (KEY_DOWN(VK_LBUTTON))
 		{
 			for (auto bullet : _bullets)
@@ -244,7 +261,7 @@ void Player::Input()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -268,17 +285,25 @@ void Player::Jump()
 		SetAction(State::JUMP);
 	}
 
-	_transform->GetPos().y += _jumpPower * DELTA_TIME;
+	Vector2 temp = _transform->GetPos();
+	temp.y += _jumpPower * DELTA_TIME;
+	_transform->SetPosition(temp);
 
 	if (KEY_PRESS('A') && _curState == State::JUMP)
 	{
-		_transform->GetPos().x -= DELTA_TIME * _speed;
+		Vector2 temp = _transform->GetPos();
+		temp.x -= _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+
 		SetLeft();
 	}
 
 	if (KEY_PRESS('D') && _curState == State::JUMP)
 	{
-		_transform->GetPos().x += DELTA_TIME * _speed;
+		Vector2 temp = _transform->GetPos();
+		temp.x += _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+
 		SetRight();
 	}
 	if (_curState == SHOT)
@@ -302,8 +327,9 @@ void Player::Shot()
 		if (_isRight)
 		{
 			Vector2 dir = Vector2(1, 0);
-			_muzzle->GetPos().x = 50;
-			_muzzle->GetPos().y = 0;
+
+			_muzzle->SetPosition(Vector2(50, 0));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -314,7 +340,7 @@ void Player::Shot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -323,8 +349,9 @@ void Player::Shot()
 		else
 		{
 			Vector2 dir = Vector2(-1, 0);
-			_muzzle->GetPos().x = -50;
-			_muzzle->GetPos().y = 0;
+
+			_muzzle->SetPosition(Vector2(-50, 0));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -335,7 +362,7 @@ void Player::Shot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -355,8 +382,9 @@ void Player::AimUpShot()
 		if (_isRight)
 		{
 			Vector2 dir = Vector2(0, 1);
-			_muzzle->GetPos().y = 50;
-			_muzzle->GetPos().x = 25;
+
+			_muzzle->SetPosition(Vector2(25, 50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -367,7 +395,7 @@ void Player::AimUpShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -376,8 +404,9 @@ void Player::AimUpShot()
 		else
 		{
 			Vector2 dir = Vector2(0, 1);
-			_muzzle->GetPos().y = 50;
-			_muzzle->GetPos().x = -25;
+
+			_muzzle->SetPosition(Vector2(-25, 50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -388,7 +417,7 @@ void Player::AimUpShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -411,8 +440,9 @@ void Player::DiagonalShot()
 		{
 
 			Vector2 dir = Vector2(1, 1);
-			_muzzle->GetPos().y = 50;
-			_muzzle->GetPos().x = 70;
+
+			_muzzle->SetPosition(Vector2(70, 50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -423,7 +453,7 @@ void Player::DiagonalShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -432,8 +462,9 @@ void Player::DiagonalShot()
 		else
 		{
 			Vector2 dir = Vector2(-1, 1);
-			_muzzle->GetPos().y = 50;
-			_muzzle->GetPos().x = -70;
+
+			_muzzle->SetPosition(Vector2(-70, 50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -444,7 +475,7 @@ void Player::DiagonalShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -466,8 +497,9 @@ void Player::DuckShot()
 		if (_isRight)
 		{
 			Vector2 dir = Vector2(1, 0);
-			_muzzle->GetPos().y = -50;
-			_muzzle->GetPos().x = 50;
+
+			_muzzle->SetPosition(Vector2(50, -50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -478,7 +510,7 @@ void Player::DuckShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -487,8 +519,9 @@ void Player::DuckShot()
 		else
 		{
 			Vector2 dir = Vector2(-1, 0);
-			_muzzle->GetPos().y = -50;
-			_muzzle->GetPos().x = -50;
+
+			_muzzle->SetPosition(Vector2(-50, -50));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -499,7 +532,7 @@ void Player::DuckShot()
 					bullet->SetAction(Bullet::State::BASIC);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -518,8 +551,9 @@ void Player::SkillShot()
 		if (_isRight)
 		{
 			Vector2 dir = Vector2(1, 0);
-			_muzzle->GetPos().x = 50;
-			_muzzle->GetPos().y = 0;
+
+			_muzzle->SetPosition(Vector2(50, 0));
+
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -530,7 +564,7 @@ void Player::SkillShot()
 					bullet->SetAction(Bullet::State::SPECIAL);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -539,8 +573,9 @@ void Player::SkillShot()
 		else
 		{
 			Vector2 dir = Vector2(-1, 0);
-			_muzzle->GetPos().x = -50;
-			_muzzle->GetPos().y = 0;
+
+			_muzzle->SetPosition(Vector2(-50, 0));
+			
 			for (auto bullet : _bullets)
 			{
 				if (bullet->isActive == false)
@@ -551,7 +586,7 @@ void Player::SkillShot()
 					bullet->SetAction(Bullet::State::SPECIAL);
 					bullet->Enable();
 					bullet->SetFireDir(dir);
-					bullet->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+					bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 					bullet->GetTransform()->Update();
 					break;
 				}
@@ -613,12 +648,12 @@ void Player::SetColliderSize()
 	if (_curState == DUCK || _curState == DUCKSHOT)
 	{
 		_hitCollider->GetTransform()->GetScale() = Vector2(1.0f, 0.5f);
-		_hitCollider->GetTransform()->GetPos() = Vector2(0.0f, -40.0f);
+		_hitCollider->GetTransform()->SetPosition(Vector2(0.0f, -40.0f));
 	}
 	else
 	{
 		_hitCollider->GetTransform()->GetScale() = _origin;
-		_hitCollider->GetTransform()->GetPos() = _originPos;
+		_hitCollider->GetTransform()->SetPosition(_originPos);
 	}
 }
 

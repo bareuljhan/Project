@@ -4,7 +4,7 @@
 CupHead::CupHead()
 {
 	_player = make_shared<Player>();
-	_player->GetTransform()->GetPos() = CENTER;
+	_player->GetTransform()->SetPosition(CENTER);
 }
 
 CupHead::~CupHead()

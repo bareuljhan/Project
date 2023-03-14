@@ -52,7 +52,9 @@ void Bullet::Update()
 		_delay = 0.0f;
 	}
 
-	_transform->GetPos() += _direction * _speed * DELTA_TIME;
+	Vector2 temp = _transform->GetPos();
+	temp += _direction * _speed * DELTA_TIME;
+	_transform->SetPosition(temp);
 
 	for (auto sprite : _sprites)
 		sprite->Update();
@@ -81,7 +83,7 @@ void Bullet::SetPostion(Vector2 pos)
 {
 	for (auto sprite : _sprites)
 	{
-		sprite->GetTransform()->GetPos() = pos;
+		sprite->GetTransform()->SetPosition(pos);
 	}
 }
 

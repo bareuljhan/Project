@@ -39,7 +39,6 @@ public:
 
 private:
 	void Shake();
-	void FreeMode();
 	void FollowMode();
 	shared_ptr<Transform> _transform;
 	Vector2 _moveVector;

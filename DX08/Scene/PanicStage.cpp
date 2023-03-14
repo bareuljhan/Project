@@ -15,9 +15,6 @@ PanicStage::PanicStage()
 	_boss1->GetTransform()->SetPosition(Vector2(1050, 240));
 
 	_monster = make_shared<Carrot>();
-	_monster->GetTransform()->SetPosition(_boss1->GetTransform()->GetWorldPos());
-	_monster->GetTransform()->SetPosition(Vector2(0, -100));
-	_monster->Update();
 }
 
 PanicStage::~PanicStage()
