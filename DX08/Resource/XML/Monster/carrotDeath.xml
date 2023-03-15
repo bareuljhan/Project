@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="carrotDeath.png" width="1177" height="1813" scale="1" format="RGBA8888">
+  <sprite n="veggie_carrot_death_0001.png" x="0" y="442" w="283" h="460" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0002.png" x="0" y="1358" w="291" h="455" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0003.png" x="499" y="897" w="301" h="449" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0004.png" x="533" y="442" w="327" h="434" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0005.png" x="858" y="0" w="319" h="414" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0006.png" x="800" y="876" w="313" h="394" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0007.png" x="599" y="1346" w="305" h="396" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0008.png" x="291" y="1357" w="308" h="397" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0009.png" x="559" y="0" w="299" h="424" pX="0.5" pY="0.5" oX="0" oY="0" oW="333" oH="424"/>
+  <sprite n="veggie_carrot_death_0010.png" x="0" y="0" w="559" h="442" pX="0.5" pY="0.5" oX="2" oY="0" oW="561" oH="442"/>
+  <sprite n="veggie_carrot_death_0011.png" x="283" y="442" w="250" h="455" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0012.png" x="0" y="902" w="237" h="456" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_carrot_death_0013.png" x="237" y="902" w="262" h="455" pX="0.5" pY="0.5" oX="2" oY="0" oW="264" oH="455"/>
+</TextureAtlas>

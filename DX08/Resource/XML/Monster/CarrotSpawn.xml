@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Spawn.png" width="1993" height="1245" scale="1" format="RGBA8888">
+  <sprite n="veggie_carrot_ground_burst_front_0001.png" x="671" y="731" w="260" h="315" pX="0.5" pY="0.5" oX="2" oY="2" oW="263" oH="317"/>
+  <sprite n="veggie_carrot_ground_burst_front_0002.png" x="1328" y="377" w="333" h="116" pX="0.5" pY="0.5" oX="2" oY="0" oW="336" oH="116"/>
+  <sprite n="veggie_carrot_ground_burst_front_0003.png" x="1654" y="688" w="326" h="130" pX="0.5" pY="0.5" oX="4" oY="0" oW="333" oH="130"/>
+  <sprite n="veggie_carrot_ground_burst_front_0004.png" x="1328" y="493" w="331" h="137" pX="0.5" pY="0.5" oX="2" oY="0" oW="335" oH="139"/>
+  <sprite n="veggie_carrot_ground_burst_front_0005.png" x="1659" y="537" w="328" h="151" pX="0.5" pY="0.5" oX="0" oY="0" oW="331" oH="151"/>
+  <sprite n="veggie_carrot_ground_burst_front_0006.png" x="1661" y="377" w="332" h="160" pX="0.5" pY="0.5" oX="2" oY="0" oW="334" oH="160"/>
+  <sprite n="veggie_carrot_ground_burst_front_0007.png" x="1328" y="630" w="326" h="180" pX="0.5" pY="0.5" oX="2" oY="0" oW="330" oH="180"/>
+  <sprite n="veggie_carrot_ground_burst_front_0008.png" x="0" y="1043" w="333" h="202" pX="0.5" pY="0.5" oX="2" oY="0" oW="335" oH="202"/>
+  <sprite n="veggie_carrot_ground_burst_front_0009.png" x="0" y="721" w="336" h="322" pX="0.5" pY="0.5" oX="2" oY="0" oW="338" oH="322"/>
+  <sprite n="veggie_carrot_ground_burst_front_0010.png" x="486" y="377" w="340" h="354" pX="0.5" pY="0.5" oX="1" oY="0" oW="341" oH="354"/>
+  <sprite n="veggie_carrot_ground_burst_front_0011.png" x="336" y="731" w="335" h="362" pX="0.5" pY="0.5" oX="0" oY="2" oW="335" oH="365"/>
+  <sprite n="veggie_carrot_ground_burst_front_0012.png" x="981" y="358" w="347" h="379" pX="0.5" pY="0.5" oX="2" oY="0" oW="349" oH="379"/>
+  <sprite n="veggie_carrot_ground_burst_front_0013.png" x="1417" y="0" w="372" h="377" pX="0.5" pY="0.5" oX="2" oY="0" oW="374" oH="377"/>
+  <sprite n="veggie_carrot_ground_burst_front_0014.png" x="0" y="355" w="486" h="366" pX="0.5" pY="0.5" oX="3" oY="0" oW="489" oH="368"/>
+  <sprite n="veggie_carrot_ground_burst_front_0015.png" x="981" y="0" w="436" h="358" pX="0.5" pY="0.5" oX="2" oY="3" oW="438" oH="363"/>
+  <sprite n="veggie_carrot_ground_burst_front_0016.png" x="491" y="0" w="490" h="359" pX="0.5" pY="0.5" oX="2" oY="0" oW="494" oH="361"/>
+  <sprite n="veggie_carrot_ground_burst_front_0017.png" x="0" y="0" w="491" h="355" pX="0.5" pY="0.5" oX="3" oY="3" oW="494" oH="361"/>
+</TextureAtlas>

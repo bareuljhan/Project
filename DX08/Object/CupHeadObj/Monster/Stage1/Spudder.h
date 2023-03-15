@@ -21,7 +21,7 @@ enum State
 
 	void Init();
 	
-	void AttackToPlayer();
+	void BeamAttack();
 	void GetDamaged(float amount);
 	void Dead();
 

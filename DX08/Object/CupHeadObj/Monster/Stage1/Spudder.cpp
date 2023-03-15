@@ -15,8 +15,7 @@ Spudder::Spudder()
 	CreateAction("Spudder", Action::Type::LOOP);
 	CreateAction("death", Action::Type::PINGPONG);
 
-	if(_hp > 0.0f)
-		_actions[1]->SetCallBack_Target(std::bind(&Spudder::AttackToPlayer, this));
+	_actions[1]->SetCallBack_Target(std::bind(&Spudder::BeamAttack, this));
 
 	for (auto sprite : _sprites)
 	{
@@ -42,7 +41,7 @@ Spudder::Spudder()
 	_collider->GetTransform()->SetParent(_transform);
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 2500;
+	_mosaicBuffer->_data.value1 = 3500;
 }
 
 Spudder::~Spudder()
@@ -72,7 +71,7 @@ void Spudder::Update()
 		Init();
 	}
 
-	_transform->Update();
+	_transform->UpdateSRT();
 
 
 	for (auto sprite : _sprites)
@@ -124,7 +123,7 @@ void Spudder::Init()
 	_support->Update();
 }
 
-void Spudder::AttackToPlayer()
+void Spudder::BeamAttack()
 {
 	if (isDead == true) return;
 	if (_curState != IDLE) return;

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="carrotIntro.png" width="2498" height="2489" scale="1" format="RGBA8888">
+  <sprite n="veggie_carrot_intro_0001.png" x="2289" y="841" w="193" h="347" pX="0.5" pY="0.5" oX="2" oY="0" oW="195" oH="349"/>
+  <sprite n="veggie_carrot_intro_0002.png" x="1145" y="1939" w="257" h="451" pX="0.5" pY="0.5" oX="2" oY="0" oW="259" oH="453"/>
+  <sprite n="veggie_carrot_intro_0003.png" x="398" y="1381" w="393" h="514" pX="0.5" pY="0.5" oX="3" oY="0" oW="398" oH="516"/>
+  <sprite n="veggie_carrot_intro_0004.png" x="0" y="1939" w="356" h="533" pX="0.5" pY="0.5" oX="2" oY="0" oW="358" oH="535"/>
+  <sprite n="veggie_carrot_intro_0005.png" x="1671" y="1939" w="382" h="550" pX="0.5" pY="0.5" oX="2" oY="0" oW="384" oH="552"/>
+  <sprite n="veggie_carrot_intro_0006.png" x="2077" y="1684" w="409" h="545" pX="0.5" pY="0.5" oX="2" oY="0" oW="411" oH="547"/>
+  <sprite n="veggie_carrot_intro_0007.png" x="1658" y="1406" w="419" h="533" pX="0.5" pY="0.5" oX="2" oY="0" oW="421" oH="535"/>
+  <sprite n="veggie_carrot_intro_0008.png" x="0" y="1381" w="398" h="516" pX="0.5" pY="0.5" oX="3" oY="0" oW="401" oH="519"/>
+  <sprite n="veggie_carrot_intro_0009.png" x="750" y="1939" w="395" h="493" pX="0.5" pY="0.5" oX="1" oY="2" oW="396" oH="497"/>
+  <sprite n="veggie_carrot_intro_0010.png" x="1671" y="922" w="460" h="484" pX="0.5" pY="0.5" oX="1" oY="0" oW="461" oH="486"/>
+  <sprite n="veggie_carrot_intro_0011.png" x="1160" y="841" w="511" h="458" pX="0.5" pY="0.5" oX="2" oY="0" oW="513" oH="460"/>
+  <sprite n="veggie_carrot_intro_0012.png" x="0" y="0" w="593" h="436" pX="0.5" pY="0.5" oX="2" oY="0" oW="595" oH="438"/>
+  <sprite n="veggie_carrot_intro_0013.png" x="593" y="0" w="593" h="432" pX="0.5" pY="0.5" oX="2" oY="0" oW="595" oH="434"/>
+  <sprite n="veggie_carrot_intro_0014.png" x="1186" y="0" w="587" h="407" pX="0.5" pY="0.5" oX="2" oY="0" oW="589" oH="409"/>
+  <sprite n="veggie_carrot_intro_0015.png" x="1773" y="0" w="581" h="428" pX="0.5" pY="0.5" oX="3" oY="0" oW="584" oH="430"/>
+  <sprite n="veggie_carrot_intro_0016.png" x="1186" y="407" w="572" h="434" pX="0.5" pY="0.5" oX="2" oY="0" oW="576" oH="437"/>
+  <sprite n="veggie_carrot_intro_0017.png" x="593" y="432" w="567" h="451" pX="0.5" pY="0.5" oX="2" oY="0" oW="569" oH="453"/>
+  <sprite n="veggie_carrot_intro_0018.png" x="0" y="436" w="547" h="455" pX="0.5" pY="0.5" oX="2" oY="0" oW="549" oH="456"/>
+  <sprite n="veggie_carrot_intro_0019.png" x="1758" y="428" w="531" h="494" pX="0.5" pY="0.5" oX="2" oY="2" oW="533" oH="498"/>
+  <sprite n="veggie_carrot_intro_0020.png" x="1160" y="1299" w="498" h="474" pX="0.5" pY="0.5" oX="27" oY="0" oW="525" oH="476"/>
+  <sprite n="veggie_carrot_intro_0021.png" x="547" y="883" w="494" h="482" pX="0.5" pY="0.5" oX="2" oY="0" oW="496" oH="484"/>
+  <sprite n="veggie_carrot_intro_0022.png" x="0" y="891" w="466" h="490" pX="0.5" pY="0.5" oX="3" oY="0" oW="469" oH="492"/>
+  <sprite n="veggie_carrot_intro_0023.png" x="356" y="1939" w="394" h="494" pX="0.5" pY="0.5" oX="2" oY="0" oW="396" oH="495"/>
+  <sprite n="veggie_carrot_intro_0024.png" x="2131" y="1188" w="367" h="496" pX="0.5" pY="0.5" oX="2" oY="0" oW="369" oH="498"/>
+  <sprite n="veggie_carrot_intro_0025.png" x="791" y="1381" w="358" h="504" pX="0.5" pY="0.5" oX="2" oY="0" oW="360" oH="505"/>
+</TextureAtlas>

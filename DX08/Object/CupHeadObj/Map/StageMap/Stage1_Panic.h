@@ -8,6 +8,7 @@ public:
 	void Update();
 	void PreRender();
 	void Render();
+	void MidleRender();
 	void PostRender();
 
 	void SetPlayer(shared_ptr<Player> player) { _player = player; }

@@ -104,18 +104,26 @@ using namespace DirectX;
 #include "Object/UI/Hp.h"
 
 // GameObj
-#include "Object/CupHeadObj/Map/Prologue/PrologueAni.h"
-#include "Object/CupHeadObj/Map/Epilogue/EpilogueAni.h"
 #include "Object/CupHeadObj/Bullet.h"
 #include "Object/CupHeadObj/Player.h"
-#include "Object/CupHeadObj/Monster/Monster_Bullet.h"
-#include "Object/CupHeadObj/Monster/Stage1/Spudder.h"
-#include "Object/CupHeadObj/Monster/Stage1/Carrot.h"
+
+// Map
+#include "Object/CupHeadObj/Map/Prologue/PrologueAni.h"
+#include "Object/CupHeadObj/Map/Epilogue/EpilogueAni.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_BG.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_Player.h"
+#include "Object/CupHeadObj/Map/StageMap/Stage1_Panic.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_BG.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_Iner_BG.h"
-#include "Object/CupHeadObj/Map/StageMap/Stage1_Panic.h"
+
+// Monster
+#include "Object/CupHeadObj/Monster/Monster_Bullet.h"
+
+// Stage1
+#include "Object/CupHeadObj/Monster/Stage1/Spudder.h"
+#include "Object/CupHeadObj/Monster/Stage1/Carrot.h"
+#include "Object/CupHeadObj/Monster/Stage1/Vaggie_Carrot.h"
+
 
 // Scene
 #include "Scene/Scene.h"

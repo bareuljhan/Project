@@ -15,16 +15,16 @@ oW => original width
 oH => original height
 r => 'y' if sprite is rotated-->
 <TextureAtlas imagePath="Carret_Dead.png" width="1411" height="525" scale="1" format="RGBA8888">
-  <sprite n="radish_death_0011.png" x="0" y="0" w="205" h="175" pX="0.5" pY="0.5" oX="2" oY="1" oW="209" oH="178"/>
   <sprite n="radish_death_0001.png" x="205" y="0" w="203" h="179" pX="0.5" pY="0.5" oX="2" oY="2" oW="207" oH="183"/>
-  <sprite n="radish_death_0009.png" x="0" y="175" w="203" h="173" pX="0.5" pY="0.5" oX="2" oY="2" oW="207" oH="177"/>
-  <sprite n="radish_death_0005.png" x="408" y="0" w="202" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="206" oH="178"/>
-  <sprite n="radish_death_0012.png" x="610" y="0" w="202" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="206" oH="178"/>
-  <sprite n="radish_death_0003.png" x="812" y="0" w="201" h="180" pX="0.5" pY="0.5" oX="2" oY="2" oW="205" oH="184"/>
   <sprite n="radish_death_0002.png" x="408" y="174" w="201" h="176" pX="0.5" pY="0.5" oX="2" oY="2" oW="205" oH="180"/>
+  <sprite n="radish_death_0003.png" x="812" y="0" w="201" h="180" pX="0.5" pY="0.5" oX="2" oY="2" oW="205" oH="184"/>
   <sprite n="radish_death_0004.png" x="609" y="174" w="201" h="173" pX="0.5" pY="0.5" oX="2" oY="2" oW="205" oH="177"/>
+  <sprite n="radish_death_0005.png" x="408" y="0" w="202" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="206" oH="178"/>
+  <sprite n="radish_death_0006.png" x="1013" y="0" w="199" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="203" oH="178"/>
   <sprite n="radish_death_0007.png" x="203" y="179" w="199" h="184" pX="0.5" pY="0.5" oX="2" oY="2" oW="203" oH="188"/>
   <sprite n="radish_death_0008.png" x="0" y="348" w="199" h="177" pX="0.5" pY="0.5" oX="2" oY="2" oW="203" oH="181"/>
-  <sprite n="radish_death_0006.png" x="1013" y="0" w="199" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="203" oH="178"/>
+  <sprite n="radish_death_0009.png" x="0" y="175" w="203" h="173" pX="0.5" pY="0.5" oX="2" oY="2" oW="207" oH="177"/>
   <sprite n="radish_death_0010.png" x="1212" y="0" w="199" h="174" pX="0.5" pY="0.5" oX="2" oY="1" oW="203" oH="177"/>
+  <sprite n="radish_death_0011.png" x="0" y="0" w="205" h="175" pX="0.5" pY="0.5" oX="2" oY="1" oW="209" oH="178"/>
+  <sprite n="radish_death_0012.png" x="610" y="0" w="202" h="174" pX="0.5" pY="0.5" oX="2" oY="2" oW="206" oH="178"/>
 </TextureAtlas>

@@ -29,18 +29,28 @@ void Action::Update()
 		{
 			_curClipIndex++;
 
-			if (_curClipIndex == 4 && _carretMove != nullptr)
+			if (_curClipIndex == 4 && _carrotMove != nullptr)
 			{
-				_carretMove();
+				_carrotMove();
 			}	
 			if (_curClipIndex == 6 && _skillEvent != nullptr)
 			{
 				_skillEvent();
 			}	
-			if (_curClipIndex == 26 && _carretIntro != nullptr)
+			if (_curClipIndex == 26 && _carrotIntro != nullptr)
 			{
-				_carretIntro();
+				_carrotIntro();
+			}	
+			if (_curClipIndex == 17 && _vaggieSpawn != nullptr)
+			{
+				_vaggieSpawn();
 			}
+			if (_curClipIndex == 25 && _vaggieIDLE != nullptr)
+			{
+				_vaggieIDLE();
+			}
+
+
 			if (_curClipIndex >= _clips.size())
 			{
 				Stop();

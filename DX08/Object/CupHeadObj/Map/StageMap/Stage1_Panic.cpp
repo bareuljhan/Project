@@ -174,6 +174,10 @@ void Stage1_Panic::Render()
 	_field2->Render();
 	_field1->Render();
 	_field4->Render();
+}
+
+void Stage1_Panic::MidleRender()
+{
 	_field3->Render();
 	_mainBG->Render();
 }

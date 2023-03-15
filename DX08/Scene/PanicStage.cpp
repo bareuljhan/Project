@@ -3,7 +3,6 @@
 
 PanicStage::PanicStage()
 {
-
 	_player = make_shared<Player>();
 	_player->GetTransform()->SetPosition(Vector2(300, 170));
 
@@ -14,7 +13,11 @@ PanicStage::PanicStage()
 	_boss1 = make_shared<Spudder>();
 	_boss1->GetTransform()->SetPosition(Vector2(1050, 240));
 
+	_boss2 = make_shared<Vaggie_Carrot>();
+
+
 	_monster = make_shared<Carrot>();
+
 }
 
 PanicStage::~PanicStage()
@@ -29,6 +32,7 @@ void PanicStage::Update()
 
 	if (_boss1->isNextMonster == true)
 	{
+		_boss2->Update();
 		_monster->Update();
 		_monster->Move(_player);
 	}
@@ -58,19 +62,24 @@ void PanicStage::Update()
 			_player->GetDamaged(1);
 		}
 	}
-
 }
 
 void PanicStage::Render()
 {
 	_bg->PreRender();
 	_bg->Render();
-	_player->Render();
-	_boss1->Render();
 	if (_boss1->isNextMonster == true)
+	{
+		_boss2->Render();
+	}
+	_bg->MidleRender();
+	_boss1->Render();
+	_player->Render();
+	if (_boss1->isNextMonster == true)
+	{
 		_monster->Render();
-
-
+	}
 	_bg->PostRender();
+
 	_player->GetHpPNG()->PostRender();
 }
