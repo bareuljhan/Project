@@ -42,11 +42,13 @@ public:
 
 	void SetTargetClip(int value) { _targetClip = value; }
 	void SetCallBack_Target(function<void(void)> endEvent) { _spudderATKEvent = endEvent; }
+	void SetIDLE_CallBack(function<void(void)> endEvent) { _setIdle = endEvent; }
 	void SetCallBack_Skill(function<void(void)> endEvent) { _skillEvent = endEvent; }
 	void CallBack_Carret(function<void(void)> endEvent) { _carrotIntro = endEvent; }
 	void CarretMove_CallBack(function<void(void)> endEvent) { _carrotMove = endEvent; }
 	void VaggieSpawn(function<void(void)> endEvent) { _vaggieSpawn = endEvent; }
 	void VaggieIdle(function<void(void)> endEvent) { _vaggieIDLE = endEvent; }
+	void VaggieBeam(function<void(void)> endEvent) { _vaggieBEAM = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -70,9 +72,12 @@ private:
 	int _targetClip = 26;
 	function<void(void)> _spudderATKEvent = nullptr;
 	int _skillTargetClip = 6;
+
+	function<void(void)> _setIdle = nullptr;
 	function<void(void)> _skillEvent = nullptr;
 	function<void(void)> _carrotIntro = nullptr;
 	function<void(void)> _carrotMove = nullptr;
 	function<void(void)> _vaggieSpawn = nullptr;
 	function<void(void)> _vaggieIDLE = nullptr;
+	function<void(void)> _vaggieBEAM = nullptr;
 };

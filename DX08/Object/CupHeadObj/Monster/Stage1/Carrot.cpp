@@ -123,7 +123,6 @@ void Carrot::Move(shared_ptr<Player> player)
 
 	Vector2 dir = (player->GetTransform()->GetWorldPos() - _transform->GetPos()).NormalVector2();
 
-
 	Vector2 temp = _transform->GetPos();
 	temp.x += dir.x * _speed * DELTA_TIME;
 	_transform->SetPosition(temp);

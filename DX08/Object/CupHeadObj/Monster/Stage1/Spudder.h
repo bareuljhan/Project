@@ -25,7 +25,7 @@ enum State
 	void GetDamaged(float amount);
 	void Dead();
 
-	vector<shared_ptr<Monster_Bullet>> GetBullets() { return _bullets; }
+	vector<shared_ptr<Spudder_Bullet>> GetBullets() { return _bullets; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	shared_ptr<Collider> GetBodyCollider() { return _collider; }
@@ -47,7 +47,7 @@ private:
 
 	shared_ptr<Quad> _support;
 
-	vector<shared_ptr<Monster_Bullet>> _bullets;
+	vector<shared_ptr<Spudder_Bullet>> _bullets;
 
 	shared_ptr<CupMosaicBuffer> _mosaicBuffer;
 

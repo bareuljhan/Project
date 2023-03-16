@@ -107,6 +107,9 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Bullet.h"
 #include "Object/CupHeadObj/Player.h"
 
+// ClearMessage
+#include "Object/CupHeadObj/Message/ClearMessage.h"
+
 // Map
 #include "Object/CupHeadObj/Map/Prologue/PrologueAni.h"
 #include "Object/CupHeadObj/Map/Epilogue/EpilogueAni.h"
@@ -117,7 +120,8 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_Iner_BG.h"
 
 // Monster
-#include "Object/CupHeadObj/Monster/Monster_Bullet.h"
+#include "Object/CupHeadObj/Monster/Spudder_Bullet.h"
+#include "Object/CupHeadObj/Monster/Vaggie_Bullet.h"
 
 // Stage1
 #include "Object/CupHeadObj/Monster/Stage1/Spudder.h"

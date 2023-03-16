@@ -16,16 +16,17 @@ Player::Player()
 	CreateAction("GroundDash", Action::Type::LOOP);
 	CreateAction("AirStraightReadySpecial", Action::Type::END);
 	CreateAction("RunShot", Action::Type::END);
+	CreateAction("Hit", Action::Type::END);
 
 	_actions[State::DUCKSHOT]->SetCallBack(std::bind(&Player::SetDUCK, this));
 	_actions[State::SHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack_Skill(std::bind(&Player::SkillShot, this));
 	_actions[State::RUNSHOT]->SetCallBack(std::bind(&Player::SetRun, this));
+	_actions[State::HIT]->SetIDLE_CallBack(std::bind(&Player::SetIDLE, this));
 
 	_blockCollider = make_shared<CircleCollider>(73);
 	_blockCollider->GetTransform()->SetPosition(Vector2(0, -120));
-
 
 	_transform = _blockCollider->GetTransform();
 
@@ -660,7 +661,9 @@ void Player::SetColliderSize()
 void Player::GetDamaged(float amount)
 {
 	if (amount == 0.0f) return;
-	
+	_oldState = _curState;
+	_curState = HIT;
+	SetAction(HIT);
 	_hp -= amount;
 	if (_hp <= 0.0f)
 	{

@@ -27,7 +27,7 @@ Spudder::Spudder()
 
 	for (int i = 0; i < 4; i++)
 	{
-		shared_ptr<Monster_Bullet> bullet = make_shared<Monster_Bullet>();
+		shared_ptr<Spudder_Bullet> bullet = make_shared<Spudder_Bullet>();
 		bullet->isActive = false;
 		bullet->GetTransform()->GetScale() *= 0.8f;
 		_bullets.push_back(bullet);

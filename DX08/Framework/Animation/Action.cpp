@@ -36,6 +36,10 @@ void Action::Update()
 			if (_curClipIndex == 6 && _skillEvent != nullptr)
 			{
 				_skillEvent();
+			}		
+			if (_curClipIndex == 6 && _setIdle != nullptr)
+			{
+				_setIdle();
 			}	
 			if (_curClipIndex == 26 && _carrotIntro != nullptr)
 			{
@@ -48,6 +52,10 @@ void Action::Update()
 			if (_curClipIndex == 25 && _vaggieIDLE != nullptr)
 			{
 				_vaggieIDLE();
+			}		
+			if (_curClipIndex == 22 && _vaggieBEAM != nullptr)
+			{
+				_vaggieBEAM();
 			}
 
 
@@ -75,8 +83,13 @@ void Action::Update()
 			if (_isReverse)
 			{
 				_curClipIndex--;
+				
+				if (_curClipIndex == 1 && _vaggieIDLE != nullptr)
+					_vaggieIDLE();
+
 				if (_curClipIndex <= 0)
 					_isReverse = false;
+				
 			}
 			else
 			{

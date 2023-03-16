@@ -4,7 +4,7 @@
 PanicStage::PanicStage()
 {
 	_player = make_shared<Player>();
-	_player->GetTransform()->SetPosition(Vector2(300, 170));
+	_player->GetTransform()->SetPosition(Vector2(300, 500));
 
 	_bg = make_shared<Stage1_Panic>();
 	_bg->GetTransform()->SetPosition(CENTER);
@@ -33,6 +33,7 @@ void PanicStage::Update()
 	if (_boss1->isNextMonster == true)
 	{
 		_boss2->Update();
+		_boss2->BulletAttack(_player);
 		_monster->Update();
 		_monster->Move(_player);
 	}
@@ -68,18 +69,23 @@ void PanicStage::Render()
 {
 	_bg->PreRender();
 	_bg->Render();
+
 	if (_boss1->isNextMonster == true)
 	{
 		_boss2->Render();
 	}
+
 	_bg->MidleRender();
-	_boss1->Render();
 	_player->Render();
+	_boss1->Render();
+
 	if (_boss1->isNextMonster == true)
 	{
 		_monster->Render();
 	}
 	_bg->PostRender();
+	_boss2->BulletRender();
+
 
 	_player->GetHpPNG()->PostRender();
 }

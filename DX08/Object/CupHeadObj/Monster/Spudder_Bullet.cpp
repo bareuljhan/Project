@@ -1,7 +1,7 @@
 #include "framework.h"
-#include "Monster_Bullet.h"
+#include "Spudder_Bullet.h"
 
-Monster_Bullet::Monster_Bullet()
+Spudder_Bullet::Spudder_Bullet()
 {
 	_transform = make_shared<Transform>();
 
@@ -16,11 +16,11 @@ Monster_Bullet::Monster_Bullet()
 	_collider->GetTransform()->SetParent(_transform);
 }
 
-Monster_Bullet::~Monster_Bullet()
+Spudder_Bullet::~Spudder_Bullet()
 {
 }
 
-void Monster_Bullet::Update()
+void Spudder_Bullet::Update()
 {
 	if (!isActive) return;
 
@@ -50,7 +50,7 @@ void Monster_Bullet::Update()
 	_transform->Update();
 }
 
-void Monster_Bullet::Render()
+void Spudder_Bullet::Render()
 {
 	if (!isActive) return;
 
@@ -59,7 +59,7 @@ void Monster_Bullet::Render()
 	_collider->Render();
 }
 
-void Monster_Bullet::SetFireDir(Vector2 dir)
+void Spudder_Bullet::SetFireDir(Vector2 dir)
 {
 	for (auto action : _actions)
 		action->Play();
@@ -70,21 +70,21 @@ void Monster_Bullet::SetFireDir(Vector2 dir)
 		sprite->GetTransform()->GetAngle() = dir.Angle() - PI * 0.5f;
 }
 
-void Monster_Bullet::Enable()
+void Spudder_Bullet::Enable()
 {
 	_collider->isActive = true;
 	isActive = true;
 	_delay = 0.0f;
 }
 
-void Monster_Bullet::Disable()
+void Spudder_Bullet::Disable()
 {
 	_collider->isActive = false;
 	isActive = false;
 	_delay = 0.0f;
 }
 
-bool Monster_Bullet::Collision(shared_ptr<Collider> col)
+bool Spudder_Bullet::Collision(shared_ptr<Collider> col)
 {
 	if (isActive == false)
 		return false;
@@ -99,7 +99,7 @@ bool Monster_Bullet::Collision(shared_ptr<Collider> col)
 	return result;
 }
 
-void Monster_Bullet::SetAction(State state)
+void Spudder_Bullet::SetAction(State state)
 {
 	_curState = state;
 
@@ -111,7 +111,7 @@ void Monster_Bullet::SetAction(State state)
 	_oldState = _curState;
 }
 
-void Monster_Bullet::CreateAction(string name, Action::Type type)
+void Spudder_Bullet::CreateAction(string name, Action::Type type)
 {
 	string xmlPath = "Resource/XML/Monster/" + name + ".xml";
 	wstring srvPath(name.begin(), name.end());

@@ -15,6 +15,7 @@ public:
 		GROUNDDASH,
 		SKILLSHOT,
 		RUNSHOT,
+		HIT,
 		NONE
 	};
 	Player();

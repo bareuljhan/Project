@@ -1,5 +1,5 @@
 #pragma once
-class Monster_Bullet
+class Spudder_Bullet
 {
 public:
 	enum State
@@ -7,8 +7,8 @@ public:
 		SPUDDER_BULLET,
 		NONE
 	};
-	Monster_Bullet();
-	~Monster_Bullet();
+	Spudder_Bullet();
+	~Spudder_Bullet();
 
 	void Update();
 	void Render();
