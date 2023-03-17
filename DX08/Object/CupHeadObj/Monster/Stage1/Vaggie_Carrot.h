@@ -16,7 +16,7 @@ public:
 
 	virtual void Update();
 	virtual void Render();
-	void BulletRender() { for (auto bullet : _bullets) bullet->Render(); }
+	void BulletRender();
 
 	void SetAction(State state);
 	void SetIDLE();
@@ -27,6 +27,15 @@ public:
 	void BulletAttack(shared_ptr<Player> player);
 	void GetDamaged(float amount);
 	void Dead();
+
+
+	vector<shared_ptr<Vaggie_Bullet>> GetBullets() { return _bullets; }
+	vector<shared_ptr<Vaggie_Beam>> GetBeams() { return _beams; }
+	shared_ptr<Vaggie_Bullet> GetBulletOne() { return _bullets[0]; }
+	shared_ptr<Vaggie_Bullet> GetBulletTwo() { return _bullets[1]; }
+	shared_ptr<Collider> BulletOneCollider() { return _bullets[0]->GetCollider(); }
+	shared_ptr<Collider> BulletTwoCollider() { return _bullets[1]->GetCollider(); }
+	shared_ptr<RectCollider> GetBodyCollider() { return _collider; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
@@ -48,11 +57,17 @@ private:
 	shared_ptr<RectCollider> _collider;
 
 	vector<shared_ptr<Vaggie_Bullet>> _bullets;
+	vector<shared_ptr<Vaggie_Beam>> _beams;
 
-	float _shotDelay = 0.0f;
-	float _delay = 1.0f;
-	
+	shared_ptr<Effect> _effect;
+
 	float _hp = 300.0f;
-	float _bulletSpeed = 200.0f;
+	float _bulletSpeed = 100.0f;
+	
+	float _shot = 0.0f;
+	float _shotDelay = 0.15f;
+
+	float _efCheck = 0.0f;
+
 };
 

@@ -13,7 +13,6 @@ private:
 	void CreateRTV();
 	void CreateSRV();
 
-
 	UINT _width;
 	UINT _height;
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="bulletDestroy.png" width="2023" height="2034" scale="1" format="RGBA8888">
+  <sprite n="veggie_carrot_bomb_death_a_0001.png" x="487" y="352" w="232" h="158" pX="0.5" pY="0.5" oX="2" oY="0" oW="236" oH="160"/>
+  <sprite n="veggie_carrot_bomb_death_a_0002.png" x="0" y="1895" w="156" h="139" pX="0.5" pY="0.5" oX="2" oY="0" oW="160" oH="141"/>
+  <sprite n="veggie_carrot_bomb_death_a_0003.png" x="1789" y="232" w="232" h="233" pX="0.5" pY="0.5" oX="2" oY="0" oW="234" oH="235"/>
+  <sprite n="veggie_carrot_bomb_death_a_0004.png" x="1789" y="0" w="234" h="232" pX="0.5" pY="0.5" oX="0" oY="0" oW="236" oH="234"/>
+  <sprite n="veggie_carrot_bomb_death_a_0005.png" x="484" y="516" w="273" h="361" pX="0.5" pY="0.5" oX="0" oY="0" oW="275" oH="363"/>
+  <sprite n="veggie_carrot_bomb_death_a_0006.png" x="405" y="995" w="353" h="382" pX="0.5" pY="0.5" oX="2" oY="0" oW="357" oH="384"/>
+  <sprite n="veggie_carrot_bomb_death_a_0007.png" x="0" y="995" w="405" h="464" pX="0.5" pY="0.5" oX="0" oY="0" oW="407" oH="466"/>
+  <sprite n="veggie_carrot_bomb_death_a_0008.png" x="0" y="0" w="487" h="516" pX="0.5" pY="0.5" oX="0" oY="0" oW="489" oH="518"/>
+  <sprite n="veggie_carrot_bomb_death_a_0009.png" x="0" y="516" w="484" h="479" pX="0.5" pY="0.5" oX="2" oY="0" oW="488" oH="481"/>
+  <sprite n="veggie_carrot_bomb_death_a_0010.png" x="925" y="0" w="436" h="325" pX="0.5" pY="0.5" oX="0" oY="0" oW="439" oH="327"/>
+  <sprite n="veggie_carrot_bomb_death_a_0011.png" x="757" y="516" w="441" h="357" pX="0.5" pY="0.5" oX="0" oY="2" oW="443" oH="361"/>
+  <sprite n="veggie_carrot_bomb_death_a_0012.png" x="487" y="0" w="438" h="352" pX="0.5" pY="0.5" oX="1" oY="0" oW="441" oH="354"/>
+  <sprite n="veggie_carrot_bomb_death_a_0013.png" x="0" y="1459" w="432" h="436" pX="0.5" pY="0.5" oX="1" oY="2" oW="435" oH="440"/>
+  <sprite n="veggie_carrot_bomb_death_a_0014.png" x="1361" y="0" w="428" h="301" pX="0.5" pY="0.5" oX="0" oY="0" oW="430" oH="303"/>
+</TextureAtlas>

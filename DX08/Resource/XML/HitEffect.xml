@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="HitEffect.png" width="1145" height="2031" scale="1" format="RGBA8888">
+  <sprite n="player_hitFXa_0001.png" x="671" y="500" w="343" h="279" pX="0.5" pY="0.5" oX="2" oY="0" oW="347" oH="281"/>
+  <sprite n="player_hitFXa_0002.png" x="460" y="500" w="211" h="318" pX="0.5" pY="0.5" oX="2" oY="2" oW="213" oH="320"/>
+  <sprite n="player_hitFXa_0003.png" x="885" y="0" w="260" h="274" pX="0.5" pY="0.5" oX="3" oY="0" oW="263" oH="274"/>
+  <sprite n="player_hitFXa_0004.png" x="421" y="1046" w="349" h="383" pX="0.5" pY="0.5" oX="2" oY="0" oW="354" oH="385"/>
+  <sprite n="player_hitFXa_0005.png" x="0" y="1046" w="421" h="498" pX="0.5" pY="0.5" oX="2" oY="0" oW="425" oH="499"/>
+  <sprite n="player_hitFXa_0006.png" x="0" y="0" w="452" h="526" pX="0.5" pY="0.5" oX="2" oY="0" oW="456" oH="526"/>
+  <sprite n="player_hitFXa_0007.png" x="0" y="526" w="460" h="520" pX="0.5" pY="0.5" oX="2" oY="2" oW="462" oH="523"/>
+  <sprite n="player_hitFXa_0008.png" x="452" y="0" w="433" h="500" pX="0.5" pY="0.5" oX="2" oY="0" oW="437" oH="502"/>
+  <sprite n="player_hitFXa_0009.png" x="0" y="1544" w="426" h="487" pX="0.5" pY="0.5" oX="1" oY="0" oW="429" oH="487"/>
+</TextureAtlas>

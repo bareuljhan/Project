@@ -1,90 +1,98 @@
 #include "framework.h"
-#include "Spudder_Bullet.h"
+#include "Vaggie_Beam.h"
 
-Spudder_Bullet::Spudder_Bullet()
+Vaggie_Beam::Vaggie_Beam()
 {
 	_transform = make_shared<Transform>();
 
-	CreateAction("Spudder_Bullet", Action::Type::LOOP);
-
+	CreateAction("CarrotBeam_Bullet", Action::Type::LOOP);
 	for (auto sprite : _sprites)
-	{
 		sprite->GetTransform()->SetParent(_transform);
-	}
 
 	_collider = make_shared<CircleCollider>(50);
 	_collider->GetTransform()->SetParent(_transform);
+
+	_actions[BEAM]->Play();
 }
 
-Spudder_Bullet::~Spudder_Bullet()
+Vaggie_Beam::~Vaggie_Beam()
 {
+	_transform = nullptr;
 }
 
-void Spudder_Bullet::Update()
+void Vaggie_Beam::Update()
 {
-	if (!isActive) return;
+	if (isActive == false) return;
+	
+	_lifeTime += DELTA_TIME;
 
-	_collider->Update();
-
-	_delay += DELTA_TIME;
-
-	if (_delay >= _lifeTime)
+	if (_lifeTime >= _delay)
 	{
 		for (auto action : _actions)
 			action->Reset();
 		isActive = false;
-		_delay = 0.0f;
+		_lifeTime = 0.0f;
 	}
-
-	Vector2 temp = _transform->GetPos();
-	temp += _direction * _speed * DELTA_TIME;
-	_transform->SetPosition(temp);
-
-	for (auto sprite : _sprites)
-	{
-		sprite->Update();
-	}
+	_collider->Update();
 
 	for (auto action : _actions)
 		action->Update();
-	_transform->Update();
+	for (auto sprite : _sprites)
+		sprite->Update();
+
+	Vector2 temp = _transform->GetPos();
+	temp += _direction * 5;
+	_transform->SetPosition(temp);
+
+	_transform->UpdateSRT();
 }
 
-void Spudder_Bullet::Render()
+void Vaggie_Beam::Render()
 {
-	if (!isActive) return;
 
+	if (isActive == false) return;
+	
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
+
 	_collider->Render();
 }
 
-void Spudder_Bullet::SetFireDir(Vector2 dir)
+void Vaggie_Beam::SetFireDir(Vector2 dir)
 {
 	for (auto action : _actions)
 		action->Play();
 
 	_direction = dir.NormalVector2();
 
-	for (auto sprite : _sprites)
-		sprite->GetTransform()->GetAngle() = dir.Angle() - PI * 0.5f;
+	this->GetTransform()->GetAngle() = dir.Angle() + PI * 0.5f;
 }
 
-void Spudder_Bullet::Enable()
+void Vaggie_Beam::Enable()
 {
 	_collider->isActive = true;
 	isActive = true;
-	_delay = 0.0f;
 }
 
-void Spudder_Bullet::Disable()
+void Vaggie_Beam::Disable()
 {
 	_collider->isActive = false;
-	isActive = false;
-	_delay = 0.0f;
+	//isActive = false;
 }
 
-bool Spudder_Bullet::Collision(shared_ptr<Collider> col)
+void Vaggie_Beam::SetAction(State state)
+{
+	_curState = state;
+
+	if (_curState == _oldState)
+		return;
+
+	_actions[_curState]->Play();
+	_actions[_oldState]->Reset();
+	_oldState = _curState;
+}
+
+bool Vaggie_Beam::Collision(shared_ptr<Collider> col)
 {
 	if (isActive == false)
 		return false;
@@ -99,19 +107,7 @@ bool Spudder_Bullet::Collision(shared_ptr<Collider> col)
 	return result;
 }
 
-void Spudder_Bullet::SetAction(State state)
-{
-	_curState = state;
-
-	if (_curState == _oldState)
-		return;
-
-	_actions[_curState]->Play();
-	_actions[_oldState]->Reset();
-	_oldState = _curState;
-}
-
-void Spudder_Bullet::CreateAction(string name, Action::Type type)
+void Vaggie_Beam::CreateAction(string name, Action::Type type)
 {
 	string xmlPath = "Resource/XML/Monster/" + name + ".xml";
 	wstring srvPath(name.begin(), name.end());
@@ -119,7 +115,7 @@ void Spudder_Bullet::CreateAction(string name, Action::Type type)
 
 	MyXML xml = MyXML(xmlPath, srvPath);
 
-	string actionName = "BULLET_" + name;
+	string actionName = name;
 	_actions.emplace_back(make_shared<Action>(xml.GetClips(), actionName, type));
 	_sprites.emplace_back(make_shared<Sprite>(srvPath, xml.AverageSize()));
 }

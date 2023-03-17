@@ -24,6 +24,7 @@ public:
 
 	bool isActive = false;
 
+	shared_ptr<Collider> GetCollider() { return _collider; }
 	shared_ptr<Transform> GetTransform() { return _transform; }
 private:
 	void CreateAction(string name, Action::Type type);

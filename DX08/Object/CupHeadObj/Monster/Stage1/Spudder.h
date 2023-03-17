@@ -54,8 +54,12 @@ private:
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
+	shared_ptr<Effect> _effect;
+
 	float _check = 0.0f;
 	float _delay = 4.8f;
+
+	float _efCheck = 0.0f;
 
 	int _count = 0;
 

@@ -26,9 +26,13 @@ Carrot::Carrot()
 	_actions[State::INTRO]->Play();
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 3500;
+	_mosaicBuffer->_data.value1 = 1000;
 
 	_transform->SetPosition(Vector2(1050, 150));
+
+	wstring file = L"Resource/Texture/CupHead/Effect/carretEffect.png";
+	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(300, 300), 0.06f);
 }
 
 Carrot::~Carrot()
@@ -96,6 +100,9 @@ void Carrot::Dead()
 	SetAction(State::DEAD);
 	
 	_mosaicBuffer->_data.value1 -= DELTA_TIME;
+
+	if(_mosaicBuffer->_data.value1 % 100 == 0)
+		EFFECT->Play("carretEffect", Vector2(_transform->GetPos()), true);
 
 }
 

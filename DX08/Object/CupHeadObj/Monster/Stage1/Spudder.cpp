@@ -10,7 +10,6 @@ Spudder::Spudder()
 	_support->GetTransform()->GetScale() *= 1.1f;
 	_support->GetTransform()->SetPosition(Vector2(CENTER_X+400, CENTER_Y-100));
 
-
 	CreateAction("Spawn", Action::Type::END);
 	CreateAction("Spudder", Action::Type::LOOP);
 	CreateAction("death", Action::Type::PINGPONG);
@@ -41,7 +40,14 @@ Spudder::Spudder()
 	_collider->GetTransform()->SetParent(_transform);
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 3500;
+	_mosaicBuffer->_data.value1 = 1000;
+
+	wstring file = L"Resource/Texture/CupHead/Effect/BossExpension.png";
+	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(500, 500), 0.06f);
+
+	file = L"Resource/Texture/CupHead/Effect/SpudderEffect.png";	
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(200, 200), 0.06f);
 }
 
 Spudder::~Spudder()
@@ -55,11 +61,13 @@ void Spudder::Update()
 		isNextMonster = true;
 		return;
 	}
+	
 	if (isDead == true)
 		Dead();
 
 	_collider->Update();
 
+	_efCheck += DELTA_TIME;
 
 	for (auto bullet : _bullets)
 		bullet->Update();
@@ -134,6 +142,7 @@ void Spudder::BeamAttack()
 		dir.Normalize();
 		if (bullet->isActive == false)
 		{
+			EFFECT->Play("SpudderEffect", Vector2(_muzzle->GetWorldPos().x + 40.0f, _muzzle->GetWorldPos().y), true);
 			bullet->Enable();
 			bullet->SetFireDir(dir);
 			bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
@@ -165,6 +174,12 @@ void Spudder::Dead()
 	SetAction(State::DEAD);
 	_mosaicBuffer->_data.value1 -= DELTA_TIME;
 	_collider->isActive = false;
+
+	if (_efCheck >= 0.8f)
+	{
+		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		_efCheck = 0.0f;
+	}
 }
 
 void Spudder::CreateAction(string name, Action::Type type)

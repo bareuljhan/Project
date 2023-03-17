@@ -38,12 +38,14 @@ void Tutorial::Update()
 	
 	if(_player->GetBlockCollider()->IsCollision(_iner->GetExitCol()))
 		_button->Update();
-
-	for (auto bullet : _player->GetBullets())
+	if (_iner->GetTargetCol()->isActive == true)
 	{
-		if (bullet->isCollision == true)
+		for (auto bullet : _player->GetBullets())
 		{
-			_iner->Damaged(_player->GetATK());
+			if (bullet->isCollision == true)
+			{
+				_iner->Damaged(_player->GetATK());
+			}
 		}
 	}
 }

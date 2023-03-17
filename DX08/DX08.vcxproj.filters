@@ -168,7 +168,7 @@
     <ClInclude Include="Object\CupHeadObj\Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\CupHeadObj\Monster\Spudder_Bullet.h">
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Spudder_Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Render\RenderTarget.h">
@@ -195,10 +195,13 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Carrot.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\CupHeadObj\Monster\Vaggie_Bullet.h">
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Message\ClearMessage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Beam.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -341,7 +344,7 @@
     <ClCompile Include="Object\CupHeadObj\Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\CupHeadObj\Monster\Spudder_Bullet.cpp">
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Spudder_Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Render\RenderTarget.cpp">
@@ -368,10 +371,13 @@
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Carrot.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\CupHeadObj\Monster\Vaggie_Bullet.cpp">
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Message\ClearMessage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Beam.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

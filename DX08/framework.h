@@ -10,6 +10,9 @@
 #include <windows.h>
 // C 런타임 헤더 파일입니다.
 #include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <malloc.h>
 #include <memory.h>
 #include <memory>
@@ -120,8 +123,9 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_Iner_BG.h"
 
 // Monster
-#include "Object/CupHeadObj/Monster/Spudder_Bullet.h"
-#include "Object/CupHeadObj/Monster/Vaggie_Bullet.h"
+#include "Object/CupHeadObj/Monster/Stage1/Spudder_Bullet.h"
+#include "Object/CupHeadObj/Monster/Stage1/Vaggie_Bullet.h"
+#include "Object/CupHeadObj/Monster/Stage1/Vaggie_Beam.h"
 
 // Stage1
 #include "Object/CupHeadObj/Monster/Stage1/Spudder.h"

@@ -9,6 +9,7 @@ Vaggie_Carrot::Vaggie_Carrot()
 	CreateAction("carrotIntro", Action::Type::END);
 	CreateAction("carrotIDLE", Action::Type::END);
 	CreateAction("carrotBeam", Action::Type::PINGPONG);
+	CreateAction("carrotDeath", Action::Type::PINGPONG);
 
 	for (auto sprite : _sprites)
 	{
@@ -31,18 +32,29 @@ Vaggie_Carrot::Vaggie_Carrot()
 	_actions[State::SPAWN]->Play();
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 3500;
+	_mosaicBuffer->_data.value1 = 1000;
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		shared_ptr<Vaggie_Bullet> bullet = make_shared<Vaggie_Bullet>();
 		bullet->isActive = false;
 		bullet->GetTransform()->GetScale() *= 0.8f;
 		_bullets.push_back(bullet);
 	}
+	
+	for (int i = 0; i < 5; i++)
+	{
+		shared_ptr<Vaggie_Beam> beam = make_shared<Vaggie_Beam>();
+		beam->isActive = false;
+		beam->GetTransform()->GetScale() *= 0.9f;
+		_beams.push_back(beam);
+	}
 
 	_muzzle = make_shared<Transform>();
-	_muzzle->SetPosition(Vector2(CENTER_X, 500));
+
+	wstring file = L"Resource/Texture/CupHead/Effect/BossExpension.png";
+	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(500, 500), 0.06f);
 }
 
 Vaggie_Carrot::~Vaggie_Carrot()
@@ -56,11 +68,15 @@ void Vaggie_Carrot::Update()
 
 	_collider->Update();
 
+	_efCheck += DELTA_TIME;
+
 	if (isDead == true)
 		Dead();
 
 	for (auto bullet : _bullets)
 		bullet->Update();
+	for (auto beam : _beams)
+		beam->Update();
 	for (auto action : _actions)
 		action->Update();
 	for (auto sprite : _sprites)
@@ -77,13 +93,19 @@ void Vaggie_Carrot::Render()
 
 	_mosaicBuffer->SetPSBuffer(2);
 
-	for (auto bullet : _bullets)
-		bullet->Render();
-
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
 	_collider->Render();
+}
+
+void Vaggie_Carrot::BulletRender()
+{
+	for (auto bullet : _bullets)
+		bullet->Render();
+
+	for (auto beam : _beams)
+		beam->Render();
 }
 
 void Vaggie_Carrot::SetAction(State state)
@@ -118,36 +140,70 @@ void Vaggie_Carrot::BeamAttack(shared_ptr<Player> player)
 {
 	if (_curState != BEAM) return;
 	if (isDead == true) return;
+	if (player->isDead == true) return;
 
+	_shot += DELTA_TIME;
+	_muzzle->SetPosition(Vector2(CENTER_X, 550));
 	Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
 
-	for (auto bullet : _bullets)
+	if (_beams[0]->isActive == false && _shot >= _shotDelay)
 	{
-		if (bullet->isActive == false)
-		{
-			bullet->Enable();
-			bullet->SetFireDir(dir);
-			bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
-			break;
-		}
+		_beams[0]->Enable();
+		_beams[0]->SetFireDir(dir);
+		_beams[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+
+		_shot = 0.0f;
+	}
+	if (_beams[1]->isActive == false && _shot >= _shotDelay)
+	{
+		_beams[1]->Enable();
+		_beams[1]->SetFireDir(dir);
+		_beams[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+		_shot = 0.0f;
+	}
+	if (_beams[2]->isActive == false && _shot >= _shotDelay)
+	{
+		_beams[2]->Enable();
+		_beams[2]->SetFireDir(dir);
+		_beams[2]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+		_shot = 0.0f;
+	}
+	if (_beams[3]->isActive == false && _shot >= _shotDelay)
+	{
+		_beams[3]->Enable();
+		_beams[3]->SetFireDir(dir);
+		_beams[3]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+		_shot = 0.0f;
+	}
+	if (_beams[4]->isActive == false && _shot>= _shotDelay)
+	{
+		_beams[4]->Enable();
+		_beams[4]->SetFireDir(dir);
+		_beams[4]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+		_shot = 0.0f;
 	}
 }
 void Vaggie_Carrot::BulletAttack(shared_ptr<Player> player)
 {
 	if (_curState != IDLE) return;
 	if (isDead == true) return;
+	if (player->isDead == true) return;
 
-	Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
-
-	for (auto bullet : _bullets)
+	if (_bullets[0]->isActive == false)
 	{
-		if (bullet->isActive == false)
-		{
-			bullet->Enable();
-			bullet->SetFireDir(dir);
-			bullet->GetTransform()->SetPosition(_muzzle->GetWorldPos());
-			break;
-		}
+		_muzzle->SetPosition(Vector2(CENTER_X - 200, 500));
+		Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+		_bullets[0]->Enable();
+		_bullets[0]->SetFireDir(dir);
+		_bullets[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+	}
+	if (_bullets[1]->isActive == false)
+	{
+		_muzzle->SetPosition(Vector2(CENTER_X + 200, 500));
+		Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+		_bullets[1]->Enable();
+		_bullets[1]->SetFireDir(dir);
+		_bullets[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 	}
 }
 
@@ -174,7 +230,14 @@ void Vaggie_Carrot::Dead()
 	SetAction(State::DEAD);
 
 	_mosaicBuffer->_data.value1 -= DELTA_TIME;
+
+	if (_efCheck >= 0.8f)
+	{
+		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		_efCheck = 0.0f;
+	}
 }
+
 
 void Vaggie_Carrot::CreateAction(string name, Action::Type type)
 {

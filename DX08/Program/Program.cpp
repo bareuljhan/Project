@@ -9,6 +9,7 @@
 
 Program::Program()
 {
+	Timer::GetInstance()->SetLockFPS(120);
 	_scene = make_shared<PanicStage>();
 }
 

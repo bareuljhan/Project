@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="CarrotBeam.png" width="1065" height="164" scale="1" format="RGBA8888">
+  <sprite n="carrot_hypno_ring_0009.png" x="0" y="0" w="169" h="164" pX="0.5" pY="0.5" oX="2" oY="2" oW="173" oH="168"/>
+  <sprite n="carrot_hypno_ring_0011.png" x="169" y="0" w="165" h="163" pX="0.5" pY="0.5" oX="2" oY="2" oW="169" oH="167"/>
+  <sprite n="carrot_hypno_ring_0010.png" x="334" y="0" w="165" h="162" pX="0.5" pY="0.5" oX="2" oY="2" oW="169" oH="166"/>
+  <sprite n="carrot_hypno_ring_0012.png" x="499" y="0" w="159" h="162" pX="0.5" pY="0.5" oX="2" oY="2" oW="163" oH="166"/>
+  <sprite n="carrot_hypno_ring_0008.png" x="658" y="0" w="150" h="158" pX="0.5" pY="0.5" oX="2" oY="2" oW="154" oH="162"/>
+  <sprite n="carrot_hypno_ring_0007.png" x="808" y="0" w="149" h="154" pX="0.5" pY="0.5" oX="2" oY="2" oW="153" oH="158"/>
+  <sprite n="carrot_hypno_ring_0006.png" x="957" y="0" w="108" h="125" pX="0.5" pY="0.5" oX="2" oY="2" oW="112" oH="129"/>
+</TextureAtlas>

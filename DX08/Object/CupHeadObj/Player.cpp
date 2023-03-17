@@ -66,6 +66,9 @@ Player::Player()
 
 	file = L"Resource/Texture/CupHead/Effect/SpecialShootEffect.png";
 	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(200, 200), 0.06f);
+	
+	file = L"Resource/Texture/CupHead/Effect/HitEffect.png";
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(200, 200), 0.06f);
 
 	_health = make_shared<Hp>(Vector2(80, 40));
 	_health->SetPosition(Vector2(50, 50));
@@ -92,6 +95,14 @@ void Player::Update()
 
 	for (auto bullet : _bullets)
 		bullet->Update();
+
+	_delay += DELTA_TIME;
+
+	if (_delay >= _invincibleTime)
+	{
+		isInvincible = false;
+		_delay = 0.0f;
+	}
 
 	_effect->Update();
 
@@ -141,8 +152,10 @@ void Player::SetLeft()
 
 void Player::Input()
 {
-	if (_curState == State::SHOT || _curState == State::JUMP)
+	if (_curState == State::SHOT || _curState == State::JUMP || _curState == State::HIT)
 		return;
+
+	_effectStart += DELTA_TIME;
 
 	if (KEY_PRESS('A'))
 	{
@@ -155,7 +168,11 @@ void Player::Input()
 		temp.x -= _speed * DELTA_TIME;
 		_transform->SetPosition(temp);
 
-		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
+		if (_effectStart >= _effectDelay)
+		{
+			EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
+			_effectStart = 0.0f;
+		}
 
 		SetLeft();
 	}
@@ -178,8 +195,12 @@ void Player::Input()
 
 		if (_curState != State::JUMP)
 			SetAction(State::RUN);
-
-		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x - 50.0f, _transform->GetPos().y - 40.0f), false);
+		
+		if (_effectStart >= _effectDelay)
+		{
+			EFFECT->Play("DashDust", Vector2(_transform->GetPos().x - 50.0f, _transform->GetPos().y - 40.0f), false);
+			_effectStart = 0.0f;
+		}
 
 		SetRight();
 	}
@@ -211,7 +232,12 @@ void Player::Input()
 		temp.x -= _speed * DELTA_TIME;
 		_transform->SetPosition(temp);
 
-		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
+		if (_effectStart >= _effectDelay)
+		{
+			EFFECT->Play("DashDust", Vector2(_transform->GetPos().x + 50.0f, _transform->GetPos().y - 40.0f), true);
+			_effectStart = 0.0f;
+		}
+
 		Vector2 dir = Vector2(-1, 0);
 		_muzzle->SetPosition(Vector2(-50, -15));
 		if (KEY_DOWN(VK_LBUTTON))
@@ -245,7 +271,11 @@ void Player::Input()
 		temp.x += _speed * DELTA_TIME;
 		_transform->SetPosition(temp);
 
-		EFFECT->Play("DashDust", Vector2(_transform->GetPos().x - 50.0f, _transform->GetPos().y - 40.0f), false);
+		if (_effectStart >= _effectDelay)
+		{
+			EFFECT->Play("DashDust", Vector2(_transform->GetPos().x - 50.0f, _transform->GetPos().y - 40.0f), false);
+			_effectStart = 0.0f;
+		}
 		Vector2 dir = Vector2(1, 0);
 
 		_muzzle->SetPosition(Vector2(50, -15));
@@ -282,7 +312,7 @@ void Player::Jump()
 {
 	if (KEY_DOWN(VK_SPACE))
 	{
-		_jumpPower = 500.0f;
+		_jumpPower = 400.0f;
 		SetAction(State::JUMP);
 	}
 
@@ -446,6 +476,7 @@ void Player::DiagonalShot()
 
 			for (auto bullet : _bullets)
 			{
+			
 				if (bullet->isActive == false)
 				{
 					EFFECT->Play("muzzleEffect", _muzzle->GetWorldPos(), false);
@@ -661,14 +692,20 @@ void Player::SetColliderSize()
 void Player::GetDamaged(float amount)
 {
 	if (amount == 0.0f) return;
+	if (isInvincible == true) return;
+
 	_oldState = _curState;
 	_curState = HIT;
 	SetAction(HIT);
+
 	_hp -= amount;
+
 	if (_hp <= 0.0f)
 	{
 		_hp == 0.0f;
 	}
+
+	EFFECT->Play("HitEffect", Vector2(_transform->GetPos().x, _transform->GetPos().y), false);
 }
 
 void Player::ScreenHP()

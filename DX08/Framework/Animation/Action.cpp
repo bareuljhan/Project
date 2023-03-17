@@ -56,6 +56,10 @@ void Action::Update()
 			if (_curClipIndex == 22 && _vaggieBEAM != nullptr)
 			{
 				_vaggieBEAM();
+			}		
+			if (_curClipIndex == 13 && _destroy != nullptr)
+			{
+				_destroy();
 			}
 
 

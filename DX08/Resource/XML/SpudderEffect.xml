@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="SpudderEffect.png" width="552" height="1968" scale="1" format="RGBA8888">
+  <sprite n="veggie_potato_shoot_fx_0001.png" x="340" y="223" w="82" h="160" pX="0.5" pY="0.5" oX="2" oY="0" oW="84" oH="162"/>
+  <sprite n="veggie_potato_shoot_fx_0002.png" x="340" y="0" w="104" h="223" pX="0.5" pY="0.5" oX="2" oY="0" oW="106" oH="225"/>
+  <sprite n="veggie_potato_shoot_fx_0003.png" x="193" y="0" w="147" h="273" pX="0.5" pY="0.5" oX="1" oY="0" oW="148" oH="275"/>
+  <sprite n="veggie_potato_shoot_fx_0004.png" x="328" y="804" w="198" h="320" pX="0.5" pY="0.5" oX="0" oY="1" oW="198" oH="324"/>
+  <sprite n="veggie_potato_shoot_fx_0005.png" x="177" y="1203" w="219" h="342" pX="0.5" pY="0.5" oX="2" oY="0" oW="221" oH="344"/>
+  <sprite n="veggie_potato_shoot_fx_0006.png" x="318" y="402" w="234" h="273" pX="0.5" pY="0.5" oX="1" oY="0" oW="235" oH="275"/>
+  <sprite n="veggie_potato_shoot_fx_0007.png" x="191" y="402" w="127" h="304" pX="0.5" pY="0.5" oX="3" oY="0" oW="130" oH="306"/>
+  <sprite n="veggie_potato_shoot_fx_0008.png" x="189" y="804" w="139" h="331" pX="0.5" pY="0.5" oX="0" oY="0" oW="139" oH="333"/>
+  <sprite n="veggie_potato_shoot_fx_0009.png" x="169" y="1590" w="171" h="356" pX="0.5" pY="0.5" oX="2" oY="0" oW="175" oH="358"/>
+  <sprite n="veggie_potato_shoot_fx_0010.png" x="0" y="1590" w="169" h="378" pX="0.5" pY="0.5" oX="2" oY="0" oW="171" oH="380"/>
+  <sprite n="veggie_potato_shoot_fx_0011.png" x="0" y="1203" w="177" h="387" pX="0.5" pY="0.5" oX="0" oY="0" oW="178" oH="389"/>
+  <sprite n="veggie_potato_shoot_fx_0012.png" x="0" y="804" w="189" h="399" pX="0.5" pY="0.5" oX="1" oY="0" oW="191" oH="401"/>
+  <sprite n="veggie_potato_shoot_fx_0013.png" x="0" y="0" w="193" h="402" pX="0.5" pY="0.5" oX="2" oY="0" oW="195" oH="404"/>
+  <sprite n="veggie_potato_shoot_fx_0014.png" x="0" y="402" w="191" h="402" pX="0.5" pY="0.5" oX="2" oY="0" oW="193" oH="404"/>
+</TextureAtlas>

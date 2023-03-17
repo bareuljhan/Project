@@ -44,6 +44,8 @@ private:
 
 	shared_ptr<RectCollider> _collider;
 
+	shared_ptr<Effect> _effect;
+
 	float _speed = 200.0f;
 
 	float _hp = 150.0f;

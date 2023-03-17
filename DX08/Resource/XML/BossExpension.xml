@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="BossExpension.png" width="2130" height="2109" scale="1" format="RGBA8888">
+  <sprite n="boss_explosion_0001.png" x="1916" y="706" w="164" h="206" pX="0.5" pY="0.5" oX="0" oY="2" oW="166" oH="208"/>
+  <sprite n="boss_explosion_0002.png" x="1800" y="0" w="330" h="328" pX="0.5" pY="0.5" oX="0" oY="2" oW="332" oH="330"/>
+  <sprite n="boss_explosion_0003.png" x="1348" y="0" w="452" h="464" pX="0.5" pY="0.5" oX="0" oY="2" oW="454" oH="466"/>
+  <sprite n="boss_explosion_0004.png" x="671" y="1445" w="593" h="590" pX="0.5" pY="0.5" oX="0" oY="2" oW="595" oH="592"/>
+  <sprite n="boss_explosion_0005.png" x="0" y="1447" w="671" h="662" pX="0.5" pY="0.5" oX="2" oY="2" oW="675" oH="666"/>
+  <sprite n="boss_explosion_0006.png" x="672" y="0" w="676" h="706" pX="0.5" pY="0.5" oX="2" oY="2" oW="680" oH="708"/>
+  <sprite n="boss_explosion_0007.png" x="0" y="0" w="672" h="724" pX="0.5" pY="0.5" oX="2" oY="2" oW="676" oH="728"/>
+  <sprite n="boss_explosion_0008.png" x="662" y="724" w="661" h="721" pX="0.5" pY="0.5" oX="2" oY="3" oW="665" oH="724"/>
+  <sprite n="boss_explosion_0009.png" x="0" y="724" w="662" h="723" pX="0.5" pY="0.5" oX="0" oY="2" oW="664" oH="727"/>
+  <sprite n="boss_explosion_0010.png" x="1264" y="1445" w="652" h="558" pX="0.5" pY="0.5" oX="2" oY="2" oW="656" oH="560"/>
+  <sprite n="boss_explosion_0011.png" x="1348" y="912" w="646" h="495" pX="0.5" pY="0.5" oX="0" oY="2" oW="648" oH="499"/>
+</TextureAtlas>

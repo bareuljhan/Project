@@ -49,6 +49,7 @@ public:
 	void VaggieSpawn(function<void(void)> endEvent) { _vaggieSpawn = endEvent; }
 	void VaggieIdle(function<void(void)> endEvent) { _vaggieIDLE = endEvent; }
 	void VaggieBeam(function<void(void)> endEvent) { _vaggieBEAM = endEvent; }
+	void VaggieDestroy(function<void(void)> endEvent) { _destroy = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -80,4 +81,5 @@ private:
 	function<void(void)> _vaggieSpawn = nullptr;
 	function<void(void)> _vaggieIDLE = nullptr;
 	function<void(void)> _vaggieBEAM = nullptr;
+	function<void(void)> _destroy = nullptr;
 };

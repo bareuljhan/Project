@@ -5,7 +5,7 @@ public:
 	enum State
 	{
 		BULLET,
-		BEAM,
+		DESTROY,
 		NONE
 	};
 	Vaggie_Bullet();
@@ -19,18 +19,27 @@ public:
 	void Enable();
 	void Disable();
 
+	void Destroy();
+
+	void GetDamage(float amount);
+
 	bool Collision(shared_ptr<Collider> col);
 
 	void SetAction(State state);
 
-	bool isActive = false;
+	void SetFalse() { isActive = false; }
 
+	bool isActive = false;
+	bool isDestroy = false;
+
+
+	shared_ptr<Collider> GetCollider() { return _collider; }
 	shared_ptr<Transform> GetTransform() { return _transform; }
 private:
 	void CreateAction(string name, Action::Type type);
 
 	State _curState = State::BULLET;
-	State _oldState = State::NONE;
+	State _oldState = State::BULLET;
 
 	shared_ptr<Transform> _transform;
 
@@ -39,10 +48,15 @@ private:
 
 	shared_ptr<Collider> _collider;
 
-	float _speed = 400.0f;
+	float _delay = 5.0f;
+	float _lifeTime = 0.0f;
+
+	float _a = 1.0f;
+	float _b = 0.0f;
+
+	float _speed = 100.0f;
 	Vector2 _direction = { 0,0 };
 
-	float _delay = 0.0f;
-	float _lifeTime = 0.5f;
+	float _hp = 30;
 };
 

@@ -61,6 +61,7 @@ public:
 	shared_ptr<Hp> GetHpPNG() { return _health; }
 
 	bool isDead = false;
+	bool isInvincible = false;
 protected:
 	void CreateAction(string name, Action::Type type);
 
@@ -86,12 +87,12 @@ protected:
 	Vector2 _origin = { 0,0 };
 	Vector2 _originPos = { 0,0 };
 
-	float _jumpPower = 250.0f;
+	float _jumpPower = 600.0f;
 	float _speed = 300.0f;
 	float _dashSpeed = 1000.0f;
 
-	float _sceneStart = 0.0f;
-	float _sceneDelay = 1.5f;
+	float _effectStart = 0.0f;
+	float _effectDelay = 0.7f;
 
 	float _atk = 10.0f;
 
@@ -100,5 +101,8 @@ protected:
 
 	float _hp = 4;
 	const int _poolCount = 30;
+
+	float _invincibleTime = 3.0f;
+	float _delay = 0.0f;
 };
 
