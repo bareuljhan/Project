@@ -3,10 +3,10 @@ class PanicStage : public Scene
 {
 public:
 	PanicStage();
-	~PanicStage();
+	virtual ~PanicStage();
 	
-	void Update();
-	void Render();
+	virtual void Update() override;
+	virtual void Render() override;
 
 private:
 	shared_ptr<Stage1_Panic> _bg;

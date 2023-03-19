@@ -3,11 +3,19 @@
 
 PrologueAni::PrologueAni()
 {
-	CreateAction();
+	CreateAction("Intro1", Action::Type::END);
+	CreateAction("Intro2", Action::Type::END);
+	
+	for (auto sprite : _sprites)
+	{
+		sprite->GetTransform()->SetPosition(CENTER);
+		sprite->GetTransform()->GetScale() *= 0.9f;
+	}
 
-	_sprite->GetTransform()->SetPosition(CENTER);
-	_sprite->GetTransform()->GetScale() *= 3.0f;
-	_action->Play();
+	_oldState == State::ONE;
+	_actions[State::ONE]->Play();
+
+	_actions[0]->NextScreen(std::bind(&PrologueAni::SetNext, this));
 }
 
 PrologueAni::~PrologueAni()
@@ -16,24 +24,46 @@ PrologueAni::~PrologueAni()
 
 void PrologueAni::Update()
 {
-	_action->Update();
-	_sprite->Update();
+	for(auto action : _actions)
+		action->Update();
+	for(auto sprite : _sprites)
+		sprite->Update();
 }
 
 void PrologueAni::Render()
 {
-	_sprite->SetActionClip(_action->GetCurClip());
-	_sprite->Render();
+	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
+	_sprites[_curState]->Render();
 }
 
-void PrologueAni::CreateAction()
+void PrologueAni::SetNext()
 {
-	string xmlPath = "Resource/XML/Prologue/Intro.xml";
-	wstring srvPath = L"Resource/Texture/CupHead/Prologue/Intro.png";
+	_oldState = ONE;
+	_curState = TWO;
+	SetAction(State::TWO);
+}
+
+void PrologueAni::SetAction(State state)
+{
+	_curState = state;
+
+	if (_curState == _oldState)
+		return;
+
+	_actions[_curState]->Play();
+	_actions[_oldState]->Reset();
+	_oldState = _curState;
+}
+
+void PrologueAni::CreateAction(string name, Action::Type type)
+{
+	string xmlPath = "Resource/XML/Prologue/" + name + ".xml";
+	wstring srvPath(name.begin(), name.end());
+	srvPath = L"Resource/Texture/CupHead/Prologue/" + srvPath + L".png";
 
 	MyXML xml = MyXML(xmlPath, srvPath);
 
-	_action = make_shared<Action>(xml.GetClips(), "Prologue");
-	Vector2 averageSize = xml.AverageSize() * 0.3f;
-	_sprite = make_shared<Sprite>(srvPath, averageSize);
+	string actionName = "Prologue" + name;
+	_actions.emplace_back(make_shared<Action>(xml.GetClips(), actionName, type));
+	_sprites.emplace_back(make_shared<Sprite>(srvPath, xml.AverageSize()));
 }

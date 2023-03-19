@@ -37,6 +37,7 @@ public:
 	string GetName() { return _name; }
 
 	bool IsPlay() { return _isPlay; }
+	void NextScreen(function<void(void)> endEvent) { _nextPrologue = endEvent; }
 
 	void SetCallBack(function<void(void)> endEvent) { _endEvent = endEvent; }
 
@@ -69,6 +70,8 @@ private:
 
 	// 콜백함수 : 정의를 미리 해 둔 상태에서 나중에 필요에 따라 호출 할 수 있는 함수
 	// 리스너 패턴, 옵저버 패턴
+	function<void(void)> _nextPrologue = nullptr;
+
 	function<void(void)> _endEvent = nullptr;
 	int _targetClip = 26;
 	function<void(void)> _spudderATKEvent = nullptr;

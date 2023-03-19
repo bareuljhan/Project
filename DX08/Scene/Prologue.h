@@ -7,7 +7,12 @@ public:
 
 	virtual void Update() override;
 	virtual void Render() override;
+
+	void SetScreen();
+
+	bool isNext = false;
 private:
 	shared_ptr<PrologueAni> _intro;
+	shared_ptr<StartScreen> _startScreen;
 };
 

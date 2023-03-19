@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="texture.png" width="5455" height="4299" scale="1" format="RGBA8888">
+  <sprite n="cuphead_title_screen_0001.png" x="4364" y="615" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0002.png" x="3273" y="617" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0003.png" x="2182" y="618" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0004.png" x="1091" y="621" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0005.png" x="0" y="622" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0006.png" x="0" y="3687" w="1089" h="612" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0009.png" x="1091" y="3069" w="1091" h="608" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="608"/>
+  <sprite n="cuphead_title_screen_0007.png" x="4362" y="2457" w="1089" h="612" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0008.png" x="1091" y="1235" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0010.png" x="2182" y="3070" w="1089" h="615" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="615"/>
+  <sprite n="cuphead_title_screen_0011.png" x="4364" y="1229" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0012.png" x="1091" y="2459" w="1091" h="610" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="610"/>
+  <sprite n="cuphead_title_screen_0013.png" x="2182" y="0" w="1091" h="618" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="618"/>
+  <sprite n="cuphead_title_screen_0014.png" x="1091" y="0" w="1091" h="621" pX="0.5" pY="0.5" oX="0" oY="1" oW="1093" oH="622"/>
+  <sprite n="cuphead_title_screen_0015.png" x="3273" y="0" w="1091" h="617" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="617"/>
+  <sprite n="cuphead_title_screen_0016.png" x="2182" y="1846" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0017.png" x="2182" y="2458" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0018.png" x="3273" y="1231" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0019.png" x="0" y="1236" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="2" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0020.png" x="4364" y="1843" w="1090" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0021.png" x="2182" y="1232" w="1091" h="614" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0022.png" x="4362" y="3069" w="1089" h="612" pX="0.5" pY="0.5" oX="2" oY="2" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0023.png" x="1091" y="1847" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0024.png" x="2182" y="1846" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0025.png" x="0" y="3070" w="1090" h="617" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="617"/>
+  <sprite n="cuphead_title_screen_0026.png" x="0" y="0" w="1091" h="622" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="622"/>
+  <sprite n="cuphead_title_screen_0027.png" x="3273" y="2453" w="1089" h="618" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="618"/>
+  <sprite n="cuphead_title_screen_0029.png" x="1090" y="3677" w="1089" h="614" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="614"/>
+  <sprite n="cuphead_title_screen_0028.png" x="0" y="2460" w="1091" h="610" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="610"/>
+  <sprite n="cuphead_title_screen_0030.png" x="4364" y="0" w="1091" h="615" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="615"/>
+  <sprite n="cuphead_title_screen_0031.png" x="3273" y="1845" w="1090" h="608" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="608"/>
+  <sprite n="cuphead_title_screen_0032.png" x="0" y="1848" w="1091" h="612" pX="0.5" pY="0.5" oX="0" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0033.png" x="3271" y="3071" w="1089" h="612" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="612"/>
+  <sprite n="cuphead_title_screen_0034.png" x="3271" y="3683" w="1089" h="612" pX="0.5" pY="0.5" oX="2" oY="0" oW="1093" oH="612"/>
+</TextureAtlas>

@@ -6,11 +6,12 @@
 #include "../Scene/OverWorld.h"
 #include "../Scene/Tutorial.h"
 #include "../Scene/PanicStage.h"
+#include "../Scene/FloralFury.h"
 
 Program::Program()
 {
 	Timer::GetInstance()->SetLockFPS(120);
-	_scene = make_shared<PanicStage>();
+	_scene = make_shared<FloralFury>();
 }
 
 Program::~Program()

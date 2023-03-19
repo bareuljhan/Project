@@ -3,6 +3,8 @@
 
 Prologue::Prologue()
 {
+	_startScreen = make_shared<StartScreen>();
+
 	_intro = make_shared<PrologueAni>();
 }
 
@@ -12,10 +14,33 @@ Prologue::~Prologue()
 
 void Prologue::Update()
 {
-	_intro->Update();
+	SetScreen();
+
+	if (isNext == true)
+	{
+		_intro->Update();
+	}
+	else
+		_startScreen->Update();
+	
 }
 
 void Prologue::Render()
 {
-	_intro->Render();
+
+	if (isNext == true)
+	{
+		_intro->Render();
+	}
+	else
+		_startScreen->Render();
+		
+}
+
+void Prologue::SetScreen()
+{
+	if (KEY_DOWN(VK_RETURN))
+	{
+		isNext = true;
+	}
 }

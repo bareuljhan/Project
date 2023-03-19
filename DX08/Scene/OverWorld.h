@@ -3,7 +3,7 @@ class OverWorld : public Scene
 {
 public:
 	OverWorld();
-	~OverWorld();
+	virtual ~OverWorld();
 
 	virtual void Update() override;
 	virtual void Render() override;

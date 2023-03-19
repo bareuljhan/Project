@@ -3,7 +3,7 @@ class Tutorial : public Scene
 {
 public:
 	Tutorial();
-	~Tutorial();
+	virtual ~Tutorial();
 
 	void PreRender();
 	virtual void Update() override;

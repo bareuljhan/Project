@@ -60,6 +60,10 @@ void Action::Update()
 			if (_curClipIndex == 13 && _destroy != nullptr)
 			{
 				_destroy();
+			}	
+			if (_curClipIndex == 50 && _nextPrologue != nullptr)
+			{
+				_nextPrologue();
 			}
 
 

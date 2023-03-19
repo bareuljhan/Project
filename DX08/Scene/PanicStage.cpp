@@ -4,7 +4,7 @@
 PanicStage::PanicStage()
 {
 	_player = make_shared<Player>();
-	_player->GetTransform()->SetPosition(Vector2(300, 700));
+	_player->GetTransform()->SetPosition(Vector2(300, 800));
 
 	_bg = make_shared<Stage1_Panic>();
 	_bg->GetTransform()->SetPosition(CENTER);

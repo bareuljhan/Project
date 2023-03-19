@@ -204,6 +204,15 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Beam.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Map\Prologue\StartScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\FloralFury.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX08.cpp">
@@ -378,6 +387,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Beam.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Map\Prologue\StartScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\FloralFury.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

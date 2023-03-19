@@ -6,10 +6,10 @@ Tutorial::Tutorial()
 	_bg = make_shared<Tutorial_BG>();
 	
 	_player = make_shared<Player>();
-	_player->GetTransform()->SetPosition(Vector2(CENTER_X - 250, CENTER_Y - 100));
+	_player->GetTransform()->SetPosition(Vector2(CENTER_X - 250, 150));
 	_player->GetTransform()->GetScale() *= 0.9f;
 
-	_player->SetSpeed(50.0f);
+	_player->SetSpeed(100.0f);
 
 	_iner = make_shared<Tutorial_Iner_BG>();
 	_iner->GetTransform()->SetPosition(CENTER);

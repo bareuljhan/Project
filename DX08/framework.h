@@ -102,6 +102,9 @@ using namespace DirectX;
 #include "Object/BagicObj/Effect.h"
 #include "Object/BagicObj/EffectManager.h"
 
+// Prologue
+#include "Object/CupHeadObj/Map/Prologue/StartScreen.h"
+
 // UI
 #include "Object/UI/Button.h"
 #include "Object/UI/Hp.h"
@@ -119,6 +122,7 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_BG.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_Player.h"
 #include "Object/CupHeadObj/Map/StageMap/Stage1_Panic.h"
+#include "Object/CupHeadObj/Map/StageMap/Stage2_FloralFury.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_BG.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_Iner_BG.h"
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Intro2.png" width="6800" height="8000" scale="1" format="RGBA8888">
+  <sprite n="book_intro_0051.png" x="0" y="0" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0052.png" x="1360" y="0" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0053.png" x="2720" y="0" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0054.png" x="4080" y="0" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0055.png" x="5440" y="0" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0056.png" x="0" y="800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0057.png" x="1360" y="800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0058.png" x="2720" y="800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0059.png" x="4080" y="800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0060.png" x="5440" y="800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0061.png" x="0" y="1600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0062.png" x="0" y="2400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0063.png" x="0" y="3200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0064.png" x="0" y="4000" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0065.png" x="0" y="4800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0066.png" x="0" y="5600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0067.png" x="0" y="6400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0068.png" x="0" y="7200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0069.png" x="1360" y="1600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0070.png" x="2720" y="1600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0071.png" x="4080" y="1600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0072.png" x="5440" y="1600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0073.png" x="1360" y="2400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0074.png" x="2720" y="2400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0075.png" x="4080" y="2400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0076.png" x="5440" y="2400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0077.png" x="1360" y="3200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0078.png" x="1360" y="4000" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0079.png" x="1360" y="4800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0080.png" x="1360" y="5600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0081.png" x="1360" y="6400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0082.png" x="1360" y="7200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0083.png" x="2720" y="3200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0084.png" x="4080" y="3200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0085.png" x="5440" y="3200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0086.png" x="2720" y="4000" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0087.png" x="2720" y="4800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0088.png" x="2720" y="5600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0089.png" x="2720" y="6400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0090.png" x="2720" y="7200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0091.png" x="4080" y="4000" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0092.png" x="5440" y="4000" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0093.png" x="4080" y="4800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0094.png" x="5440" y="4800" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0095.png" x="4080" y="5600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0096.png" x="4080" y="6400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0097.png" x="4080" y="7200" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0098.png" x="5440" y="5600" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0099.png" x="5440" y="6400" w="1360" h="800" pX="0.5" pY="0.5"/>
+  <sprite n="book_intro_0100.png" x="5440" y="7200" w="1360" h="800" pX="0.5" pY="0.5"/>
+</TextureAtlas>
