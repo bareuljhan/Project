@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="GatlingFX.png" width="255" height="1132" scale="1" format="RGBA8888">
+  <sprite n="flower_gatling_fx_0001.png" x="112" y="853" w="93" h="99" pX="0.5" pY="0.5" oX="0" oY="0" oW="93" oH="101"/>
+  <sprite n="flower_gatling_fx_0002.png" x="0" y="996" w="124" h="136" pX="0.5" pY="0.5" oX="0" oY="0" oW="124" oH="138"/>
+  <sprite n="flower_gatling_fx_0003.png" x="0" y="470" w="118" h="226" pX="0.5" pY="0.5" oX="0" oY="2" oW="118" oH="230"/>
+  <sprite n="flower_gatling_fx_0004.png" x="142" y="0" w="113" h="160" pX="0.5" pY="0.5" oX="0" oY="2" oW="115" oH="164"/>
+  <sprite n="flower_gatling_fx_0005.png" x="0" y="0" w="142" h="240" pX="0.5" pY="0.5" oX="2" oY="0" oW="144" oH="242"/>
+  <sprite n="flower_gatling_fx_0006.png" x="0" y="853" w="112" h="143" pX="0.5" pY="0.5" oX="2" oY="0" oW="116" oH="145"/>
+  <sprite n="flower_gatling_fx_0007.png" x="0" y="240" w="104" h="230" pX="0.5" pY="0.5" oX="2" oY="2" oW="106" oH="234"/>
+  <sprite n="flower_gatling_fx_0008.png" x="0" y="696" w="114" h="157" pX="0.5" pY="0.5" oX="2" oY="2" oW="118" oH="161"/>
+  <sprite n="flower_gatling_fx_0009.png" x="104" y="240" w="90" h="218" pX="0.5" pY="0.5" oX="1" oY="0" oW="91" oH="220"/>
+  <sprite n="flower_gatling_fx_0010.png" x="142" y="160" w="66" h="29" pX="0.5" pY="0.5" oX="2" oY="0" oW="68" oH="31" r="y"/>
+  <sprite n="flower_gatling_fx_0011.png" x="171" y="160" w="61" h="83" pX="0.5" pY="0.5" oX="2" oY="2" oW="63" oH="87" r="y"/>
+</TextureAtlas>

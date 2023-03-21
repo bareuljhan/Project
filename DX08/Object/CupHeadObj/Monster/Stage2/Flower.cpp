@@ -10,10 +10,6 @@ Flower::Flower()
 	CreateAction("FlowerGatling", Action::Type::END);
 	CreateAction("FlowerHand", Action::Type::END);
 
-	CreateAction("GatlingFX");
-
-	_podSprite->GetTransform()->SetPosition(Vector2(950, 650));
-	_podSprite->GetTransform()->SetScale(Vector2(1.5f, 1.5f));
 	_actions[GATLING]->PodEffect(std::bind(&Flower::PlayEffect, this));
 
 	for (auto sprite : _sprites)
@@ -35,6 +31,10 @@ Flower::Flower()
 	_curState = INTRO;
 
 	_actions[_curState]->Play();
+
+	wstring file = L"Resource/Texture/CupHead/Monster/GatlingFX.png";
+	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(200, 200), 0.1f);
 }
 
 Flower::~Flower()
@@ -50,11 +50,6 @@ void Flower::Update()
 	for (auto sprite : _sprites)
 		sprite->Update();
 
-	if (_curState == GATLING && isUpdate == true && _podAction->isEnd != true)
-	{
-		_podSprite->Update();
-		_podAction->Update();
-	}
 	_transform->UpdateSRT();
 }
 
@@ -63,11 +58,6 @@ void Flower::Render()
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
-	if (_curState == GATLING && isUpdate == true && _podAction->isEnd != true)
-	{
-		_podSprite->SetActionClip(_podAction->GetCurClip());
-		_podSprite->Render();
-	}
 	if(_curState != INTRO)
 		_hitCollider->Render();
 }
@@ -94,7 +84,6 @@ void Flower::AttackPattern()
 	}
 	if (_curState == IDLE && _actions[_curState]->isEnd == true)
 	{
-		_podAction->isEnd = false;
 		SetGatling();
 		_actions[_curState]->isEnd = false;
 	}
@@ -128,7 +117,7 @@ void Flower::SetHandATK()
 void Flower::PlayEffect()
 {
 	isUpdate = true;
-	_podAction->Play();
+	EFFECT->Play("GatlingFX", Vector2(950, 650), true);
 }
 
 void Flower::CreateAction(string name, Action::Type type)
@@ -142,17 +131,4 @@ void Flower::CreateAction(string name, Action::Type type)
 	string actionName = name;
 	_actions.emplace_back(make_shared<Action>(xml.GetClips(), actionName, type));
 	_sprites.emplace_back(make_shared<Sprite>(srvPath, xml.AverageSize()));
-}
-
-void Flower::CreateAction(string name)
-{
-	string xmlPath = "Resource/XML/Monster/" + name + ".xml";
-	wstring srvPath(name.begin(), name.end());
-	srvPath = L"Resource/Texture/CupHead/Monster/" + srvPath + L".png";
-
-	MyXML xml = MyXML(xmlPath, srvPath);
-
-	string actionName = name;
-	_podAction = make_shared<Action>(xml.GetClips(), actionName, Action::Type::END);
-	_podSprite = make_shared<Sprite>(srvPath, xml.AverageSize());
 }

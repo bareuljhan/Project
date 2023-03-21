@@ -87,7 +87,7 @@ protected:
 	Vector2 _origin = { 0,0 };
 	Vector2 _originPos = { 0,0 };
 
-	float _jumpPower = 600.0f;
+	float _jumpPower = 200.0f;
 	float _speed = 300.0f;
 	float _dashSpeed = 1000.0f;
 

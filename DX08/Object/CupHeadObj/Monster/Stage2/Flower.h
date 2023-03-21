@@ -28,7 +28,6 @@ public:
 	bool isUpdate = false;
 private:
 	void CreateAction(string name, Action::Type type);
-	void CreateAction(string name);
 
 	State _oldState = NONE;
 	State _curState = IDLE;
@@ -38,9 +37,9 @@ private:
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
-	shared_ptr<Sprite> _podSprite;
-	shared_ptr<Action> _podAction;
 	shared_ptr<PodBullet> _podBullet;
+
+	shared_ptr<Effect> _effect;
 
 	shared_ptr<RectCollider> _hitCollider;
 	shared_ptr<RectCollider> _atkCollider;
