@@ -9,7 +9,7 @@ Tutorial::Tutorial()
 	_player->GetTransform()->SetPosition(Vector2(CENTER_X - 250, 150));
 	_player->GetTransform()->GetScale() *= 0.9f;
 
-	_player->SetSpeed(100.0f);
+	_player->SetSpeed(50.0f);
 
 	_iner = make_shared<Tutorial_Iner_BG>();
 	_iner->GetTransform()->SetPosition(CENTER);
@@ -38,15 +38,12 @@ void Tutorial::Update()
 	
 	if(_player->GetBlockCollider()->IsCollision(_iner->GetExitCol()))
 		_button->Update();
-	if (_iner->GetTargetCol()->isActive == true)
+
+	if (_iner->isDestroy != true)
 	{
 		for (auto bullet : _player->GetBullets())
-		{
-			if (bullet->isCollision == true)
-			{
+			if (bullet->Collision(_iner->GetTargetCol()))
 				_iner->Damaged(_player->GetATK());
-			}
-		}
 	}
 }
 

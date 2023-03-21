@@ -19,6 +19,7 @@ public:
 
 	void Damaged(float amount);
 	void Init();
+	bool isDestroy = false;
 private:
 	weak_ptr<Player> _player;
 
@@ -42,8 +43,7 @@ private:
 	shared_ptr<CircleCollider> _targetCol;
 
 	float _targetHP = 50.0f;
-	float _speed = 200.0f;
+	float _speed = 300.0f;
 	
-	bool _isDestroy = false;
 };
 

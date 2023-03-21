@@ -51,6 +51,7 @@ public:
 	void VaggieIdle(function<void(void)> endEvent) { _vaggieIDLE = endEvent; }
 	void VaggieBeam(function<void(void)> endEvent) { _vaggieBEAM = endEvent; }
 	void VaggieDestroy(function<void(void)> endEvent) { _destroy = endEvent; }
+	void PodEffect(function<void(void)> endEvent) { _podEffect = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -61,7 +62,6 @@ private:
 	Type _repeatType;
 
 	bool _isPlay = false;
-
 
 	float _time = 0.0f;
 	float _speed = 2.0f;
@@ -85,4 +85,5 @@ private:
 	function<void(void)> _vaggieIDLE = nullptr;
 	function<void(void)> _vaggieBEAM = nullptr;
 	function<void(void)> _destroy = nullptr;
+	function<void(void)> _podEffect = nullptr;
 };

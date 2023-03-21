@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="pod_two.png" width="89" height="475" scale="1" format="RGBA8888">
+  <sprite n="b_pod_one_0001.png" x="43" y="122" w="45" h="60" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="62"/>
+  <sprite n="b_pod_one_0002.png" x="0" y="61" w="45" h="61" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="63"/>
+  <sprite n="b_pod_one_0003.png" x="0" y="122" w="43" h="61" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="63"/>
+  <sprite n="b_pod_one_0004.png" x="0" y="0" w="46" h="61" pX="0.5" pY="0.5" oX="2" oY="0" oW="48" oH="63"/>
+  <sprite n="b_pod_one_0005.png" x="46" y="0" w="43" h="60" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="62"/>
+  <sprite n="b_pod_one_0006.png" x="45" y="61" w="44" h="60" pX="0.5" pY="0.5" oX="2" oY="0" oW="48" oH="62"/>
+  <sprite n="b_pod_one_0007.png" x="0" y="183" w="46" h="60" pX="0.5" pY="0.5" oX="2" oY="0" oW="48" oH="62"/>
+  <sprite n="b_pod_one_0008.png" x="0" y="243" w="45" h="59" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="61"/>
+  <sprite n="b_pod_one_0009.png" x="0" y="302" w="45" h="58" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="60"/>
+  <sprite n="b_pod_one_0010.png" x="0" y="360" w="44" h="58" pX="0.5" pY="0.5" oX="2" oY="0" oW="46" oH="60"/>
+  <sprite n="b_pod_one_0011.png" x="0" y="418" w="45" h="57" pX="0.5" pY="0.5" oX="2" oY="0" oW="47" oH="59"/>
+</TextureAtlas>

@@ -33,6 +33,7 @@ private:
 
 	shared_ptr<RectCollider> _floorCol;
 	shared_ptr<RectCollider> _sideCol;
+	shared_ptr<RectCollider> _sideCol2;
 
 	vector<shared_ptr<RectCollider>> _colliders;
 };

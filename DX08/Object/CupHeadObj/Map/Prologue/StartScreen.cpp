@@ -5,8 +5,8 @@ StartScreen::StartScreen()
 {
 	CreateAction(Action::Type::PINGPONG);
 
-	_sprite->GetTransform()->SetPosition(CENTER);
-	_sprite->GetTransform()->GetScale() *= 3.0f;
+	_sprite->GetTransform()->SetPosition(Vector2(CENTER_X, CENTER_Y - 70));
+	_sprite->GetTransform()->GetScale() *= 3.2f;
 	_action->Play();
 
 	_quad = make_shared<Quad>(L"Resource/Texture/CupHead/Prologue/Screen_backGround.png");

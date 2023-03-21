@@ -64,11 +64,16 @@ void Action::Update()
 			if (_curClipIndex == 50 && _nextPrologue != nullptr)
 			{
 				_nextPrologue();
+			}	
+			if (_curClipIndex == 6 && _podEffect != nullptr)
+			{
+				_podEffect();
 			}
 
 
 			if (_curClipIndex >= _clips.size())
 			{
+				isEnd = true;
 				Stop();
 			}
 		}
@@ -96,7 +101,10 @@ void Action::Update()
 					_vaggieIDLE();
 
 				if (_curClipIndex <= 0)
+				{
 					_isReverse = false;
+					isEnd = true;
+				}
 				
 			}
 			else

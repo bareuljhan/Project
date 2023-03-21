@@ -91,7 +91,7 @@ void Tutorial_Iner_BG::Update()
 	_cylinder2Col->Update();
 	_cylinder3Col->Update();
 
-	if (_isDestroy == false)
+	if (isDestroy == false)
 	{
 		_targetCol->Update();
 		_target->Update();
@@ -145,7 +145,7 @@ void Tutorial_Iner_BG::Render()
 	_cylinder2->Render();
 	_pyramidTarget->Render();
 
-	if (_isDestroy == false)
+	if (isDestroy == false)
 	{
 		_target->Render();
 		_targetCol->Render();
@@ -183,7 +183,7 @@ void Tutorial_Iner_BG::Damaged(float amount)
 	if (_targetHP < 0.0f)
 	{
 		_targetHP = 0.0f;
-		_isDestroy = true;
+		isDestroy = true;
 	}
 }
 

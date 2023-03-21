@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Tire.png" width="255" height="798" scale="1" format="RGBA8888">
+  <sprite n="veggie_tireswing_0001.png" x="58" y="134" w="73" h="132" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0002.png" x="0" y="667" w="74" h="131" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0003.png" x="62" y="535" w="73" h="131" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0004.png" x="117" y="0" w="73" h="132" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0005.png" x="131" y="132" w="73" h="132" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0006.png" x="0" y="402" w="71" h="133" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0007.png" x="71" y="401" w="68" h="131" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0008.png" x="190" y="0" w="65" h="132" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0009.png" x="0" y="535" w="62" h="132" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0010.png" x="56" y="268" w="61" h="133" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0011.png" x="0" y="0" w="59" h="134" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0012.png" x="0" y="134" w="58" h="134" pX="0.5" pY="0.5"/>
+  <sprite n="veggie_tireswing_0013.png" x="0" y="268" w="56" h="134" pX="0.5" pY="0.5"/>
+</TextureAtlas>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="pod_three_planing.png" width="3694" height="3622" scale="1" format="RGBA8888">
+  <sprite n="flower_phase_one_hands_0001.png" x="2301" y="0" w="354" h="617" pX="0.5" pY="0.5" oX="2" oY="0" oW="356" oH="619"/>
+  <sprite n="flower_phase_one_hands_0002.png" x="552" y="0" w="418" h="664" pX="0.5" pY="0.5" oX="2" oY="0" oW="420" oH="665"/>
+  <sprite n="flower_phase_one_hands_0003.png" x="0" y="1998" w="419" h="659" pX="0.5" pY="0.5" oX="2" oY="0" oW="421" oH="661"/>
+  <sprite n="flower_phase_one_hands_0004.png" x="1103" y="645" w="475" h="642" pX="0.5" pY="0.5" oX="2" oY="0" oW="477" oH="644"/>
+  <sprite n="flower_phase_one_hands_0005.png" x="1578" y="645" w="508" h="622" pX="0.5" pY="0.5" oX="2" oY="0" oW="510" oH="624"/>
+  <sprite n="flower_phase_one_hands_0006.png" x="2086" y="619" w="542" h="618" pX="0.5" pY="0.5" oX="2" oY="0" oW="544" oH="618"/>
+  <sprite n="flower_phase_one_hands_0007.png" x="2086" y="1824" w="552" h="595" pX="0.5" pY="0.5" oX="2" oY="0" oW="554" oH="597"/>
+  <sprite n="flower_phase_one_hands_0008.png" x="2086" y="1237" w="568" h="587" pX="0.5" pY="0.5" oX="2" oY="0" oW="570" oH="589"/>
+  <sprite n="flower_phase_one_hands_0009.png" x="1500" y="1941" w="584" h="593" pX="0.5" pY="0.5" oX="2" oY="0" oW="586" oH="595"/>
+  <sprite n="flower_phase_one_hands_0010.png" x="2683" y="3018" w="591" h="600" pX="0.5" pY="0.5" oX="2" oY="0" oW="595" oH="600"/>
+  <sprite n="flower_phase_one_hands_0011.png" x="2084" y="3018" w="599" h="604" pX="0.5" pY="0.5" oX="2" oY="0" oW="603" oH="604"/>
+  <sprite n="flower_phase_one_hands_0012a.png" x="2655" y="606" w="604" h="610" pX="0.5" pY="0.5" oX="0" oY="0" oW="606" oH="612"/>
+  <sprite n="flower_phase_one_hands_0012b.png" x="2655" y="0" w="607" h="606" pX="0.5" pY="0.5" oX="0" oY="0" oW="609" oH="608"/>
+  <sprite n="flower_phase_one_hands_0012c.png" x="2655" y="1216" w="603" h="609" pX="0.5" pY="0.5" oX="0" oY="0" oW="605" oH="611"/>
+  <sprite n="flower_phase_one_hands_0013.png" x="2638" y="1825" w="600" h="605" pX="0.5" pY="0.5" oX="0" oY="0" oW="602" oH="607"/>
+  <sprite n="flower_phase_one_hands_0014.png" x="1500" y="2534" w="580" h="613" pX="0.5" pY="0.5" oX="0" oY="0" oW="580" oH="615"/>
+  <sprite n="flower_phase_one_hands_0015.png" x="953" y="1990" w="547" h="631" pX="0.5" pY="0.5" oX="2" oY="0" oW="551" oH="633"/>
+  <sprite n="flower_phase_one_hands_0016.png" x="553" y="1339" w="549" h="651" pX="0.5" pY="0.5" oX="0" oY="0" oW="549" oH="653"/>
+  <sprite n="flower_phase_one_hands_0017.png" x="0" y="0" w="552" h="672" pX="0.5" pY="0.5" oX="0" oY="0" oW="554" oH="674"/>
+  <sprite n="flower_phase_one_hands_0018.png" x="0" y="2657" w="553" h="654" pX="0.5" pY="0.5" oX="0" oY="0" oW="555" oH="656"/>
+  <sprite n="flower_phase_one_hands_0019.png" x="554" y="664" w="549" h="650" pX="0.5" pY="0.5" oX="0" oY="0" oW="551" oH="652"/>
+  <sprite n="flower_phase_one_hands_0020.png" x="0" y="1339" w="553" h="659" pX="0.5" pY="0.5" oX="0" oY="0" oW="555" oH="661"/>
+  <sprite n="flower_phase_one_hands_0021.png" x="0" y="672" w="554" h="667" pX="0.5" pY="0.5" oX="0" oY="0" oW="555" oH="669"/>
+  <sprite n="flower_phase_one_hands_0022.png" x="1102" y="0" w="564" h="645" pX="0.5" pY="0.5" oX="2" oY="0" oW="568" oH="647"/>
+  <sprite n="flower_phase_one_hands_0023.png" x="1102" y="1314" w="593" h="627" pX="0.5" pY="0.5" oX="1" oY="0" oW="596" oH="629"/>
+  <sprite n="flower_phase_one_hands_0024.png" x="1695" y="0" w="606" h="619" pX="0.5" pY="0.5" oX="2" oY="0" oW="610" oH="621"/>
+  <sprite n="flower_phase_one_hands_0025.png" x="419" y="1998" w="534" h="652" pX="0.5" pY="0.5" oX="0" oY="0" oW="536" oH="654"/>
+  <sprite n="flower_phase_one_hands_0026.png" x="553" y="2650" w="416" h="635" pX="0.5" pY="0.5" oX="0" oY="0" oW="418" oH="637"/>
+  <sprite n="flower_phase_one_hands_0027.png" x="3262" y="0" w="432" h="611" pX="0.5" pY="0.5" oX="0" oY="0" oW="434" oH="613"/>
+  <sprite n="flower_phase_one_hands_0028.png" x="2084" y="2419" w="467" h="599" pX="0.5" pY="0.5" oX="0" oY="0" oW="469" oH="601"/>
+  <sprite n="flower_phase_one_hands_0029.png" x="969" y="2621" w="518" h="604" pX="0.5" pY="0.5" oX="2" oY="0" oW="522" oH="606"/>
+</TextureAtlas>

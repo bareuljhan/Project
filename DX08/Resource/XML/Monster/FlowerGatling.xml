@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerGatling.png" width="2740" height="2717" scale="1" format="RGBA8888">
+  <sprite n="flower_phase_one_gatling_0002.png" x="0" y="617" w="394" h="612" pX="0.5" pY="0.5" oX="2" oY="0" oW="396" oH="614"/>
+  <sprite n="flower_phase_one_gatling_0003.png" x="967" y="0" w="502" h="589" pX="0.5" pY="0.5" oX="2" oY="0" oW="504" oH="591"/>
+  <sprite n="flower_phase_one_gatling_0004.png" x="1469" y="0" w="493" h="572" pX="0.5" pY="0.5" oX="2" oY="0" oW="495" oH="574"/>
+  <sprite n="flower_phase_one_gatling_0005.png" x="505" y="0" w="455" h="598" pX="0.5" pY="0.5" oX="2" oY="0" oW="457" oH="600"/>
+  <sprite n="flower_phase_one_gatling_0006.png" x="1355" y="589" w="492" h="587" pX="0.5" pY="0.5" oX="2" oY="0" oW="494" oH="589"/>
+  <sprite n="flower_phase_one_gatling_0007.png" x="1962" y="0" w="506" h="545" pX="0.5" pY="0.5" oX="2" oY="0" oW="508" oH="547"/>
+  <sprite n="flower_phase_one_gatling_0009.png" x="0" y="1830" w="468" h="591" pX="0.5" pY="0.5" oX="0" oY="2" oW="468" oH="593"/>
+  <sprite n="flower_phase_one_gatling_0008.png" x="481" y="1216" w="486" h="590" pX="0.5" pY="0.5" oX="2" oY="2" oW="488" oH="594"/>
+  <sprite n="flower_phase_one_gatling_0010.png" x="2287" y="1591" w="453" h="551" pX="0.5" pY="0.5" oX="0" oY="2" oW="453" oH="553"/>
+  <sprite n="flower_phase_one_gatling_0011.png" x="912" y="598" w="443" h="590" pX="0.5" pY="0.5" oX="0" oY="2" oW="443" oH="592"/>
+  <sprite n="flower_phase_one_gatling_0012.png" x="2252" y="2155" w="426" h="560" pX="0.5" pY="0.5" oX="0" oY="2" oW="426" oH="562"/>
+  <sprite n="flower_phase_one_gatling_0013.png" x="394" y="617" w="433" h="599" pX="0.5" pY="0.5" oX="0" oY="2" oW="433" oH="601"/>
+  <sprite n="flower_phase_one_gatling_0014.png" x="1824" y="2155" w="428" h="562" pX="0.5" pY="0.5" oX="2" oY="2" oW="430" oH="564"/>
+  <sprite n="flower_phase_one_gatling_0015.png" x="468" y="1830" w="444" h="591" pX="0.5" pY="0.5" oX="0" oY="2" oW="444" oH="593"/>
+  <sprite n="flower_phase_one_gatling_0016.png" x="1370" y="1720" w="454" h="560" pX="0.5" pY="0.5" oX="0" oY="2" oW="454" oH="562"/>
+  <sprite n="flower_phase_one_gatling_0017.png" x="1831" y="1591" w="456" h="564" pX="0.5" pY="0.5" oX="2" oY="0" oW="458" oH="566"/>
+  <sprite n="flower_phase_one_gatling_0018.png" x="1962" y="1059" w="479" h="532" pX="0.5" pY="0.5" oX="3" oY="2" oW="482" oH="536"/>
+  <sprite n="flower_phase_one_gatling_0019.png" x="1962" y="545" w="505" h="514" pX="0.5" pY="0.5" oX="2" oY="0" oW="507" oH="516"/>
+  <sprite n="flower_phase_one_gatling_0020.png" x="1355" y="1176" w="476" h="544" pX="0.5" pY="0.5" oX="2" oY="0" oW="480" oH="546"/>
+  <sprite n="flower_phase_one_gatling_0021.png" x="912" y="1806" w="458" h="564" pX="0.5" pY="0.5" oX="2" oY="0" oW="460" oH="566"/>
+  <sprite n="flower_phase_one_gatling_0022.png" x="0" y="1229" w="481" h="601" pX="0.5" pY="0.5" oX="2" oY="0" oW="485" oH="603"/>
+  <sprite n="flower_phase_one_gatling_0023.png" x="0" y="0" w="505" h="617" pX="0.5" pY="0.5" oX="2" oY="0" oW="507" oH="619"/>
+</TextureAtlas>

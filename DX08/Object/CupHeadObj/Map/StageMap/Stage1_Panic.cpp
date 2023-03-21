@@ -89,8 +89,17 @@ Stage1_Panic::Stage1_Panic()
 	_sideCol->GetTransform()->SetParent(_transform);
 	_sideCol->GetTransform()->SetPosition(Vector2(-685, 0));
 
+	CreateAction("Tire", Action::Type::PINGPONG);
+	_sprite->GetTransform()->SetPosition(Vector2(339, CENTER_Y + 141));
+	_action->Play();
+
+	_sideCol2 = make_shared<RectCollider>(Vector2(100, 1280));
+	_sideCol2->GetTransform()->SetParent(_transform);
+	_sideCol2->GetTransform()->SetPosition(Vector2(685, 0));
+
 	_colliders.push_back(_floorCol);
 	_colliders.push_back(_sideCol);
+	_colliders.push_back(_sideCol2);
 }
 
 Stage1_Panic::~Stage1_Panic()
@@ -101,6 +110,10 @@ void Stage1_Panic::Update()
 {
 	_floorCol->Update();
 	_sideCol->Update();
+	_sideCol2->Update();
+
+	_sprite->Update();
+	_action->Update();
 
 	_sky->Update();
 	_cloud6->Update();
@@ -180,6 +193,8 @@ void Stage1_Panic::MidleRender()
 {
 	_field3->Render();
 	_mainBG->Render();
+	_sprite->Render();
+	_sprite->SetActionClip(_action->GetCurClip());
 }
 
 void Stage1_Panic::PostRender()
@@ -188,4 +203,18 @@ void Stage1_Panic::PostRender()
 	_postField2->Render();
 	_floorCol->Render();
 	_sideCol->Render();
+	_sideCol2->Render();
+}
+
+void Stage1_Panic::CreateAction(string name, Action::Type type)
+{
+	string xmlPath = "Resource/XML/" + name + ".xml";
+	wstring srvPath(name.begin(), name.end());
+	srvPath = L"Resource/Texture/CupHead/StageMap/Stage1/" + srvPath + L".png";
+
+	MyXML xml = MyXML(xmlPath, srvPath);
+
+	string actionName = name;
+	_action = make_shared<Action>(xml.GetClips(), actionName, type);
+	_sprite = make_shared<Sprite>(srvPath, xml.AverageSize());
 }

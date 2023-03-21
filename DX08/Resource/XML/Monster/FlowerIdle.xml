@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerIdle.png" width="2539" height="2500" scale="1" format="RGBA8888">
+  <sprite n="flower_idle_0001.png" x="1537" y="0" w="512" h="619" pX="0.5" pY="0.5" oX="2" oY="0" oW="514" oH="621"/>
+  <sprite n="flower_idle_0002.png" x="2049" y="0" w="490" h="633" pX="0.5" pY="0.5" oX="2" oY="0" oW="492" oH="635"/>
+  <sprite n="flower_idle_0003.png" x="781" y="651" w="483" h="648" pX="0.5" pY="0.5" oX="2" oY="0" oW="485" oH="651"/>
+  <sprite n="flower_idle_0004.png" x="0" y="1340" w="472" h="661" pX="0.5" pY="0.5" oX="2" oY="0" oW="474" oH="663"/>
+  <sprite n="flower_idle_0005.png" x="0" y="0" w="453" h="675" pX="0.5" pY="0.5" oX="2" oY="0" oW="455" oH="677"/>
+  <sprite n="flower_idle_0006.png" x="0" y="675" w="412" h="665" pX="0.5" pY="0.5" oX="2" oY="0" oW="414" oH="667"/>
+  <sprite n="flower_idle_0007.png" x="412" y="675" w="369" h="653" pX="0.5" pY="0.5" oX="2" oY="0" oW="371" oH="653"/>
+  <sprite n="flower_idle_0008.png" x="2194" y="1264" w="337" h="637" pX="0.5" pY="0.5" oX="2" oY="0" oW="339" oH="639"/>
+  <sprite n="flower_idle_0009.png" x="1264" y="1874" w="317" h="626" pX="0.5" pY="0.5" oX="2" oY="0" oW="319" oH="628"/>
+  <sprite n="flower_idle_0010.png" x="1888" y="1874" w="306" h="619" pX="0.5" pY="0.5" oX="2" oY="0" oW="308" oH="621"/>
+  <sprite n="flower_idle_0011.png" x="1581" y="1874" w="307" h="623" pX="0.5" pY="0.5" oX="2" oY="0" oW="309" oH="625"/>
+  <sprite n="flower_idle_0012.png" x="781" y="1299" w="331" h="632" pX="0.5" pY="0.5" oX="2" oY="0" oW="333" oH="632"/>
+  <sprite n="flower_idle_0013.png" x="811" y="0" w="331" h="645" pX="0.5" pY="0.5" oX="2" oY="0" oW="333" oH="645"/>
+  <sprite n="flower_idle_0014.png" x="453" y="0" w="358" h="651" pX="0.5" pY="0.5" oX="2" oY="0" oW="360" oH="652"/>
+  <sprite n="flower_idle_0015.png" x="1142" y="0" w="395" h="643" pX="0.5" pY="0.5" oX="2" oY="0" oW="397" oH="644"/>
+  <sprite n="flower_idle_0016.png" x="1264" y="1244" w="450" h="630" pX="0.5" pY="0.5" oX="2" oY="0" oW="452" oH="630"/>
+  <sprite n="flower_idle_0017.png" x="2041" y="633" w="487" h="631" pX="0.5" pY="0.5" oX="2" oY="0" oW="489" oH="631"/>
+  <sprite n="flower_idle_0018.png" x="1537" y="619" w="504" h="625" pX="0.5" pY="0.5" oX="2" oY="0" oW="508" oH="627"/>
+</TextureAtlas>

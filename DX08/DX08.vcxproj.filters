@@ -213,6 +213,12 @@
     <ClInclude Include="Scene\FloralFury.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Flower.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PodBullet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX08.cpp">
@@ -396,6 +402,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\FloralFury.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Flower.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PodBullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

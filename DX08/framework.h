@@ -136,6 +136,9 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Monster/Stage1/Carrot.h"
 #include "Object/CupHeadObj/Monster/Stage1/Vaggie_Carrot.h"
 
+// Stage2
+#include "Object/CupHeadObj/Monster/Stage2/PodBullet.h"
+#include "Object/CupHeadObj/Monster/Stage2/Flower.h"
 
 // Scene
 #include "Scene/Scene.h"

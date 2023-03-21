@@ -34,6 +34,7 @@ void EffectManager::Play(string name, Vector2 pos, bool isLeftRight)
 
 	vector<shared_ptr<Effect>> v = _effectTable[name];
 	auto iter = std::find_if(v.begin(), v.end(),
+
 		[](const shared_ptr<Effect>& effect)->bool
 		{
 			if (effect->IsActive() == false)

@@ -36,6 +36,22 @@ Stage2_FloralFury::Stage2_FloralFury()
 	_sprite->GetTransform()->SetScale(Vector2(1.5f, 1.5f));
 	_action->Play();
 
+	_floorCol = make_shared<RectCollider>(Vector2(1400, 100));
+	_floorCol->GetTransform()->SetParent(_transform);
+	_floorCol->GetTransform()->SetPosition(Vector2(CENTER_X,30));
+
+	_sideCol = make_shared<RectCollider>(Vector2(100, 1280));
+	_sideCol->GetTransform()->SetParent(_transform);
+	_sideCol->GetTransform()->SetPosition(Vector2(-45, 0));
+
+	_sideCol2 = make_shared<RectCollider>(Vector2(100, 1280));
+	_sideCol2->GetTransform()->SetParent(_transform);
+	_sideCol2->GetTransform()->SetPosition(Vector2(1325, 100));
+
+	_colliders.push_back(_floorCol);
+	_colliders.push_back(_sideCol);
+	_colliders.push_back(_sideCol2);
+
 }
 
 Stage2_FloralFury::~Stage2_FloralFury()
@@ -45,6 +61,10 @@ Stage2_FloralFury::~Stage2_FloralFury()
 
 void Stage2_FloralFury::Update()
 {
+	_floorCol->Update();
+	_sideCol->Update();
+	_sideCol2->Update();
+
 	_sky->Update();
 	_mainBG->Update();
 	_hill->Update();
@@ -53,11 +73,37 @@ void Stage2_FloralFury::Update()
 	_sea->Update();
 	_sun->Update();
 
-
 	_sprite->Update();
 	_action->Update();
 
 	_transform->UpdateSRT();
+
+	if (_player.expired() == false)
+	{
+		shared_ptr<CircleCollider> circle = _player.lock()->GetBlockCollider();
+		HIT_RESULT result;
+
+		for (auto collider : _colliders)
+		{
+			result = collider->Block(circle);
+			if (result.isHit == true && result.dir == Dir::UP)
+			{
+				_player.lock()->Ground();
+				break;
+			}
+			else if (result.isHit && result.dir == Dir::DOWN)
+			{
+				_player.lock()->NGround();
+				break;
+			}
+
+
+			if (result.isHit == false)
+			{
+				_player.lock()->NGround();
+			}
+		}
+	}
 }
 
 void Stage2_FloralFury::Render()
@@ -78,7 +124,10 @@ void Stage2_FloralFury::PreRender()
 
 void Stage2_FloralFury::PostRender()
 {
-	_flower->Render();
+	_flower->Render();	
+	_floorCol->Render();
+	_sideCol->Render();
+	_sideCol2->Render();
 }
 
 void Stage2_FloralFury::CreateAction(string name, Action::Type type)
