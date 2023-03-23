@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Phase2IDLE.png" width="2827" height="2122" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_idle_0001.png" x="1449" y="1345" w="451" h="647" pX="0.5" pY="0.5" oX="0" oY="2" oW="453" oH="651"/>
+  <sprite n="flower_phase2_idle_0002.png" x="2361" y="1287" w="458" h="643" pX="0.5" pY="0.5" oX="0" oY="2" oW="460" oH="647"/>
+  <sprite n="flower_phase2_idle_0003.png" x="1983" y="0" w="461" h="644" pX="0.5" pY="0.5" oX="0" oY="0" oW="463" oH="646"/>
+  <sprite n="flower_phase2_idle_0004.png" x="1897" y="657" w="464" h="644" pX="0.5" pY="0.5" oX="0" oY="0" oW="466" oH="646"/>
+  <sprite n="flower_phase2_idle_0005.png" x="2361" y="644" w="466" h="643" pX="0.5" pY="0.5" oX="0" oY="0" oW="466" oH="645"/>
+  <sprite n="flower_phase2_idle_0006.png" x="1520" y="0" w="463" h="657" pX="0.5" pY="0.5" oX="2" oY="0" oW="467" oH="657"/>
+  <sprite n="flower_phase2_idle_0007.png" x="516" y="1405" w="465" h="678" pX="0.5" pY="0.5" oX="0" oY="0" oW="467" oH="680"/>
+  <sprite n="flower_phase2_idle_0008.png" x="493" y="708" w="467" h="697" pX="0.5" pY="0.5" oX="0" oY="0" oW="467" oH="699"/>
+  <sprite n="flower_phase2_idle_0009.png" x="0" y="708" w="493" h="708" pX="0.5" pY="0.5" oX="0" oY="0" oW="495" oH="710"/>
+  <sprite n="flower_phase2_idle_0010.png" x="0" y="0" w="511" h="708" pX="0.5" pY="0.5" oX="2" oY="1" oW="513" oH="710"/>
+  <sprite n="flower_phase2_idle_0011.png" x="0" y="1416" w="516" h="706" pX="0.5" pY="0.5" oX="1" oY="0" oW="518" oH="708"/>
+  <sprite n="flower_phase2_idle_0012.png" x="511" y="0" w="512" h="696" pX="0.5" pY="0.5" oX="0" oY="0" oW="513" oH="698"/>
+  <sprite n="flower_phase2_idle_0013.png" x="1023" y="0" w="497" h="682" pX="0.5" pY="0.5" oX="2" oY="2" oW="501" oH="684"/>
+  <sprite n="flower_phase2_idle_0014.png" x="960" y="696" w="476" h="683" pX="0.5" pY="0.5" oX="0" oY="0" oW="478" oH="685"/>
+  <sprite n="flower_phase2_idle_0015.png" x="981" y="1379" w="468" h="677" pX="0.5" pY="0.5" oX="2" oY="2" oW="470" oH="679"/>
+  <sprite n="flower_phase2_idle_0016.png" x="1436" y="682" w="461" h="663" pX="0.5" pY="0.5" oX="2" oY="2" oW="463" oH="667"/>
+</TextureAtlas>

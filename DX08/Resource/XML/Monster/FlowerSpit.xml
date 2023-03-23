@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerSpit.png" width="2967" height="2724" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_spit_0001.png" x="0" y="0" w="443" h="763" pX="0.5" pY="0.5" oX="2" oY="2" oW="445" oH="767"/>
+  <sprite n="flower_phase2_spit_0002.png" x="504" y="2079" w="437" h="642" pX="0.5" pY="0.5" oX="1" oY="2" oW="438" oH="646"/>
+  <sprite n="flower_phase2_spit_0003.png" x="531" y="654" w="440" h="618" pX="0.5" pY="0.5" oX="2" oY="2" oW="442" oH="622"/>
+  <sprite n="flower_phase2_spit_0004.png" x="1564" y="604" w="449" h="583" pX="0.5" pY="0.5" oX="2" oY="2" oW="451" oH="587"/>
+  <sprite n="flower_phase2_spit_0005.png" x="1334" y="0" w="490" h="604" pX="0.5" pY="0.5" oX="2" oY="2" oW="492" oH="608"/>
+  <sprite n="flower_phase2_spit_0006.png" x="0" y="2079" w="504" h="645" pX="0.5" pY="0.5" oX="0" oY="2" oW="504" oH="649"/>
+  <sprite n="flower_phase2_spit_0007.png" x="0" y="1434" w="505" h="645" pX="0.5" pY="0.5" oX="0" oY="2" oW="508" oH="649"/>
+  <sprite n="flower_phase2_spit_0008.png" x="505" y="1434" w="498" h="640" pX="0.5" pY="0.5" oX="2" oY="2" oW="500" oH="642"/>
+  <sprite n="flower_phase2_spit_0009.png" x="1406" y="1835" w="507" h="593" pX="0.5" pY="0.5" oX="2" oY="0" oW="509" oH="596"/>
+  <sprite n="flower_phase2_spit_0010.png" x="1913" y="1819" w="509" h="572" pX="0.5" pY="0.5" oX="2" oY="1" oW="511" oH="575"/>
+  <sprite n="flower_phase2_spit_0011.png" x="0" y="763" w="531" h="671" pX="0.5" pY="0.5" oX="2" oY="0" oW="535" oH="673"/>
+  <sprite n="flower_phase2_spit_0012.png" x="2422" y="1092" w="545" h="565" pX="0.5" pY="0.5" oX="2" oY="0" oW="547" oH="567"/>
+  <sprite n="flower_phase2_spit_0013.png" x="1441" y="1231" w="572" h="588" pX="0.5" pY="0.5" oX="2" oY="0" oW="576" oH="590"/>
+  <sprite n="flower_phase2_spit_0014.png" x="971" y="616" w="593" h="615" pX="0.5" pY="0.5" oX="2" oY="0" oW="597" oH="617"/>
+  <sprite n="flower_phase2_spit_0015.png" x="2330" y="0" w="623" h="563" pX="0.5" pY="0.5" oX="2" oY="2" oW="625" oH="567"/>
+  <sprite n="flower_phase2_spit_0016.png" x="2330" y="563" w="608" h="529" pX="0.5" pY="0.5" oX="2" oY="1" oW="612" oH="530"/>
+  <sprite n="flower_phase2_spit_0017.png" x="2422" y="1657" w="535" h="560" pX="0.5" pY="0.5" oX="2" oY="0" oW="537" oH="560"/>
+  <sprite n="flower_phase2_spit_0018.png" x="1824" y="0" w="506" h="581" pX="0.5" pY="0.5" oX="2" oY="2" oW="510" oH="586"/>
+  <sprite n="flower_phase2_spit_0019.png" x="1003" y="1231" w="438" h="604" pX="0.5" pY="0.5" oX="0" oY="2" oW="438" oH="606"/>
+  <sprite n="flower_phase2_spit_0020.png" x="897" y="0" w="437" h="616" pX="0.5" pY="0.5" oX="0" oY="2" oW="439" oH="618"/>
+  <sprite n="flower_phase2_spit_0021.png" x="941" y="2074" w="465" h="633" pX="0.5" pY="0.5" oX="2" oY="2" oW="469" oH="635"/>
+  <sprite n="flower_phase2_spit_0022.png" x="443" y="0" w="454" h="654" pX="0.5" pY="0.5" oX="0" oY="2" oW="456" oH="657"/>
+</TextureAtlas>

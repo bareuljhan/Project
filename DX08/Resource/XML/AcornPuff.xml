@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="AcornPuff.png" width="151" height="510" scale="1" format="RGBA8888">
+  <sprite n="flower_acorn_puff_0001.png" x="57" y="284" w="94" h="66" pX="0.5" pY="0.5" oX="2" oY="0" oW="98" oH="68"/>
+  <sprite n="flower_acorn_puff_0002.png" x="0" y="416" w="91" h="94" pX="0.5" pY="0.5" oX="2" oY="0" oW="93" oH="96"/>
+  <sprite n="flower_acorn_puff_0003.png" x="41" y="135" w="61" h="123" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="125"/>
+  <sprite n="flower_acorn_puff_0004.png" x="83" y="0" w="61" h="122" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="124"/>
+  <sprite n="flower_acorn_puff_0005.png" x="0" y="286" w="57" h="130" pX="0.5" pY="0.5" oX="0" oY="0" oW="59" oH="132"/>
+  <sprite n="flower_acorn_puff_0006.png" x="38" y="0" w="45" h="135" pX="0.5" pY="0.5" oX="0" oY="0" oW="47" oH="137"/>
+  <sprite n="flower_acorn_puff_0007.png" x="0" y="147" w="41" h="139" pX="0.5" pY="0.5" oX="0" oY="0" oW="43" oH="141"/>
+  <sprite n="flower_acorn_puff_0008.png" x="0" y="0" w="38" h="147" pX="0.5" pY="0.5" oX="0" oY="0" oW="40" oH="149"/>
+  <sprite n="flower_acorn_puff_0009.png" x="57" y="350" w="27" h="30" pX="0.5" pY="0.5" oX="0" oY="0" oW="29" oH="32"/>
+  <sprite n="flower_acorn_puff_0010.png" x="41" y="258" w="22" h="26" pX="0.5" pY="0.5" oX="2" oY="0" oW="25" oH="28"/>
+</TextureAtlas>

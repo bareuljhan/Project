@@ -151,8 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage2\HandATK.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Flower.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PodBullet.h" />
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PuffBall.h" />
     <ClInclude Include="Scene\FloralFury.h" />
     <ClInclude Include="Object\CupHeadObj\Message\ClearMessage.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Carrot.h" />
@@ -221,8 +223,10 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Vaggie_Beam.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage2\HandATK.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Flower.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PodBullet.cpp" />
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PuffBall.cpp" />
     <ClCompile Include="Scene\FloralFury.cpp" />
     <ClCompile Include="Object\CupHeadObj\Message\ClearMessage.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Carrot.cpp" />

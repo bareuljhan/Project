@@ -18,6 +18,7 @@ float4 PS(PixelInput input) : SV_TARGET
 {
 	if (input.uv.x > ratio)
 		return float4(0.0f,0.0f,0.0f,0.0f);
+
 	float4 result = map.Sample(samp,input.uv);
 
 	return result;

@@ -102,7 +102,7 @@ protected:
 	float _hp = 4;
 	const int _poolCount = 30;
 
-	float _invincibleTime = 3.0f;
+	float _invincibleTime = 5.0f;
 	float _delay = 0.0f;
 };
 

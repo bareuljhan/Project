@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="pod_three_planing.png" width="170" height="226" scale="1" format="RGBA8888">
+  <sprite n="c_pod_planting_0001.png" x="0" y="0" w="52" h="64" pX="0.5" pY="0.5" oX="2" oY="0" oW="55" oH="65"/>
+  <sprite n="c_pod_planting_0002.png" x="0" y="64" w="53" h="60" pX="0.5" pY="0.5" oX="2" oY="0" oW="57" oH="60"/>
+  <sprite n="c_pod_planting_0003.png" x="52" y="0" w="54" h="56" pX="0.5" pY="0.5" oX="2" oY="0" oW="58" oH="56"/>
+  <sprite n="c_pod_planting_0004.png" x="0" y="124" w="49" h="53" pX="0.5" pY="0.5" oX="2" oY="0" oW="53" oH="53"/>
+  <sprite n="c_pod_planting_0005.png" x="0" y="177" w="53" h="49" pX="0.5" pY="0.5" oX="2" oY="0" oW="55" oH="49"/>
+  <sprite n="c_pod_planting_0006.png" x="49" y="124" w="57" h="41" pX="0.5" pY="0.5" oX="2" oY="0" oW="61" oH="41"/>
+  <sprite n="c_pod_planting_0007.png" x="53" y="63" w="63" h="34" pX="0.5" pY="0.5" oX="2" oY="1" oW="65" oH="35"/>
+  <sprite n="c_pod_planting_0008.png" x="106" y="0" w="64" h="28" pX="0.5" pY="0.5" oX="2" oY="0" oW="68" oH="28"/>
+  <sprite n="c_pod_planting_0009.png" x="49" y="165" w="14" h="10" pX="0.5" pY="0.5" oX="2" oY="2" oW="18" oH="13"/>
+  <sprite n="c_pod_planting_0010.png" x="52" y="56" w="13" h="7" pX="0.5" pY="0.5" oX="2" oY="2" oW="17" oH="11"/>
+</TextureAtlas>

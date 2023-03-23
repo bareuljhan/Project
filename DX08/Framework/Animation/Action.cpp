@@ -69,6 +69,14 @@ void Action::Update()
 			{
 				_podEffect();
 			}
+			if (_curClipIndex == 16 && _handEffect != nullptr)
+			{
+				_handEffect();
+			}
+			if (_curClipIndex == 18 && _flowerGround != nullptr)
+			{
+				_flowerGround();
+			}
 
 
 			if (_curClipIndex >= _clips.size())

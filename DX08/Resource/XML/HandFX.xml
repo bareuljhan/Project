@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="HandFX.png" width="853" height="1866" scale="1" format="RGBA8888">
+  <sprite n="flower_hand_fx_0001.png" x="0" y="1772" w="108" h="94" pX="0.5" pY="0.5" oX="2" oY="2" oW="112" oH="98"/>
+  <sprite n="flower_hand_fx_0002.png" x="676" y="0" w="177" h="296" pX="0.5" pY="0.5" oX="2" oY="0" oW="181" oH="297"/>
+  <sprite n="flower_hand_fx_0003.png" x="502" y="0" w="174" h="408" pX="0.5" pY="0.5" oX="2" oY="0" oW="176" oH="408"/>
+  <sprite n="flower_hand_fx_0004.png" x="394" y="435" w="173" h="418" pX="0.5" pY="0.5" oX="2" oY="0" oW="177" oH="420"/>
+  <sprite n="flower_hand_fx_0005.png" x="161" y="1339" w="182" h="428" pX="0.5" pY="0.5" oX="2" oY="0" oW="184" oH="430"/>
+  <sprite n="flower_hand_fx_0006.png" x="306" y="0" w="175" h="435" pX="0.5" pY="0.5" oX="2" oY="0" oW="177" oH="437"/>
+  <sprite n="flower_hand_fx_0007.png" x="0" y="895" w="171" h="444" pX="0.5" pY="0.5" oX="2" oY="0" oW="173" oH="446"/>
+  <sprite n="flower_hand_fx_0008.png" x="0" y="0" w="169" h="449" pX="0.5" pY="0.5" oX="2" oY="0" oW="173" oH="451"/>
+  <sprite n="flower_hand_fx_0009.png" x="330" y="877" w="172" h="420" pX="0.5" pY="0.5" oX="2" oY="0" oW="176" oH="422"/>
+  <sprite n="flower_hand_fx_0010.png" x="171" y="892" w="159" h="426" pX="0.5" pY="0.5" oX="2" oY="0" oW="163" oH="428"/>
+  <sprite n="flower_hand_fx_0011.png" x="0" y="1339" w="161" h="433" pX="0.5" pY="0.5" oX="0" oY="1" oW="163" oH="434"/>
+  <sprite n="flower_hand_fx_0012.png" x="257" y="440" w="137" h="437" pX="0.5" pY="0.5" oX="2" oY="2" oW="141" oH="441"/>
+  <sprite n="flower_hand_fx_0013.png" x="169" y="0" w="137" h="440" pX="0.5" pY="0.5" oX="2" oY="2" oW="140" oH="444"/>
+  <sprite n="flower_hand_fx_0014.png" x="126" y="449" w="131" h="443" pX="0.5" pY="0.5" oX="2" oY="2" oW="135" oH="447"/>
+  <sprite n="flower_hand_fx_0015.png" x="0" y="449" w="126" h="446" pX="0.5" pY="0.5" oX="2" oY="2" oW="130" oH="450"/>
+</TextureAtlas>

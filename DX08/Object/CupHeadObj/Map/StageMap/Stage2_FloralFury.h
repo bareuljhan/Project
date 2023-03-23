@@ -13,6 +13,7 @@ public:
 	void SetPlayer(shared_ptr<Player> player) { _player = player; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
+	shared_ptr<RectCollider> GetFloorCollider() { return _floorCol; }
 private:
 	void CreateAction(string name, Action::Type type);
 

@@ -137,8 +137,8 @@ void PanicStage::Render()
 	}
 
 	_bg->MidleRender();
-	_player->Render();
 	_boss1->Render();
+	_player->Render();
 
 	if (_boss1->isNextMonster == true)
 	{
@@ -148,6 +148,6 @@ void PanicStage::Render()
 
 	_boss2->BulletRender();
 
-
+	ImGui::SliderFloat("PlayerPos", &_player->GetTransform()->GetPos().y, 0, 1000);
 	_player->GetHpPNG()->PostRender();
 }

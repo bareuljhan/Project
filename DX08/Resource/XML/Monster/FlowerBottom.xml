@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerBottom.png" width="2871" height="978" scale="1" format="RGBA8888">
+  <sprite n="flower_phase_one_laser_bottom_0001.png" x="2119" y="371" w="304" h="607" pX="0.5" pY="0.5" oX="0" oY="2" oW="304" oH="609"/>
+  <sprite n="flower_phase_one_laser_bottom_0002.png" x="2513" y="363" w="350" h="488" pX="0.5" pY="0.5" oX="2" oY="2" oW="352" oH="490"/>
+  <sprite n="flower_phase_one_laser_bottom_0003.png" x="1752" y="364" w="367" h="407" pX="0.5" pY="0.5" oX="0" oY="2" oW="367" oH="409"/>
+  <sprite n="flower_phase_one_laser_bottom_0004.png" x="1308" y="0" w="444" h="417" pX="0.5" pY="0.5" oX="2" oY="2" oW="446" oH="419"/>
+  <sprite n="flower_phase_one_laser_bottom_0005.png" x="2140" y="0" w="373" h="371" pX="0.5" pY="0.5" oX="0" oY="2" oW="373" oH="373"/>
+  <sprite n="flower_phase_one_laser_bottom_0006.png" x="1308" y="417" w="360" h="366" pX="0.5" pY="0.5" oX="0" oY="2" oW="360" oH="369"/>
+  <sprite n="flower_phase_one_laser_bottom_0007.png" x="2513" y="0" w="358" h="363" pX="0.5" pY="0.5" oX="3" oY="7" oW="361" oH="370"/>
+  <sprite n="flower_phase_one_laser_bottom_0008.png" x="1752" y="0" w="388" h="364" pX="0.5" pY="0.5" oX="0" oY="2" oW="388" oH="366"/>
+  <sprite n="flower_phase_one_laser_bottom_0009.png" x="727" y="0" w="581" h="436" pX="0.5" pY="0.5" oX="2" oY="2" oW="585" oH="438"/>
+  <sprite n="flower_phase_one_laser_bottom_0010.png" x="0" y="0" w="727" h="448" pX="0.5" pY="0.5" oX="0" oY="2" oW="727" oH="450"/>
+</TextureAtlas>

@@ -56,7 +56,7 @@ Spudder::~Spudder()
 
 void Spudder::Update()
 {
-	if (_mosaicBuffer->_data.value1 == 0)
+	if (_mosaicBuffer->_data.value1 == 50)
 	{
 		isNextMonster = true;
 		return;
@@ -93,7 +93,7 @@ void Spudder::Update()
 
 void Spudder::Render()
 {
-	if (_mosaicBuffer->_data.value1 == 0) return;
+	if (_mosaicBuffer->_data.value1 == 50) return;
 
 	_mosaicBuffer->SetPSBuffer(2);
 

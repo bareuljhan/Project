@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerDeath.png" width="1934" height="1886" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_death_0008.png" x="0" y="0" w="477" h="629" pX="0.5" pY="0.5" oX="0" oY="0" oW="479" oH="631"/>
+  <sprite n="flower_phase2_death_0001.png" x="0" y="629" w="455" h="629" pX="0.5" pY="0.5" oX="2" oY="0" oW="457" oH="631"/>
+  <sprite n="flower_phase2_death_0002.png" x="0" y="1258" w="475" h="628" pX="0.5" pY="0.5" oX="2" oY="0" oW="479" oH="630"/>
+  <sprite n="flower_phase2_death_0012.png" x="455" y="629" w="458" h="628" pX="0.5" pY="0.5" oX="0" oY="0" oW="460" oH="630"/>
+  <sprite n="flower_phase2_death_0006.png" x="477" y="0" w="483" h="627" pX="0.5" pY="0.5" oX="0" oY="0" oW="483" oH="629"/>
+  <sprite n="flower_phase2_death_0010.png" x="475" y="1257" w="496" h="626" pX="0.5" pY="0.5" oX="0" oY="0" oW="496" oH="628"/>
+  <sprite n="flower_phase2_death_0011.png" x="913" y="627" w="463" h="626" pX="0.5" pY="0.5" oX="0" oY="0" oW="465" oH="628"/>
+  <sprite n="flower_phase2_death_0007.png" x="971" y="0" w="495" h="624" pX="0.5" pY="0.5" oX="0" oY="0" oW="495" oH="626"/>
+  <sprite n="flower_phase2_death_0009.png" x="1466" y="0" w="468" h="624" pX="0.5" pY="0.5" oX="2" oY="0" oW="472" oH="626"/>
+  <sprite n="flower_phase2_death_0005.png" x="971" y="1253" w="476" h="623" pX="0.5" pY="0.5" oX="2" oY="0" oW="480" oH="625"/>
+  <sprite n="flower_phase2_death_0003.png" x="1376" y="624" w="464" h="621" pX="0.5" pY="0.5" oX="1" oY="0" oW="467" oH="623"/>
+  <sprite n="flower_phase2_death_0004.png" x="1447" y="1245" w="469" h="620" pX="0.5" pY="0.5" oX="0" oY="0" oW="470" oH="622"/>
+</TextureAtlas>

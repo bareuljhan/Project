@@ -21,6 +21,7 @@ public:
 
 	Vector2 GetClipVertexSize() { return _clipSize; }
 
+	bool isActive = true;
 private:
 	shared_ptr<ActionBuffer> _actionBuffer;
 	shared_ptr<ReverseBuffer> _reverseBuffer;

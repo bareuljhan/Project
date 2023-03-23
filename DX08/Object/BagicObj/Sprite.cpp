@@ -43,6 +43,7 @@ Sprite::~Sprite()
 
 void Sprite::Update()
 {
+    if (isActive == false) return;
     _actionBuffer->Update();
     _reverseBuffer->Update();
     Quad::Update();
@@ -50,6 +51,7 @@ void Sprite::Update()
 
 void Sprite::Render()
 {
+    if (isActive == false) return;
     _actionBuffer->SetPSBuffer(0);
     _reverseBuffer->SetPSBuffer(1);
     Quad::Render();

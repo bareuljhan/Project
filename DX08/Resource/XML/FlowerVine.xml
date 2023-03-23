@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerVine.png" width="1896" height="369" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_ground_vine_0019.png" x="940" y="240" w="938" h="129" pX="0.5" pY="0.5" oX="0" oY="0" oW="940" oH="131"/>
+  <sprite n="flower_phase2_ground_vine_0020.png" x="0" y="127" w="940" h="119" pX="0.5" pY="0.5" oX="2" oY="2" oW="944" oH="121"/>
+  <sprite n="flower_phase2_ground_vine_0021.png" x="948" y="122" w="948" h="118" pX="0.5" pY="0.5"/>
+  <sprite n="flower_phase2_ground_vine_0022.png" x="0" y="0" w="948" h="127" pX="0.5" pY="0.5" oX="0" oY="9" oW="950" oH="136"/>
+  <sprite n="flower_phase2_ground_vine_0023.png" x="948" y="0" w="948" h="122" pX="0.5" pY="0.5" oX="0" oY="2" oW="950" oH="126"/>
+</TextureAtlas>

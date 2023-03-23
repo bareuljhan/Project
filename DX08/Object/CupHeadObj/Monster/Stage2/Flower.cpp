@@ -9,8 +9,14 @@ Flower::Flower()
 	CreateAction("FlowerIdle", Action::Type::PINGPONG);
 	CreateAction("FlowerGatling", Action::Type::END);
 	CreateAction("FlowerHand", Action::Type::END);
+	CreateAction("FlowerTrans", Action::Type::END);
+	CreateAction("Phase2IDLE", Action::Type::PINGPONG);
+	CreateAction("FlowerSpit", Action::Type::END);
+	CreateAction("FlowerDeath", Action::Type::LOOP);
 
 	_actions[GATLING]->PodEffect(std::bind(&Flower::PlayEffect, this));
+	_actions[HANDATK]->HandEffect(std::bind(&Flower::PlayHandEffect, this));
+	_actions[TRANSFORM]->FlowerGround(std::bind(&Flower::GroundEffect, this));
 
 	for (auto sprite : _sprites)
 	{
@@ -32,17 +38,54 @@ Flower::Flower()
 
 	_actions[_curState]->Play();
 
+	_muzzle = make_shared<Transform>();
+
+	for (int i = 0; i < 3; i++)
+	{
+		shared_ptr<HandATK> ball = make_shared<HandATK>();
+		ball->isActive = false;
+		_balls.push_back(ball);
+	}
+
 	wstring file = L"Resource/Texture/CupHead/Monster/GatlingFX.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
 	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(200, 200), 0.1f);
+
+	file = L"Resource/Texture/CupHead/Effect/HandFX.png";
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(100, 300), 0.08f);
+
+	file = L"Resource/Texture/CupHead/Effect/FlowerGround.png";
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(800, 130), 0.1f);
+
+	file = L"Resource/Texture/CupHead/Effect/FlowerVine.png";
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(800, 130), 0.11f);
 }
 
 Flower::~Flower()
 {
+	_transform = nullptr;
 }
 
 void Flower::Update()
 {
+	if (_actions[GATLING]->isEnd == true)
+	{
+		_podBullet->Update();
+	}
+	
+	if (isDead == true)
+		Dead();
+
+	_vineDelay += DELTA_TIME;
+	if (_vineDelay >= 0.5 && (_curState == NEWIDLE || _curState == DEAD || _curState == ATK))
+	{
+		EFFECT->Play("FlowerVine", Vector2(_transform->GetPos().x - 600, _transform->GetPos().y - 150), false);
+		_vineDelay = 0.0f;
+	}
+
+	for(auto ball : _balls)
+		ball->Update();
+
 	AttackPattern();
 
 	for (auto action : _actions)
@@ -55,11 +98,20 @@ void Flower::Update()
 
 void Flower::Render()
 {
+	if (_actions[GATLING]->isEnd == true)
+	{
+		_podBullet->Render();
+	}
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
+
+	for (auto ball : _balls)
+		ball->Render();
+
 	if(_curState != INTRO)
 		_hitCollider->Render();
+
 }
 
 void Flower::SetAction(State state)
@@ -76,31 +128,62 @@ void Flower::SetAction(State state)
 
 void Flower::AttackPattern()
 {
-	if (_curState == INTRO && _actions[_curState]->isEnd == true)
+	if (_hp > 300.0f)
 	{
-		SetIDLE();
-		_hitCollider->Update();
-		_actions[_curState]->isEnd = false;
+		if (_curState == INTRO && _actions[INTRO]->isEnd == true)
+		{
+			SetIDLE();
+			_hitCollider->Update();
+			_actions[INTRO]->isEnd = false;
+		}
+		if (_curState == GATLING && _actions[_curState]->isEnd == true)
+		{
+			SetIDLE();
+			_actions[_curState]->isEnd = false;
+		}
+		if (_curState == IDLE && _actions[_curState]->isEnd == true && (_count % 3 == 0 || _count % 3 == 2))
+		{
+			SetHandATK();
+			_actions[_curState]->isEnd = false;
+		}
+		if (_curState == HANDATK && _actions[_curState]->isEnd == true)
+		{
+			SetIDLE();
+			_actions[_curState]->isEnd = false;
+		}
+		if (_curState == IDLE && _actions[_curState]->isEnd == true && _count % 3 == 1)
+		{
+			SetGatling();
+			_actions[_curState]->isEnd = false;
+		}
+
 	}
-	if (_curState == IDLE && _actions[_curState]->isEnd == true)
+	else
 	{
-		SetGatling();
-		_actions[_curState]->isEnd = false;
-	}
-	if (_curState == GATLING && _actions[_curState]->isEnd == true)
-	{
-		SetHandATK();
-		_actions[_curState]->isEnd = false;
-	}
-	if (_curState == HANDATK && _actions[_curState]->isEnd == true)
-	{
-		SetIDLE();
-		_actions[_curState]->isEnd = false;
+		if(_curState == INTRO || _curState == IDLE || _curState == GATLING || _curState == HANDATK)
+			SetAction(State::TRANSFORM);
+		_count = 0;
+		if (_curState == TRANSFORM && _actions[_curState]->isEnd == true)
+		{
+			SetNewIDLE();
+			_actions[_curState]->isEnd = false;
+		}
+		if (_curState == NEWIDLE && _actions[_curState]->isEnd == true)
+		{
+			SetATK();
+			_actions[_curState]->isEnd = false;
+		}	
+		if (_curState == ATK && _actions[_curState]->isEnd == true)
+		{
+			SetNewIDLE();
+			_actions[_curState]->isEnd = false;
+		}
 	}
 }
 
 void Flower::SetIDLE()
 {
+	_count++;
 	SetAction(State::IDLE);
 }
 
@@ -114,10 +197,120 @@ void Flower::SetHandATK()
 	SetAction(State::HANDATK);
 }
 
+void Flower::SetNewIDLE()
+{
+	SetAction(State::NEWIDLE);
+	_count++;
+}
+
+void Flower::SetATK()
+{
+	SetAction(State::ATK);
+}
+
 void Flower::PlayEffect()
 {
 	isUpdate = true;
-	EFFECT->Play("GatlingFX", Vector2(950, 650), true);
+	EFFECT->Play("GatlingFX", Vector2(950, 650), false);
+}
+
+void Flower::PlayHandEffect()
+{
+	EFFECT->Play("HandFX", Vector2(850, 400), false);
+}
+
+void Flower::GroundEffect()
+{
+	EFFECT->Play("FlowerGround", Vector2(_transform->GetPos().x - 600, _transform->GetPos().y - 150), false);
+}
+
+void Flower::GetDamaged(float amount)
+{
+	if (amount <= 0) return;
+
+	_hp -= amount;
+	
+	if (_hp <= 0)
+	{
+		_hp == 0.0;
+		isDead = true;
+	}
+}
+
+void Flower::Dead()
+{
+	//for (auto sprite : _sprites)
+	//{
+	//	sprite->SetPS(ADD_PS(L"Shader/MosaicPixelShader.hlsl"));
+	//}
+	SetAction(State::DEAD);
+
+	//_mosaicBuffer->_data.value1 -= DELTA_TIME;
+	//_collider->isActive = false;
+
+	//if (_efCheck >= 0.8f)
+	//{
+	//	EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+	//	_efCheck = 0.0f;
+	//}
+}
+
+void Flower::BallAttack(shared_ptr<Player> player)
+{
+	if (isDead == true) return;
+	if (_curState != HANDATK) return;
+
+	_shootDelay += DELTA_TIME;
+
+	if (_count % 3 == 2)
+	{
+		if (_shootDelay >= 1.6)
+		{
+			if (_balls[0]->isActive == false)
+			{
+				_muzzle->SetPosition(Vector2(850, 500));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[0]->SetAction(HandATK::State::BALL);
+				_balls[0]->Enable();
+				_balls[0]->SetFireDir(dir);
+				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+			if (_balls[1]->isActive == false && _shootDelay >= 1.8)
+			{
+				_muzzle->SetPosition(Vector2(850, 400));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[1]->SetAction(HandATK::State::BALL);
+				_balls[1]->Enable();
+				_balls[1]->SetFireDir(dir);
+				_balls[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+			if (_balls[2]->isActive == false && _shootDelay >= 2.0)
+			{
+				_muzzle->SetPosition(Vector2(850, 300));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[2]->SetAction(HandATK::State::BALL);
+				_balls[2]->Enable();
+				_balls[2]->SetFireDir(dir);
+				_balls[2]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+				_shootDelay = 0.0f;
+			}
+		}
+	}
+	else if (_count % 3 == 0)
+	{
+		if (_shootDelay >= 1.6)
+		{
+			if (_balls[0]->isActive == false)
+			{
+				_muzzle->SetPosition(Vector2(850, 400));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[0]->SetAction(HandATK::State::BOOMERANG);
+				_balls[0]->Enable();
+				_balls[0]->SetFireDir(dir);
+				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+		}
+	}
 }
 
 void Flower::CreateAction(string name, Action::Type type)

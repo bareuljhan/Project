@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerGround.png" width="2042" height="1031" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_ground_vine_0001.png" x="1577" y="275" w="112" h="100" pX="0.5" pY="0.5" oX="0" oY="2" oW="114" oH="102"/>
+  <sprite n="flower_phase2_ground_vine_0002.png" x="1328" y="462" w="139" h="158" pX="0.5" pY="0.5"/>
+  <sprite n="flower_phase2_ground_vine_0003.png" x="1801" y="0" w="202" h="194" pX="0.5" pY="0.5"/>
+  <sprite n="flower_phase2_ground_vine_0004.png" x="0" y="839" w="250" h="192" pX="0.5" pY="0.5"/>
+  <sprite n="flower_phase2_ground_vine_0005.png" x="1705" y="194" w="323" h="198" pX="0.5" pY="0.5" oX="2" oY="0" oW="325" oH="200"/>
+  <sprite n="flower_phase2_ground_vine_0006.png" x="511" y="680" w="366" h="207" pX="0.5" pY="0.5" oX="0" oY="0" oW="366" oH="209"/>
+  <sprite n="flower_phase2_ground_vine_0007.png" x="1577" y="392" w="433" h="199" pX="0.5" pY="0.5" oX="0" oY="0" oW="433" oH="201"/>
+  <sprite n="flower_phase2_ground_vine_0008.png" x="0" y="632" w="511" h="207" pX="0.5" pY="0.5" oX="0" oY="0" oW="513" oH="209"/>
+  <sprite n="flower_phase2_ground_vine_0009.png" x="1467" y="591" w="575" h="224" pX="0.5" pY="0.5" oX="0" oY="0" oW="577" oH="226"/>
+  <sprite n="flower_phase2_ground_vine_0010.png" x="691" y="462" w="637" h="218" pX="0.5" pY="0.5" oX="2" oY="0" oW="639" oH="220"/>
+  <sprite n="flower_phase2_ground_vine_0011.png" x="0" y="431" w="691" h="201" pX="0.5" pY="0.5" oX="0" oY="0" oW="691" oH="203"/>
+  <sprite n="flower_phase2_ground_vine_0012.png" x="815" y="275" w="762" h="187" pX="0.5" pY="0.5" oX="1" oY="0" oW="763" oH="189"/>
+  <sprite n="flower_phase2_ground_vine_0013.png" x="0" y="255" w="815" h="176" pX="0.5" pY="0.5" oX="0" oY="0" oW="816" oH="176"/>
+  <sprite n="flower_phase2_ground_vine_0014.png" x="866" y="123" w="839" h="152" pX="0.5" pY="0.5" oX="2" oY="0" oW="841" oH="154"/>
+  <sprite n="flower_phase2_ground_vine_0015.png" x="0" y="121" w="866" h="134" pX="0.5" pY="0.5" oX="2" oY="0" oW="870" oH="134"/>
+  <sprite n="flower_phase2_ground_vine_0016.png" x="908" y="0" w="893" h="123" pX="0.5" pY="0.5" oX="0" oY="0" oW="895" oH="123"/>
+  <sprite n="flower_phase2_ground_vine_0017.png" x="0" y="0" w="908" h="121" pX="0.5" pY="0.5" oX="0" oY="0" oW="908" oH="123"/>
+</TextureAtlas>

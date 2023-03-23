@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerTrans.png" width="3130" height="3137" scale="1" format="RGBA8888">
+  <sprite n="flower_phase2_trans_0001.png" x="0" y="1836" w="424" h="609" pX="0.5" pY="0.5" oX="0" oY="0" oW="426" oH="611"/>
+  <sprite n="flower_phase2_trans_0002.png" x="1195" y="1799" w="443" h="604" pX="0.5" pY="0.5" oX="0" oY="0" oW="445" oH="606"/>
+  <sprite n="flower_phase2_trans_0003.png" x="424" y="1836" w="397" h="602" pX="0.5" pY="0.5" oX="0" oY="0" oW="397" oH="604"/>
+  <sprite n="flower_phase2_trans_0004.png" x="517" y="1226" w="425" h="601" pX="0.5" pY="0.5" oX="2" oY="0" oW="427" oH="605"/>
+  <sprite n="flower_phase2_trans_0005.png" x="1195" y="1198" w="444" h="601" pX="0.5" pY="0.5" oX="2" oY="0" oW="446" oH="603"/>
+  <sprite n="flower_phase2_trans_0006.png" x="1864" y="1182" w="512" h="613" pX="0.5" pY="0.5" oX="2" oY="0" oW="514" oH="615"/>
+  <sprite n="flower_phase2_trans_0007.png" x="1937" y="573" w="535" h="609" pX="0.5" pY="0.5" oX="2" oY="0" oW="539" oH="611"/>
+  <sprite n="flower_phase2_trans_0008.png" x="2472" y="607" w="513" h="607" pX="0.5" pY="0.5" oX="2" oY="0" oW="515" oH="609"/>
+  <sprite n="flower_phase2_trans_0009.png" x="0" y="0" w="667" h="608" pX="0.5" pY="0.5" oX="0" oY="0" oW="667" oH="610"/>
+  <sprite n="flower_phase2_trans_0010.png" x="667" y="0" w="663" h="595" pX="0.5" pY="0.5" oX="0" oY="0" oW="665" oH="597"/>
+  <sprite n="flower_phase2_trans_0011.png" x="1330" y="0" w="607" h="578" pX="0.5" pY="0.5" oX="0" oY="0" oW="607" oH="580"/>
+  <sprite n="flower_phase2_trans_0012.png" x="1937" y="0" w="564" h="573" pX="0.5" pY="0.5" oX="2" oY="0" oW="568" oH="575"/>
+  <sprite n="flower_phase2_trans_0013.png" x="2501" y="0" w="538" h="607" pX="0.5" pY="0.5" oX="0" oY="0" oW="538" oH="609"/>
+  <sprite n="flower_phase2_trans_0014.png" x="0" y="1222" w="517" h="614" pX="0.5" pY="0.5" oX="2" oY="0" oW="521" oH="616"/>
+  <sprite n="flower_phase2_trans_0015.png" x="1330" y="578" w="534" h="620" pX="0.5" pY="0.5" oX="0" oY="0" oW="536" oH="622"/>
+  <sprite n="flower_phase2_trans_0016.png" x="0" y="608" w="522" h="614" pX="0.5" pY="0.5" oX="2" oY="0" oW="526" oH="616"/>
+  <sprite n="flower_phase2_trans_0017.png" x="667" y="607" w="528" h="619" pX="0.5" pY="0.5" oX="1" oY="0" oW="529" oH="621"/>
+  <sprite n="flower_phase2_trans_0018.png" x="2311" y="1795" w="341" h="642" pX="0.5" pY="0.5" oX="1" oY="0" oW="344" oH="644"/>
+  <sprite n="flower_phase2_trans_0019.png" x="2801" y="2478" w="316" h="636" pX="0.5" pY="0.5" oX="0" oY="0" oW="316" oH="638"/>
+  <sprite n="flower_phase2_trans_0020.png" x="2801" y="1848" w="327" h="630" pX="0.5" pY="0.5" oX="0" oY="0" oW="329" oH="632"/>
+  <sprite n="flower_phase2_trans_0021.png" x="2801" y="1214" w="329" h="634" pX="0.5" pY="0.5" oX="2" oY="0" oW="331" oH="634"/>
+  <sprite n="flower_phase2_trans_0022.png" x="2436" y="2437" w="365" h="638" pX="0.5" pY="0.5" oX="2" oY="0" oW="367" oH="638"/>
+  <sprite n="flower_phase2_trans_0023.png" x="821" y="1836" w="374" h="637" pX="0.5" pY="0.5" oX="2" oY="2" oW="376" oH="639"/>
+  <sprite n="flower_phase2_trans_0024.png" x="435" y="2438" w="384" h="638" pX="0.5" pY="0.5" oX="2" oY="0" oW="386" oH="638"/>
+  <sprite n="flower_phase2_trans_0025.png" x="2047" y="2450" w="389" h="654" pX="0.5" pY="0.5" oX="2" oY="0" oW="391" oH="656"/>
+  <sprite n="flower_phase2_trans_0026.png" x="1650" y="2450" w="397" h="657" pX="0.5" pY="0.5" oX="2" oY="0" oW="399" oH="659"/>
+  <sprite n="flower_phase2_trans_0027.png" x="1242" y="2473" w="408" h="664" pX="0.5" pY="0.5" oX="2" oY="0" oW="410" oH="664"/>
+  <sprite n="flower_phase2_trans_0028.png" x="819" y="2473" w="423" h="664" pX="0.5" pY="0.5" oX="2" oY="0" oW="425" oH="664"/>
+  <sprite n="flower_phase2_trans_0029.png" x="0" y="2450" w="435" h="664" pX="0.5" pY="0.5" oX="2" oY="0" oW="438" oH="664"/>
+  <sprite n="flower_phase2_trans_0030.png" x="1864" y="1795" w="447" h="655" pX="0.5" pY="0.5" oX="2" oY="2" oW="449" oH="658"/>
+</TextureAtlas>
