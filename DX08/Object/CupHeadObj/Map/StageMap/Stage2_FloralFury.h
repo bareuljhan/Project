@@ -15,6 +15,7 @@ public:
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	shared_ptr<RectCollider> GetFloorCollider() { return _floorCol; }
 	shared_ptr<RectCollider> GetSideCollider() { return _sideCol; }
+	shared_ptr<RectCollider> GetSideTwoCollider() { return _sideCol2; }
 private:
 	void CreateAction(string name, Action::Type type);
 

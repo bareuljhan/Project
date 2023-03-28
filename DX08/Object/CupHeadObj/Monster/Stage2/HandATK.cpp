@@ -49,17 +49,17 @@ void HandATK::Update()
 
 	if (_curState == BOOMERANG)
 	{
-		_delay += DELTA_TIME;
+		delay += DELTA_TIME;
 		Vector2 temp = _transform->GetPos();
 
-		if (_delay < 3.0f)
+		if (delay < 2.0f)
 		{
-			temp.x += _direction.x * _speed * DELTA_TIME;
+			temp.x += _direction.x * _boomerangSpeed * DELTA_TIME;
 			_transform->SetPosition(temp);
 		}
 		else
 		{
-			temp.x -= _direction.x * _speed * DELTA_TIME;
+			temp.x -= _direction.x * _boomerangSpeed * DELTA_TIME;
 			_transform->SetPosition(temp);
 		}
 	}

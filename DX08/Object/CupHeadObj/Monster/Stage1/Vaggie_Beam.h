@@ -39,7 +39,7 @@ private:
 	Vector2 _direction = { 0, 0 };
 	float _speed = 300.0f;
 
-	float _delay = 3.0f;
+	float _delay = 1.5f;
 	float _lifeTime = 0.0f;
 };
 

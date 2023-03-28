@@ -22,7 +22,7 @@ public:
 		PINGPONG
 	};
 
-	Action(vector<Clip> clips, string name = "", Type type = LOOP, float speed = 0.1f);
+	Action(vector<Clip> clips, string name = "", Type type = LOOP, float speed = 0.05f);
 	~Action();
 
 	void Update();
@@ -55,6 +55,7 @@ public:
 	void HandEffect(function<void(void)> endEvent) { _handEffect = endEvent; }
 	void FlowerGround(function<void(void)> endEvent) { _flowerGround = endEvent; }
 	void HandATK(function<void(void)> endEvent) { _handATK = endEvent; }
+	void VineRespawn(function<void(void)> endEvent) { _vineGen = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -92,4 +93,5 @@ private:
 	function<void(void)> _handEffect = nullptr;
 	function<void(void)> _flowerGround = nullptr;
 	function<void(void)> _handATK = nullptr;
+	function<void(void)> _vineGen = nullptr;
 };

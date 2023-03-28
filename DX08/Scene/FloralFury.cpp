@@ -26,30 +26,6 @@ void FloralFury::Update()
 
 	if (_player->isInvincible == false)
 	{
-		if (_boss1->GetPodBullet()->GetColliderOne()->isActive == true)
-		{
-			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 0))
-			{
-				_player->GetDamaged(1);
-				_player->isInvincible = true;
-			}
-		}
-		if (_boss1->GetPodBullet()->GetColliderTwo()->isActive == true)
-		{
-			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 1))
-			{
-				_player->GetDamaged(1);
-				_player->isInvincible = true;
-			}
-		}
-		if (_boss1->GetPodBullet()->GetColliderThr()->isActive == true)
-		{
-			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 2))
-			{
-				_player->GetDamaged(1);
-				_player->isInvincible = true;
-			}
-		}
 		for (auto bullet : _boss1->GetBalls())
 		{
 			if (bullet->Collision(_player->GetBodyCollider()))
@@ -58,35 +34,31 @@ void FloralFury::Update()
 				_player->isInvincible = true;
 			}
 		}
+		for(auto bullet : _boss1->GetBullets())
+			if (bullet->Collision(_player->GetBodyCollider()))
+			{
+				_player->GetDamaged(1);
+				_player->isInvincible = true;
+			}
 	}
 
 	for (auto bullet : _boss1->GetBalls())
 	{
-		if (bullet->Collision(_map->GetFloorCollider()) || bullet->Collision(_map->GetSideCollider()))
+		if (bullet->Collision(_map->GetFloorCollider()) || bullet->Collision(_map->GetSideCollider()) && bullet->GetCurState() != HandATK::State::BOOMERANG)
 		{
 			bullet->isEnd = true;
 		}
-	}
-
-	if (_boss1->GetPodBullet()->GetColliderOne()->isActive == true)
-	{
-		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 0))
+		if (bullet->Collision(_map->GetSideTwoCollider()))
 		{
-			_boss1->GetPodBullet()->isFloorOne = true;
+			bullet->isEnd = true;
+			bullet->delay = 0.0f;
 		}
 	}
-	if (_boss1->GetPodBullet()->GetColliderTwo()->isActive == true)
+	for (auto bullet : _boss1->GetBullets())
 	{
-		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 1))
+		if (bullet->Collision(_map->GetFloorCollider()))
 		{
-			_boss1->GetPodBullet()->isFloorTwo = true;
-		}
-	}
-	if (_boss1->GetPodBullet()->GetColliderThr()->isActive == true)
-	{
-		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 2))
-		{
-			_boss1->GetPodBullet()->isFloorThr = true;
+			bullet->isFloor = true;
 		}
 	}
 

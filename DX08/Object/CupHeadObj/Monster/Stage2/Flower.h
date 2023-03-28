@@ -38,13 +38,13 @@ public:
 	void Dead();
 
 	void BallAttack(shared_ptr<Player> player);
-	void BallATK();
+	void PotBallATK();
 
 	bool isUpdate = false;
 	bool isDead = false;
 
-	shared_ptr<PodBullet> GetPodBullet() { return _podBullet; }
 	vector<shared_ptr<HandATK>> GetBalls() { return _balls; }
+	vector<shared_ptr<PodBullet>> GetBullets() { return _podBullets; }
 	shared_ptr<RectCollider> GetBodyCollider() { return _hitCollider; }
 private:
 	void CreateAction(string name, Action::Type type);
@@ -58,7 +58,7 @@ private:
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
-	shared_ptr<PodBullet> _podBullet;
+	vector<shared_ptr<PodBullet>> _podBullets;
 	vector<shared_ptr<HandATK>> _balls;
 
 	shared_ptr<Effect> _effect;

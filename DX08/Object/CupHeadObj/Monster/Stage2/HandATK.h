@@ -24,9 +24,11 @@ public:
 
 	void SetAction(State state);
 
+	State GetCurState() { return _curState; }
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	bool isActive = false;
 	bool isEnd = false;
+	float delay = 0.0f;
 private:
 	void CreateAction(string name, Action::Type type);
 
@@ -43,9 +45,7 @@ private:
 	shared_ptr<Effect> _effect;
 
 	Vector2 _direction = { 0,0 };
-	float _speed = 200.0f;
-
-	float _delay = 0.0f;
-	
+	float _speed = 300.0f;
+	float _boomerangSpeed = 350.0f;
 };
 

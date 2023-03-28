@@ -16,6 +16,8 @@ public:
 	void SetFireDir(Vector2 pos);
 
 	bool isActive = false;
+	shared_ptr<Transform> GetTransform() { return _transform; }
+
 private:
 	void CreateAction(string name, Action::Type type);
 

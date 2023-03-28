@@ -15,6 +15,8 @@ Flower::Flower()
 	CreateAction("FlowerDeath", Action::Type::LOOP);
 
 	_actions[GATLING]->PodEffect(std::bind(&Flower::PlayEffect, this));
+	_actions[GATLING]->FlowerGround(std::bind(&Flower::PotBallATK, this));
+
 	_actions[HANDATK]->HandEffect(std::bind(&Flower::PlayHandEffect, this));
 	_actions[TRANSFORM]->FlowerGround(std::bind(&Flower::GroundEffect, this));
 
@@ -31,8 +33,6 @@ Flower::Flower()
 
 	_transform->SetPosition(Vector2(1000, 300));
 
-	_podBullet = make_shared<PodBullet>();
-
 	_oldState = INTRO;
 	_curState = INTRO;
 
@@ -45,6 +45,10 @@ Flower::Flower()
 		shared_ptr<HandATK> ball = make_shared<HandATK>();
 		ball->isActive = false;
 		_balls.push_back(ball);
+
+		shared_ptr<PodBullet> bullet = make_shared<PodBullet>();
+		bullet->isActive = false;
+		_podBullets.push_back(bullet);
 	}
 
 	wstring file = L"Resource/Texture/CupHead/Monster/GatlingFX.png";
@@ -75,10 +79,8 @@ void Flower::Update()
 {
 	if (_mosaicBuffer->_data.value1 == 50) return;
 
-	if (_actions[GATLING]->isEnd == true)
-	{
-		_podBullet->Update();
-	}
+	for (auto bullet : _podBullets)
+		bullet->Update();
 	
 	if (isDead == true)
 		Dead();
@@ -111,11 +113,9 @@ void Flower::Render()
 
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
-
-	if (_actions[GATLING]->isEnd == true)
-	{
-		_podBullet->Render();
-	}
+	
+	for (auto bullet : _podBullets)
+		bullet->Render();
 
 	for (auto ball : _balls)
 		ball->Render();
@@ -273,12 +273,12 @@ void Flower::BallAttack(shared_ptr<Player> player)
 
 	_shootDelay += DELTA_TIME;
 
-	if (_shootDelay >= 2.7)
+	if (_shootDelay >= 1.4)
 		_shootDelay = 0.0f;
 
 	if (_count % 3 == 2 && _count == 2)
 	{
-		if (_shootDelay >= 1.6)
+		if (_shootDelay >= 0.8)
 		{
 			if (_balls[0]->isActive == false)
 			{
@@ -289,7 +289,7 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[0]->SetFireDir(dir);
 				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			}
-			if (_balls[1]->isActive == false && _shootDelay >= 1.9)
+			if (_balls[1]->isActive == false && _shootDelay >= 0.9)
 			{
 				_muzzle->SetPosition(Vector2(850, 400));
 				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
@@ -298,7 +298,7 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[1]->SetFireDir(dir);
 				_balls[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			}
-			if (_balls[2]->isActive == false && _shootDelay >= 2.2)
+			if (_balls[2]->isActive == false && _shootDelay >= 1.1)
 			{
 				_muzzle->SetPosition(Vector2(850, 300));
 				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
@@ -311,7 +311,7 @@ void Flower::BallAttack(shared_ptr<Player> player)
 	}
 	if (_count % 3 == 2 && _count > 2)
 	{
-		if (_shootDelay >= 2.6)
+		if (_shootDelay >= 1.3)
 		{
 			if (_balls[0]->isActive == false)
 			{
@@ -322,7 +322,7 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[0]->SetFireDir(dir);
 				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			}
-			if (_balls[1]->isActive == false && _shootDelay >= 1.8)
+			if (_balls[1]->isActive == false && _shootDelay >= 0.9)
 			{
 				_muzzle->SetPosition(Vector2(850, 400));
 				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
@@ -331,7 +331,7 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[1]->SetFireDir(dir);
 				_balls[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			}
-			if (_balls[2]->isActive == false && _shootDelay >= 2.0)
+			if (_balls[2]->isActive == false && _shootDelay >= 1.0)
 			{
 				_muzzle->SetPosition(Vector2(850, 300));
 				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
@@ -343,10 +343,9 @@ void Flower::BallAttack(shared_ptr<Player> player)
 		}
 	}
 
-
-	if (_count % 3 == 0)
+	if (_count % 3 == 0 && _count == 3)
 	{
-		if (_shootDelay >= 2.3)
+		if (_shootDelay >= 1.2)
 		{
 			if (_balls[0]->isActive == false)
 			{
@@ -358,6 +357,44 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 			}
 		}
+	}
+
+	if (_count % 3 == 0 && _count > 3)
+	{
+		if (_shootDelay >= 1.2)
+		{
+			if (_balls[0]->isActive == false)
+			{
+				_muzzle->SetPosition(Vector2(850, 400));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[0]->SetAction(HandATK::State::BOOMERANG);
+				_balls[0]->Enable();
+				_balls[0]->SetFireDir(dir);
+				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+		}
+	}
+}
+
+void Flower::PotBallATK()
+{
+	if (_podBullets[0]->isActive == false)
+	{
+		_muzzle->SetPosition(Vector2(750, 900));
+		_podBullets[0]->Enable();
+		_podBullets[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+	}
+	if (_podBullets[1]->isActive == false)
+	{
+		_muzzle->SetPosition(Vector2(300, 1100));
+		_podBullets[1]->Enable();
+		_podBullets[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+	}
+	if (_podBullets[2]->isActive == false)
+	{
+		_muzzle->SetPosition(Vector2(500, 800));
+		_podBullets[2]->Enable();
+		_podBullets[2]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
 	}
 }
 

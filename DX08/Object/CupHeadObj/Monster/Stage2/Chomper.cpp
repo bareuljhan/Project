@@ -6,6 +6,14 @@ Chomper::Chomper()
 	_transform = make_shared<Transform>();
 
 	CreateAction("FlowerChomper", Action::Type::LOOP);
+
+	_collider = make_shared<CircleCollider>(40);
+	_collider->GetTransform()->SetParent(_transform);
+	
+	_sprite->GetTransform()->SetParent(_transform);
+
+	_transform->SetPosition(Vector2(CENTER_X - 100, 150));
+	_action->Play();
 }
 
 Chomper::~Chomper()

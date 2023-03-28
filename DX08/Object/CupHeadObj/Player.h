@@ -92,7 +92,7 @@ protected:
 	float _dashSpeed = 1000.0f;
 
 	float _effectStart = 0.0f;
-	float _effectDelay = 0.7f;
+	float _effectDelay = 0.3f;
 
 	float _atk = 10.0f;
 
@@ -102,7 +102,7 @@ protected:
 	float _hp = 4;
 	const int _poolCount = 30;
 
-	float _invincibleTime = 5.0f;
+	float _invincibleTime = 2.5f;
 	float _delay = 0.0f;
 };
 
