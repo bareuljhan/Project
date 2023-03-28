@@ -26,6 +26,7 @@ public:
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	bool isActive = false;
+	bool isEnd = false;
 private:
 	void CreateAction(string name, Action::Type type);
 
@@ -43,6 +44,8 @@ private:
 
 	Vector2 _direction = { 0,0 };
 	float _speed = 200.0f;
+
+	float _delay = 0.0f;
 	
 };
 

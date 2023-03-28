@@ -32,6 +32,15 @@ PodBullet::PodBullet()
 	_actions[BLUE]->Play();
 	_actions[RED]->Play();
 	_actions[PURPLE]->Play();
+
+	_chomper = make_shared<Chomper>();
+	//for (int i = 0; i < 2; i++)
+	//{
+	//	shared_ptr<Vine> vine = make_shared<Vine>();
+	//	_vines.push_back(vine);
+	//}
+	//_vines[0]->GetTransform()->SetParent(_sprites[RED]->GetTransform());
+	//_vines[1]->GetTransform()->SetParent(_sprites[PURPLE]->GetTransform());
 }
 
 PodBullet::~PodBullet()
@@ -46,33 +55,59 @@ void PodBullet::Update()
 	_collider2->Update();
 	_collider3->Update();
 
-	if (isActive != false)
+	if (isActive[0] != false)
 	{
-		for (auto sprite : _sprites)
-			sprite->Update();
+		_sprites[0]->Update();
+		_actions[0]->Update();
 
-		for (auto action : _actions)
-			action->Update();
 		Vector2 temp = _transform->GetPos();
 		temp.y -= _bulletSpeed * DELTA_TIME;
 		_transform->SetPosition(temp);
 	}
+	if (isActive[1] != false)
+	{
+		_sprites[1]->Update();
+		_actions[1]->Update();
 
+		Vector2 temp = _transform->GetPos();
+		temp.y -= _bulletSpeed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
+	if (isActive[2] != false)
+	{
+		_sprites[2]->Update();
+		_actions[2]->Update();
 
+		Vector2 temp = _transform->GetPos();
+		temp.y -= _bulletSpeed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
+	if (isFloorOne == true)
+		_chomper->Update();
+	//if (isFloorTwo == true)
+	//	_vines[0]->Update();
+	//if (isFloorThr == true)
+	//	_vines[1]->Update();
+		
 	_transform->UpdateSRT();
 }
 
 void PodBullet::Render()
 {
-	if (isActive != false)
+	if (isActive[0] != false)
 	{
-		for (auto sprite : _sprites)
-			sprite->Render();
-
+		_sprites[0]->Render();
 		_sprites[0]->SetActionClip(_actions[0]->GetCurClip());
+	}
+	if (isActive[1] != false)
+	{
+		_sprites[1]->Render();
 		_sprites[1]->SetActionClip(_actions[1]->GetCurClip());
+	}
+	if (isActive[2] != false)
+	{
+		_sprites[2]->Render();
 		_sprites[2]->SetActionClip(_actions[2]->GetCurClip());
-
 	}
 	_collider1->Render();
 	_collider2->Render();
@@ -82,18 +117,21 @@ void PodBullet::Render()
 void PodBullet::Enable(int index)
 {
 	_colliders[index]->isActive = true;
-	isActive = true;
+	isActive[index] = true;
+	isFloorOne = true;
+	isFloorTwo = true;
+	isFloorThr = true;
 }
 
 void PodBullet::Disable(int index)
 {
 	_colliders[index]->isActive = false;
-	isActive = false;
+	isActive[index] = false;
 }
 
 bool PodBullet::Collision(shared_ptr<Collider> col, int index)
 {
-	if (isActive == false)
+	if (isActive[index] == false)
 		return false;
 
 	bool result = _colliders[index]->IsCollision(col);
@@ -102,7 +140,6 @@ bool PodBullet::Collision(shared_ptr<Collider> col, int index)
 	{
 		Disable(index);
 	}
-
 	return result;
 }
 

@@ -77,6 +77,10 @@ void Action::Update()
 			{
 				_flowerGround();
 			}
+			if (_curClipIndex == 17 && _handATK != nullptr)
+			{
+				_handATK();
+			}
 
 
 			if (_curClipIndex >= _clips.size())

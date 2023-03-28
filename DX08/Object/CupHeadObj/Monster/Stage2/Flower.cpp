@@ -59,6 +59,11 @@ Flower::Flower()
 
 	file = L"Resource/Texture/CupHead/Effect/FlowerVine.png";
 	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(800, 130), 0.11f);
+
+	file = L"Resource/Texture/CupHead/Effect/BossExpension.png";
+	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(500, 500), 0.06f);
+
+	_mosaicBuffer = make_shared<CupMosaicBuffer>();
 }
 
 Flower::~Flower()
@@ -68,6 +73,8 @@ Flower::~Flower()
 
 void Flower::Update()
 {
+	if (_mosaicBuffer->_data.value1 == 50) return;
+
 	if (_actions[GATLING]->isEnd == true)
 	{
 		_podBullet->Update();
@@ -76,7 +83,9 @@ void Flower::Update()
 	if (isDead == true)
 		Dead();
 
+	_efCheck += DELTA_TIME;
 	_vineDelay += DELTA_TIME;
+
 	if (_vineDelay >= 0.5 && (_curState == NEWIDLE || _curState == DEAD || _curState == ATK))
 	{
 		EFFECT->Play("FlowerVine", Vector2(_transform->GetPos().x - 600, _transform->GetPos().y - 150), false);
@@ -98,13 +107,15 @@ void Flower::Update()
 
 void Flower::Render()
 {
+	if (_mosaicBuffer->_data.value1 == 50) return;
+
+	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
+	_sprites[_curState]->Render();
+
 	if (_actions[GATLING]->isEnd == true)
 	{
 		_podBullet->Render();
 	}
-	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
-	_sprites[_curState]->Render();
-
 
 	for (auto ball : _balls)
 		ball->Render();
@@ -239,20 +250,20 @@ void Flower::GetDamaged(float amount)
 
 void Flower::Dead()
 {
-	//for (auto sprite : _sprites)
-	//{
-	//	sprite->SetPS(ADD_PS(L"Shader/MosaicPixelShader.hlsl"));
-	//}
+	for (auto sprite : _sprites)
+	{
+		sprite->SetPS(ADD_PS(L"Shader/MosaicPixelShader.hlsl"));
+	}
 	SetAction(State::DEAD);
 
-	//_mosaicBuffer->_data.value1 -= DELTA_TIME;
-	//_collider->isActive = false;
+	_mosaicBuffer->_data.value1 -= DELTA_TIME;
+	_hitCollider->isActive = false;
 
-	//if (_efCheck >= 0.8f)
-	//{
-	//	EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
-	//	_efCheck = 0.0f;
-	//}
+	if (_efCheck >= 0.8f)
+	{
+		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		_efCheck = 0.0f;
+	}
 }
 
 void Flower::BallAttack(shared_ptr<Player> player)
@@ -262,9 +273,45 @@ void Flower::BallAttack(shared_ptr<Player> player)
 
 	_shootDelay += DELTA_TIME;
 
-	if (_count % 3 == 2)
+	if (_shootDelay >= 2.7)
+		_shootDelay = 0.0f;
+
+	if (_count % 3 == 2 && _count == 2)
 	{
 		if (_shootDelay >= 1.6)
+		{
+			if (_balls[0]->isActive == false)
+			{
+				_muzzle->SetPosition(Vector2(850, 500));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[0]->SetAction(HandATK::State::BALL);
+				_balls[0]->Enable();
+				_balls[0]->SetFireDir(dir);
+				_balls[0]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+			if (_balls[1]->isActive == false && _shootDelay >= 1.9)
+			{
+				_muzzle->SetPosition(Vector2(850, 400));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[1]->SetAction(HandATK::State::BALL);
+				_balls[1]->Enable();
+				_balls[1]->SetFireDir(dir);
+				_balls[1]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+			if (_balls[2]->isActive == false && _shootDelay >= 2.2)
+			{
+				_muzzle->SetPosition(Vector2(850, 300));
+				Vector2 dir = (player->GetTransform()->GetWorldPos() - _muzzle->GetPos()).NormalVector2();
+				_balls[2]->SetAction(HandATK::State::BALL);
+				_balls[2]->Enable();
+				_balls[2]->SetFireDir(dir);
+				_balls[2]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
+			}
+		}
+	}
+	if (_count % 3 == 2 && _count > 2)
+	{
+		if (_shootDelay >= 2.6)
 		{
 			if (_balls[0]->isActive == false)
 			{
@@ -292,13 +339,14 @@ void Flower::BallAttack(shared_ptr<Player> player)
 				_balls[2]->Enable();
 				_balls[2]->SetFireDir(dir);
 				_balls[2]->GetTransform()->SetPosition(_muzzle->GetWorldPos());
-				_shootDelay = 0.0f;
 			}
 		}
 	}
-	else if (_count % 3 == 0)
+
+
+	if (_count % 3 == 0)
 	{
-		if (_shootDelay >= 1.6)
+		if (_shootDelay >= 2.3)
 		{
 			if (_balls[0]->isActive == false)
 			{

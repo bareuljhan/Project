@@ -38,12 +38,13 @@ public:
 	void Dead();
 
 	void BallAttack(shared_ptr<Player> player);
+	void BallATK();
 
 	bool isUpdate = false;
 	bool isDead = false;
 
 	shared_ptr<PodBullet> GetPodBullet() { return _podBullet; }
-
+	vector<shared_ptr<HandATK>> GetBalls() { return _balls; }
 	shared_ptr<RectCollider> GetBodyCollider() { return _hitCollider; }
 private:
 	void CreateAction(string name, Action::Type type);
@@ -65,14 +66,16 @@ private:
 	shared_ptr<RectCollider> _hitCollider;
 	shared_ptr<RectCollider> _atkCollider;
 
+	shared_ptr<CupMosaicBuffer> _mosaicBuffer;
+
 	vector<shared_ptr<RectCollider>> _colliders;
 
 	float _shootDelay = 0.0f;
 
 	int _count = 0;
 	
-	float _vineDelay = 0.0;
-	
+	float _vineDelay = 0.0f;
+	float _efCheck = 0.0f;
 
 	float _hp = 500.0f;
 };

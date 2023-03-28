@@ -23,31 +23,74 @@ void FloralFury::Update()
 	_player->Update();
 
 	_boss1->BallAttack(_player);
+
 	if (_player->isInvincible == false)
 	{
 		if (_boss1->GetPodBullet()->GetColliderOne()->isActive == true)
 		{
-			if (_boss1->GetPodBullet()->GetColliderOne()->IsCollision(_player->GetBodyCollider(), 0))
+			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 0))
 			{
 				_player->GetDamaged(1);
 				_player->isInvincible = true;
 			}
-			//else if (_boss1->GetPodBullet()->GetColliderOne()->IsCollision(_map->GetFloorCollider(), 0))
-			//{
-
-			//}
-			if (_boss1->GetPodBullet()->GetColliderTwo()->IsCollision(_player->GetBodyCollider(), 1))
+		}
+		if (_boss1->GetPodBullet()->GetColliderTwo()->isActive == true)
+		{
+			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 1))
 			{
 				_player->GetDamaged(1);
 				_player->isInvincible = true;
 			}
-			if (_boss1->GetPodBullet()->GetColliderThr()->IsCollision(_player->GetBodyCollider(), 2))
+		}
+		if (_boss1->GetPodBullet()->GetColliderThr()->isActive == true)
+		{
+			if (_boss1->GetPodBullet()->Collision(_player->GetBodyCollider(), 2))
+			{
+				_player->GetDamaged(1);
+				_player->isInvincible = true;
+			}
+		}
+		for (auto bullet : _boss1->GetBalls())
+		{
+			if (bullet->Collision(_player->GetBodyCollider()))
 			{
 				_player->GetDamaged(1);
 				_player->isInvincible = true;
 			}
 		}
 	}
+
+	for (auto bullet : _boss1->GetBalls())
+	{
+		if (bullet->Collision(_map->GetFloorCollider()) || bullet->Collision(_map->GetSideCollider()))
+		{
+			bullet->isEnd = true;
+		}
+	}
+
+	if (_boss1->GetPodBullet()->GetColliderOne()->isActive == true)
+	{
+		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 0))
+		{
+			_boss1->GetPodBullet()->isFloorOne = true;
+		}
+	}
+	if (_boss1->GetPodBullet()->GetColliderTwo()->isActive == true)
+	{
+		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 1))
+		{
+			_boss1->GetPodBullet()->isFloorTwo = true;
+		}
+	}
+	if (_boss1->GetPodBullet()->GetColliderThr()->isActive == true)
+	{
+		if (_boss1->GetPodBullet()->Collision(_map->GetFloorCollider(), 2))
+		{
+			_boss1->GetPodBullet()->isFloorThr = true;
+		}
+	}
+
+
 	for (auto bullet : _player->GetBullets())
 	{
 		if (_boss1->GetBodyCollider()->isActive != false)
@@ -66,10 +109,7 @@ void FloralFury::Render()
 	_map->Render();
 	_boss1->Render();
 
-
 	_map->PostRender();
-
-
 }
 
 void FloralFury::PostRender()

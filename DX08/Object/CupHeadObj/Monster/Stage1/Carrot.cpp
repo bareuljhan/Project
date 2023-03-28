@@ -41,7 +41,7 @@ Carrot::~Carrot()
 
 void Carrot::Update()
 {
-	if (_mosaicBuffer->_data.value1 == 0) return;
+	if (_mosaicBuffer->_data.value1 == 50) return;
 
 	_collider->Update();
 
@@ -60,7 +60,7 @@ void Carrot::Update()
 
 void Carrot::Render()
 {
-	if (_mosaicBuffer->_data.value1 == 0) return;
+	if (_mosaicBuffer->_data.value1 == 50) return;
 
 	_mosaicBuffer->SetPSBuffer(2);
 

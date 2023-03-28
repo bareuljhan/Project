@@ -20,8 +20,10 @@ public:
 
 	bool Collision(shared_ptr<Collider> col, int index);
 
-	bool isActive = true;
-	bool isFloor = false;
+	bool isActive[3] = { true, true, true };
+	bool isFloorOne = false;
+	bool isFloorTwo = false;
+	bool isFloorThr = false;
 
 	shared_ptr<Collider> GetColliderOne() { return _collider1; }
 	shared_ptr<Collider> GetColliderTwo() { return _collider2; }
@@ -39,6 +41,9 @@ private:
 	shared_ptr<Collider> _collider3;
 
 	vector<shared_ptr<Collider>> _colliders;
+
+	shared_ptr<Chomper> _chomper;
+	//vector<shared_ptr<Vine>> _vines;
 
 	float _bulletSpeed = 80.0f;
 

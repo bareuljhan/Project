@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="FlowerChomper.png" width="182" height="403" scale="1" format="RGBA8888">
+  <sprite n="flower_chomper_0001.png" x="0" y="336" w="64" h="67" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="69"/>
+  <sprite n="flower_chomper_0002.png" x="107" y="0" w="75" h="69" pX="0.5" pY="0.5" oX="0" oY="0" oW="76" oH="71"/>
+  <sprite n="flower_chomper_0003.png" x="0" y="0" w="48" h="126" pX="0.5" pY="0.5" oX="0" oY="0" oW="50" oH="128"/>
+  <sprite n="flower_chomper_0004.png" x="0" y="126" w="47" h="106" pX="0.5" pY="0.5" oX="0" oY="0" oW="49" oH="108"/>
+  <sprite n="flower_chomper_0005.png" x="0" y="232" w="53" h="104" pX="0.5" pY="0.5" oX="0" oY="0" oW="55" oH="106"/>
+  <sprite n="flower_chomper_0006.png" x="47" y="126" w="60" h="100" pX="0.5" pY="0.5" oX="0" oY="0" oW="62" oH="102"/>
+  <sprite n="flower_chomper_0007.png" x="48" y="0" w="59" h="84" pX="0.5" pY="0.5" oX="0" oY="0" oW="61" oH="86"/>
+  <sprite n="flower_chomper_0008.png" x="107" y="69" w="75" h="60" pX="0.5" pY="0.5" oX="0" oY="0" oW="77" oH="62"/>
+  <sprite n="flower_chomper_0009.png" x="53" y="226" w="71" h="66" pX="0.5" pY="0.5" oX="0" oY="0" oW="73" oH="68"/>
+</TextureAtlas>

@@ -24,7 +24,7 @@ HandATK::HandATK()
 }
 
 HandATK::~HandATK()
-{
+{	
 	_transform = nullptr;
 }
 
@@ -49,11 +49,19 @@ void HandATK::Update()
 
 	if (_curState == BOOMERANG)
 	{
+		_delay += DELTA_TIME;
 		Vector2 temp = _transform->GetPos();
-		temp.x += _direction.x * _speed * DELTA_TIME;
-		_transform->SetPosition(temp);
 
-		//if(_transform.x < 10)
+		if (_delay < 3.0f)
+		{
+			temp.x += _direction.x * _speed * DELTA_TIME;
+			_transform->SetPosition(temp);
+		}
+		else
+		{
+			temp.x -= _direction.x * _speed * DELTA_TIME;
+			_transform->SetPosition(temp);
+		}
 	}
 	for (auto sprite : _sprites)
 		sprite->Update();
@@ -79,8 +87,8 @@ void HandATK::Enable()
 
 void HandATK::Disable()
 {
-	_collider->isActive = true;
-	isActive = true;
+	_collider->isActive = false;
+	isActive = false;
 }
 
 void HandATK::SetFireDir(Vector2 dir)
@@ -89,9 +97,6 @@ void HandATK::SetFireDir(Vector2 dir)
 		action->Play();
 
 	_direction = dir.NormalVector2();
-
-	//for (auto sprite : _sprites)
-	//	sprite->GetTransform()->GetAngle() = dir.Angle() - PI * 0.5f;
 }
 
 bool HandATK::Collision(shared_ptr<Collider> col)
