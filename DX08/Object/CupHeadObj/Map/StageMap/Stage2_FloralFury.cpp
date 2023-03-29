@@ -32,9 +32,40 @@ Stage2_FloralFury::Stage2_FloralFury()
 	_sun->GetTransform()->SetPosition(Vector2(450, 570));
 
 	CreateAction("waterTwinkle", Action::Type::LOOP);
-	_sprite->GetTransform()->SetPosition(Vector2(CENTER_X, CENTER_Y - 30));
-	_sprite->GetTransform()->SetScale(Vector2(1.5f, 1.5f));
-	_action->Play();
+	CreateAction("Platform", Action::Type::LOOP);
+	CreateAction("PlatformFx", Action::Type::LOOP);
+	CreateAction("Platform", Action::Type::LOOP);
+	CreateAction("PlatformFx", Action::Type::LOOP);
+	CreateAction("Platform", Action::Type::LOOP);
+	CreateAction("PlatformFx", Action::Type::LOOP);
+
+	_sprites[0]->GetTransform()->SetPosition(Vector2(CENTER_X, CENTER_Y - 30));
+	_sprites[0]->GetTransform()->SetScale(Vector2(1.5f, 1.5f));
+	_actions[0]->Play();
+
+	_sprites[1]->GetTransform()->SetPosition(Vector2(CENTER_X - 460, CENTER_Y - 100));
+	_sprites[1]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[1]->Play();
+
+	_sprites[2]->GetTransform()->SetPosition(Vector2(CENTER_X - 460, CENTER_Y - 130));
+	_sprites[2]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[2]->Play();
+
+	_sprites[3]->GetTransform()->SetPosition(Vector2(CENTER_X - 210, CENTER_Y - 100));
+	_sprites[3]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[3]->Play();
+
+	_sprites[4]->GetTransform()->SetPosition(Vector2(CENTER_X - 210, CENTER_Y - 130));
+	_sprites[4]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[4]->Play();
+
+	_sprites[5]->GetTransform()->SetPosition(Vector2(CENTER_X + 30, CENTER_Y - 100));
+	_sprites[5]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[5]->Play();
+
+	_sprites[6]->GetTransform()->SetPosition(Vector2(CENTER_X + 30, CENTER_Y - 130));
+	_sprites[6]->GetTransform()->SetScale(Vector2(0.8f, 0.8f));
+	_actions[6]->Play();
 
 	_floorCol = make_shared<RectCollider>(Vector2(1400, 100));
 	_floorCol->GetTransform()->SetParent(_transform);
@@ -48,9 +79,22 @@ Stage2_FloralFury::Stage2_FloralFury()
 	_sideCol2->GetTransform()->SetParent(_transform);
 	_sideCol2->GetTransform()->SetPosition(Vector2(1325, 100));
 
+	_platformCol1 = make_shared<RectCollider>(Vector2(120, 10));
+	_platformCol1->GetTransform()->SetParent(_transform);
+	_platformCol1->GetTransform()->SetPosition(Vector2(CENTER_X - 460, CENTER_Y - 70));
+	_platformCol2 = make_shared<RectCollider>(Vector2(120, 10));
+	_platformCol2->GetTransform()->SetParent(_transform);
+	_platformCol2->GetTransform()->SetPosition(Vector2(CENTER_X - 210, CENTER_Y - 70));
+	_platformCol3 = make_shared<RectCollider>(Vector2(120, 10));
+	_platformCol3->GetTransform()->SetParent(_transform);
+	_platformCol3->GetTransform()->SetPosition(Vector2(CENTER_X + 30, CENTER_Y - 70));
+
 	_colliders.push_back(_floorCol);
 	_colliders.push_back(_sideCol);
 	_colliders.push_back(_sideCol2);
+	_colliders.push_back(_platformCol1);
+	_colliders.push_back(_platformCol2);
+	_colliders.push_back(_platformCol3);
 
 }
 
@@ -61,9 +105,9 @@ Stage2_FloralFury::~Stage2_FloralFury()
 
 void Stage2_FloralFury::Update()
 {
-	_floorCol->Update();
-	_sideCol->Update();
-	_sideCol2->Update();
+
+	for (auto col : _colliders)
+		col->Update();
 
 	_sky->Update();
 	_mainBG->Update();
@@ -73,8 +117,10 @@ void Stage2_FloralFury::Update()
 	_sea->Update();
 	_sun->Update();
 
-	_sprite->Update();
-	_action->Update();
+	for(auto sprite : _sprites)
+		sprite->Update();
+	for(auto action : _actions)
+		action->Update();
 
 	_transform->UpdateSRT();
 
@@ -116,18 +162,33 @@ void Stage2_FloralFury::PreRender()
 	_sky->Render();
 	_cloud->Render();
 	_sea->Render();
-	_sprite->Render();
-	_sprite->SetActionClip(_action->GetCurClip());
+
+	_sprites[0]->Render();
+	_sprites[0]->SetActionClip(_actions[0]->GetCurClip());
+
 	_hill->Render();
 	_mainBG->Render();
+
+	_sprites[2]->Render();
+	_sprites[1]->Render();
+	_sprites[1]->SetActionClip(_actions[1]->GetCurClip());
+	_sprites[2]->SetActionClip(_actions[2]->GetCurClip());
+	_sprites[4]->Render();
+	_sprites[3]->Render();
+	_sprites[3]->SetActionClip(_actions[1]->GetCurClip());
+	_sprites[4]->SetActionClip(_actions[2]->GetCurClip());
+	_sprites[6]->Render();
+	_sprites[5]->Render();
+	_sprites[5]->SetActionClip(_actions[1]->GetCurClip());
+	_sprites[6]->SetActionClip(_actions[2]->GetCurClip());
 }
 
 void Stage2_FloralFury::PostRender()
 {
 	_flower->Render();	
-	_floorCol->Render();
-	_sideCol->Render();
-	_sideCol2->Render();
+
+	for (auto col : _colliders)
+		col->Render();
 }
 
 void Stage2_FloralFury::CreateAction(string name, Action::Type type)
@@ -139,6 +200,6 @@ void Stage2_FloralFury::CreateAction(string name, Action::Type type)
 	MyXML xml = MyXML(xmlPath, srvPath);
 
 	string actionName = name;
-	_action = make_shared<Action>(xml.GetClips(), actionName, type);
-	_sprite = make_shared<Sprite>(srvPath, xml.AverageSize());
+	_actions.emplace_back(make_shared<Action>(xml.GetClips(), actionName, type));
+	_sprites.emplace_back(make_shared<Sprite>(srvPath, xml.AverageSize()));
 }

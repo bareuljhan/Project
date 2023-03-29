@@ -84,6 +84,10 @@ void Action::Update()
 			if (_curClipIndex == 7 && _vineGen != nullptr)
 			{
 				_vineGen();
+			}	
+			if (_curClipIndex == 11 && _puffBall != nullptr)
+			{
+				_puffBall();
 			}
 
 

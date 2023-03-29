@@ -16,7 +16,13 @@ public:
 	void Enable();
 	void Disable();
 
+	bool Collision(shared_ptr<Collider> col);
+
 	bool isActive = true;
+
+	shared_ptr<Transform> GetTransform() { return _transform; }
+	shared_ptr<Collider> GetCollider() { return _collider; }
+
 private:
 	void CreateAction(string name, Action::Type type);
 

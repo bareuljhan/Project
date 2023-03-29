@@ -31,12 +31,15 @@ private:
 	shared_ptr<Quad> _sea;
 	shared_ptr<Quad> _sun;
 
-	shared_ptr<Sprite> _sprite;
-	shared_ptr<Action> _action;
+	vector<shared_ptr<Sprite>> _sprites;
+	vector<shared_ptr<Action>> _actions;
 
 	shared_ptr<RectCollider> _floorCol;
 	shared_ptr<RectCollider> _sideCol;
 	shared_ptr<RectCollider> _sideCol2;
+	shared_ptr<RectCollider> _platformCol1;
+	shared_ptr<RectCollider> _platformCol2;
+	shared_ptr<RectCollider> _platformCol3;
 
 	vector<shared_ptr<RectCollider>> _colliders;
 };

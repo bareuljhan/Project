@@ -12,7 +12,7 @@ Chomper::Chomper()
 	
 	_sprite->GetTransform()->SetParent(_transform);
 
-	_transform->SetPosition(Vector2(CENTER_X - 100, 150));
+	_transform->SetPosition(Vector2(750, 150));
 	_action->Play();
 }
 
@@ -23,14 +23,20 @@ Chomper::~Chomper()
 
 void Chomper::Update()
 {
+	if (isActive == false) return;
+	
+	_collider->Update();
 	_action->Update();
 	_sprite->Update();
 }
 
 void Chomper::Render()
 {
+	if (isActive == false) return;
+
 	_sprite->Render();
 	_sprite->SetActionClip(_action->GetCurClip());
+	_collider->Render();
 }
 
 void Chomper::Enable()
@@ -43,6 +49,20 @@ void Chomper::Disable()
 {
 	isActive = false;
 	_collider->isActive = false;
+}
+
+bool Chomper::Collision(shared_ptr<Collider> col)
+{
+	if (isActive == false)
+		return false;
+
+	bool result = _collider->IsCollision(col);
+
+	if (result == true)
+	{
+		Disable();
+	}
+	return result;
 }
 
 void Chomper::CreateAction(string name, Action::Type type)

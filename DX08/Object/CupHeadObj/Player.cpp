@@ -25,7 +25,7 @@ Player::Player()
 	_actions[State::RUNSHOT]->SetCallBack(std::bind(&Player::SetRun, this));
 	_actions[State::HIT]->SetIDLE_CallBack(std::bind(&Player::SetIDLE, this));
 
-	_blockCollider = make_shared<CircleCollider>(73);
+	_blockCollider = make_shared<CircleCollider>(50);
 	_blockCollider->GetTransform()->SetPosition(Vector2(0, -120));
 
 	_transform = _blockCollider->GetTransform();

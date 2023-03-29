@@ -14,19 +14,11 @@ oY => y-corner offset
 oW => original width
 oH => original height
 r => 'y' if sprite is rotated-->
-<TextureAtlas imagePath="venusATK.png" width="400" height="311" scale="1" format="RGBA8888">
-  <sprite n="flower_venus_a_chomp_0003.png" x="0" y="0" w="117" h="55" pX="0.5" pY="0.5" oX="2" oY="0" oW="119" oH="57"/>
-  <sprite n="flower_venus_b_chomp_0003.png" x="117" y="0" w="105" h="52" pX="0.5" pY="0.5" oX="0" oY="0" oW="105" oH="54"/>
-  <sprite n="flower_venus_b_chomp_0004.png" x="222" y="0" w="98" h="61" pX="0.5" pY="0.5" oX="2" oY="0" oW="102" oH="63"/>
-  <sprite n="flower_venus_a_chomp_0004.png" x="117" y="52" w="85" h="60" pX="0.5" pY="0.5" oX="0" oY="0" oW="85" oH="62"/>
+<TextureAtlas imagePath="venusATK.png" width="280" height="188" scale="1" format="RGBA8888">
+  <sprite n="flower_venus_a_chomp_0001.png" x="84" y="60" w="70" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="70" oH="67"/>
   <sprite n="flower_venus_a_chomp_0002.png" x="0" y="55" w="84" h="68" pX="0.5" pY="0.5" oX="0" oY="0" oW="84" oH="70"/>
-  <sprite n="flower_venus_death_0002.png" x="320" y="0" w="80" h="82" pX="0.5" pY="0.5" oX="0" oY="0" oW="82" oH="84"/>
-  <sprite n="flower_venus_b_chomp_0002.png" x="202" y="61" w="78" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="80" oH="67"/>
-  <sprite n="flower_venus_a_chomp_0005.png" x="202" y="126" w="78" h="64" pX="0.5" pY="0.5" oX="0" oY="0" oW="78" oH="66"/>
-  <sprite n="flower_venus_death_0001.png" x="84" y="112" w="73" h="69" pX="0.5" pY="0.5" oX="0" oY="0" oW="73" oH="71"/>
-  <sprite n="flower_venus_a_chomp_0001.png" x="0" y="123" w="70" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="70" oH="67"/>
-  <sprite n="flower_venus_b_chomp_0005.png" x="70" y="181" w="68" h="63" pX="0.5" pY="0.5" oX="0" oY="0" oW="70" oH="65"/>
-  <sprite n="flower_venus_b_chomp_0001.png" x="138" y="181" w="64" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="66" oH="67"/>
-  <sprite n="flower_venus_a_grow_0008.png" x="138" y="246" w="62" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="64" oH="67"/>
-  <sprite n="flower_venus_b_grow_0008.png" x="0" y="188" w="62" h="60" pX="0.5" pY="0.5" oX="0" oY="0" oW="62" oH="62"/>
+  <sprite n="flower_venus_a_chomp_0003.png" x="0" y="0" w="117" h="55" pX="0.5" pY="0.5" oX="2" oY="0" oW="119" oH="57"/>
+  <sprite n="flower_venus_a_chomp_0004.png" x="117" y="0" w="85" h="60" pX="0.5" pY="0.5" oX="0" oY="0" oW="85" oH="62"/>
+  <sprite n="flower_venus_a_chomp_0005.png" x="202" y="0" w="78" h="64" pX="0.5" pY="0.5" oX="0" oY="0" oW="78" oH="66"/>
+  <sprite n="flower_venus_a_grow_0008.png" x="0" y="123" w="62" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="64" oH="67"/>
 </TextureAtlas>

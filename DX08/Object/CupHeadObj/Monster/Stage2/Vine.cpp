@@ -5,23 +5,22 @@ Vine::Vine()
 {
 	_transform = make_shared<Transform>();
 
-	CreateAction("Venus", Action::Type::END);
-	CreateAction("venusATK", Action::Type::END);
+	CreateAction("venus", Action::Type::END);
+	CreateAction("venusATK", Action::Type::LOOP);
 
 	_actions[IDLE]->VineRespawn(std::bind(&Vine::SetAttack, this));
 
+	_transform->SetPosition(Vector2(500, 220));
+	
 	for (auto sprite : _sprites)
 		sprite->GetTransform()->SetParent(_transform);
+
 
 	_collider = make_shared<CircleCollider>(40);
 	_collider->GetTransform()->SetParent(_transform);
 
 	_oldState = IDLE;
-	_actions[_curState]->Play();
-
-	wstring file = L"Resource/Texture/CupHead/Effect/Vine.png";
-	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
-	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(50, 100), 0.05f);
+	_actions[IDLE]->Play();
 }
 
 Vine::~Vine()
@@ -32,6 +31,15 @@ Vine::~Vine()
 void Vine::Update()
 {
 	if (isActive == false) return;
+	
+	_collider->Update();
+
+	if (_curState == ATK)
+	{
+		Vector2 temp = _transform->GetPos();
+		temp += _direction * _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
 	for (auto sprite : _sprites)
 		sprite->Update();
 	for (auto action : _actions)
@@ -41,8 +49,11 @@ void Vine::Update()
 void Vine::Render()
 {
 	if (isActive == false) return;
-	_sprites[_curState]->Update();
+
+	_sprites[_curState]->Render();
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
+
+	_collider->Render();
 }
 
 void Vine::SetAction(State state)
@@ -72,10 +83,20 @@ void Vine::Disable()
 void Vine::SetAttack()
 {
 	SetAction(ATK);
+}
 
-	Vector2 temp = _transform->GetPos();
-	temp += _direction * _speed * DELTA_TIME;
-	_transform->SetPosition(temp);
+bool Vine::Collision(shared_ptr<Collider> col)
+{
+	if (isActive == false)
+		return false;
+
+	bool result = _collider->IsCollision(col);
+
+	if (result == true)
+	{
+		Disable();
+	}
+	return result;
 }
 
 void Vine::CreateAction(string name, Action::Type type)

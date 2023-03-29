@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="backVine_Intro.png" width="329" height="670" scale="1" format="RGBA8888">
+  <sprite n="flower_phase_two_back_vinehand_0001.png" x="236" y="282" w="62" h="60" pX="0.5" pY="0.5" oX="0" oY="0" oW="62" oH="62"/>
+  <sprite n="flower_phase_two_back_vinehand_0002.png" x="236" y="0" w="82" h="84" pX="0.5" pY="0.5" oX="2" oY="0" oW="84" oH="86"/>
+  <sprite n="flower_phase_two_back_vinehand_0003.png" x="223" y="166" w="106" h="116" pX="0.5" pY="0.5" oX="0" oY="1" oW="106" oH="119"/>
+  <sprite n="flower_phase_two_back_vinehand_0004.png" x="112" y="347" w="140" h="130" pX="0.5" pY="0.5" oX="0" oY="0" oW="140" oH="132"/>
+  <sprite n="flower_phase_two_back_vinehand_0005.png" x="0" y="518" w="152" h="152" pX="0.5" pY="0.5" oX="0" oY="0" oW="152" oH="154"/>
+  <sprite n="flower_phase_two_back_vinehand_0006.png" x="109" y="180" w="114" h="167" pX="0.5" pY="0.5" oX="0" oY="2" oW="114" oH="171"/>
+  <sprite n="flower_phase_two_back_vinehand_0007.png" x="0" y="180" w="109" h="170" pX="0.5" pY="0.5" oX="2" oY="0" oW="111" oH="172"/>
+  <sprite n="flower_phase_two_back_vinehand_0008.png" x="124" y="0" w="112" h="166" pX="0.5" pY="0.5" oX="0" oY="2" oW="112" oH="170"/>
+  <sprite n="flower_phase_two_back_vinehand_0009.png" x="0" y="350" w="112" h="168" pX="0.5" pY="0.5" oX="0" oY="0" oW="112" oH="170"/>
+  <sprite n="flower_phase_two_back_vinehand_0010.png" x="0" y="0" w="124" h="180" pX="0.5" pY="0.5" oX="0" oY="0" oW="124" oH="182"/>
+</TextureAtlas>

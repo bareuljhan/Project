@@ -8,12 +8,10 @@ public:
 	void Update();
 	void Render();
 
-	void Enalbe();
+	void Enable();
 	void Disable();
 
 	bool Collision(shared_ptr<Collider> col);
-	
-	void SetFireDir(Vector2 pos);
 
 	bool isActive = false;
 	shared_ptr<Transform> GetTransform() { return _transform; }
@@ -29,8 +27,11 @@ private:
 
 	shared_ptr<Collider> _collider;
 
-	Vector2 _direction = { 0, 0 };
+	Vector2 _direction = { -1, 1 };
+	Vector2 _directionDW = { -1, -1 };
 
-	float _speed = 150.0f;
+	float _speed = 200.0f;
+	float _delay = 0.0f;
+
 };
 

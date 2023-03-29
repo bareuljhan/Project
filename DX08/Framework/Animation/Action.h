@@ -56,6 +56,7 @@ public:
 	void FlowerGround(function<void(void)> endEvent) { _flowerGround = endEvent; }
 	void HandATK(function<void(void)> endEvent) { _handATK = endEvent; }
 	void VineRespawn(function<void(void)> endEvent) { _vineGen = endEvent; }
+	void PuffBall(function<void(void)> endEvent) { _puffBall = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -94,4 +95,5 @@ private:
 	function<void(void)> _flowerGround = nullptr;
 	function<void(void)> _handATK = nullptr;
 	function<void(void)> _vineGen = nullptr;
+	function<void(void)> _puffBall = nullptr;
 };

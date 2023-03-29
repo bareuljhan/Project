@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\CupHeadObj\Monster\Stage2\GroundATK.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Chomper.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\HandATK.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Flower.h" />
@@ -227,6 +228,7 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Vine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\CupHeadObj\Monster\Stage2\GroundATK.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Chomper.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\HandATK.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Flower.cpp" />

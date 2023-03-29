@@ -8,6 +8,13 @@ PuffBall::PuffBall()
 
 	CreateAction("PuffBall", Action::Type::LOOP);
 
+	_transform->SetPosition(Vector2(1000, 400));
+
+	_collider = make_shared<CircleCollider>(40);
+	_collider->GetTransform()->SetParent(_transform);
+
+	_sprite->GetTransform()->SetParent(_transform);
+	_action->Play();
 }
 
 PuffBall::~PuffBall()
@@ -17,28 +24,55 @@ PuffBall::~PuffBall()
 
 void PuffBall::Update()
 {
+	if (isActive == false) return;
+
+	_delay += DELTA_TIME;
+
+	_collider->Update();
+
 	_sprite->Update();
 	_action->Update();
+	
+	if (_delay <= 0.4f)
+	{
+		Vector2 temp = _transform->GetPos();
+		temp += _direction * _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
+	else if (_delay > 0.4 && _delay <= 0.8f)
+	{
+		Vector2 temp = _transform->GetPos();
+		temp += _directionDW * _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
+	else
+		_delay = 0.0f;
 
 	_transform->UpdateSRT();
 }
 
 void PuffBall::Render()
 {
+	if (isActive == false) return;
+	
 	_sprite->Render();
 	_sprite->SetActionClip(_action->GetCurClip());
+
+	_collider->Render();
 }
 
-void PuffBall::Enalbe()
+void PuffBall::Enable()
 {
 	isActive = true;
 	_collider->isActive = true;
+	_delay = 0.0f;
 }
 
 void PuffBall::Disable()
 {
 	isActive = false;
 	_collider->isActive = false;
+	_delay = 0.0f;
 }
 
 bool PuffBall::Collision(shared_ptr<Collider> col)
@@ -52,12 +86,7 @@ bool PuffBall::Collision(shared_ptr<Collider> col)
 	{
 		Disable();
 	}
-
 	return result;
-}
-
-void PuffBall::SetFireDir(Vector2 pos)
-{
 }
 
 void PuffBall::CreateAction(string name, Action::Type type)

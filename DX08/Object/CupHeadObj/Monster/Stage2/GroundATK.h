@@ -1,49 +1,46 @@
 #pragma once
-class Vine
+class GroundATK
 {
 public:
 	enum State
 	{
-		IDLE,
-		ATK,
+		INTRO_A,
+		IDLE_A,
+		ATK_A,
 		NONE
 	};
-	Vine();
-	~Vine();
+
+	GroundATK();
+	~GroundATK();
 
 	void Update();
 	void Render();
 
-	void SetAction(State state);
+	void SetIDLE();
+	void ATKPattern();
 
 	void Enable();
 	void Disable();
 
-	void SetAttack();
-
 	bool Collision(shared_ptr<Collider> col);
 
-	bool isActive = true;
+	void SetAction(State state);
 
-	shared_ptr<Transform> GetTransform() { return _transform; }
-	shared_ptr<Collider> GetCollider() { return _collider; }
+	bool isActive = false;
+
+	shared_ptr<Transform> GetTransform() { return _transform;  }
 private:
 	void CreateAction(string name, Action::Type type);
 
 	shared_ptr<Transform> _transform;
 
-	State _curState = IDLE;
 	State _oldState = NONE;
+	State _curState = INTRO_A;
 
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
 	shared_ptr<Collider> _collider;
-	shared_ptr<Effect> _effect;
-
-	float _speed = 100.0f;
-
-	Vector2 _direction = { -1,1 };
 
 	float _delay = 0.0f;
 };

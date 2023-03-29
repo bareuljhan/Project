@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="ChomperDeath.png" width="707" height="2041" scale="1" format="RGBA8888">
+  <sprite n="flower_chomper_death_0001.png" x="0" y="1954" w="77" h="87" pX="0.5" pY="0.5" oX="0" oY="0" oW="77" oH="89"/>
+  <sprite n="flower_chomper_death_0002.png" x="77" y="1954" w="70" h="84" pX="0.5" pY="0.5" oX="0" oY="0" oW="70" oH="86"/>
+  <sprite n="flower_chomper_death_0003.png" x="588" y="1755" w="119" h="119" pX="0.5" pY="0.5" oX="2" oY="0" oW="123" oH="121"/>
+  <sprite n="flower_chomper_death_0004.png" x="368" y="1755" w="220" h="197" pX="0.5" pY="0.5" oX="2" oY="2" oW="224" oH="201"/>
+  <sprite n="flower_chomper_death_0005.png" x="0" y="1555" w="217" h="200" pX="0.5" pY="0.5" oX="2" oY="2" oW="221" oH="204"/>
+  <sprite n="flower_chomper_death_0006.png" x="192" y="1755" w="176" h="198" pX="0.5" pY="0.5" oX="0" oY="0" oW="176" oH="200"/>
+  <sprite n="flower_chomper_death_0007.png" x="0" y="1755" w="192" h="199" pX="0.5" pY="0.5" oX="0" oY="0" oW="194" oH="201"/>
+  <sprite n="flower_chomper_death_0008.png" x="0" y="1327" w="217" h="228" pX="0.5" pY="0.5" oX="0" oY="0" oW="219" oH="230"/>
+  <sprite n="flower_chomper_death_0009.png" x="0" y="1089" w="228" h="238" pX="0.5" pY="0.5" oX="0" oY="0" oW="230" oH="240"/>
+  <sprite n="flower_chomper_death_0010.png" x="0" y="829" w="245" h="260" pX="0.5" pY="0.5" oX="0" oY="0" oW="247" oH="262"/>
+  <sprite n="flower_chomper_death_0011.png" x="0" y="566" w="257" h="263" pX="0.5" pY="0.5" oX="0" oY="0" oW="257" oH="265"/>
+  <sprite n="flower_chomper_death_0012.png" x="280" y="0" w="274" h="275" pX="0.5" pY="0.5" oX="0" oY="0" oW="276" oH="277"/>
+  <sprite n="flower_chomper_death_0013.png" x="0" y="0" w="280" h="284" pX="0.5" pY="0.5" oX="1" oY="0" oW="282" oH="286"/>
+  <sprite n="flower_chomper_death_0014.png" x="0" y="284" w="281" h="282" pX="0.5" pY="0.5" oX="2" oY="0" oW="285" oH="284"/>
+</TextureAtlas>
