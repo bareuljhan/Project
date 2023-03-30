@@ -17,6 +17,7 @@ public:
 	struct Vertex
 	{
 		Vector2 pos;
+		Vector2 index;
 		float g;
 		float h;
 		float f;

@@ -59,6 +59,4 @@ r => 'y' if sprite is rotated-->
   <sprite n="cuphead_intro_b_0042.png" x="0" y="476" w="112" h="237" pX="0.5" pY="0.5" oX="2" oY="2" oW="116" oH="241"/>
   <sprite n="cuphead_intro_b_0043.png" x="0" y="238" w="108" h="238" pX="0.5" pY="0.5" oX="2" oY="1" oW="112" oH="241"/>
   <sprite n="cuphead_intro_b_0044.png" x="0" y="1175" w="101" h="221" pX="0.5" pY="0.5" oX="2" oY="2" oW="105" oH="225"/>
-  <sprite n="cuphead_intro_b_boil_0002.png" x="310" y="1773" w="115" h="168" pX="0.5" pY="0.5" oX="2" oY="2" oW="119" oH="172"/>
-  <sprite n="cuphead_intro_b_boil_0003.png" x="340" y="1521" w="114" h="168" pX="0.5" pY="0.5" oX="2" oY="2" oW="118" oH="172"/>
 </TextureAtlas>

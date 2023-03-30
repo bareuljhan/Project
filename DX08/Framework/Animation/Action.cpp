@@ -93,7 +93,7 @@ void Action::Update()
 			{
 				_revive();
 			}	
-			if (_curClipIndex == 46 && _cupIntro != nullptr)
+			if (_curClipIndex == 44 && _cupIntro != nullptr)
 			{
 				_cupIntro();
 			}

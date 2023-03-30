@@ -19,7 +19,7 @@ public:
 
 	void CreateRoute();
 	Vector2 GetStartPos() { return { 1,1 }; }
-	Vector2 GetEndPos() { return Vector2((int)_poolCountX - 2, (int)_poolCountY - 2); }
+	//Vector2 GetEndPos() { return Vector2((int)_poolCountX - 2, (int)_poolCountY - 2); }
 private:
 
 	shared_ptr<Sprite> _home;
@@ -58,8 +58,6 @@ private:
 	shared_ptr<Quad> _bridge;
 	shared_ptr<Quad> _bridge2;
 
-	int _poolCountX = 30;
-	int _poolCountY = 15;
 	vector<shared_ptr<Quad>> _blocks;
 	
 };

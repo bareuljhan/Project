@@ -44,11 +44,10 @@ void OverWorld_Player::SetLeft()
 
 void OverWorld_Player::Update()
 {
-	_transform->Update();
 
 	if (KEY_DOWN(VK_LBUTTON))
 	{
-		AStar(GetTransform()->GetPos(), MOUSE_POS);
+		AStar(_transform->GetPos(), MOUSE_POS);
 	}
 
 	for (auto sprite : _sprites)
@@ -56,6 +55,8 @@ void OverWorld_Player::Update()
 
 	for (auto action : _actions)
 		action->Update();
+
+	_transform->UpdateSRT();
 }
 
 void OverWorld_Player::Render()
@@ -91,20 +92,21 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 	};
 	
 	priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
-	vector<vector<float>> best = vector<vector<float>>(38, vector<float>(20, 100000.0f));
-	_discorvered = vector<vector<bool>>(38, vector<bool>(20, false));
-	_parent = vector<vector<Vector2>>(38, vector<Vector2>(20, Vector2(-1, -1)));
+	vector<vector<float>> best = vector<vector<float>>(30, vector<float>(15, 100000.0f));
+	_discorvered = vector<vector<bool>>(30, vector<bool>(15, false));
+	_parent = vector<vector<Vector2>>(30, vector<Vector2>(15, Vector2(-1, -1)));
 
 	Vertex startV;
 	startV.pos = start;
 	startV.g = 0;
 	startV.h = start.Manhattan(end);
 	startV.f = startV.g + startV.h;
+	startV.index = Vector2(1, 9);
 	pq.push(startV);
-	best[2][10] = startV.f;
-	_discorvered[2][10] = true;
-	_parent[2][10] = start;
-
+	best[1][9] = startV.f;
+	_discorvered[1][9] = true;
+	_parent[1][9] = start;
+	
 	while (true)
 	{
 		if (pq.empty() == true)
@@ -114,18 +116,45 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 		float f = here.f;
 		pq.pop();
 
-		if (here.pos == end)
+		//if (here.pos == end)
+		//	break;
+
+		if (abs(end.x - here.pos.x) <= 0.0 && abs(end.y - here.pos.y) <= 0.0)
 			break;
 
-		if (best[here.pos.x][here.pos.y] < f)
+		if (best[here.index.x][here.index.y] < f)
 			continue;
 
+		Vector2 thereIndex = { 0,0 };
+		
 		for (int i = 0; i < 8; i++)
 		{
 			Vector2 there = here.pos + frontPos[i];
+
+			if(i == 0)
+				thereIndex = Vector2(here.index.x, here.index.y - 1);
+			else if(i == 1)
+				thereIndex = Vector2(here.index.x, here.index.y + 1);
+			else if(i == 2)
+				thereIndex = Vector2(here.index.x - 1, here.index.y );
+			else if(i == 3)
+				thereIndex = Vector2(here.index.x + 1, here.index.y);
+			else if(i == 4)
+				thereIndex = Vector2(here.index.x + 1, here.index.y - 1);
+			else if(i == 5)
+				thereIndex = Vector2(here.index.x - 1, here.index.y - 1);
+			else if(i == 6)
+				thereIndex = Vector2(here.index.x + 1, here.index.y + 1);
+			else if(i == 7)
+				thereIndex = Vector2(here.index.x - 1, here.index.y + 1);
+
+
 			if (CanGo(there) == false)
 				continue;
-			if (here.pos == there)
+			//if (here.pos == there)
+			//	continue;
+
+			if (abs(there.x - here.pos.x) <= 0.0 && abs(there.y - here.pos.y) <= 0.0)
 				continue;
 
 			float distance = (there - here.pos).Length();
@@ -133,7 +162,7 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			float nextH = there.Manhattan(end);
 			float nextF = nextG + nextH;
 
-			if (best[there.x][there.y] < nextF)
+			if (best[thereIndex.x][thereIndex.y] < nextF)
 				continue;
 
 			Vertex thereV;
@@ -141,17 +170,23 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			thereV.g = nextG;
 			thereV.h = nextH;
 			thereV.f = nextF;
-			best[there.x][there.y] = nextF;
+			thereV.index = Vector2(thereIndex);
+			best[thereV.index.x][thereV.index.y] = nextF;
 			pq.push(thereV);
-			_discorvered[there.x][there.y] = true;
-			_parent[there.x][there.y] = here.pos;
+			_discorvered[thereV.index.x][thereV.index.y] = true;
+			_parent[thereV.index.x][thereV.index.y] = here.pos;
 		}
 	}
 
+	// abs(f1 - f2) <= 0.0
+
 	Vector2 pos = end;
+	Vector2 posIndex = Vector2(1 + (end.x - start.x) / 32.9f, 9 + (end.y - start.y) / 32.9);
+
+	Vector2 temp = _transform->GetPos();
 	while (true)
 	{
-		pos = _parent[pos.x][pos.y];
+		pos = _parent[posIndex.x][posIndex.y];
 		if (pos == start)
 			break;
 	}
