@@ -51,7 +51,7 @@ private:
 	float _delay = 5.0f;
 	float _lifeTime = 0.0f;
 
-	float _a = 1.0f;
+	float _a = 0.5f;
 	float _b = 0.0f;
 
 	float _speed = 100.0f;

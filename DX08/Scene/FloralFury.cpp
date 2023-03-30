@@ -4,12 +4,16 @@
 FloralFury::FloralFury()
 {
 	_player = make_shared<Player>();
-	_player->GetTransform()->SetPosition(Vector2(300, 155));
+	_player->GetTransform()->SetPosition(Vector2(300, 300));
+	_player->SetGravity(6.0f);
 
 	_map = make_shared<Stage2_FloralFury>();
 	_map->SetPlayer(_player);
 
 	_boss1 = make_shared<Flower>();
+
+	_win = make_shared<WinScreen>();
+	_ready = make_shared<ReadyScreen>();
 
 	wstring file = L"Resource/Texture/CupHead/Effect/pod_one_planing.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
@@ -34,12 +38,28 @@ FloralFury::~FloralFury()
 
 void FloralFury::Update()
 {
+	if (_ready->isEnd == false)
+		_ready->Update();
+
 	_map->Update();
 	_boss1->Update();
 	_player->Update();
 
 	_boss1->BallAttack(_player);
-
+	if (_boss1->isDead == true)
+	{
+		_win->Update();
+	}
+	if (_boss1->isDead == true && _win->isEnd == false)
+	{
+		_player->GetAction()->Pause();
+		_boss1->GetAction()->Pause();
+	}
+	if (_boss1->isDead == true && _win->isEnd == true)
+	{
+		_player->GetAction()->Start();
+		_boss1->GetAction()->Start();
+	}
 	if (_player->isInvincible == false)
 	{
 		for (auto bullet : _boss1->GetBalls())
@@ -48,6 +68,7 @@ void FloralFury::Update()
 			{
 				_player->GetDamaged(1);
 				_player->isInvincible = true;
+				bullet->delay = 0.0f;
 			}
 		}
 		for (auto bullet : _boss1->GetBullets())
@@ -149,6 +170,13 @@ void FloralFury::Render()
 	_boss1->Render();
 
 	_map->PostRender();
+
+	if (_boss1->isDead == true)
+	{
+		_win->Render();
+	}
+	if (_ready->isEnd == false)
+		_ready->Render();
 }
 
 void FloralFury::PostRender()

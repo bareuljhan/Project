@@ -78,6 +78,7 @@ Flower::Flower()
 	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(500, 500), 0.06f);
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
+	_mosaicBuffer->_data.value1 = 700;
 }
 
 Flower::~Flower()
@@ -99,7 +100,7 @@ void Flower::Update()
 	_vineDelay += DELTA_TIME;
 	_groundDelay += DELTA_TIME;
 
-	if (_vineDelay >= 0.3 && (_curState == NEWIDLE || _curState == DEAD || _curState == ATK))
+	if (_vineDelay >= 0.3 && (_curState == NEWIDLE || _curState == DEAD || _curState == ATK) && isDead == false)
 	{
 		EFFECT->Play("FlowerVine", Vector2(_transform->GetPos().x - 600, _transform->GetPos().y - 200), false);
 		_vineDelay = 0.0f;
@@ -120,12 +121,16 @@ void Flower::Update()
 	for (auto atk : _atks)
 		atk->Update();
 
+	_mosaicBuffer->Update();
+
 	_transform->UpdateSRT();
 }
 
 void Flower::Render()
 {
 	if (_mosaicBuffer->_data.value1 == 50) return;
+
+	_mosaicBuffer->SetPSBuffer(2);
 
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
@@ -282,6 +287,7 @@ void Flower::Dead()
 	if (_efCheck >= 0.8f)
 	{
 		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		CAMERA->ShakeStart(20.0f, 0.01f, 0.3f);
 		_efCheck = 0.0f;
 	}
 }

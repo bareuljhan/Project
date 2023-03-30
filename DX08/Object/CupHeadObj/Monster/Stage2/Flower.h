@@ -52,7 +52,7 @@ public:
 	shared_ptr<PodBullet> GetBulletOne() { return _podBullets[0]; }
 	shared_ptr<PodBullet> GetBulletTwo() { return _podBullets[1]; }
 	shared_ptr<PodBullet> GetBulletThr() { return _podBullets[2]; }
-
+	shared_ptr<Action> GetAction() { return _actions[_curState]; }
 	shared_ptr<RectCollider> GetBodyCollider() { return _hitCollider; }
 private:
 	void CreateAction(string name, Action::Type type);

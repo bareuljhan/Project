@@ -61,9 +61,9 @@ void Action::Update()
 			{
 				_destroy();
 			}	
-			if (_curClipIndex == 50 && _nextPrologue != nullptr)
+			if (_curClipIndex == 50 && _ready != nullptr)
 			{
-				_nextPrologue();
+				_ready();
 			}	
 			if (_curClipIndex == 6 && _podEffect != nullptr)
 			{
@@ -88,6 +88,14 @@ void Action::Update()
 			if (_curClipIndex == 11 && _puffBall != nullptr)
 			{
 				_puffBall();
+			}		
+			if (_curClipIndex == 28 && _revive != nullptr)
+			{
+				_revive();
+			}	
+			if (_curClipIndex == 46 && _cupIntro != nullptr)
+			{
+				_cupIntro();
 			}
 
 
@@ -152,6 +160,11 @@ void Action::Play()
 void Action::Pause()
 {
 	_isPlay = false;
+}
+
+void Action::Start()
+{
+	_isPlay = true;
 }
 
 void Action::Stop()

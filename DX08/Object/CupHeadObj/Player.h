@@ -4,6 +4,7 @@ class Player
 public:
 	enum State
 	{
+		INTRO,
 		IDLE,
 		RUN,
 		JUMP,
@@ -16,6 +17,8 @@ public:
 		SKILLSHOT,
 		RUNSHOT,
 		HIT,
+		DEAD,
+		REVIVE,
 		NONE
 	};
 	Player();
@@ -35,7 +38,7 @@ public:
 	void DuckShot();
 	void SkillShot();
 	void SkillAction();
-
+	void SetGravity(float value) { _subGravity = value; }
 	void Ground();
 	void NGround();
 
@@ -43,6 +46,9 @@ public:
 	void SetIDLE();
 	void SetRun();
 	void SetDUCK();
+
+	void Dead();
+	void Revive();
 
 	void SetColliderSize();
 	void SetSpeed(float speed) { _speed = speed; }
@@ -55,6 +61,7 @@ public:
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	shared_ptr<CircleCollider> GetBlockCollider() { return _blockCollider; }
 	shared_ptr<RectCollider> GetBodyCollider() { return _hitCollider; }
+	shared_ptr<Action> GetAction() { return _actions[_curState]; }
 
 	float GetATK() { return _atk; }
 
@@ -66,7 +73,7 @@ protected:
 	void CreateAction(string name, Action::Type type);
 
 
-	State _curState = State::IDLE;
+	State _curState = State::INTRO;
 	State _oldState = State::NONE;
 
 	shared_ptr<Transform> _transform;
@@ -88,6 +95,7 @@ protected:
 	Vector2 _originPos = { 0,0 };
 
 	float _jumpPower = 200.0f;
+	float _subGravity = 10.0f;
 	float _speed = 300.0f;
 	float _dashSpeed = 1000.0f;
 

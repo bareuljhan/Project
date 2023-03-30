@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Revive.png" width="690" height="2048" scale="1" format="RGBA8888">
+  <sprite n="cuphead_revive_0001.png" x="422" y="1832" w="111" h="207" pX="0.5" pY="0.5" oX="2" oY="2" oW="115" oH="211"/>
+  <sprite n="cuphead_revive_0002.png" x="427" y="1622" w="110" h="207" pX="0.5" pY="0.5" oX="2" oY="2" oW="114" oH="211"/>
+  <sprite n="cuphead_revive_0003.png" x="206" y="862" w="110" h="205" pX="0.5" pY="0.5" oX="2" oY="2" oW="114" oH="209"/>
+  <sprite n="cuphead_revive_0004.png" x="216" y="1067" w="110" h="204" pX="0.5" pY="0.5" oX="2" oY="2" oW="114" oH="208"/>
+  <sprite n="cuphead_revive_0005.png" x="533" y="1829" w="112" h="205" pX="0.5" pY="0.5" oX="2" oY="2" oW="116" oH="209"/>
+  <sprite n="cuphead_revive_0006.png" x="316" y="862" w="114" h="202" pX="0.5" pY="0.5" oX="2" oY="2" oW="118" oH="206"/>
+  <sprite n="cuphead_revive_0007.png" x="320" y="1414" w="123" h="208" pX="0.5" pY="0.5" oX="2" oY="2" oW="127" oH="212"/>
+  <sprite n="cuphead_revive_0008.png" x="317" y="1624" w="110" h="208" pX="0.5" pY="0.5" oX="2" oY="2" oW="114" oH="212"/>
+  <sprite n="cuphead_revive_0009.png" x="210" y="1640" w="107" h="215" pX="0.5" pY="0.5" oX="2" oY="2" oW="111" oH="219"/>
+  <sprite n="cuphead_revive_0010.png" x="104" y="1645" w="106" h="222" pX="0.5" pY="0.5" oX="2" oY="2" oW="110" oH="226"/>
+  <sprite n="cuphead_revive_0011.png" x="0" y="1422" w="105" h="223" pX="0.5" pY="0.5" oX="2" oY="2" oW="109" oH="227"/>
+  <sprite n="cuphead_revive_0012.png" x="0" y="1196" w="107" h="226" pX="0.5" pY="0.5" oX="2" oY="2" oW="111" oH="230"/>
+  <sprite n="cuphead_revive_0013.png" x="0" y="1645" w="104" h="223" pX="0.5" pY="0.5" oX="2" oY="2" oW="108" oH="227"/>
+  <sprite n="cuphead_revive_0014.png" x="105" y="1422" w="110" h="218" pX="0.5" pY="0.5" oX="2" oY="2" oW="114" oH="222"/>
+  <sprite n="cuphead_revive_0015.png" x="107" y="1196" w="109" h="218" pX="0.5" pY="0.5" oX="2" oY="2" oW="113" oH="222"/>
+  <sprite n="cuphead_revive_0016.png" x="215" y="1414" w="105" h="210" pX="0.5" pY="0.5" oX="2" oY="2" oW="109" oH="214"/>
+  <sprite n="cuphead_revive_0017.png" x="443" y="1265" w="103" h="187" pX="0.5" pY="0.5" oX="2" oY="2" oW="107" oH="191"/>
+  <sprite n="cuphead_revive_0018.png" x="537" y="1616" w="104" h="182" pX="0.5" pY="0.5" oX="2" oY="2" oW="108" oH="186"/>
+  <sprite n="cuphead_revive_0019.png" x="105" y="1867" w="105" h="181" pX="0.5" pY="0.5" oX="2" oY="2" oW="109" oH="185"/>
+  <sprite n="cuphead_revive_0020.png" x="0" y="1868" w="105" h="179" pX="0.5" pY="0.5" oX="2" oY="2" oW="109" oH="183"/>
+  <sprite n="cuphead_revive_0021.png" x="210" y="1867" w="107" h="177" pX="0.5" pY="0.5" oX="2" oY="2" oW="111" oH="181"/>
+  <sprite n="cuphead_revive_0022.png" x="317" y="1867" w="105" h="177" pX="0.5" pY="0.5" oX="2" oY="2" oW="109" oH="181"/>
+  <sprite n="cuphead_revive_finale_0001.png" x="0" y="0" w="351" h="482" pX="0.5" pY="0.5" oX="2" oY="2" oW="355" oH="486"/>
+  <sprite n="cuphead_revive_finale_0002.png" x="0" y="482" w="361" h="380" pX="0.5" pY="0.5" oX="2" oY="2" oW="365" oH="384"/>
+  <sprite n="cuphead_revive_finale_0003.png" x="351" y="0" w="339" h="380" pX="0.5" pY="0.5" oX="2" oY="2" oW="344" oH="384"/>
+  <sprite n="cuphead_revive_finale_0004.png" x="0" y="862" w="206" h="334" pX="0.5" pY="0.5" oX="2" oY="2" oW="210" oH="338"/>
+  <sprite n="cuphead_revive_finale_0005.png" x="326" y="1064" w="140" h="201" pX="0.5" pY="0.5" oX="2" oY="2" oW="142" oH="204"/>
+  <sprite n="cuphead_revive_finale_0006.png" x="443" y="1452" w="100" h="164" pX="0.5" pY="0.5" oX="2" oY="2" oW="102" oH="166"/>
+</TextureAtlas>

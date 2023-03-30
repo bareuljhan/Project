@@ -10,6 +10,8 @@ public:
 	virtual void PostRender() override;
 
 private:	
+	shared_ptr<WinScreen> _win;
+	shared_ptr<ReadyScreen> _ready;
 
 	shared_ptr<Stage2_FloralFury> _map;
 	shared_ptr<Flower> _boss1;

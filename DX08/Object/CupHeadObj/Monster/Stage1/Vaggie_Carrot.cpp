@@ -32,7 +32,7 @@ Vaggie_Carrot::Vaggie_Carrot()
 	_actions[State::SPAWN]->Play();
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 1000;
+	_mosaicBuffer->_data.value1 = 700;
 
 	for (int i = 0; i < 2; i++)
 	{
@@ -234,6 +234,7 @@ void Vaggie_Carrot::Dead()
 	if (_efCheck >= 0.8f)
 	{
 		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		CAMERA->ShakeStart(20.0f, 0.01f, 0.3f);
 		_efCheck = 0.0f;
 	}
 }

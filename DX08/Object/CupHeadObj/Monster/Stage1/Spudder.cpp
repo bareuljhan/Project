@@ -40,7 +40,7 @@ Spudder::Spudder()
 	_collider->GetTransform()->SetParent(_transform);
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 1000;
+	_mosaicBuffer->_data.value1 = 700;
 
 	wstring file = L"Resource/Texture/CupHead/Effect/BossExpension.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
@@ -178,6 +178,7 @@ void Spudder::Dead()
 	if (_efCheck >= 0.8f)
 	{
 		EFFECT->Play("BossExpension", Vector2(_transform->GetPos().x, _transform->GetPos().y), true);
+		CAMERA->ShakeStart(20.0f, 0.01f, 0.3f);
 		_efCheck = 0.0f;
 	}
 }

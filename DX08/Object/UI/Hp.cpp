@@ -61,6 +61,14 @@ void Hp::SetFour()
 	_hp4->SetPS(ADD_PS(L"Shader/UI/HpSliderPixelShader.hlsl"));
 }
 
+void Hp::SetBack()
+{
+	_hp1->SetPS(ADD_PS(L"Shader/TexturePixelShader.hlsl"));
+	_hp2->SetPS(ADD_PS(L"Shader/TexturePixelShader.hlsl"));
+	_hp3->SetPS(ADD_PS(L"Shader/TexturePixelShader.hlsl"));
+	_hp4->SetPS(ADD_PS(L"Shader/TexturePixelShader.hlsl"));
+}
+
 void Hp::Dead(wstring file, Vector2 size)
 {
 	_dead = make_shared<Quad>(file, size);

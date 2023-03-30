@@ -5,6 +5,7 @@ PanicStage::PanicStage()
 {
 	_player = make_shared<Player>();
 	_player->GetTransform()->SetPosition(Vector2(300, 155));
+	_player->SetGravity(15.0f);
 
 	_bg = make_shared<Stage1_Panic>();
 	_bg->GetTransform()->SetPosition(CENTER);
@@ -16,6 +17,10 @@ PanicStage::PanicStage()
 	_boss2 = make_shared<Vaggie_Carrot>();
 
 	_monster = make_shared<Carrot>();
+
+	_win = make_shared<WinScreen>();
+	_ready = make_shared<ReadyScreen>();
+
 }
 
 PanicStage::~PanicStage()
@@ -24,6 +29,24 @@ PanicStage::~PanicStage()
 
 void PanicStage::Update()
 {
+	if (_ready->isEnd == false)
+		_ready->Update();
+
+	if (_boss2->isDead == true)
+	{
+		_win->Update();
+	}
+	if (_boss2->isDead == true && _win->isEnd == false)
+	{
+		_player->GetAction()->Pause();
+		_boss2->GetAction()->Pause();
+	}
+	if (_boss2->isDead == true && _win->isEnd == true)
+	{
+		_player->GetAction()->Start();
+		_boss2->GetAction()->Start();
+	}
+
 	_bg->Update();
 	_player->Update();
 	_boss1->Update();
@@ -150,4 +173,11 @@ void PanicStage::Render()
 
 	ImGui::SliderFloat("PlayerPos", &_player->GetTransform()->GetPos().y, 0, 1000);
 	_player->GetHpPNG()->PostRender();
+
+	if (_boss2->isDead == true)
+	{
+		_win->Render();
+	}
+	if (_ready->isEnd == false)
+		_ready->Render();
 }

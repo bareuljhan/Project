@@ -5,6 +5,7 @@ Player::Player()
 {
 	_transform = make_shared<Transform>();
 
+	CreateAction("Intro", Action::Type::END);
 	CreateAction("Idle", Action::Type::LOOP);
 	CreateAction("Run", Action::Type::LOOP);
 	CreateAction("Jump", Action::Type::LOOP);
@@ -17,13 +18,17 @@ Player::Player()
 	CreateAction("AirStraightReadySpecial", Action::Type::END);
 	CreateAction("RunShot", Action::Type::END);
 	CreateAction("Hit", Action::Type::END);
+	CreateAction("Dead", Action::Type::LOOP);
+	CreateAction("Revive", Action::Type::END);
 
+	_actions[State::INTRO]->CupIntro(std::bind(&Player::SetIDLE, this));
 	_actions[State::DUCKSHOT]->SetCallBack(std::bind(&Player::SetDUCK, this));
 	_actions[State::SHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack_Skill(std::bind(&Player::SkillShot, this));
 	_actions[State::RUNSHOT]->SetCallBack(std::bind(&Player::SetRun, this));
 	_actions[State::HIT]->SetIDLE_CallBack(std::bind(&Player::SetIDLE, this));
+	_actions[State::REVIVE]->ReviveCallBack(std::bind(&Player::SetIDLE, this));
 
 	_blockCollider = make_shared<CircleCollider>(50);
 	_blockCollider->GetTransform()->SetPosition(Vector2(0, -120));
@@ -51,8 +56,8 @@ Player::Player()
 	_muzzle->SetParent(_transform);
 	_muzzle->SetPosition(Vector2(50, 0));
 
-	_oldState = State::IDLE;
-	_actions[State::IDLE]->Play();
+	_oldState = State::INTRO;
+	_actions[State::INTRO]->Play();
 
 	wstring file = L"Resource/Texture/CupHead/Effect/DashDust.png";
 	_effect = make_shared<Effect>(file, Vector2(2, 2), Vector2(200, 200), 0.05f);
@@ -84,6 +89,9 @@ void Player::Update()
 	_blockCollider->Update();
 	_hitCollider->Update();
 
+	if (_transform->GetPos().y < 0)
+		_transform->SetPosition(Vector2(_transform->GetWorldPos().x, 155.0f));
+
 	SetColliderSize();
 	SkillAction();
 	DuckShot();
@@ -92,6 +100,8 @@ void Player::Update()
 	Shot();
 	Jump();
 	Input();
+	Dead();
+	Revive();
 
 	for (auto bullet : _bullets)
 		bullet->Update();
@@ -152,7 +162,7 @@ void Player::SetLeft()
 
 void Player::Input()
 {
-	if (_curState == State::SHOT || _curState == State::JUMP || _curState == State::HIT)
+	if (_curState == State::SHOT || _curState == State::JUMP || _curState == State::HIT || _curState == State::DEAD)
 		return;
 
 	_effectStart += DELTA_TIME;
@@ -644,7 +654,7 @@ void Player::Ground()
 
 void Player::NGround()
 {
-	_jumpPower -= GRAVITY * GRAVITY * DELTA_TIME;
+	_jumpPower -= GRAVITY * _subGravity * DELTA_TIME;
 	_isGround = false;
 }
 
@@ -663,6 +673,8 @@ void Player::SetAction(State state)
 void Player::SetIDLE()
 {
 	SetAction(State::IDLE);
+	if (_hitCollider->isActive == false)
+		_hitCollider->isActive = true;
 }
 
 void Player::SetRun()
@@ -673,6 +685,29 @@ void Player::SetRun()
 void Player::SetDUCK()
 {
 	SetAction(State::DUCK);
+}
+
+void Player::Dead()
+{
+	if (isDead == false) return;
+
+	SetAction(State::DEAD);
+	_hitCollider->isActive = false;
+}
+
+void Player::Revive()
+{
+	if (_curState == DEAD)
+	{
+		if (KEY_DOWN('I'))
+		{
+			_hp = 4;
+			SetAction(REVIVE);
+			isDead = false;
+			_health->SetBack();
+		}
+	}
+	_hitCollider->isActive = false;
 }
 
 void Player::SetColliderSize()
@@ -715,7 +750,7 @@ void Player::ScreenHP()
 		_health->Update();
 		_health->SetRatio(1.0f);
 	}
-	if (_hp < 4 && _hp > 2)
+	else if (_hp < 4 && _hp > 2)
 	{
 		_health->SetFour();
 		_health->SetRatio(0.0f);

@@ -36,7 +36,7 @@ public:
 	shared_ptr<Collider> BulletOneCollider() { return _bullets[0]->GetCollider(); }
 	shared_ptr<Collider> BulletTwoCollider() { return _bullets[1]->GetCollider(); }
 	shared_ptr<RectCollider> GetBodyCollider() { return _collider; }
-
+	shared_ptr<Action> GetAction() { return _actions[_curState]; }
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
 	bool isDead = false;

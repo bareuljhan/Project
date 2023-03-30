@@ -29,6 +29,7 @@ public:
 
 	void Play();
 	void Pause();
+	void Start();
 	void Stop();
 	void Reset();
 
@@ -37,7 +38,7 @@ public:
 	string GetName() { return _name; }
 
 	bool IsPlay() { return _isPlay; }
-	void NextScreen(function<void(void)> endEvent) { _nextPrologue = endEvent; }
+	void NextScreen(function<void(void)> endEvent) { _ready = endEvent; }
 
 	void SetCallBack(function<void(void)> endEvent) { _endEvent = endEvent; }
 
@@ -57,6 +58,9 @@ public:
 	void HandATK(function<void(void)> endEvent) { _handATK = endEvent; }
 	void VineRespawn(function<void(void)> endEvent) { _vineGen = endEvent; }
 	void PuffBall(function<void(void)> endEvent) { _puffBall = endEvent; }
+	void ReviveCallBack(function<void(void)> endEvent) { _revive = endEvent; }
+	void Ready(function<void(void)> endEvent) { _ready = endEvent; }
+	void CupIntro(function<void(void)> endEvent) { _cupIntro = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -75,7 +79,7 @@ private:
 
 	// 콜백함수 : 정의를 미리 해 둔 상태에서 나중에 필요에 따라 호출 할 수 있는 함수
 	// 리스너 패턴, 옵저버 패턴
-	function<void(void)> _nextPrologue = nullptr;
+	function<void(void)> _ready = nullptr;
 
 	function<void(void)> _endEvent = nullptr;
 	int _targetClip = 26;
@@ -96,4 +100,6 @@ private:
 	function<void(void)> _handATK = nullptr;
 	function<void(void)> _vineGen = nullptr;
 	function<void(void)> _puffBall = nullptr;
+	function<void(void)> _revive = nullptr;
+	function<void(void)> _cupIntro = nullptr;
 };

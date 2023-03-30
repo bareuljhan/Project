@@ -1,34 +1,35 @@
 #include "framework.h"
-#include "WinScreen.h"
+#include "ReadyScreen.h"
 
-WinScreen::WinScreen()
+ReadyScreen::ReadyScreen()
 {
-	CreateAction("KnockOut", Action::Type::END);
+	CreateAction("Ready", Action::Type::END);
 
 	_sprite->GetTransform()->SetPosition(CENTER);
 	_sprite->GetTransform()->SetScale(Vector2(2.5f, 2.5f));
-	_action->CallBack_Carret(std::bind(&WinScreen::SetEnd, this));
-	
+
+	_action->Ready(std::bind(&ReadyScreen::SetEnd, this));
+
 	_action->Play();
 }
 
-WinScreen::~WinScreen()
+ReadyScreen::~ReadyScreen()
 {
 }
 
-void WinScreen::Update()
+void ReadyScreen::Update()
 {
 	_sprite->Update();
 	_action->Update();
 }
 
-void WinScreen::Render()
+void ReadyScreen::Render()
 {
 	_sprite->SetActionClip(_action->GetCurClip());
 	_sprite->Render();
 }
 
-void WinScreen::CreateAction(string name, Action::Type type)
+void ReadyScreen::CreateAction(string name, Action::Type type)
 {
 	string xmlPath = "Resource/XML/Screen/" + name + ".xml";
 	wstring srvPath(name.begin(), name.end());

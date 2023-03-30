@@ -15,6 +15,7 @@ public:
 	void SetTwo();
 	void SetThree();
 	void SetFour();
+	void SetBack();
 	void Dead(wstring file, Vector2 size);
 
 	void SetRatio(float value) { _buffer->_data.ratio = value; }

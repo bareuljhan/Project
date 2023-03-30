@@ -110,6 +110,9 @@ using namespace DirectX;
 #include "Object/UI/Hp.h"
 
 // GameObj
+#include "Object/CupHeadObj/SceneMassage/WinScreen.h"
+#include "Object/CupHeadObj/SceneMassage/ReadyScreen.h"
+
 #include "Object/CupHeadObj/Bullet.h"
 #include "Object/CupHeadObj/Player.h"
 

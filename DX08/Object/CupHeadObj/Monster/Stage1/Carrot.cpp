@@ -26,7 +26,7 @@ Carrot::Carrot()
 	_actions[State::INTRO]->Play();
 
 	_mosaicBuffer = make_shared<CupMosaicBuffer>();
-	_mosaicBuffer->_data.value1 = 1000;
+	_mosaicBuffer->_data.value1 = 700;
 
 	_transform->SetPosition(Vector2(1050, 150));
 

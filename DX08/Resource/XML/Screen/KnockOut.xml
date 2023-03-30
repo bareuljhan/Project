@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="KnockOut.png" width="2048" height="2016" scale="1" format="RGBA8888">
+  <sprite n="FightText_KO_0000.png" x="0" y="0" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0001.png" x="512" y="0" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0002.png" x="1024" y="0" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0003.png" x="1536" y="0" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0004.png" x="0" y="288" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0005.png" x="512" y="288" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0006.png" x="1024" y="288" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0007.png" x="1536" y="288" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0008.png" x="0" y="576" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0009.png" x="0" y="864" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0010.png" x="0" y="1152" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0011.png" x="0" y="1440" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0012.png" x="0" y="1728" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0013.png" x="1536" y="288" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0014.png" x="512" y="576" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0015.png" x="1024" y="576" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0016.png" x="1536" y="576" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0017.png" x="0" y="864" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0018.png" x="512" y="864" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0019.png" x="1024" y="864" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0020.png" x="1536" y="864" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0021.png" x="512" y="1152" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0022.png" x="512" y="1440" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0023.png" x="512" y="1728" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0024.png" x="1024" y="1152" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0025.png" x="1536" y="1152" w="512" h="288" pX="0.5" pY="0.5"/>
+  <sprite n="FightText_KO_0026.png" x="1024" y="1440" w="512" h="288" pX="0.5" pY="0.5"/>
+</TextureAtlas>
