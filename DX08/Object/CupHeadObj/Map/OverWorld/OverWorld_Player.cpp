@@ -16,7 +16,6 @@ OverWorld_Player::OverWorld_Player()
 	for (auto sprite : _sprites)
 		sprite->GetTransform()->SetParent(_transform);
 
-
 	_quad = make_shared<Quad>();
 	_oldState = State::IDLE;
 	_actions[State::IDLE]->Play();
@@ -131,31 +130,59 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 		{
 			Vector2 there = here.pos + frontPos[i];
 
-			if(i == 0)
+			if (i == 0)
+			{
 				thereIndex = Vector2(here.index.x, here.index.y - 1);
-			else if(i == 1)
+				if (abs(there.y) - abs(here.pos.y) <= 0.0)
+					continue;
+			}
+			else if (i == 1)
+			{
 				thereIndex = Vector2(here.index.x, here.index.y + 1);
-			else if(i == 2)
+				if (abs(here.pos.y) - abs(there.y) <= 0.0)
+					continue;
+			}
+			else if (i == 2)
+			{
 				thereIndex = Vector2(here.index.x - 1, here.index.y );
-			else if(i == 3)
+				if (abs(there.x) - abs(here.pos.x) <= 0.0)
+					continue;
+			}
+			else if (i == 3)
+			{
 				thereIndex = Vector2(here.index.x + 1, here.index.y);
-			else if(i == 4)
+				if (abs(here.pos.x) - abs(there.x) <= 0.0)
+					continue;
+			}
+			else if (i == 4)
+			{
 				thereIndex = Vector2(here.index.x + 1, here.index.y - 1);
-			else if(i == 5)
+				if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
+					continue;
+			}
+			else if (i == 5)
+			{
 				thereIndex = Vector2(here.index.x - 1, here.index.y - 1);
-			else if(i == 6)
+				if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
+					continue;
+			}
+			else if (i == 6)
+			{
 				thereIndex = Vector2(here.index.x + 1, here.index.y + 1);
-			else if(i == 7)
+				if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
+					continue;
+			}
+			else if (i == 7)
+			{
 				thereIndex = Vector2(here.index.x - 1, here.index.y + 1);
-
-
+				if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
+					continue;
+			}
+			
 			if (CanGo(there) == false)
 				continue;
 			//if (here.pos == there)
 			//	continue;
-
-			if (abs(there.x - here.pos.x) <= 0.0 && abs(there.y - here.pos.y) <= 0.0)
-				continue;
 
 			float distance = (there - here.pos).Length();
 			float nextG = distance + here.g;
@@ -180,15 +207,20 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 
 	// abs(f1 - f2) <= 0.0
 
-	Vector2 pos = end;
-	Vector2 posIndex = Vector2(1 + (end.x - start.x) / 32.9f, 9 + (end.y - start.y) / 32.9);
+	Vector2 pos = start;
+	Vector2 posIndex = Vector2(int(1 + (end.x - start.x) / 32.9f), int(9 + (end.y - start.y) / 32.9));
 
 	Vector2 temp = _transform->GetPos();
 	while (true)
 	{
 		pos = _parent[posIndex.x][posIndex.y];
-		if (pos == start)
+		if (pos.x - end.x <= 0 || pos.y - end.y <= 0)
+		{
+			//Vector2 temp = _transform->GetPos();
+			//temp += (pos - _transform->GetPos()).NormalVector2() * _speed * DELTA_TIME;
+			//_transform->SetPosition(temp);
 			break;
+		}
 	}
 }
 
