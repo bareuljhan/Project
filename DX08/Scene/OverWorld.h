@@ -10,6 +10,7 @@ public:
 private:
 	shared_ptr<OverWorld_BG> _map;
 	shared_ptr<OverWorld_Player> _player;
+	shared_ptr<Route> _route;
 
 };
 

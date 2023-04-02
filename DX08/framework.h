@@ -122,6 +122,7 @@ using namespace DirectX;
 // Map
 #include "Object/CupHeadObj/Map/Prologue/PrologueAni.h"
 #include "Object/CupHeadObj/Map/Epilogue/EpilogueAni.h"
+#include "Object/CupHeadObj/Map/OverWorld/Route.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_BG.h"
 #include "Object/CupHeadObj/Map/OverWorld/OverWorld_Player.h"
 #include "Object/CupHeadObj/Map/StageMap/Stage1_Panic.h"

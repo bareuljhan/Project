@@ -2,7 +2,6 @@
 #include "Program.h"
 
 #include "../Scene/Prologue.h"
-#include "../Scene/CupHead.h"
 #include "../Scene/OverWorld.h"
 #include "../Scene/Tutorial.h"
 #include "../Scene/PanicStage.h"

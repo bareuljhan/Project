@@ -15,8 +15,6 @@ OverWorld_Player::OverWorld_Player()
 
 	for (auto sprite : _sprites)
 		sprite->GetTransform()->SetParent(_transform);
-
-	_quad = make_shared<Quad>();
 	_oldState = State::IDLE;
 	_actions[State::IDLE]->Play();
 }
@@ -55,6 +53,15 @@ void OverWorld_Player::Update()
 	for (auto action : _actions)
 		action->Update();
 
+
+	if (_transform->GetPos().x - _endPos.x <= 0 || _transform->GetPos().y - _endPos.y <= 0 && isRun == true)
+	{
+		Vector2 temp = _transform->GetPos();
+		temp += _direction.NormalVector2() * _speed * DELTA_TIME;
+		_transform->SetPosition(temp);
+	}
+
+
 	_transform->UpdateSRT();
 }
 
@@ -64,12 +71,12 @@ void OverWorld_Player::Render()
 	_sprites[_curState]->Render();
 }
 
-bool OverWorld_Player::CanGo(Vector2 pos)
-{
-	if (_quad->GetType() == Quad::Type::DISABLE)
-		return false;
-	return true;
-}
+//bool OverWorld_Player::CanGo(Vector2 pos)
+//{
+//	if (_quad->GetType() == Quad::Type::DISABLE)
+//		return false;
+//	return true;
+//}
 
 void OverWorld_Player::Init()
 {
@@ -77,151 +84,147 @@ void OverWorld_Player::Init()
 
 void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 {
-	Vector2 frontPos[8]
-	{
-		Vector2 {0.0f, -32.9f}, // DOWN 2
-		Vector2 {0.0f, 32.9f}, // UP 0
-		Vector2 {-32.9f, 0.0f}, // LEFT 1
-		Vector2 {32.9f, 0.0f}, // RIGHT 3
+	//Vector2 frontIndex[8]
+	//{
+	//	Vector2 {0.0f, -0.1f}, // DOWN 2
+	//	Vector2 {0.0f, 32.9f}, // UP 0
+	//	Vector2 {-32.9f, 0.0f}, // LEFT 1
+	//	Vector2 {32.9f, 0.0f}, // RIGHT 3
 
-		Vector2 {32.9f, -32.9f}, // RIGHT_DOWN
-		Vector2 {-32.9f, -32.9f}, // LEFT_DOWN
-		Vector2 {32.9f, 32.9f}, // RIGHT UP
-		Vector2 {-32.9f, 32.9f} // LEFT UP
-	};
-	
-	priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
-	vector<vector<float>> best = vector<vector<float>>(30, vector<float>(15, 100000.0f));
-	_discorvered = vector<vector<bool>>(30, vector<bool>(15, false));
-	_parent = vector<vector<Vector2>>(30, vector<Vector2>(15, Vector2(-1, -1)));
+	//	Vector2 {32.9f, -32.9f}, // RIGHT_DOWN
+	//	Vector2 {-32.9f, -32.9f}, // LEFT_DOWN
+	//	Vector2 {32.9f, 32.9f}, // RIGHT UP
+	//	Vector2 {-32.9f, 32.9f} // LEFT UP
+	//};
+	//
+	//priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
+	//vector<vector<float>> best = vector<vector<float>>(30, vector<float>(15, 100000.0f));
+	//_discorvered = vector<vector<bool>>(30, vector<bool>(15, false));
+	//_parent = vector<vector<Vector2>>(30, vector<Vector2>(15, Vector2(-1, -1)));
 
-	Vertex startV;
-	startV.pos = start;
-	startV.g = 0;
-	startV.h = start.Manhattan(end);
-	startV.f = startV.g + startV.h;
-	startV.index = Vector2(1, 9);
-	pq.push(startV);
-	best[1][9] = startV.f;
-	_discorvered[1][9] = true;
-	_parent[1][9] = start;
-	
-	while (true)
-	{
-		if (pq.empty() == true)
-			break;
+	//Vertex startV;
+	//startV.g = 0;
+	//startV.h = start.Manhattan(end);
+	//startV.f = startV.g + startV.h;
+	//startV.index = Vector2(1, 9);
+	//pq.push(startV);
+	//best[1][9] = startV.f;
+	//_discorvered[1][9] = true;
+	//_parent[1][9] = start;
+	//
+	//while (true)
+	//{
+	//	if (pq.empty() == true)
+	//		break;
 
-		Vertex here = pq.top();
-		float f = here.f;
-		pq.pop();
+	//	Vertex here = pq.top();
+	//	float f = here.f;
+	//	pq.pop();
 
-		//if (here.pos == end)
-		//	break;
+	//	//if (here.pos == end)
+	//	//	break;
 
-		if (abs(end.x - here.pos.x) <= 0.0 && abs(end.y - here.pos.y) <= 0.0)
-			break;
+	//	if (abs(end.x - here.pos.x) <= 0.0 && abs(end.y - here.pos.y) <= 0.0)
+	//		break;
 
-		if (best[here.index.x][here.index.y] < f)
-			continue;
+	//	if (best[here.index.x][here.index.y] < f)
+	//		continue;
 
-		Vector2 thereIndex = { 0,0 };
-		
-		for (int i = 0; i < 8; i++)
-		{
-			Vector2 there = here.pos + frontPos[i];
+	//	Vector2 thereIndex = { 0,0 };
+	//	
+	//	for (int i = 0; i < 8; i++)
+	//	{
+	//		Vector2 there = here.pos + frontPos[i];
 
-			if (i == 0)
-			{
-				thereIndex = Vector2(here.index.x, here.index.y - 1);
-				if (abs(there.y) - abs(here.pos.y) <= 0.0)
-					continue;
-			}
-			else if (i == 1)
-			{
-				thereIndex = Vector2(here.index.x, here.index.y + 1);
-				if (abs(here.pos.y) - abs(there.y) <= 0.0)
-					continue;
-			}
-			else if (i == 2)
-			{
-				thereIndex = Vector2(here.index.x - 1, here.index.y );
-				if (abs(there.x) - abs(here.pos.x) <= 0.0)
-					continue;
-			}
-			else if (i == 3)
-			{
-				thereIndex = Vector2(here.index.x + 1, here.index.y);
-				if (abs(here.pos.x) - abs(there.x) <= 0.0)
-					continue;
-			}
-			else if (i == 4)
-			{
-				thereIndex = Vector2(here.index.x + 1, here.index.y - 1);
-				if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
-					continue;
-			}
-			else if (i == 5)
-			{
-				thereIndex = Vector2(here.index.x - 1, here.index.y - 1);
-				if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
-					continue;
-			}
-			else if (i == 6)
-			{
-				thereIndex = Vector2(here.index.x + 1, here.index.y + 1);
-				if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
-					continue;
-			}
-			else if (i == 7)
-			{
-				thereIndex = Vector2(here.index.x - 1, here.index.y + 1);
-				if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
-					continue;
-			}
-			
-			if (CanGo(there) == false)
-				continue;
-			//if (here.pos == there)
-			//	continue;
+	//		if (i == 0)
+	//		{
+	//			thereIndex = Vector2(here.index.x, here.index.y - 1);
+	//			if (abs(there.y) - abs(here.pos.y) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 1)
+	//		{
+	//			thereIndex = Vector2(here.index.x, here.index.y + 1);
+	//			if (abs(here.pos.y) - abs(there.y) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 2)
+	//		{
+	//			thereIndex = Vector2(here.index.x - 1, here.index.y );
+	//			if (abs(there.x) - abs(here.pos.x) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 3)
+	//		{
+	//			thereIndex = Vector2(here.index.x + 1, here.index.y);
+	//			if (abs(here.pos.x) - abs(there.x) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 4)
+	//		{
+	//			thereIndex = Vector2(here.index.x + 1, here.index.y - 1);
+	//			if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 5)
+	//		{
+	//			thereIndex = Vector2(here.index.x - 1, here.index.y - 1);
+	//			if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(there.y) - abs(here.pos.y) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 6)
+	//		{
+	//			thereIndex = Vector2(here.index.x + 1, here.index.y + 1);
+	//			if (abs(here.pos.x) - abs(there.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
+	//				continue;
+	//		}
+	//		else if (i == 7)
+	//		{
+	//			thereIndex = Vector2(here.index.x - 1, here.index.y + 1);
+	//			if (abs(there.x) - abs(here.pos.x) <= 0.0 && abs(here.pos.y) - abs(there.y) <= 0.0)
+	//				continue;
+	//		}
+	//		
+	//		//if (CanGo(there) == false)
+	//		//	continue;
+	//		//if (here.pos == there)
+	//		//	continue;
 
-			float distance = (there - here.pos).Length();
-			float nextG = distance + here.g;
-			float nextH = there.Manhattan(end);
-			float nextF = nextG + nextH;
+	//		float distance = (there - here.pos).Length();
+	//		float nextG = distance + here.g;
+	//		float nextH = there.Manhattan(end);
+	//		float nextF = nextG + nextH;
 
-			if (best[thereIndex.x][thereIndex.y] < nextF)
-				continue;
+	//		if (best[thereIndex.x][thereIndex.y] < nextF)
+	//			continue;
 
-			Vertex thereV;
-			thereV.pos = there;
-			thereV.g = nextG;
-			thereV.h = nextH;
-			thereV.f = nextF;
-			thereV.index = Vector2(thereIndex);
-			best[thereV.index.x][thereV.index.y] = nextF;
-			pq.push(thereV);
-			_discorvered[thereV.index.x][thereV.index.y] = true;
-			_parent[thereV.index.x][thereV.index.y] = here.pos;
-		}
-	}
+	//		Vertex thereV;
+	//		thereV.g = nextG;
+	//		thereV.h = nextH;
+	//		thereV.f = nextF;
+	//		thereV.index = Vector2(thereIndex);
+	//		best[thereV.index.x][thereV.index.y] = nextF;
+	//		pq.push(thereV);
+	//		_discorvered[thereV.index.x][thereV.index.y] = true;
+	//		_parent[thereV.index.x][thereV.index.y] = here.pos;
+	//	}
+	//}
+	//Vector2 pos = start;
+	//Vector2 posIndex = Vector2(int(1 + (end.x - start.x) / 32.9f), int(9 + (end.y - start.y) / 32.9));
 
-	// abs(f1 - f2) <= 0.0
-
-	Vector2 pos = start;
-	Vector2 posIndex = Vector2(int(1 + (end.x - start.x) / 32.9f), int(9 + (end.y - start.y) / 32.9));
-
-	Vector2 temp = _transform->GetPos();
-	while (true)
-	{
-		pos = _parent[posIndex.x][posIndex.y];
-		if (pos.x - end.x <= 0 || pos.y - end.y <= 0)
-		{
-			//Vector2 temp = _transform->GetPos();
-			//temp += (pos - _transform->GetPos()).NormalVector2() * _speed * DELTA_TIME;
-			//_transform->SetPosition(temp);
-			break;
-		}
-	}
+	//Vector2 temp = _transform->GetPos();
+	//while (true)
+	//{
+	//	pos = _parent[posIndex.x][posIndex.y];
+	//	if (pos.x - end.x <= 0 || pos.y - end.y <= 0)
+	//	{
+	//		_direction = end - _transform->GetPos();
+	//		_endPos = end;
+	//		isRun = true;
+	//		break;
+	//	}
+	//}
+	//isRun = false;
 }
 
 void OverWorld_Player::SetAction(State state)

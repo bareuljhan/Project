@@ -158,6 +158,7 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PodBullet.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PuffBall.h" />
     <ClInclude Include="Object\CupHeadObj\SceneMassage\ReadyScreen.h" />
+    <ClInclude Include="Object\CupHeadObj\Map\OverWorld\Route.h" />
     <ClInclude Include="Scene\FloralFury.h" />
     <ClInclude Include="Object\CupHeadObj\Message\ClearMessage.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Carrot.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PodBullet.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PuffBall.cpp" />
     <ClCompile Include="Object\CupHeadObj\SceneMassage\ReadyScreen.cpp" />
+    <ClCompile Include="Object\CupHeadObj\Map\OverWorld\Route.cpp" />
     <ClCompile Include="Scene\FloralFury.cpp" />
     <ClCompile Include="Object\CupHeadObj\Message\ClearMessage.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Carrot.cpp" />

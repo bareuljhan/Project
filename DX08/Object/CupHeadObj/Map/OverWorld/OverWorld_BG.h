@@ -17,9 +17,6 @@ public:
 	void CreateZeppelin(string name);
 	void CreateDieHouse(string name);
 
-	void CreateRoute();
-	Vector2 GetStartPos() { return { 1,1 }; }
-	//Vector2 GetEndPos() { return Vector2((int)_poolCountX - 2, (int)_poolCountY - 2); }
 private:
 
 	shared_ptr<Sprite> _home;
@@ -58,7 +55,5 @@ private:
 	shared_ptr<Quad> _bridge;
 	shared_ptr<Quad> _bridge2;
 
-	vector<shared_ptr<Quad>> _blocks;
-	
 };
 

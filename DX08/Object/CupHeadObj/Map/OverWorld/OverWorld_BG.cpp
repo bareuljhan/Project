@@ -12,8 +12,6 @@ OverWorld_BG::OverWorld_BG()
 	CreateZeppelin("Zeppelin");	
 	CreateDieHouse("DieHouse");
 
-	CreateRoute();
-
 
 	_home->GetTransform()->GetScale() *= 0.25f;
 	_home->GetTransform()->SetPosition(Vector2(250, 470));
@@ -120,7 +118,6 @@ OverWorld_BG::OverWorld_BG()
 	_bridge2 = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge2.png");
 	_bridge2->GetTransform()->GetScale() *= 0.27f;
 	_bridge2->GetTransform()->SetPosition(Vector2(740.0f, 420.0f));
-
 }
 
 OverWorld_BG::~OverWorld_BG()
@@ -163,10 +160,6 @@ void OverWorld_BG::Update()
 	_zeppelin->Update();
 	_dieHouseAction->Update();
 	_dieHouse->Update();
-	for (auto block : _blocks)
-	{
-		block->Update();
-	}
 }
 
 void OverWorld_BG::Render()
@@ -206,10 +199,7 @@ void OverWorld_BG::Render()
 	_bridge->Render();
 	_bridge2->Render();
 
-	for (auto block : _blocks)
-	{
-		block->Render();
-	}
+
 }
 
 void OverWorld_BG::CreateHome(string name)
@@ -314,89 +304,4 @@ void OverWorld_BG::CreateDieHouse(string name)
 	string actionName = "CUP_" + name;
 	_dieHouseAction = make_shared<Action>(xml.GetClips(), actionName);
 	_dieHouse = make_shared<Sprite>(srvPath, xml.AverageSize());
-}
-
-void OverWorld_BG::CreateRoute()
-{
-	for (int x = 0; x < 30; x++)
-	{
-		for (int y = 0; y < 15; y++)
-		{
-			shared_ptr<Quad> block = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/AbleQuad.png");
-			block->SetType(Quad::Type::DISABLE);
-			block->GetTransform()->SetPosition(Vector2(230, 150));
-			Vector2 distance = Vector2(32.9f * x, 32.9f * y);
-			block->GetTransform()->GetScale() *= 0.21f;
-			block->GetTransform()->SetPosition(block->GetTransform()->GetPos() + distance);
-			_blocks.push_back(block);
-		}
-	}
-	for (int i = 35; i < 40; i++)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}
-	for (int i = 180; i < 192; i++)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}	
-	for (int i = 206; i < 237; i+=15)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}
-	for (int i = 237; i < 358; i+=15)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}	
-	for (int i = 356; i < 387; i+=15)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}	
-	for (int i = 125; i < 171; i+=15)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}
-	for (int i = 165; i < 210; i+=15)
-	{
-		_blocks[i]->SetType(Quad::Type::ABLE);
-	}
-	_blocks[49]->SetType(Quad::Type::ABLE);
-	_blocks[64]->SetType(Quad::Type::ABLE);
-	_blocks[79]->SetType(Quad::Type::ABLE);
-	_blocks[80]->SetType(Quad::Type::ABLE);
-	_blocks[81]->SetType(Quad::Type::ABLE);
-	_blocks[95]->SetType(Quad::Type::ABLE);
-	_blocks[96]->SetType(Quad::Type::ABLE);
-	_blocks[109]->SetType(Quad::Type::ABLE);
-	_blocks[110]->SetType(Quad::Type::ABLE);
-	_blocks[169]->SetType(Quad::Type::ABLE);
-	_blocks[208]->SetType(Quad::Type::ABLE);
-	_blocks[207]->SetType(Quad::Type::ABLE);
-
-	_blocks[223]->SetType(Quad::Type::ABLE);
-	_blocks[224]->SetType(Quad::Type::ABLE);
-	_blocks[239]->SetType(Quad::Type::ABLE);
-	_blocks[254]->SetType(Quad::Type::ABLE);
-	_blocks[255]->SetType(Quad::Type::ABLE);
-	_blocks[270]->SetType(Quad::Type::ABLE);
-	_blocks[271]->SetType(Quad::Type::ABLE);
-
-	_blocks[286]->SetType(Quad::Type::ABLE);
-	_blocks[287]->SetType(Quad::Type::ABLE);
-	_blocks[302]->SetType(Quad::Type::ABLE);
-	_blocks[301]->SetType(Quad::Type::ABLE);
-	_blocks[317]->SetType(Quad::Type::ABLE);
-	_blocks[332]->SetType(Quad::Type::ABLE);
-	_blocks[331]->SetType(Quad::Type::ABLE);
-
-	_blocks[330]->SetType(Quad::Type::ABLE);
-	_blocks[329]->SetType(Quad::Type::ABLE);
-	_blocks[314]->SetType(Quad::Type::ABLE);
-	_blocks[313]->SetType(Quad::Type::ABLE);
-	_blocks[312]->SetType(Quad::Type::ABLE);
-	_blocks[327]->SetType(Quad::Type::ABLE);
-	_blocks[342]->SetType(Quad::Type::ABLE);
-	_blocks[200]->SetType(Quad::Type::ABLE);
-	_blocks[201]->SetType(Quad::Type::ABLE);
-	_blocks[215]->SetType(Quad::Type::ABLE);
-	_blocks[216]->SetType(Quad::Type::ABLE);
 }

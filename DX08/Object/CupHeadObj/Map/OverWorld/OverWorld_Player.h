@@ -16,7 +16,6 @@ public:
 
 	struct Vertex
 	{
-		Vector2 pos;
 		Vector2 index;
 		float g;
 		float h;
@@ -49,6 +48,7 @@ public:
 
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
+	bool isRun = false;
 private:
 	void CreateAction(string name, Action::Type type);
 
@@ -63,7 +63,10 @@ private:
 	vector<vector<bool>> _discorvered;
 	vector<vector<Vector2>> _parent;
 
-	shared_ptr<Quad> _quad;
+	shared_ptr<Route> _route;
+
+	Vector2 _direction = { 0,0 };
+	Vector2 _endPos = { 0,0 };
 	float _speed = 300.0f;
 };
 
