@@ -13,9 +13,9 @@ Route::~Route()
 
 void Route::Update()
 {
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 30; i++)
 	{
-		for (int j = 0; j < 30; j++)
+		for (int j = 0; j < 15; j++)
 		{
 			_blocks[i][j]->Update();
 		}
@@ -24,9 +24,9 @@ void Route::Update()
 
 void Route::Render()
 {
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 30; i++)
 	{
-		for (int j = 0; j < 30; j++)
+		for (int j = 0; j < 15; j++)
 		{
 			_blocks[i][j]->Render();
 		}
