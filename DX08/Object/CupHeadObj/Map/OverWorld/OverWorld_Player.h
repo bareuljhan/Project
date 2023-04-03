@@ -14,24 +14,6 @@ public:
 		NONE
 	};
 
-	struct Vertex
-	{
-		Vector2 index;
-		float g;
-		float h;
-		float f;
-
-		bool operator<(const Vertex& other) const
-		{
-			return f < other.f;
-		}
-
-		bool operator>(const Vertex& other) const
-		{
-			return f > other.f;
-		}
-	};
-
 	OverWorld_Player();
 	~OverWorld_Player();
 	
@@ -41,7 +23,6 @@ public:
 	void Update();
 	void Render();
 
-	bool CanGo(Vector2 pos);
 	void Init();
 	void AStar(Vector2 start, Vector2 end);
 	void SetAction(State state);
