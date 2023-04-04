@@ -14,6 +14,25 @@ public:
 		NONE
 	};
 
+	struct Vertex
+	{
+		Vector2 pos;
+		Vector2 index;
+
+		float g;
+		float h;
+		float f;
+
+		bool operator > (const Vertex& other) const
+		{
+			return this->f > other.f;
+		}
+		bool operator < (const Vertex& other) const
+		{
+			return this->f < other.f;
+		}
+	};
+
 	OverWorld_Player();
 	~OverWorld_Player();
 	
@@ -43,6 +62,8 @@ private:
 
 	vector<vector<bool>> _discorvered;
 	vector<vector<Vector2>> _parent;
+
+	Vector2 _targetIndex = Vector2(2, 10);
 
 	shared_ptr<Route> _route;
 

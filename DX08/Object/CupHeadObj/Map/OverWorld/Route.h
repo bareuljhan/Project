@@ -8,10 +8,7 @@ public:
 		int y;
 		bool obticle;
 
-		float g;
-		float h;
-		float f;
-		Node* parent;
+		shared_ptr<Quad> blocks;
 	};
 
 	Route();
@@ -25,16 +22,16 @@ public:
 		Node* node = new Node;
 		node->x = x;
 		node->y = y;
+		
+		node->obticle = false;
+		node->blocks = make_shared<Quad>();
 
 		return node;
 	}
 
-	void CreateRoute();
-
 	vector<vector<Node*>> CreateMapData()
 	{
 		_mapData = vector<vector<Node*>>(30, vector<Node*>(15));
-		_blocks = vector<vector<shared_ptr<Quad>>>(30, vector<shared_ptr<Quad>>(15));
 
 		for (int i = 0; i < 30; i++)
 		{
@@ -74,15 +71,17 @@ public:
 
 				}
 
+				node->blocks = block;
 				_mapData[i][j] = node;
-				_blocks[i][j] = block;
 			}
 		}
 		return _mapData;
 	}
 
+	vector<Node*> GetNodes(){ return _nodes; }
+	vector<vector<Node*>> GetMapData() { return _mapData; }
+
 private:
 	vector<vector<Node*>> _mapData;
 	vector<Node*> _nodes;
-	vector<vector<shared_ptr<Quad>>> _blocks;
 };

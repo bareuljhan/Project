@@ -17,7 +17,7 @@ void Route::Update()
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			_blocks[i][j]->Update();
+			_mapData[i][j]->blocks->Update();
 		}
 	}
 }
@@ -28,12 +28,7 @@ void Route::Render()
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			_blocks[i][j]->Render();
+			_mapData[i][j]->blocks->Render();
 		}
 	}
-}
-
-void Route::CreateRoute()
-{
-
 }
