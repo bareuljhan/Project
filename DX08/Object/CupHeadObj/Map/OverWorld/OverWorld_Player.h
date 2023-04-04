@@ -46,7 +46,6 @@ public:
 	void AStar(Vector2 start, Vector2 end);
 	void SetAction(State state);
 
-
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	bool isRun = false;
 private:
@@ -69,6 +68,7 @@ private:
 
 	Vector2 _direction = { 0,0 };
 	Vector2 _endPos = { 0,0 };
+	vector<Vector2> _path;
 	float _speed = 300.0f;
 };
 

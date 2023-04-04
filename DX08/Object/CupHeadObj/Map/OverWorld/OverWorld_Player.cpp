@@ -15,6 +15,7 @@ OverWorld_Player::OverWorld_Player()
 
 	for (auto sprite : _sprites)
 		sprite->GetTransform()->SetParent(_transform);
+
 	_oldState = State::IDLE;
 	_actions[State::IDLE]->Play();
 
@@ -55,7 +56,6 @@ void OverWorld_Player::Update()
 	for (auto action : _actions)
 		action->Update();
 
-
 	_transform->UpdateSRT();
 }
 
@@ -73,15 +73,15 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 {
 	Vector2 frontPos[8] =
 	{
-		Vector2 {0, 1}, // DOWN 2
-		Vector2 {1, 0}, // RIGHT 3
-		Vector2 {0, -1}, // UP 0
-		Vector2 {-1, 0}, // LEFT 1
+		Vector2 {0, 1},
+		Vector2 {1, 0},
+		Vector2 {0, -1},
+		Vector2 {-1, 0},
 
-		Vector2 {1, 1}, // RIGHT_DOWN
-		Vector2 {-1, 1}, // LEFT_DOWN
-		Vector2 {1, -1}, // RIGHT UP
-		Vector2 {-1, -1} // LEFT UP
+		Vector2 {1, 1},
+		Vector2 {-1, 1},
+		Vector2 {1, -1},
+		Vector2 {-1, -1}
 	};
 
 	priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
@@ -114,8 +114,6 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			(abs(here.pos.y) - abs(end.y) > -15 && abs(here.pos.y) - abs(end.y) < 15))
 		{
 			_targetIndex = here.index;
-			_transform->SetPosition(here.pos);
-
 			break;
 		}
 
@@ -124,11 +122,19 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 
 		for (int i = 0; i < 8; i++)
 		{
-			Vector2 there = here.pos + frontPos[i] * 30;
+			Vector2 there = { 0, 0 };
 			Vector2 thereIndex = here.index + frontPos[i];
 
-			if ((abs(here.pos.x) - abs(there.x) > -15 && abs(here.pos.x) - abs(there.x) < 15) &&
-				(abs(here.pos.y) - abs(there.y) > -15 && abs(here.pos.y) - abs(there.y) < 15))
+			if(i >= 4)
+				there = here.pos + frontPos[i] * 25;
+			else
+				there = here.pos + frontPos[i] * 30;
+			
+			if (here.pos == there && i < 4)
+				continue;
+
+			if ((here.pos.x - there.x > 0 && here.pos.x - there.x < 10) &&
+				(here.pos.y - there.y > 0 && here.pos.y - there.y < 10) && i >= 4)
 				continue;
 
 			float distance = (there - here.pos).Length();
@@ -148,9 +154,24 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			best[thereV.index.x][thereV.index.y] = nextF;
 			pq.push(thereV);
 			_discorvered[thereV.index.x][thereV.index.y] = true;
-			_parent[thereV.index.x][thereV.index.y] = here.pos;
+			_parent[thereV.index.x][thereV.index.y] = here.index;
 		}
 	}
+
+	Vector2 endIndex = _targetIndex;
+	Vector2 temp = _targetIndex;
+	_path.push_back(endIndex);
+	
+	while (true)
+	{
+		if (temp == startV.index)
+			break;
+		
+		_path.push_back(_parent[temp.x][temp.y]);
+
+		temp = _parent[temp.x][temp.y];
+	}
+	std::reverse(_path.begin(), _path.end());
 }
 
 void OverWorld_Player::SetAction(State state)
