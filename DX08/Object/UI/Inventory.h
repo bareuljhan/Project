@@ -26,6 +26,8 @@ private:
 	shared_ptr<Sprite> _cupSprite;
 	shared_ptr<Action> _cupAction;
 
+	shared_ptr<ItemIcon> _icon;
+
 	UINT _coin = 2;
 };
 

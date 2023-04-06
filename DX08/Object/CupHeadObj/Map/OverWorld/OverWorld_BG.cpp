@@ -11,7 +11,17 @@ OverWorld_BG::OverWorld_BG()
 	CreateOoze("Ooze");
 	CreateZeppelin("Zeppelin");	
 	CreateDieHouse("DieHouse");
+	CreateNPCAxe("OverNPC2");
+	CreateNPCApple("OverNPC1");
 
+	_axeSp->GetTransform()->SetPosition(Vector2(845, 235));
+	_appleSp->GetTransform()->SetPosition(Vector2(540, 410));
+
+	_axeSp->GetTransform()->SetScale(Vector2(0.5f, 0.5f));
+	_appleSp->GetTransform()->SetScale(Vector2(0.5f, 0.5f));
+
+	_axeAc->Play();
+	_appleAc->Play();
 
 	_home->GetTransform()->GetScale() *= 0.25f;
 	_home->GetTransform()->SetPosition(Vector2(250, 470));
@@ -118,6 +128,18 @@ OverWorld_BG::OverWorld_BG()
 	_bridge2 = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_bridge2.png");
 	_bridge2->GetTransform()->GetScale() *= 0.27f;
 	_bridge2->GetTransform()->SetPosition(Vector2(740.0f, 420.0f));
+
+	_NpcCol1 = make_shared<RectCollider>(Vector2(30,30));
+	_NpcCol1->GetTransform()->SetPosition(_appleSp->GetTransform()->GetPos());
+	_NpcCol2 = make_shared<RectCollider>(Vector2(30, 30));
+	_NpcCol2->GetTransform()->SetPosition(_axeSp->GetTransform()->GetPos());
+	_oozeCol = make_shared<RectCollider>(Vector2(70, 70));
+	_oozeCol->GetTransform()->SetPosition(_ooze->GetTransform()->GetPos());
+	_panicCol = make_shared<RectCollider>(Vector2(70, 70));
+	_panicCol->GetTransform()->SetPosition(_panic->GetTransform()->GetPos());
+	_shopCol = make_shared<RectCollider>(Vector2(70, 70));
+	_shopCol->GetTransform()->SetPosition(_shop->GetTransform()->GetPos());
+
 }
 
 OverWorld_BG::~OverWorld_BG()
@@ -126,6 +148,11 @@ OverWorld_BG::~OverWorld_BG()
 
 void OverWorld_BG::Update()
 {
+	_NpcCol1->Update();
+	_NpcCol2->Update();
+	_oozeCol->Update();
+	_panicCol->Update();
+	_shopCol->Update();
 	_seaLeft->Update();
 	_seaRight->Update();
 	_leftMain->Update();
@@ -160,6 +187,10 @@ void OverWorld_BG::Update()
 	_zeppelin->Update();
 	_dieHouseAction->Update();
 	_dieHouse->Update();
+	_appleAc->Update();
+	_appleSp->Update();
+	_axeSp->Update();
+	_axeAc->Update();
 }
 
 void OverWorld_BG::Render()
@@ -198,6 +229,17 @@ void OverWorld_BG::Render()
 	_veggieStairs->Render();
 	_bridge->Render();
 	_bridge2->Render();
+
+	_appleSp->SetActionClip(_appleAc->GetCurClip());
+	_appleSp->Render();
+	_axeSp->Render();
+	_axeSp->SetActionClip(_axeAc->GetCurClip());
+
+	_NpcCol1->Render();
+	_NpcCol2->Render();
+	_oozeCol->Render();
+	_panicCol->Render();
+	_shopCol->Render();
 
 
 }
@@ -304,4 +346,31 @@ void OverWorld_BG::CreateDieHouse(string name)
 	string actionName = "CUP_" + name;
 	_dieHouseAction = make_shared<Action>(xml.GetClips(), actionName);
 	_dieHouse = make_shared<Sprite>(srvPath, xml.AverageSize());
+}
+
+void OverWorld_BG::CreateNPCApple(string name)
+{
+	string xmlPath = "Resource/XML/OverWorld/" + name + ".xml";
+	wstring srvPath(name.begin(), name.end());
+	srvPath = L"Resource/Texture/CupHead/OverWorld/Map/" + srvPath + L".png";
+
+	MyXML xml = MyXML(xmlPath, srvPath);
+
+	string actionName = "CUP_" + name;
+	_appleAc = make_shared<Action>(xml.GetClips(), actionName);
+	_appleSp = make_shared<Sprite>(srvPath, xml.AverageSize());
+}
+
+void OverWorld_BG::CreateNPCAxe(string name)
+{
+	string xmlPath = "Resource/XML/OverWorld/" + name + ".xml";
+	wstring srvPath(name.begin(), name.end());
+	srvPath = L"Resource/Texture/CupHead/OverWorld/Map/" + srvPath + L".png";
+
+	MyXML xml = MyXML(xmlPath, srvPath);
+
+	string actionName = "CUP_" + name;
+	_axeAc = make_shared<Action>(xml.GetClips(), actionName);
+	_axeSp = make_shared<Sprite>(srvPath, xml.AverageSize());
+
 }

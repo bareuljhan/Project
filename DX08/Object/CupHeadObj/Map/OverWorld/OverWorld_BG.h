@@ -16,6 +16,8 @@ public:
 	void CreateOoze(string name);
 	void CreateZeppelin(string name);
 	void CreateDieHouse(string name);
+	void CreateNPCApple(string name);
+	void CreateNPCAxe(string name);
 
 private:
 
@@ -35,6 +37,10 @@ private:
 	shared_ptr<Action> _zeppelinAction;
 	shared_ptr<Sprite> _dieHouse;
 	shared_ptr<Action> _dieHouseAction;
+	shared_ptr<Sprite> _appleSp;
+	shared_ptr<Action> _appleAc;
+	shared_ptr<Sprite> _axeSp;
+	shared_ptr<Action> _axeAc;
 
 	shared_ptr<Quad> _seaLeft;
 	shared_ptr<Quad> _seaRight;
@@ -54,6 +60,12 @@ private:
 	shared_ptr<Quad> _veggieStairs;
 	shared_ptr<Quad> _bridge;
 	shared_ptr<Quad> _bridge2;
+
+	shared_ptr<Collider> _NpcCol1;
+	shared_ptr<Collider> _NpcCol2;
+	shared_ptr<Collider> _oozeCol;
+	shared_ptr<Collider> _panicCol;
+	shared_ptr<Collider> _shopCol;
 
 };
 

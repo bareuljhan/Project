@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\UI\ItemIcon.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Shop\Coin.h" />
     <ClInclude Include="Framework\Utillity\DirectWrite.h" />
     <ClInclude Include="Object\UI\Inventory.h" />
@@ -236,6 +237,7 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Vine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\UI\ItemIcon.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Shop\Coin.cpp" />
     <ClCompile Include="Framework\Utillity\DirectWrite.cpp" />
     <ClCompile Include="Object\UI\Inventory.cpp" />

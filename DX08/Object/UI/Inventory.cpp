@@ -45,6 +45,11 @@ Inventory::Inventory()
 		coin->GetTransform()->SetParent(_pannel->GetTransform());
 		_coins.push_back(coin);
 	}
+
+	_icon = make_shared<ItemIcon>();
+	_icon->SetPosition(Vector2(_slots[0]->GetTransform()->GetWorldPos().x + 1, _slots[0]->GetTransform()->GetWorldPos().y));
+	_icon->SetScale(Vector2(0.4f, 0.4f));
+	_icon->SetItem(Vector2(1.0f, 0.2f));
 }
 
 Inventory::~Inventory()
@@ -54,6 +59,7 @@ Inventory::~Inventory()
 void Inventory::Update()
 {
 	_pannel->Update();
+	_icon->Update();
 	_noise->Update();
 	_text->Update();
 	_cupAction->Update();
@@ -75,6 +81,7 @@ void Inventory::Render()
 	_cupSprite->SetActionClip(_cupAction->GetCurClip());
 	for (auto coin : _coins)
 		coin->Render();
+	_icon->Render();
 }
 
 void Inventory::PostRender()

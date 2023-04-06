@@ -117,6 +117,7 @@ using namespace DirectX;
 #include "Object/UI/Button.h"
 #include "Object/UI/Hp.h"
 #include "Object/UI/Slot.h"
+#include "Object/UI/ItemIcon.h"
 #include "Object/UI/Inventory.h"
 
 // GameObj

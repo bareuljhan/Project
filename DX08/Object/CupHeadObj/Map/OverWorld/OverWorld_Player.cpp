@@ -17,7 +17,11 @@ OverWorld_Player::OverWorld_Player()
 	_oldState = State::IDLE;
 	_actions[State::IDLE]->Play();
 
+	_collider = make_shared<RectCollider>(Vector2(50,50));
+	_collider->GetTransform()->SetParent(_transform);
+
 	_route = make_shared<Route>();
+
 }
 
 OverWorld_Player::~OverWorld_Player()
@@ -42,6 +46,7 @@ void OverWorld_Player::SetLeft()
 
 void OverWorld_Player::Update()
 {
+	_collider->Update();
 
 	if (KEY_DOWN(VK_LBUTTON))
 	{
@@ -63,6 +68,8 @@ void OverWorld_Player::Render()
 {
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
+
+	_collider->Render();
 }
 
 void OverWorld_Player::Init()
@@ -150,9 +157,9 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 	};
 
 	priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
-	vector<vector<float>> best = vector<vector<float>>(30, vector<float>(15, 100000.0f));
-	_discorvered = vector<vector<bool>>(30, vector<bool>(15, false));
-	_parent = vector<vector<Vector2>>(30, vector<Vector2>(15, Vector2(0,0)));
+	vector<vector<float>> best = vector<vector<float>>(40, vector<float>(20, 100000.0f));
+	_discorvered = vector<vector<bool>>(40, vector<bool>(20, false));
+	_parent = vector<vector<Vector2>>(40, vector<Vector2>(20, Vector2(0,0)));
 
 	Vertex startV;
 	startV.pos = start;
@@ -174,8 +181,6 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 		Vertex here = pq.top();
 		float f = here.f;
 		pq.pop();
-
-		
 
 		if ((abs(here.pos.x) - abs(end.x) > -15 && abs(here.pos.x) - abs(end.x) < 15) &&
 			(abs(here.pos.y) - abs(end.y) > -15 && abs(here.pos.y) - abs(end.y) < 15) )
@@ -205,7 +210,7 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			
 			if (_route->GetMapData()[thereIndex.x][thereIndex.y]->obticle == true)
 				continue;
-			
+							
 			if ((here.pos.y - there.y >= 0 && here.pos.y - there.y <= 16) && i == 0)
 				continue;	
 			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 16) && i == 1)
@@ -216,8 +221,7 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 				continue;
 
 
-			if ((here.pos.x - rightTop.x <= 0 && here.pos.x - rightTop.x >= -15) && 
-				(here.pos.y - rightTop.y <= 0 && here.pos.y - rightTop.y >= -15) && i == 4)
+			if (here.pos.Length() - rightTop.Length() <= 0 && here.pos.Length() - rightTop.Length() >= -12 && i == 4)
 				continue;
 
 			if ((here.pos.x - leftTop.x <= 0 && here.pos.x - leftTop.x >= -15) &&
@@ -228,25 +232,8 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 				(here.pos.y - rightBottom.y <= 0 && here.pos.y - rightBottom.y >= -15) && i == 6)
 				continue;
 			
-			if ((here.pos.x - leftBottom.x <= 0 && here.pos.x - leftBottom.x > -15) &&
-				(here.pos.y - leftBottom.y <= 0 && here.pos.y - leftBottom.y > -15) && i == 7)
+			if (here.pos.Length() - leftBottom.Length() >= 0 && here.pos.Length() - leftBottom.Length() <= 12 && i == 7)
 				continue;
-
-			/*
-			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 15) &&
-				(here.pos.y - there.y >= 0 && here.pos.y - there.y <= 15) && i == 4)
-				continue;
-			if ((here.pos.x - there.x <= 0 && here.pos.x - there.x >= -15) &&
-				(here.pos.y - there.y >= 0 && here.pos.y - there.y <= 15) && i == 5)
-				continue;
-			
-			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 15) &&
-				(here.pos.y - there.y <= 0 && here.pos.y - there.y >= -15) && i == 6)
-				continue;
-			
-			if ((here.pos.x - there.x <= 0 && here.pos.x - there.x > -15) &&
-				(here.pos.y - there.y <= 0 && here.pos.y - there.y > -15) && i == 7)
-				continue;*/
 
 			float distance = (there - here.pos).Length();
 			float nextG = distance + here.g;

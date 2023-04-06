@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="OverNPC2.png" width="137" height="1040" scale="1" format="RGBA8888">
+  <sprite n="w1_npc_axeman_0001.png" x="0" y="530" w="69" h="103" pX="0.5" pY="0.5" oX="2" oY="2" oW="73" oH="107"/>
+  <sprite n="w1_npc_axeman_0002.png" x="0" y="426" w="70" h="104" pX="0.5" pY="0.5" oX="2" oY="2" oW="74" oH="108"/>
+  <sprite n="w1_npc_axeman_0003.png" x="0" y="0" w="71" h="107" pX="0.5" pY="0.5" oX="2" oY="2" oW="75" oH="111"/>
+  <sprite n="w1_npc_axeman_0004.png" x="0" y="214" w="70" h="107" pX="0.5" pY="0.5" oX="2" oY="2" oW="74" oH="111"/>
+  <sprite n="w1_npc_axeman_0005.png" x="0" y="107" w="71" h="107" pX="0.5" pY="0.5" oX="2" oY="2" oW="75" oH="111"/>
+  <sprite n="w1_npc_axeman_0006.png" x="0" y="321" w="70" h="105" pX="0.5" pY="0.5" oX="2" oY="1" oW="74" oH="108"/>
+  <sprite n="w1_npc_axeman_0007.png" x="0" y="837" w="68" h="102" pX="0.5" pY="0.5" oX="2" oY="2" oW="72" oH="106"/>
+  <sprite n="w1_npc_axeman_0008.png" x="69" y="530" w="68" h="98" pX="0.5" pY="0.5" oX="2" oY="2" oW="72" oH="102"/>
+  <sprite n="w1_npc_axeman_0009.png" x="69" y="628" w="68" h="97" pX="0.5" pY="0.5" oX="2" oY="2" oW="72" oH="101"/>
+  <sprite n="w1_npc_axeman_0010.png" x="68" y="837" w="68" h="100" pX="0.5" pY="0.5" oX="2" oY="0" oW="72" oH="102"/>
+  <sprite n="w1_npc_axeman_0011.png" x="0" y="633" w="69" h="102" pX="0.5" pY="0.5" oX="2" oY="0" oW="73" oH="104"/>
+  <sprite n="w1_npc_axeman_0012.png" x="0" y="939" w="72" h="101" pX="0.5" pY="0.5" oX="0" oY="2" oW="74" oH="105"/>
+  <sprite n="w1_npc_axeman_0013.png" x="0" y="735" w="69" h="102" pX="0.5" pY="0.5" oX="2" oY="2" oW="73" oH="106"/>
+</TextureAtlas>

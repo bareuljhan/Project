@@ -58,12 +58,14 @@ private:
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
+	shared_ptr<Collider> _collider;
+
 	vector<vector<bool>> _discorvered;
 	vector<vector<Vector2>> _parent;
 
 	shared_ptr<Route> _route;
 
-	Vector2 _targetIndex = Vector2(2, 10);
+	Vector2 _targetIndex = Vector2(7, 12);
 	Vector2 _direction = { 0,0 };
 	Vector2 _endPos = { 0,0 };
 

@@ -32,11 +32,11 @@ public:
 
 	vector<vector<Node*>> CreateMapData()
 	{
-		_mapData = vector<vector<Node*>>(30, vector<Node*>(15));
+		_mapData = vector<vector<Node*>>(40, vector<Node*>(20));
 
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 40; i++)
 		{
-			for (int j = 0; j < 15; j++)
+			for (int j = 0; j < 20; j++)
 			{
 				// 노드 생성
 				Node* node = CreateNode(i, j);
@@ -44,33 +44,18 @@ public:
 				node->y = j;
 				
 				shared_ptr<Quad> block = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/AbleQuad.png");
-				block->GetTransform()->SetPosition(Vector2(200, 150));
+				block->GetTransform()->SetPosition(Vector2(50, 100));
 				Vector2 blockPos = Vector2(block->GetTransform()->GetPos().x + 30 * i, block->GetTransform()->GetPos().y + 30 * j);
 				block->GetTransform()->GetScale() *= 0.21f;
 
 				if (i > 0) // 위쪽 노드
-				{
 					block->GetTransform()->SetPosition(Vector2(blockPos));
-					_nodes.push_back(_mapData[i - 1][j]);
-				}
 				if (j > 0) // 왼쪽 노드
-				{
 					block->GetTransform()->SetPosition(Vector2(blockPos));
-					_nodes.push_back(_mapData[i][j - 1]);
-
-				}
-				if (i < 30 - 1) // 아래쪽 노드
-				{
+				if (i < 40 - 1) // 아래쪽 노드
 					block->GetTransform()->SetPosition(Vector2(blockPos));
-					_nodes.push_back(_mapData[i + 1][j]);
-
-				}
-				if (j < 15 - 1) // 오른쪽 노드
-				{
+				if (j < 20 - 1) // 오른쪽 노드
 					block->GetTransform()->SetPosition(Vector2(blockPos));
-					_nodes.push_back(_mapData[i][j + 1]);
-
-				}
 
 				node->blocks = block;
 				_mapData[i][j] = node;
@@ -78,11 +63,8 @@ public:
 		}
 		return _mapData;
 	}
-
-	vector<Node*> GetNodes(){ return _nodes; }
 	vector<vector<Node*>> GetMapData() { return _mapData; }
 
 private:
 	vector<vector<Node*>> _mapData;
-	vector<Node*> _nodes;
 };

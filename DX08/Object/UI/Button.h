@@ -10,6 +10,7 @@ public:
 	};
 
 	Button(wstring path);
+	Button(Vector2 size);
 	~Button();
 
 	void Update();
@@ -21,7 +22,10 @@ public:
 	void SetEvent(CallBack callBack) { _event = callBack; }
 	void SetStringEvent(CallBack_String callBack) { _stringEvent = callBack; }
 
+	void SetParent(shared_ptr<Transform> transform) { GetTransform()->SetParent(transform); }
 private:
+	shared_ptr<Transform> GetTransform();
+
 	State _state;
 	shared_ptr<ButtonBuffer> _buttonBuffer;
 		

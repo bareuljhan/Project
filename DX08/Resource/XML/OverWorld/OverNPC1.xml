@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="OverNPC1.png" width="123" height="479" scale="1" format="RGBA8888">
+  <sprite n="w1_npc_apple_traveller_blink_0001.png" x="0" y="386" w="59" h="93" pX="0.5" pY="0.5" oX="2" oY="2" oW="63" oH="96"/>
+  <sprite n="w1_npc_apple_traveller_blink_0002.png" x="62" y="0" w="61" h="94" pX="0.5" pY="0.5" oX="2" oY="2" oW="65" oH="97"/>
+  <sprite n="w1_npc_apple_traveller_blink_0003.png" x="0" y="291" w="62" h="95" pX="0.5" pY="0.5" oX="2" oY="2" oW="66" oH="98"/>
+  <sprite n="w1_npc_apple_traveller_blink_0004.png" x="0" y="97" w="59" h="97" pX="0.5" pY="0.5" oX="2" oY="2" oW="63" oH="99"/>
+  <sprite n="w1_npc_apple_traveller_blink_0005.png" x="0" y="0" w="60" h="97" pX="0.5" pY="0.5" oX="1" oY="1" oW="63" oH="98"/>
+  <sprite n="w1_npc_apple_traveller_blink_0006.png" x="0" y="194" w="59" h="97" pX="0.5" pY="0.5" oX="2" oY="2" oW="63" oH="99"/>
+  <sprite n="w1_npc_apple_traveller_blink_0007.png" x="59" y="97" w="62" h="95" pX="0.5" pY="0.5" oX="2" oY="2" oW="66" oH="98"/>
+  <sprite n="w1_npc_apple_traveller_blink_0008.png" x="59" y="192" w="61" h="94" pX="0.5" pY="0.5" oX="2" oY="2" oW="65" oH="97"/>
+</TextureAtlas>
