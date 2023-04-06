@@ -3,6 +3,7 @@
 
 #include "../Scene/Prologue.h"
 #include "../Scene/OverWorld.h"
+#include "../Scene/ShopScene.h"
 #include "../Scene/Tutorial.h"
 #include "../Scene/PanicStage.h"
 #include "../Scene/FloralFury.h"
@@ -51,11 +52,17 @@ void Program::Render()
 	_scene->Render();
 	EFFECT->Render();
 
-	ImGui::Text("FPS : %d", Timer::GetInstance()->GetFPS());
+	DirectWrite::GetInstance()->GetDC()->BeginDraw();
+
+	wstring fps = L"FPS : " + to_wstring((int)Timer::GetInstance()->GetFPS());
+	RECT rect = { 0, 0, 100, 100 };
+	DirectWrite::GetInstance()->RenderText(fps, rect);
+
 	CAMERA->PostRender();
 	_scene->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
+	DirectWrite::GetInstance()->GetDC()->EndDraw();
 	Device::GetInstance()->Present();
 }

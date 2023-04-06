@@ -51,19 +51,19 @@ OverWorld_BG::OverWorld_BG()
 	_seaRight->GetTransform()->GetScale() *= 0.35f;
 
 	_seaLeft = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Ocean/oceanLeft.png");
-	_seaLeft->GetTransform()->GetScale() *= 0.35;
+	_seaLeft->GetTransform()->GetScale() *= 0.35f;
 	_seaLeft->GetTransform()->SetPosition(Vector2(320, 360));
 
 	_leftMain = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_large_left.png");
-	_leftMain->GetTransform()->GetScale() *= 0.31;
+	_leftMain->GetTransform()->GetScale() *= 0.31f;
 	_leftMain->GetTransform()->SetPosition(Vector2(668.0f, 391.0f));
 
 	_rightMain = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_large_right.png");
-	_rightMain->GetTransform()->GetScale() *= 0.31;
+	_rightMain->GetTransform()->GetScale() *= 0.31f;
 	_rightMain->GetTransform()->SetPosition(Vector2(1051.0f, 385.0f));
 
 	_leftSide = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_small_island_main.png");
-	_leftSide->GetTransform()->GetScale() *= 0.31;
+	_leftSide->GetTransform()->GetScale() *= 0.31f;
 	_leftSide->GetTransform()->SetPosition(Vector2(300.0f, 405.0f));
 
 	_islandTree = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/world1_tree_island.png");

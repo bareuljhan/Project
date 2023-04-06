@@ -32,6 +32,7 @@
 #define ADD_VS(k) ShaderManager::GetInstance()->AddVS(k)
 #define ADD_PS(k) ShaderManager::GetInstance()->AddPS(k)
 
+#define ASSERT(hr) assert(SUCCEEDED(hr))
 
 #define EFFECT EffectManager::GetInstance()
 #define AUDIO Audio::GetInstance()

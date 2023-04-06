@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="OverWorld_UP.png" width="380" height="473" scale="1" format="RGBA8888">
+  <sprite n="cuphead_world_map_up_walk_0001.png" x="0" y="97" w="59" h="96" pX="0.5" pY="0.5" oX="0" oY="2" oW="59" oH="100"/>
+  <sprite n="cuphead_world_map_up_walk_0002.png" x="0" y="0" w="56" h="97" pX="0.5" pY="0.5" oX="0" oY="2" oW="56" oH="101"/>
+  <sprite n="cuphead_world_map_up_walk_0003.png" x="59" y="95" w="56" h="94" pX="0.5" pY="0.5" oX="0" oY="2" oW="56" oH="98"/>
+  <sprite n="cuphead_world_map_up_walk_0004.png" x="174" y="91" w="62" h="87" pX="0.5" pY="0.5" oX="0" oY="2" oW="64" oH="91"/>
+  <sprite n="cuphead_world_map_up_walk_0005.png" x="247" y="0" w="66" h="84" pX="0.5" pY="0.5" oX="0" oY="2" oW="66" oH="88"/>
+  <sprite n="cuphead_world_map_up_walk_0006.png" x="116" y="188" w="66" h="87" pX="0.5" pY="0.5" oX="0" oY="2" oW="66" oH="91"/>
+  <sprite n="cuphead_world_map_up_walk_0007.png" x="61" y="287" w="62" h="90" pX="0.5" pY="0.5" oX="0" oY="2" oW="62" oH="94"/>
+  <sprite n="cuphead_world_map_up_walk_0008.png" x="115" y="95" w="59" h="93" pX="0.5" pY="0.5" oX="0" oY="2" oW="59" oH="97"/>
+  <sprite n="cuphead_world_map_up_walk_0009.png" x="57" y="193" w="59" h="94" pX="0.5" pY="0.5" oX="0" oY="2" oW="60" oH="98"/>
+  <sprite n="cuphead_world_map_up_walk_0010.png" x="0" y="288" w="61" h="94" pX="0.5" pY="0.5" oX="0" oY="2" oW="61" oH="98"/>
+  <sprite n="cuphead_world_map_up_walk_0011.png" x="56" y="0" w="61" h="95" pX="0.5" pY="0.5" oX="0" oY="2" oW="62" oH="99"/>
+  <sprite n="cuphead_world_map_up_walk_0012.png" x="117" y="0" w="64" h="91" pX="0.5" pY="0.5" oX="0" oY="2" oW="64" oH="95"/>
+  <sprite n="cuphead_world_map_up_walk_0013.png" x="313" y="0" w="67" h="81" pX="0.5" pY="0.5" oX="1" oY="2" oW="68" oH="85"/>
+  <sprite n="cuphead_world_map_up_walk_0014.png" x="182" y="0" w="65" h="86" pX="0.5" pY="0.5" oX="0" oY="2" oW="65" oH="90"/>
+  <sprite n="cuphead_world_map_up_walk_0015.png" x="0" y="382" w="62" h="91" pX="0.5" pY="0.5" oX="0" oY="2" oW="62" oH="95"/>
+  <sprite n="cuphead_world_map_up_walk_0016.png" x="0" y="193" w="57" h="95" pX="0.5" pY="0.5" oX="0" oY="2" oW="57" oH="99"/>
+</TextureAtlas>

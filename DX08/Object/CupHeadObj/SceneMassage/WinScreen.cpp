@@ -7,7 +7,7 @@ WinScreen::WinScreen()
 
 	_sprite->GetTransform()->SetPosition(CENTER);
 	_sprite->GetTransform()->SetScale(Vector2(2.5f, 2.5f));
-	_action->CallBack_Carret(std::bind(&WinScreen::SetEnd, this));
+	_action->CallBack_TS(std::bind(&WinScreen::SetEnd, this));
 	
 	_action->Play();
 }

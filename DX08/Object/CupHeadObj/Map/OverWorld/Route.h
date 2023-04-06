@@ -17,6 +17,7 @@ public:
 	void Update();
 	void Render();
 
+	void CreateObticle();
 	Node* CreateNode(int x, int y)
 	{
 		Node* node = new Node;

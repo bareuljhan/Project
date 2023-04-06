@@ -46,7 +46,7 @@ public:
 	void SetCallBack_Target(function<void(void)> endEvent) { _spudderATKEvent = endEvent; }
 	void SetIDLE_CallBack(function<void(void)> endEvent) { _setIdle = endEvent; }
 	void SetCallBack_Skill(function<void(void)> endEvent) { _skillEvent = endEvent; }
-	void CallBack_Carret(function<void(void)> endEvent) { _carrotIntro = endEvent; }
+	void CallBack_TS(function<void(void)> endEvent) { _carrotIntro = endEvent; }
 	void CarretMove_CallBack(function<void(void)> endEvent) { _carrotMove = endEvent; }
 	void VaggieSpawn(function<void(void)> endEvent) { _vaggieSpawn = endEvent; }
 	void VaggieIdle(function<void(void)> endEvent) { _vaggieIDLE = endEvent; }

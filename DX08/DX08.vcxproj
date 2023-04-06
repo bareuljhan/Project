@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\CupHeadObj\Map\Shop\Coin.h" />
+    <ClInclude Include="Framework\Utillity\DirectWrite.h" />
+    <ClInclude Include="Object\UI\Inventory.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\GroundATK.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Chomper.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\HandATK.h" />
@@ -216,6 +219,9 @@
     <ClInclude Include="Object\CupHeadObj\Map\Prologue\StartScreen.h" />
     <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.h" />
     <ClInclude Include="Object\CupHeadObj\SceneMassage\ScoreScene.h" />
+    <ClInclude Include="Scene\ShopScene.h" />
+    <ClInclude Include="Object\CupHeadObj\Map\Shop\Shop.h" />
+    <ClInclude Include="Object\UI\Slot.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Framework\Texture\SRV.h" />
@@ -230,6 +236,9 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Vine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\CupHeadObj\Map\Shop\Coin.cpp" />
+    <ClCompile Include="Framework\Utillity\DirectWrite.cpp" />
+    <ClCompile Include="Object\UI\Inventory.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\GroundATK.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Chomper.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\HandATK.cpp" />
@@ -311,6 +320,9 @@
     <ClCompile Include="Object\CupHeadObj\SceneMassage\WinScreen.cpp" />
     <ClCompile Include="Object\CupHeadObj\SceneMassage\ScoreScene.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Vine.cpp" />
+    <ClCompile Include="Scene\ShopScene.cpp" />
+    <ClCompile Include="Object\CupHeadObj\Map\Shop\Shop.cpp" />
+    <ClCompile Include="Object\UI\Slot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX08.rc" />

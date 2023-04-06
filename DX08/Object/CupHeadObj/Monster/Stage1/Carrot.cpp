@@ -10,7 +10,7 @@ Carrot::Carrot()
 	CreateAction("Carret_Move", Action::Type::PINGPONG);
 	CreateAction("Carret_Dead", Action::Type::LOOP);
 
-	_actions[0]->CallBack_Carret(std::bind(&Carrot::SetIDLE, this));
+	_actions[0]->CallBack_TS(std::bind(&Carrot::SetIDLE, this));
 	_actions[1]->CarretMove_CallBack(std::bind(&Carrot::SetMove, this));
 
 	for (auto sprite : _sprites)

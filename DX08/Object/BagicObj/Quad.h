@@ -34,6 +34,8 @@ public:
 	void SetType(Type type) { _type = type; }
 	Type GetType() { return _type; }
 
+
+	vector<Vertex> GetVertex() { return _vertices; }
 protected:
 	Type _type = Type::NONE;
 

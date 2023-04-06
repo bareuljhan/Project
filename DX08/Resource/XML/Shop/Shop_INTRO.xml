@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Shop_INTRO.png" width="2288" height="2426" scale="1" format="RGBA8888">
+  <sprite n="pig_welcome_0001.png" x="1302" y="2040" w="427" h="379" pX="0.5" pY="0.5" oX="0" oY="2" oW="429" oH="381"/>
+  <sprite n="pig_welcome_0002.png" x="1331" y="1664" w="428" h="374" pX="0.5" pY="0.5" oX="0" oY="2" oW="430" oH="376"/>
+  <sprite n="pig_welcome_0003.png" x="901" y="1664" w="430" h="376" pX="0.5" pY="0.5" oX="0" oY="2" oW="432" oH="380"/>
+  <sprite n="pig_welcome_0004.png" x="1729" y="2038" w="426" h="368" pX="0.5" pY="0.5" oX="0" oY="2" oW="426" oH="370"/>
+  <sprite n="pig_welcome_0005.png" x="901" y="1300" w="431" h="364" pX="0.5" pY="0.5" oX="0" oY="2" oW="431" oH="366"/>
+  <sprite n="pig_welcome_0006.png" x="1377" y="847" w="437" h="374" pX="0.5" pY="0.5" oX="0" oY="2" oW="439" oH="378"/>
+  <sprite n="pig_welcome_0007.png" x="0" y="903" w="451" h="392" pX="0.5" pY="0.5" oX="0" oY="2" oW="451" oH="394"/>
+  <sprite n="pig_welcome_0008.png" x="0" y="0" w="472" h="473" pX="0.5" pY="0.5" oX="2" oY="2" oW="475" oH="476"/>
+  <sprite n="pig_welcome_0009.png" x="0" y="473" w="454" h="430" pX="0.5" pY="0.5" oX="0" oY="2" oW="454" oH="432"/>
+  <sprite n="pig_welcome_0010.png" x="472" y="433" w="454" h="434" pX="0.5" pY="0.5" oX="0" oY="2" oW="456" oH="438"/>
+  <sprite n="pig_welcome_0011.png" x="927" y="0" w="454" h="435" pX="0.5" pY="0.5" oX="1" oY="2" oW="455" oH="438"/>
+  <sprite n="pig_welcome_0012.png" x="926" y="435" w="451" h="434" pX="0.5" pY="0.5" oX="0" oY="2" oW="451" oH="436"/>
+  <sprite n="pig_welcome_0013.png" x="472" y="0" w="455" h="433" pX="0.5" pY="0.5" oX="0" oY="2" oW="455" oH="435"/>
+  <sprite n="pig_welcome_0014.png" x="926" y="869" w="451" h="431" pX="0.5" pY="0.5" oX="0" oY="2" oW="451" oH="433"/>
+  <sprite n="pig_welcome_0015.png" x="1381" y="0" w="454" h="423" pX="0.5" pY="0.5" oX="0" oY="2" oW="454" oH="425"/>
+  <sprite n="pig_welcome_0016.png" x="1834" y="427" w="448" h="413" pX="0.5" pY="0.5" oX="2" oY="2" oW="451" oH="415"/>
+  <sprite n="pig_welcome_0017.png" x="1381" y="423" w="453" h="424" pX="0.5" pY="0.5" oX="0" oY="2" oW="454" oH="426"/>
+  <sprite n="pig_welcome_0018.png" x="454" y="867" w="451" h="422" pX="0.5" pY="0.5" oX="0" oY="2" oW="452" oH="424"/>
+  <sprite n="pig_welcome_0019.png" x="0" y="1715" w="448" h="423" pX="0.5" pY="0.5" oX="2" oY="2" oW="451" oH="425"/>
+  <sprite n="pig_welcome_0020.png" x="451" y="1289" w="450" h="428" pX="0.5" pY="0.5" oX="0" oY="2" oW="450" oH="430"/>
+  <sprite n="pig_welcome_0021.png" x="1835" y="0" w="453" h="427" pX="0.5" pY="0.5" oX="0" oY="2" oW="453" oH="430"/>
+  <sprite n="pig_welcome_0022.png" x="0" y="1295" w="449" h="420" pX="0.5" pY="0.5" oX="0" oY="36" oW="449" oH="456"/>
+  <sprite n="pig_welcome_0023.png" x="1834" y="840" w="443" h="410" pX="0.5" pY="0.5" oX="0" oY="2" oW="443" oH="414"/>
+  <sprite n="pig_welcome_0024.png" x="1377" y="1221" w="435" h="386" pX="0.5" pY="0.5" oX="0" oY="2" oW="435" oH="388"/>
+  <sprite n="pig_welcome_0025.png" x="448" y="2040" w="429" h="386" pX="0.5" pY="0.5" oX="0" oY="2" oW="429" oH="388"/>
+  <sprite n="pig_welcome_0026.png" x="877" y="2040" w="425" h="386" pX="0.5" pY="0.5" oX="0" oY="2" oW="427" oH="389"/>
+</TextureAtlas>

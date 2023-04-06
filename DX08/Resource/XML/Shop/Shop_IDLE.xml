@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Shop_IDLE.png" width="1728" height="758" scale="1" format="RGBA8888">
+  <sprite n="pig_idle_0001.png" x="1298" y="0" w="430" h="389" pX="0.5" pY="0.5" oX="0" oY="2" oW="430" oH="393"/>
+  <sprite n="pig_idle_0002.png" x="0" y="375" w="430" h="383" pX="0.5" pY="0.5" oX="2" oY="2" oW="432" oH="387"/>
+  <sprite n="pig_idle_0003.png" x="866" y="0" w="432" h="379" pX="0.5" pY="0.5" oX="0" oY="2" oW="432" oH="383"/>
+  <sprite n="pig_idle_0004.png" x="430" y="375" w="430" h="380" pX="0.5" pY="0.5" oX="0" oY="2" oW="430" oH="384"/>
+  <sprite n="pig_idle_0005.png" x="0" y="0" w="433" h="375" pX="0.5" pY="0.5" oX="2" oY="2" oW="435" oH="379"/>
+  <sprite n="pig_idle_0006.png" x="433" y="0" w="433" h="375" pX="0.5" pY="0.5" oX="0" oY="2" oW="433" oH="377"/>
+</TextureAtlas>

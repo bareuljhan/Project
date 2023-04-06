@@ -5,11 +5,9 @@ public:
 	enum State
 	{
 		IDLE,
-		RUN,
-		RUN_UP,
 		RUN_DOWN,
-		RUN_WD,
-		RUN_SD,
+		RUN_UP,
+		RUN,
 		CLEAR,
 		NONE
 	};
@@ -43,6 +41,7 @@ public:
 	void Render();
 
 	void Init();
+	void MoveTO();
 	void AStar(Vector2 start, Vector2 end);
 	void SetAction(State state);
 
@@ -62,13 +61,18 @@ private:
 	vector<vector<bool>> _discorvered;
 	vector<vector<Vector2>> _parent;
 
-	Vector2 _targetIndex = Vector2(2, 10);
-
 	shared_ptr<Route> _route;
 
+	Vector2 _targetIndex = Vector2(2, 10);
 	Vector2 _direction = { 0,0 };
 	Vector2 _endPos = { 0,0 };
+
+	vector<Vector2> _pathPos;
 	vector<Vector2> _path;
-	float _speed = 300.0f;
+
+	float _speed = 50.0f;
+
+	int _posIndex = 1;
+	int _index = 0;
 };
 

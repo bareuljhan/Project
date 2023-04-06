@@ -8,7 +8,6 @@
 
 HWND hWnd;
 
-
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -53,6 +52,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ImGui_ImplWin32_Init(hWnd);
     ImGui_ImplDX11_Init(DEVICE.Get(), DC.Get());
 
+    DirectWrite::Create();
     StateManager::Create();
     InputManager::Create();
     Timer::Create();
@@ -92,6 +92,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Timer::Delete();
     InputManager::Delete();
     StateManager::Delete();
+    DirectWrite::Delete();
 
     ImGui_ImplDX11_Shutdown();
     ImGui_ImplWin32_Shutdown();

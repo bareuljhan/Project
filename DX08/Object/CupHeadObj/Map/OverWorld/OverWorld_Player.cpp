@@ -6,11 +6,9 @@ OverWorld_Player::OverWorld_Player()
 	_transform = make_shared<Transform>();
 
 	CreateAction("OverWorld_IDLE", Action::Type::LOOP);
-	//CreateAction("OverWorld_RUN", Action::Type::LOOP);
-	//CreateAction("OverWorld_UP", Action::Type::LOOP);
-	//CreateAction("OverWorld_DOWN", Action::Type::LOOP);
-	//CreateAction("OverWorld_WD", Action::Type::LOOP);
-	//CreateAction("OverWorld_SD", Action::Type::LOOP);
+	CreateAction("OverWorld_DOWN", Action::Type::LOOP);
+	CreateAction("OverWorld_UP", Action::Type::LOOP);
+	CreateAction("OverWorld_SIDE", Action::Type::LOOP);
 	//CreateAction("OverWorld_CLEAR", Action::Type::END);
 
 	for (auto sprite : _sprites)
@@ -49,6 +47,8 @@ void OverWorld_Player::Update()
 	{
 		AStar(_transform->GetPos(), MOUSE_POS);
 	}
+	
+	MoveTO();
 
 	for (auto sprite : _sprites)
 		sprite->Update();
@@ -69,8 +69,73 @@ void OverWorld_Player::Init()
 {
 }
 
+void OverWorld_Player::MoveTO()
+{
+	if (isRun == false) return;
+
+	if (_posIndex == _path.size())
+	{
+		SetAction(State::IDLE);
+		isRun = false;
+		_posIndex = 1;
+		return;
+	}
+	Vector2 dir = (_path[_posIndex] - _path[_posIndex - 1]).NormalVector2();
+	Vector2 temp = _transform->GetPos();
+	temp += dir * _speed * DELTA_TIME;
+	_transform->SetPosition(temp);
+	_transform->Update();
+	if (dir.x < 0 && dir.y < 0)
+	{
+		SetAction(State::RUN_DOWN);
+		if (_transform->GetPos().x - _pathPos[_posIndex].x <= 3 && _transform->GetPos().y - _pathPos[_posIndex].y <= 3)
+		{
+			_posIndex++;
+		}
+	}
+	else if (dir.x < 0 && dir.y >= 0)
+	{
+		if (dir.y == 0)
+		{
+			SetLeft();
+			SetAction(State::RUN);
+		}
+		if (dir.y != 0)
+			SetAction(State::RUN_UP);
+		if (_transform->GetPos().x - _pathPos[_posIndex].x <= 3 && _transform->GetPos().y - _pathPos[_posIndex].y >= -3)
+		{
+			_posIndex++;
+		}
+	}
+	else if (dir.x >= 0 && dir.y < 0)
+	{
+		SetAction(State::RUN_DOWN);
+		if (_transform->GetPos().x - _pathPos[_posIndex].x >= -3 && _transform->GetPos().y - _pathPos[_posIndex].y <= 3)
+		{
+			_posIndex++;
+		}
+	}
+	else
+	{
+		if (dir.x == 1 && dir.y == 0)
+		{
+			SetRight();
+			SetAction(State::RUN);
+		}
+		if (dir.y != 0)
+			SetAction(State::RUN_UP);
+		if (_transform->GetPos().x - _pathPos[_posIndex].x >= -3	 && _transform->GetPos().y - _pathPos[_posIndex].y >= -3)
+		{
+			_posIndex++;
+		}
+	}
+}
+
 void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 {
+	_path.clear();
+	_pathPos.clear();
+
 	Vector2 frontPos[8] =
 	{
 		Vector2 {0, 1},
@@ -110,8 +175,10 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 		float f = here.f;
 		pq.pop();
 
+		
+
 		if ((abs(here.pos.x) - abs(end.x) > -15 && abs(here.pos.x) - abs(end.x) < 15) &&
-			(abs(here.pos.y) - abs(end.y) > -15 && abs(here.pos.y) - abs(end.y) < 15))
+			(abs(here.pos.y) - abs(end.y) > -15 && abs(here.pos.y) - abs(end.y) < 15) )
 		{
 			_targetIndex = here.index;
 			break;
@@ -126,16 +193,60 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			Vector2 thereIndex = here.index + frontPos[i];
 
 			if(i >= 4)
-				there = here.pos + frontPos[i] * 25;
+				there = here.pos + frontPos[i] * 28;
 			else
 				there = here.pos + frontPos[i] * 30;
+
+			shared_ptr<Quad> block = _route->GetMapData()[thereIndex.x][thereIndex.y]->blocks;
+			Vector2 leftTop = Vector2(block->GetVertex()[0].pos.x, block->GetVertex()[0].pos.y);
+			Vector2 rightTop = Vector2(block->GetVertex()[1].pos.x, block->GetVertex()[1].pos.y);
+			Vector2 leftBottom = Vector2(block->GetVertex()[2].pos.x, block->GetVertex()[2].pos.y);
+			Vector2 rightBottom = Vector2(block->GetVertex()[3].pos.x, block->GetVertex()[3].pos.y);
 			
-			if (here.pos == there && i < 4)
+			if (_route->GetMapData()[thereIndex.x][thereIndex.y]->obticle == true)
+				continue;
+			
+			if ((here.pos.y - there.y >= 0 && here.pos.y - there.y <= 16) && i == 0)
+				continue;	
+			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 16) && i == 1)
+				continue;
+			if ((here.pos.y - there.y <= 0 && here.pos.y - there.y >= -16) && i == 2)
+				continue;
+			if ((here.pos.x - there.x <= 0 && here.pos.x - there.x >= -16) && i == 3)
 				continue;
 
-			if ((here.pos.x - there.x > 0 && here.pos.x - there.x < 10) &&
-				(here.pos.y - there.y > 0 && here.pos.y - there.y < 10) && i >= 4)
+
+			if ((here.pos.x - rightTop.x <= 0 && here.pos.x - rightTop.x >= -15) && 
+				(here.pos.y - rightTop.y <= 0 && here.pos.y - rightTop.y >= -15) && i == 4)
 				continue;
+
+			if ((here.pos.x - leftTop.x <= 0 && here.pos.x - leftTop.x >= -15) &&
+				(here.pos.y - leftTop.y >= 0 && here.pos.y - leftTop.y <= 15) && i == 5)
+				continue;
+			
+			if ((here.pos.x - rightBottom.x >= 0 && here.pos.x - rightBottom.x <= 15) &&
+				(here.pos.y - rightBottom.y <= 0 && here.pos.y - rightBottom.y >= -15) && i == 6)
+				continue;
+			
+			if ((here.pos.x - leftBottom.x <= 0 && here.pos.x - leftBottom.x > -15) &&
+				(here.pos.y - leftBottom.y <= 0 && here.pos.y - leftBottom.y > -15) && i == 7)
+				continue;
+
+			/*
+			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 15) &&
+				(here.pos.y - there.y >= 0 && here.pos.y - there.y <= 15) && i == 4)
+				continue;
+			if ((here.pos.x - there.x <= 0 && here.pos.x - there.x >= -15) &&
+				(here.pos.y - there.y >= 0 && here.pos.y - there.y <= 15) && i == 5)
+				continue;
+			
+			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 15) &&
+				(here.pos.y - there.y <= 0 && here.pos.y - there.y >= -15) && i == 6)
+				continue;
+			
+			if ((here.pos.x - there.x <= 0 && here.pos.x - there.x > -15) &&
+				(here.pos.y - there.y <= 0 && here.pos.y - there.y > -15) && i == 7)
+				continue;*/
 
 			float distance = (there - here.pos).Length();
 			float nextG = distance + here.g;
@@ -168,10 +279,16 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			break;
 		
 		_path.push_back(_parent[temp.x][temp.y]);
-
 		temp = _parent[temp.x][temp.y];
 	}
 	std::reverse(_path.begin(), _path.end());
+
+	for (int i = 0; i < _path.size(); i++)
+	{
+		_pathPos.push_back(_route->GetMapData()[_path[i].x][_path[i].y]->blocks->GetTransform()->GetPos());
+	}
+
+	isRun = true;
 }
 
 void OverWorld_Player::SetAction(State state)

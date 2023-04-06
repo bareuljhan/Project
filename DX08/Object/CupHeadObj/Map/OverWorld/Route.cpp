@@ -5,6 +5,7 @@ Route::Route()
 {
 	CreateNode(30, 15);
 	CreateMapData();
+	CreateObticle();
 }
 
 Route::~Route()
@@ -30,5 +31,19 @@ void Route::Render()
 		{
 			_mapData[i][j]->blocks->Render();
 		}
+	}
+}
+
+void Route::CreateObticle()
+{
+	for (int i = 0; i < 15; i++)
+	{
+		_mapData[0][i]->obticle = true;
+		_mapData[29][i]->obticle = true;
+	}
+	for (int i = 0; i < 30; i++)
+	{
+		_mapData[i][0]->obticle = true;
+		_mapData[i][14]->obticle = true;
 	}
 }

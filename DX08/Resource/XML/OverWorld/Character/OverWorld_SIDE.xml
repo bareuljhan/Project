@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="OverWorld_SIDE.png" width="186" height="718" scale="1" format="RGBA8888">
+  <sprite n="cuphead_world_map_side_walk_0001.png" x="0" y="633" w="64" h="85" pX="0.5" pY="0.5" oX="0" oY="0" oW="66" oH="85"/>
+  <sprite n="cuphead_world_map_side_walk_0002.png" x="63" y="543" w="66" h="84" pX="0.5" pY="0.5" oX="0" oY="0" oW="68" oH="84"/>
+  <sprite n="cuphead_world_map_side_walk_0003.png" x="123" y="359" w="63" h="83" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="83"/>
+  <sprite n="cuphead_world_map_side_walk_0004.png" x="0" y="546" w="63" h="87" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="87"/>
+  <sprite n="cuphead_world_map_side_walk_0005.png" x="62" y="91" w="63" h="90" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="90"/>
+  <sprite n="cuphead_world_map_side_walk_0006.png" x="0" y="367" w="61" h="90" pX="0.5" pY="0.5" oX="0" oY="2" oW="63" oH="92"/>
+  <sprite n="cuphead_world_map_side_walk_0007.png" x="0" y="0" w="61" h="94" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="94"/>
+  <sprite n="cuphead_world_map_side_walk_0008.png" x="0" y="94" w="62" h="92" pX="0.5" pY="0.5" oX="0" oY="0" oW="64" oH="92"/>
+  <sprite n="cuphead_world_map_side_walk_0009.png" x="61" y="0" w="65" h="91" pX="0.5" pY="0.5" oX="0" oY="0" oW="67" oH="91"/>
+  <sprite n="cuphead_world_map_side_walk_0010.png" x="0" y="186" w="63" h="91" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="91"/>
+  <sprite n="cuphead_world_map_side_walk_0011.png" x="63" y="181" w="61" h="89" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="89"/>
+  <sprite n="cuphead_world_map_side_walk_0012.png" x="63" y="270" w="61" h="89" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="89"/>
+  <sprite n="cuphead_world_map_side_walk_0013.png" x="0" y="457" w="62" h="89" pX="0.5" pY="0.5" oX="0" oY="0" oW="64" oH="89"/>
+  <sprite n="cuphead_world_map_side_walk_0014.png" x="62" y="456" w="61" h="87" pX="0.5" pY="0.5" oX="0" oY="2" oW="63" oH="89"/>
+  <sprite n="cuphead_world_map_side_walk_0015.png" x="0" y="277" w="63" h="90" pX="0.5" pY="0.5" oX="0" oY="0" oW="65" oH="90"/>
+  <sprite n="cuphead_world_map_side_walk_0016.png" x="61" y="367" w="62" h="89" pX="0.5" pY="0.5" oX="0" oY="0" oW="64" oH="89"/>
+</TextureAtlas>

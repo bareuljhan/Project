@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="Coin.png" width="610" height="1957" scale="1" format="RGBA8888">
+  <sprite n="event_level_coin_0001.png" x="218" y="1308" w="149" h="323" pX="0.5" pY="0.5" oX="88" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0002.png" x="367" y="1308" w="159" h="322" pX="0.5" pY="0.5" oX="80" oY="66" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0003.png" x="0" y="329" w="168" h="328" pX="0.5" pY="0.5" oX="76" oY="62" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0004.png" x="364" y="1631" w="185" h="322" pX="0.5" pY="0.5" oX="71" oY="66" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0005.png" x="0" y="0" w="199" h="329" pX="0.5" pY="0.5" oX="65" oY="62" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0006.png" x="231" y="656" w="206" h="324" pX="0.5" pY="0.5" oX="60" oY="65" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0007.png" x="214" y="984" w="213" h="324" pX="0.5" pY="0.5" oX="55" oY="66" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0008.png" x="0" y="1309" w="218" h="324" pX="0.5" pY="0.5" oX="51" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0009.png" x="0" y="657" w="231" h="327" pX="0.5" pY="0.5" oX="46" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0010.png" x="385" y="0" w="225" h="326" pX="0.5" pY="0.5" oX="49" oY="62" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0011.png" x="0" y="984" w="214" h="325" pX="0.5" pY="0.5" oX="55" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0012.png" x="168" y="329" w="208" h="327" pX="0.5" pY="0.5" oX="58" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0013.png" x="0" y="1633" w="205" h="324" pX="0.5" pY="0.5" oX="60" oY="65" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0014.png" x="199" y="0" w="186" h="327" pX="0.5" pY="0.5" oX="69" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0015.png" x="376" y="327" w="168" h="327" pX="0.5" pY="0.5" oX="80" oY="64" oW="334" oH="439"/>
+  <sprite n="event_level_coin_0016.png" x="205" y="1633" w="159" h="324" pX="0.5" pY="0.5" oX="83" oY="65" oW="334" oH="439"/>
+</TextureAtlas>

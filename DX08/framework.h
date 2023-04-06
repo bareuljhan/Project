@@ -43,6 +43,13 @@
 #include "../ImGUI/imgui_impl_dx11.h"
 #include "../ImGUI/imgui_impl_win32.h"
 
+// DirectWrite
+#include <d2d1_1.h>
+#include <dwrite.h>
+
+#pragma comment(lib, "d2d1.lib")
+#pragma comment(lib, "dwrite.lib")
+
 #pragma comment(lib,"d3d11.lib")
 #pragma comment(lib,"d3dcompiler.lib")
 
@@ -81,6 +88,7 @@ using namespace DirectX;
 #include "Framework/Utillity/tinyxml2.h"
 #include "Framework/Utillity/Audio.h"
 #include "Framework/Utillity/MathUtility.h"
+#include "Framework/Utillity/DirectWrite.h"
 
 // Camera
 #include "Framework/Camera/Camera.h"
@@ -108,6 +116,8 @@ using namespace DirectX;
 // UI
 #include "Object/UI/Button.h"
 #include "Object/UI/Hp.h"
+#include "Object/UI/Slot.h"
+#include "Object/UI/Inventory.h"
 
 // GameObj
 #include "Object/CupHeadObj/SceneMassage/WinScreen.h"
@@ -115,6 +125,11 @@ using namespace DirectX;
 
 #include "Object/CupHeadObj/Bullet.h"
 #include "Object/CupHeadObj/Player.h"
+
+// Shop
+#include "Object/CupHeadObj/Map/Shop/Shop.h"
+#include "Object/CupHeadObj/Map/Shop/Coin.h"
+
 
 // ClearMessage
 #include "Object/CupHeadObj/Message/ClearMessage.h"
@@ -129,6 +144,7 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Map/StageMap/Stage2_FloralFury.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_BG.h"
 #include "Object/CupHeadObj/Map/Tutorial/Tutorial_Iner_BG.h"
+
 
 // Monster
 #include "Object/CupHeadObj/Monster/Stage1/Spudder_Bullet.h"
