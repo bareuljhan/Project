@@ -157,9 +157,9 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 	};
 
 	priority_queue<Vertex, vector<Vertex>, greater<Vertex>> pq;
-	vector<vector<float>> best = vector<vector<float>>(40, vector<float>(20, 100000.0f));
-	_discorvered = vector<vector<bool>>(40, vector<bool>(20, false));
-	_parent = vector<vector<Vector2>>(40, vector<Vector2>(20, Vector2(0,0)));
+	vector<vector<float>> best = vector<vector<float>>(40, vector<float>(22, 100000.0f));
+	_discorvered = vector<vector<bool>>(40, vector<bool>(22, false));
+	_parent = vector<vector<Vector2>>(40, vector<Vector2>(22, Vector2(0,0)));
 
 	Vertex startV;
 	startV.pos = start;
@@ -209,7 +209,7 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			Vector2 rightBottom = Vector2(block->GetVertex()[3].pos.x, block->GetVertex()[3].pos.y);
 			
 			if (_route->GetMapData()[thereIndex.x][thereIndex.y]->obticle == true)
-				continue;
+				return;
 							
 			if ((here.pos.y - there.y >= 0 && here.pos.y - there.y <= 16) && i == 0)
 				continue;	

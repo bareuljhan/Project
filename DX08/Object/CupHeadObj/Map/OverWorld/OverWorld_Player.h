@@ -65,7 +65,7 @@ private:
 
 	shared_ptr<Route> _route;
 
-	Vector2 _targetIndex = Vector2(7, 12);
+	Vector2 _targetIndex = Vector2(7, 14);
 	Vector2 _direction = { 0,0 };
 	Vector2 _endPos = { 0,0 };
 

@@ -45,8 +45,6 @@ private:
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 
-	shared_ptr<Inventory> _inven;
-
 	float _speed = 300.0f;
 };
 

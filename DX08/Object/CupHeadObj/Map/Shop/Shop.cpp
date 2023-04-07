@@ -38,8 +38,6 @@ Shop::Shop()
 	_left->GetTransform()->SetScale(Vector2(1.06f, 0.75f));
 	_right->GetTransform()->SetScale(Vector2(1.06f, 0.75f));
 
-	_inven = make_shared<Inventory>();
-
 	_oldState = WELCOME;
 	_actions[_curState]->Play();
 }
@@ -58,11 +56,6 @@ void Shop::Update()
 	if (KEY_DOWN('Q') || KEY_DOWN('q'))
 	{
 		isReturn = true;
-	}
-
-	if (KEY_PRESS('I') || KEY_PRESS('i'))
-	{
-		_inven->Update();
 	}
 
 	TableMove();
@@ -96,18 +89,10 @@ void Shop::Render()
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
-	if (KEY_PRESS('I') || KEY_PRESS('i'))
-	{
-		_inven->Render();
-	}
 }
 
 void Shop::PostRender()
 {
-	if (KEY_PRESS('I') || KEY_PRESS('i'))
-	{
-		_inven->PostRender();
-	}
 }
 
 void Shop::SetAction(State state)

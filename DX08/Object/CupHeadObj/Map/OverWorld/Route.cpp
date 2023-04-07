@@ -3,7 +3,7 @@
 
 Route::Route()
 {
-	CreateNode(40, 20);
+	CreateNode(40, 22);
 	CreateMapData();
 	CreateObticle();
 }
@@ -16,7 +16,7 @@ void Route::Update()
 {
 	for (int i = 0; i < 40; i++)
 	{
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < 22; j++)
 		{
 			_mapData[i][j]->blocks->Update();
 		}
@@ -27,7 +27,7 @@ void Route::Render()
 {
 	for (int i = 0; i < 40; i++)
 	{
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < 22; j++)
 		{
 			_mapData[i][j]->blocks->Render();
 		}
@@ -36,7 +36,7 @@ void Route::Render()
 
 void Route::CreateObticle()
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 22; i++)
 	{
 		_mapData[0][i]->obticle = true;
 		_mapData[39][i]->obticle = true;
@@ -44,6 +44,6 @@ void Route::CreateObticle()
 	for (int i = 0; i < 40; i++)
 	{
 		_mapData[i][0]->obticle = true;
-		_mapData[i][19]->obticle = true;
+		_mapData[i][21]->obticle = true;
 	}
 }

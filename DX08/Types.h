@@ -34,6 +34,8 @@
 
 #define ASSERT(hr) assert(SUCCEEDED(hr))
 
+#define DATA_M DataManager::GetInstance()
+
 #define EFFECT EffectManager::GetInstance()
 #define AUDIO Audio::GetInstance()
 #define CAMERA Camera::GetInstnace()
@@ -54,4 +56,25 @@ struct HIT_RESULT
 {
 	bool isHit = false;
 	Dir dir = Dir::NONE;
+};
+
+struct ItemInfo
+{
+	ItemInfo(){}
+	ItemInfo(string name, int price, int frameX = 10, int frameY = 4)
+	:name(name), price(price), frameX(frameX), frameY(frameY)
+	{}
+
+	void SetEmpty() { name = "", price = 0, frameX = 10, frameY = 4; }
+	bool operator == (const ItemInfo& other)
+	{
+		if (name != other.name)
+			return false;
+		return true;
+	}
+
+	string name;
+	int price = 0;
+	int frameX = 10;
+	int frameY = 4;
 };

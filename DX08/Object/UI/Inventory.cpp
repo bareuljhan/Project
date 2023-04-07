@@ -29,15 +29,15 @@ Inventory::Inventory()
 		for (int x = -1; x < 2; x++)
 		{
 			shared_ptr<Slot> slot = make_shared<Slot>();
-			slot->SetPosition(Vector2(_slotOffset.x * x, (_slotOffset.y * y) - 30));
+			slot->SetPosition(Vector2(_slotOffset.x * x, (_slotOffset.y * y) - 20));
 			slot->SetParent(_pannel->GetTransform());
 			_slots.push_back(slot);
 		}
 	}
 
-	Vector2 CoinOffset = Vector2(-40, -230);
+	Vector2 CoinOffset = Vector2(-110, -230);
 
-	for (int i = 0; i < _coin; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		shared_ptr<Coin> coin = make_shared<Coin>();
 		coin->GetTransform()->SetPosition(Vector2(CoinOffset.x + i * 50, CoinOffset.y));
@@ -46,10 +46,16 @@ Inventory::Inventory()
 		_coins.push_back(coin);
 	}
 
-	_icon = make_shared<ItemIcon>();
-	_icon->SetPosition(Vector2(_slots[0]->GetTransform()->GetWorldPos().x + 1, _slots[0]->GetTransform()->GetWorldPos().y));
-	_icon->SetScale(Vector2(0.4f, 0.4f));
-	_icon->SetItem(Vector2(1.0f, 0.2f));
+
+	for (int i = 0; i < 9; i++)
+	{
+		shared_ptr<ItemIcon> icon = make_shared<ItemIcon>();
+		icon->SetScale(Vector2(0.4f, 0.4f));
+		_icons.push_back(icon);
+	}
+	_itemDates.resize(9);
+
+	Set();
 }
 
 Inventory::~Inventory()
@@ -58,16 +64,24 @@ Inventory::~Inventory()
 
 void Inventory::Update()
 {
+	//_icon->SetItem(Vector2(1.0f, 0.2f));
+
 	_pannel->Update();
-	_icon->Update();
 	_noise->Update();
 	_text->Update();
 	_cupAction->Update();
 	_cupSprite->Update();
+	
+	for(auto icon : _icons)
+		icon->Update();
+
 	for (auto slot : _slots)
 		slot->Update();
-	for (auto coin : _coins)
-		coin->Update();
+	
+	for (int i = 0; i < _coin; i++)
+	{
+		_coins[i]->Update();
+	}
 }
 
 void Inventory::Render()
@@ -79,20 +93,70 @@ void Inventory::Render()
 	_noise->Render();
 	_cupSprite->Render();
 	_cupSprite->SetActionClip(_cupAction->GetCurClip());
-	for (auto coin : _coins)
-		coin->Render();
-	_icon->Render();
+
+	for (int i = 0; i < _coin; i++)
+	{
+		_coins[i]->Render();
+	}
+	for(auto icon : _icons)
+		icon->Render();
 }
 
 void Inventory::PostRender()
 {
 	RECT rect;
-	rect.left = 980;
-	rect.right = 1080;
+	rect.left = 940;
+	rect.right = 1040;
 	rect.top = 385;
 	rect.bottom = 445;
 
 	DirectWrite::GetInstance()->RenderText(L"COIN => ", rect);
+}
+
+void Inventory::Set()
+{
+
+	for (int i = 0; i < _icons.size(); i++)
+	{
+		_icons[i]->SetPosition(Vector2(_slots[i]->GetTransform()->GetWorldPos().x, _slots[i]->GetTransform()->GetWorldPos().y - 5));
+		_icons[i]->SetItem(_itemDates[i]);
+	}
+}
+
+void Inventory::BuyItem(string name)
+{
+	ItemInfo info = DATA_M->GetItemByName(name);
+
+	if (info.name == "" || _coin - info.price < 0)
+		return;
+
+	auto iter = std::find_if(_itemDates.begin(), _itemDates.end(), [](const ItemInfo& info)->bool
+	{
+		if (info.name == "")
+			return true;
+		return false;
+	});
+
+	if (iter == _itemDates.end())
+		return;
+
+	*iter = info;
+
+	SubMoney(info.price);
+}
+
+bool Inventory::AddMoney(UINT amount)
+{
+	_coin += amount;
+	return true;
+}
+
+bool Inventory::SubMoney(UINT amount)
+{
+	if (_coin - amount < 0)
+		return false;
+	_coin -= amount;
+	return true;
 }
 
 void Inventory::CreateAction(string name, Action::Type type)

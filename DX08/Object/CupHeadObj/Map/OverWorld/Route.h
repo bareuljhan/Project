@@ -32,11 +32,11 @@ public:
 
 	vector<vector<Node*>> CreateMapData()
 	{
-		_mapData = vector<vector<Node*>>(40, vector<Node*>(20));
+		_mapData = vector<vector<Node*>>(40, vector<Node*>(22));
 
 		for (int i = 0; i < 40; i++)
 		{
-			for (int j = 0; j < 20; j++)
+			for (int j = 0; j < 22; j++)
 			{
 				// 노드 생성
 				Node* node = CreateNode(i, j);
@@ -44,7 +44,7 @@ public:
 				node->y = j;
 				
 				shared_ptr<Quad> block = make_shared<Quad>(L"Resource/Texture/CupHead/OverWorld/Map/AbleQuad.png");
-				block->GetTransform()->SetPosition(Vector2(50, 100));
+				block->GetTransform()->SetPosition(Vector2(50, 50));
 				Vector2 blockPos = Vector2(block->GetTransform()->GetPos().x + 30 * i, block->GetTransform()->GetPos().y + 30 * j);
 				block->GetTransform()->GetScale() *= 0.21f;
 
@@ -54,7 +54,7 @@ public:
 					block->GetTransform()->SetPosition(Vector2(blockPos));
 				if (i < 40 - 1) // 아래쪽 노드
 					block->GetTransform()->SetPosition(Vector2(blockPos));
-				if (j < 20 - 1) // 오른쪽 노드
+				if (j < 22 - 1) // 오른쪽 노드
 					block->GetTransform()->SetPosition(Vector2(blockPos));
 
 				node->blocks = block;
