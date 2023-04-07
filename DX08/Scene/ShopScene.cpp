@@ -8,7 +8,6 @@ ShopScene::ShopScene()
 	_shop = make_shared<Shop>();
 	_inven = make_shared<Inventory>();
 	_inven->SetPannelPos(Vector2(1100, CENTER_Y + 100));
-
 }
 
 ShopScene::~ShopScene()
@@ -48,5 +47,9 @@ void ShopScene::PostRender()
 	if (ImGui::Button("BUY", { 100, 100 }))
 	{
 		_inven->BuyItem("Postion");
+	}
+	if (ImGui::Button("SELL", { 100, 100 }))
+	{
+		_inven->SellItem();
 	}
 }

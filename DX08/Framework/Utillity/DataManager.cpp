@@ -49,7 +49,7 @@ void DataManager::LoadItemInfo()
 
 		info.price = temp[0];
 		info.frameX = temp[1];
-		info.frameX = temp[2];
+		info.frameY = temp[2];
 		
 		_itemTable[info.name] = info;
 		row = row->NextSiblingElement();

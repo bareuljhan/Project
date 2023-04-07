@@ -1,5 +1,5 @@
 #pragma once
-class Shop
+class Shop : public Inventory
 {
 public:
 	enum State
@@ -21,6 +21,8 @@ public:
 	void SetIDLE() { SetAction(State::IDLE); }
 	void TableMove();
 	void TableReturn();
+
+	void SetStoreItems();
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
@@ -44,6 +46,8 @@ private:
 
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
+
+	vector<shared_ptr<ItemIconButton>> _icons;
 
 	float _speed = 300.0f;
 };

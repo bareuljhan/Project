@@ -50,6 +50,8 @@ void Button::Update()
 				_event();
 			if (_stringEvent != nullptr)
 				_stringEvent("NONE");
+			if (_intEvent != nullptr)
+				_intEvent(-1);
 		}
 	}
 	else

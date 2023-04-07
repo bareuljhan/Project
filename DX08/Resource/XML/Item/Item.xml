@@ -39,20 +39,20 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Price</Data></Cell>
-    <Cell><Data ss:Type="String">frameX</Data></Cell>
-    <Cell><Data ss:Type="String">frameY</Data></Cell>
+    <Cell><Data ss:Type="String">FrameX</Data></Cell>
+    <Cell><Data ss:Type="String">FrameY</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Postion</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">0.2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coffee</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -66,7 +66,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

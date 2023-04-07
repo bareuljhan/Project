@@ -133,7 +133,6 @@ using namespace DirectX;
 #include "Object/CupHeadObj/Map/Shop/Shop.h"
 #include "Object/CupHeadObj/Map/Shop/Coin.h"
 
-
 // ClearMessage
 #include "Object/CupHeadObj/Message/ClearMessage.h"
 

@@ -49,13 +49,15 @@ Inventory::Inventory()
 
 	for (int i = 0; i < 9; i++)
 	{
-		shared_ptr<ItemIcon> icon = make_shared<ItemIcon>();
+		shared_ptr<ItemIconButton> icon = make_shared<ItemIconButton>();
 		icon->SetScale(Vector2(0.4f, 0.4f));
+		icon->GetButton()->SetIntEvent(std::bind(&Inventory::SetCurIndex, this, i));
 		_icons.push_back(icon);
 	}
 	_itemDates.resize(9);
 
 	Set();
+
 }
 
 Inventory::~Inventory()
@@ -64,8 +66,6 @@ Inventory::~Inventory()
 
 void Inventory::Update()
 {
-	//_icon->SetItem(Vector2(1.0f, 0.2f));
-
 	_pannel->Update();
 	_noise->Update();
 	_text->Update();
@@ -111,6 +111,23 @@ void Inventory::PostRender()
 	rect.bottom = 445;
 
 	DirectWrite::GetInstance()->RenderText(L"COIN => ", rect);
+
+	if (_curIndex >= 0 && _curIndex < 9)
+	{
+		ItemInfo temp = _itemDates[_curIndex];
+		ImGui::Text(temp.name.c_str());
+		ImGui::SliderInt("index", &_curIndex, 0, 8);
+	}
+}
+
+void Inventory::SetCurIndex(int value)
+{
+	if (value < 0 || value > 9)
+	{
+		_curIndex = -1;
+		return;
+	}
+	_curIndex = value;
 }
 
 void Inventory::Set()
@@ -136,13 +153,49 @@ void Inventory::BuyItem(string name)
 			return true;
 		return false;
 	});
-
+	
 	if (iter == _itemDates.end())
 		return;
 
 	*iter = info;
+	
+	Set();
 
 	SubMoney(info.price);
+}
+
+void Inventory::SellItem(string name)
+{
+	auto iter = std::find_if(_itemDates.begin(), _itemDates.end(),[name](const ItemInfo& info) -> bool 
+	{
+		if (info.name == name)
+			return true;
+		return false;
+	});
+
+	if (iter == _itemDates.end())
+		return;
+	AddMoney(iter->price);
+	iter->SetEmpty();
+
+	Set();
+
+}
+
+void Inventory::SellItem()
+{
+	if (_curIndex < 0 || _curIndex > 8) return;
+
+	ItemInfo& info = _itemDates[_curIndex];
+
+	if (info.name == "")
+		return;
+
+	AddMoney(info.price);
+	info.SetEmpty();
+
+	_curIndex = -1;
+	Set();
 }
 
 bool Inventory::AddMoney(UINT amount)

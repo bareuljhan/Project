@@ -21,6 +21,7 @@ public:
 
 	void SetEvent(CallBack callBack) { _event = callBack; }
 	void SetStringEvent(CallBack_String callBack) { _stringEvent = callBack; }
+	void SetIntEvent(CallBack_Int callBack) { _intEvent = callBack; }
 
 	void SetParent(shared_ptr<Transform> transform) { GetTransform()->SetParent(transform); }
 private:
@@ -34,5 +35,6 @@ private:
 
 	CallBack _event;
 	CallBack_String _stringEvent;
+	CallBack_Int _intEvent;
 };
 

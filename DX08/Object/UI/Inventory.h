@@ -11,14 +11,18 @@ public:
 	void Render();
 	void PostRender();
 
+	void SetCurIndex(int value);
+
 	void Set();
 	void SetPannelPos(Vector2 pos) { _pannel->GetTransform()->SetPosition(pos); Update(); Set(); }
 
 	void BuyItem(string name);
+	void SellItem(string name);
+	void SellItem();
 	bool AddMoney(UINT amount);
 	bool SubMoney(UINT amount);
 
-private:
+protected:
 	void CreateAction(string name, Action::Type type);
 
 	shared_ptr<Quad> _pannel;
@@ -34,7 +38,9 @@ private:
 	vector<shared_ptr<Coin>> _coins;
 	vector<ItemInfo> _itemDates;
 
-	vector<shared_ptr<ItemIcon>> _icons;
+	vector<shared_ptr<ItemIconButton>> _icons;
+
+	int _curIndex = -1;
 
 	int _coin = 4;
 };

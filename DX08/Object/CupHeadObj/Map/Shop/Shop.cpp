@@ -31,7 +31,6 @@ Shop::Shop()
 	_right->GetTransform()->SetPosition(Vector2(980, 130));
 	_chalk->GetTransform()->SetPosition(Vector2(640, 100));
 
-
 	_bg->GetTransform()->SetScale(Vector2(0.9f, 0.9f));
 	_cutton->GetTransform()->SetScale(Vector2(0.95f, 0.95f));
 	_table->GetTransform()->SetScale(Vector2(1.04f, 0.75f));
@@ -40,6 +39,11 @@ Shop::Shop()
 
 	_oldState = WELCOME;
 	_actions[_curState]->Play();
+
+	SetStoreItems();
+
+	_icons[0]->SetPosition(Vector2(280, 130));
+	_icons[1]->SetPosition(Vector2(780, 130));
 }
 
 Shop::~Shop()
@@ -60,6 +64,9 @@ void Shop::Update()
 
 	TableMove();
 	TableReturn();
+
+	for (auto icon : _icons)
+		icon->Update();
 
 	_bg->Update();
 	_table->Update();
@@ -83,8 +90,7 @@ void Shop::Render()
 	_bg->Render();
 	_table->Render();
 	_cutton->Render();
-	_left->Render();
-	_right->Render();
+
 
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
@@ -93,6 +99,28 @@ void Shop::Render()
 
 void Shop::PostRender()
 {
+	RECT rect;
+	rect.left = 350;
+	rect.right = 550;
+	rect.top = 550;
+	rect.bottom = 650;
+
+	RECT rect1;
+	rect1.left = 850;
+	rect1.right = 1050;
+	rect1.top = 550;
+	rect1.bottom = 650;
+
+	if (_left->GetTransform()->GetPos().x >= 300 && _right->GetTransform()->GetPos().x <= 980)
+	{
+		DirectWrite::GetInstance()->RenderText(L"Need Coin", rect);
+		DirectWrite::GetInstance()->RenderText(L"Need Coin", rect1);
+	}
+	
+	for (auto icon : _icons)
+		icon->Render();
+	_left->Render();
+	_right->Render();
 }
 
 void Shop::SetAction(State state)
@@ -144,6 +172,23 @@ void Shop::TableReturn()
 	{
 		isReturn = false;
 	}
+}
+
+void Shop::SetStoreItems()
+{
+
+	for (int i = 0; i < 2; i++)
+	{
+		shared_ptr<ItemIconButton> icon = make_shared<ItemIconButton>();
+		icon->SetScale(Vector2(0.9f, 0.9f));
+		icon->GetButton()->SetIntEvent(std::bind(&Inventory::SetCurIndex, this, i));
+		_icons.push_back(icon);
+	}
+
+	_itemDates[0] = DATA_M->GetItemByName("Postion");
+	_itemDates[1] = DATA_M->GetItemByName("Coffee");
+	_icons[0]->SetItem(_itemDates[0]);
+	_icons[1]->SetItem(_itemDates[1]);
 }
 
 void Shop::CreateAction(string name, Action::Type type)
