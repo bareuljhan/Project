@@ -11,7 +11,7 @@
 Program::Program()
 {
 	Timer::GetInstance()->SetLockFPS(120);
-	_scene = make_shared<ShopScene>();
+	_scene = make_shared<Prologue>();
 }
 
 Program::~Program()

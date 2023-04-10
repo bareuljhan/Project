@@ -7,6 +7,7 @@ public:
 
 	void Update();
 	void Render();
+	void PostRender();
 private:
 	void CreateAction(Action::Type type);
 

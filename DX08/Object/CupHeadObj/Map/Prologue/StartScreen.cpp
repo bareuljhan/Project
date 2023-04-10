@@ -31,6 +31,15 @@ void StartScreen::Render()
 
 	_sprite->SetActionClip(_action->GetCurClip());
 	_sprite->Render();
+
+}
+
+void StartScreen::PostRender()
+{
+
+	RECT rect = { 0,0,100,100 };
+
+	DirectWrite::GetInstance()->RenderText(L"PRESS ENTER KEY", rect);
 }
 
 void StartScreen::CreateAction(Action::Type type)

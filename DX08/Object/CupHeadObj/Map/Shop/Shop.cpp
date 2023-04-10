@@ -44,6 +44,18 @@ Shop::Shop()
 
 	_icons[0]->SetPosition(Vector2(280, 130));
 	_icons[1]->SetPosition(Vector2(780, 130));
+
+	for (int i = 0; i < 5; i++)
+	{
+		shared_ptr<Coin> coin = make_shared<Coin>();
+		coin->GetTransform()->SetScale(Vector2(0.2f, 0.2f));
+		_coins.push_back(coin);
+	}
+	_coins[0]->GetTransform()->SetPosition(Vector2(360, 100));
+	_coins[1]->GetTransform()->SetPosition(Vector2(410, 100));
+	_coins[2]->GetTransform()->SetPosition(Vector2(860, 100));
+	_coins[3]->GetTransform()->SetPosition(Vector2(910, 100));
+	_coins[4]->GetTransform()->SetPosition(Vector2(960, 100));
 }
 
 Shop::~Shop()
@@ -75,6 +87,8 @@ void Shop::Update()
 	_right->Update();
 	_chalk->Update();
 
+	for (auto coin : _coins)
+		coin->Update();
 	for (auto sprite : _sprites)
 		sprite->Update();
 	for (auto action : _actions)
@@ -111,7 +125,7 @@ void Shop::PostRender()
 	rect1.top = 550;
 	rect1.bottom = 650;
 
-	if (_left->GetTransform()->GetPos().x >= 300 && _right->GetTransform()->GetPos().x <= 980)
+	if (_left->GetTransform()->GetPos().x <= 100 && _right->GetTransform()->GetPos().x >= 1150)
 	{
 		DirectWrite::GetInstance()->RenderText(L"Need Coin", rect);
 		DirectWrite::GetInstance()->RenderText(L"Need Coin", rect1);
@@ -119,6 +133,8 @@ void Shop::PostRender()
 	
 	for (auto icon : _icons)
 		icon->Render();
+	for (auto coin : _coins)
+		coin->Render();
 	_left->Render();
 	_right->Render();
 }

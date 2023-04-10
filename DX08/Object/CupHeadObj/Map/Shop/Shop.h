@@ -44,6 +44,8 @@ private:
 
 	shared_ptr<Quad> _chalk;
 
+	vector<shared_ptr<Coin>> _coins;
+
 	vector<shared_ptr<Sprite>> _sprites;
 	vector<shared_ptr<Action>> _actions;
 

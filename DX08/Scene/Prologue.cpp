@@ -33,8 +33,16 @@ void Prologue::Render()
 		_intro->Render();
 	}
 	else
+	{
 		_startScreen->Render();
+	}
 		
+}
+
+void Prologue::PostRender()
+{
+	if(isNext == false)
+		_startScreen->PostRender();
 }
 
 void Prologue::SetScreen()
