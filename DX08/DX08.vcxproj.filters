@@ -132,25 +132,22 @@
     <ClInclude Include="Framework\Utillity\MathUtility.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\CupHead.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\OverWorld_BG.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\OverWorld.h">
+    <ClInclude Include="Scene\CupHead\OverWorld.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\OverWorld_Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Prologue.h">
+    <ClInclude Include="Scene\CupHead\Prologue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Tutorial.h">
+    <ClInclude Include="Scene\CupHead\Tutorial.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Map\Tutorial\Tutorial_BG.h">
@@ -159,7 +156,7 @@
     <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage1_Panic.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\PanicStage.h">
+    <ClInclude Include="Scene\CupHead\PanicStage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Spudder.h">
@@ -210,7 +207,7 @@
     <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\FloralFury.h">
+    <ClInclude Include="Scene\CupHead\FloralFury.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\Flower.h">
@@ -246,7 +243,7 @@
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\Route.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\ShopScene.h">
+    <ClInclude Include="Scene\CupHead\ShopScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\CupHeadObj\Map\Shop\Shop.h">
@@ -268,6 +265,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utillity\DataManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -374,25 +374,22 @@
     <ClCompile Include="Framework\Utillity\MathUtility.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\CupHead.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\OverWorld_BG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\OverWorld.cpp">
+    <ClCompile Include="Scene\CupHead\OverWorld.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\OverWorld_Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Prologue.cpp">
+    <ClCompile Include="Scene\CupHead\Prologue.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Tutorial.cpp">
+    <ClCompile Include="Scene\CupHead\Tutorial.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Map\Tutorial\Tutorial_BG.cpp">
@@ -401,7 +398,7 @@
     <ClCompile Include="Object\CupHeadObj\Map\StageMap\Stage1_Panic.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\PanicStage.cpp">
+    <ClCompile Include="Scene\CupHead\PanicStage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Spudder.cpp">
@@ -452,7 +449,7 @@
     <ClCompile Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\FloralFury.cpp">
+    <ClCompile Include="Scene\CupHead\FloralFury.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Flower.cpp">
@@ -488,7 +485,7 @@
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\Route.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\ShopScene.cpp">
+    <ClCompile Include="Scene\CupHead\ShopScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\CupHeadObj\Map\Shop\Shop.cpp">
@@ -510,6 +507,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillity\DataManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

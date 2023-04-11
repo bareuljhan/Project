@@ -12,6 +12,14 @@ Prologue::~Prologue()
 {
 }
 
+void Prologue::Init()
+{
+}
+
+void Prologue::Finalize()
+{
+}
+
 void Prologue::Update()
 {
 	SetScreen();
@@ -35,6 +43,11 @@ void Prologue::Render()
 	else
 	{
 		_startScreen->Render();
+	}
+
+	if (isNext == true && KEY_UP(VK_LBUTTON) || _intro->isEnd == true)
+	{
+		SCENE->SetScene("Tutorial");
 	}
 		
 }

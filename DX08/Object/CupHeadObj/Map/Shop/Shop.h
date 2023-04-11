@@ -10,11 +10,11 @@ public:
 		NONE
 	};
 	Shop();
-	~Shop();
+	virtual ~Shop();
 
-	void Update();
-	void Render();
-	void PostRender();
+	virtual void Update() override;
+	virtual void Render() override;
+	virtual void PostRender() override;
 
 	void SetAction(State state);
 
@@ -23,6 +23,11 @@ public:
 	void TableReturn();
 
 	void SetStoreItems();
+
+
+	void Buy();	
+	void Sell();
+	void SetInventory(shared_ptr<Inventory> inven) { _inventory = inven; };
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
@@ -50,6 +55,10 @@ private:
 	vector<shared_ptr<Action>> _actions;
 
 	vector<shared_ptr<ItemIconButton>> _icons;
+
+	weak_ptr<Inventory> _inventory;
+	shared_ptr<Button> _buyButton;
+	shared_ptr<Button> _sellButton;
 
 	float _speed = 300.0f;
 };

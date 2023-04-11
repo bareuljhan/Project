@@ -7,20 +7,22 @@ public:
 	Inventory();
 	~Inventory();
 
-	void Update();
-	void Render();
-	void PostRender();
+	virtual void Update();
+	virtual void Render();
+	virtual void PostRender();
 
 	void SetCurIndex(int value);
 
 	void Set();
 	void SetPannelPos(Vector2 pos) { _pannel->GetTransform()->SetPosition(pos); Update(); Set(); }
 
-	void BuyItem(string name);
-	void SellItem(string name);
-	void SellItem();
-	bool AddMoney(UINT amount);
-	bool SubMoney(UINT amount);
+	virtual bool AddItem(string name) final;
+	virtual void SellItem(string name) final;
+	virtual void SellItem() final;
+	virtual bool AddMoney(UINT amount) final;
+	virtual bool SubMoney(UINT amount) final;
+
+	bool ValideIndex() { return _curIndex >= 0 && _curIndex <= 8; }
 
 protected:
 	void CreateAction(string name, Action::Type type);

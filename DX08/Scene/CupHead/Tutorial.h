@@ -6,9 +6,11 @@ public:
 	virtual ~Tutorial();
 
 	void PreRender();
+	virtual void Init() override;
+	virtual void Finalize() override;
 	virtual void Update() override;
 	virtual void Render() override;
-	void PostRender();
+	virtual void PostRender()override;
 
 private:
 	shared_ptr<Tutorial_BG> _bg;

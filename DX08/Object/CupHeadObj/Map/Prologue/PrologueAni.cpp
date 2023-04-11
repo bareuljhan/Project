@@ -16,6 +16,7 @@ PrologueAni::PrologueAni()
 	_actions[State::ONE]->Play();
 
 	_actions[0]->NextScreen(std::bind(&PrologueAni::SetNext, this));
+	_actions[1]->NextScreen(std::bind(&PrologueAni::SetEnd, this));
 }
 
 PrologueAni::~PrologueAni()
@@ -41,6 +42,11 @@ void PrologueAni::SetNext()
 	_oldState = ONE;
 	_curState = TWO;
 	SetAction(State::TWO);
+}
+
+void PrologueAni::SetEnd()
+{
+	isEnd = true;
 }
 
 void PrologueAni::SetAction(State state)

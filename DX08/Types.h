@@ -34,6 +34,7 @@
 
 #define ASSERT(hr) assert(SUCCEEDED(hr))
 
+#define SCENE SceneManager::GetInstance()
 #define DATA_M DataManager::GetInstance()
 
 #define EFFECT EffectManager::GetInstance()

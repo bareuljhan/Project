@@ -14,6 +14,14 @@ OverWorld::~OverWorld()
 {
 }
 
+void OverWorld::Init()
+{
+}
+
+void OverWorld::Finalize()
+{
+}
+
 void OverWorld::Update()
 {
 	_map->Update();

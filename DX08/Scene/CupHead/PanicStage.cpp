@@ -27,6 +27,14 @@ PanicStage::~PanicStage()
 {
 }
 
+void PanicStage::Init()
+{
+}
+
+void PanicStage::Finalize()
+{
+}
+
 void PanicStage::Update()
 {
 	if (_ready->isEnd == false)

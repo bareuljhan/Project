@@ -15,8 +15,10 @@ public:
 	void Render();
 
 	void SetNext();
-
+	void SetEnd();
 	void SetAction(State state);
+
+	bool isEnd = false;
 private:
 	void CreateAction(string name, Action::Type type);
 

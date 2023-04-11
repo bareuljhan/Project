@@ -3,14 +3,15 @@
 
 Inventory::Inventory()
 {
+#pragma region InvenSetting
 	_pannel = make_shared<Quad>(L"Resource/Texture/CupHead/Pannel.png");
 	_pannel->GetTransform()->SetPosition(Vector2(1100, CENTER_Y + 100));
 	_pannel->GetTransform()->SetScale(Vector2(0.6f, 0.6f));
 
 	_noise = make_shared<Quad>(L"Resource/Texture/CupHead/Noise.png");
 	_noise->GetTransform()->SetPosition(_pannel->GetTransform()->GetPos());
-	_noise->GetTransform()->SetScale(Vector2(0.8f, 1.5f));	
-	
+	_noise->GetTransform()->SetScale(Vector2(0.8f, 1.5f));
+
 	_text = make_shared<Quad>(L"Resource/Texture/CupHead/world_map_equip_text.png");
 	_text->GetTransform()->SetPosition(Vector2(_pannel->GetTransform()->GetPos().x, _pannel->GetTransform()->GetPos().y + 145));
 	_text->GetTransform()->SetScale(Vector2(1.7f, 1.0f));
@@ -55,9 +56,9 @@ Inventory::Inventory()
 		_icons.push_back(icon);
 	}
 	_itemDates.resize(9);
+#pragma endregion
 
 	Set();
-
 }
 
 Inventory::~Inventory()
@@ -140,12 +141,12 @@ void Inventory::Set()
 	}
 }
 
-void Inventory::BuyItem(string name)
+bool Inventory::AddItem(string name)
 {
 	ItemInfo info = DATA_M->GetItemByName(name);
 
 	if (info.name == "" || _coin - info.price < 0)
-		return;
+		return false;
 
 	auto iter = std::find_if(_itemDates.begin(), _itemDates.end(), [](const ItemInfo& info)->bool
 	{
@@ -155,13 +156,12 @@ void Inventory::BuyItem(string name)
 	});
 	
 	if (iter == _itemDates.end())
-		return;
+		return false;
 
 	*iter = info;
 	
 	Set();
-
-	SubMoney(info.price);
+	return true;
 }
 
 void Inventory::SellItem(string name)

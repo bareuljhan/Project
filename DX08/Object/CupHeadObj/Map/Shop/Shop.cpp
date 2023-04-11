@@ -56,6 +56,16 @@ Shop::Shop()
 	_coins[2]->GetTransform()->SetPosition(Vector2(860, 100));
 	_coins[3]->GetTransform()->SetPosition(Vector2(910, 100));
 	_coins[4]->GetTransform()->SetPosition(Vector2(960, 100));
+
+	_buyButton = make_shared<Button>(L"Resource/Texture/CupHead/Shop/Buy.png");
+	_buyButton->SetPostion(Vector2(200, 250));
+	_buyButton->SetScale(Vector2(0.5f, 0.5f));
+	_buyButton->SetEvent(std::bind(&Shop::Buy, this));
+
+	_sellButton = make_shared<Button>(L"Resource/Texture/CupHead/Shop/Sell.png");
+	_sellButton->SetPostion(Vector2(400, 255));
+	_sellButton->SetScale(Vector2(0.4f, 0.4f));
+	_sellButton->SetEvent(std::bind(&Shop::Sell, this));
 }
 
 Shop::~Shop()
@@ -86,6 +96,9 @@ void Shop::Update()
 	_left->Update();
 	_right->Update();
 	_chalk->Update();
+
+	_buyButton->Update();
+	_sellButton->Update();
 
 	for (auto coin : _coins)
 		coin->Update();
@@ -135,6 +148,9 @@ void Shop::PostRender()
 		icon->Render();
 	for (auto coin : _coins)
 		coin->Render();
+
+	_buyButton->PostRender();
+	_sellButton->PostRender();
 	_left->Render();
 	_right->Render();
 }
@@ -205,6 +221,25 @@ void Shop::SetStoreItems()
 	_itemDates[1] = DATA_M->GetItemByName("Coffee");
 	_icons[0]->SetItem(_itemDates[0]);
 	_icons[1]->SetItem(_itemDates[1]);
+}	
+
+void Shop::Buy()
+{
+	if (!ValideIndex()) return;
+
+	if (!_inventory.expired())
+	{
+		if(_inventory.lock()->AddItem(_itemDates[_curIndex].name))
+			_inventory.lock()->SubMoney(_itemDates[_curIndex].price);
+	}
+
+}
+
+void Shop::Sell()
+{
+	if (_inventory.expired())
+		return;
+	_inventory.lock()->SellItem();
 }
 
 void Shop::CreateAction(string name, Action::Type type)

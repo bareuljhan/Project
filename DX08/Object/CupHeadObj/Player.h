@@ -84,6 +84,8 @@ protected:
 
 	vector<shared_ptr<Bullet>> _bullets;
 
+	shared_ptr<Inventory> _inven;
+
 	shared_ptr<CircleCollider> _blockCollider;
 	shared_ptr<RectCollider> _hitCollider;
 

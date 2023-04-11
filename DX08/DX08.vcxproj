@@ -164,7 +164,8 @@
     <ClInclude Include="Object\CupHeadObj\Monster\Stage2\PuffBall.h" />
     <ClInclude Include="Object\CupHeadObj\SceneMassage\ReadyScreen.h" />
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\Route.h" />
-    <ClInclude Include="Scene\FloralFury.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
+    <ClInclude Include="Scene\CupHead\FloralFury.h" />
     <ClInclude Include="Object\CupHeadObj\Message\ClearMessage.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Carrot.h" />
     <ClInclude Include="Object\UI\Hp.h" />
@@ -174,13 +175,12 @@
     <ClInclude Include="Object\CupHeadObj\Bullet.h" />
     <ClInclude Include="Framework\Render\RenderTarget.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Prologue\PrologueAni.h" />
-    <ClInclude Include="Scene\PanicStage.h" />
-    <ClInclude Include="Scene\Prologue.h" />
+    <ClInclude Include="Scene\CupHead\PanicStage.h" />
+    <ClInclude Include="Scene\CupHead\Prologue.h" />
     <ClInclude Include="Object\CupHeadObj\Player.h" />
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\OverWorld_BG.h" />
     <ClInclude Include="Object\CupHeadObj\Map\OverWorld\OverWorld_Player.h" />
-    <ClInclude Include="Scene\OverWorld.h" />
-    <ClInclude Include="Scene\CupHead.h" />
+    <ClInclude Include="Scene\CupHead\OverWorld.h" />
     <ClInclude Include="Framework\Camera\Camera.h" />
     <ClInclude Include="Framework\Utillity\Audio.h" />
     <ClInclude Include="Framework\Utillity\MathUtility.h" />
@@ -213,7 +213,7 @@
     <ClInclude Include="Object\BagicObj\Sprite.h" />
     <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="Framework\Render\ShaderManager.h" />
-    <ClInclude Include="Scene\Tutorial.h" />
+    <ClInclude Include="Scene\CupHead\Tutorial.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Tutorial\Tutorial_BG.h" />
     <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage1_Panic.h" />
     <ClInclude Include="Object\CupHeadObj\Monster\Stage1\Spudder.h" />
@@ -221,7 +221,7 @@
     <ClInclude Include="Object\CupHeadObj\Map\Prologue\StartScreen.h" />
     <ClInclude Include="Object\CupHeadObj\Map\StageMap\Stage2_FloralFury.h" />
     <ClInclude Include="Object\CupHeadObj\SceneMassage\ScoreScene.h" />
-    <ClInclude Include="Scene\ShopScene.h" />
+    <ClInclude Include="Scene\CupHead\ShopScene.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Shop\Shop.h" />
     <ClInclude Include="Object\UI\Slot.h" />
     <ClInclude Include="Types.h" />
@@ -251,7 +251,8 @@
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\PuffBall.cpp" />
     <ClCompile Include="Object\CupHeadObj\SceneMassage\ReadyScreen.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\Route.cpp" />
-    <ClCompile Include="Scene\FloralFury.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+    <ClCompile Include="Scene\CupHead\FloralFury.cpp" />
     <ClCompile Include="Object\CupHeadObj\Message\ClearMessage.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Carrot.cpp" />
     <ClCompile Include="Object\UI\Hp.cpp" />
@@ -261,13 +262,12 @@
     <ClCompile Include="Object\CupHeadObj\Bullet.cpp" />
     <ClCompile Include="Framework\Render\RenderTarget.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Prologue\PrologueAni.cpp" />
-    <ClCompile Include="Scene\PanicStage.cpp" />
-    <ClCompile Include="Scene\Prologue.cpp" />
+    <ClCompile Include="Scene\CupHead\PanicStage.cpp" />
+    <ClCompile Include="Scene\CupHead\Prologue.cpp" />
     <ClCompile Include="Object\CupHeadObj\Player.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\OverWorld_BG.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\OverWorld\OverWorld_Player.cpp" />
-    <ClCompile Include="Scene\OverWorld.cpp" />
-    <ClCompile Include="Scene\CupHead.cpp" />
+    <ClCompile Include="Scene\CupHead\OverWorld.cpp" />
     <ClCompile Include="Framework\Camera\Camera.cpp" />
     <ClCompile Include="Framework\Utillity\Audio.cpp" />
     <ClCompile Include="Framework\Utillity\MathUtility.cpp" />
@@ -282,7 +282,7 @@
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
     <ClCompile Include="Framework\Render\ConstantBuffer.cpp" />
     <ClCompile Include="Framework\Device\Device.cpp" />
-    <ClCompile Include="Scene\Tutorial.cpp" />
+    <ClCompile Include="Scene\CupHead\Tutorial.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Tutorial\Tutorial_BG.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\StageMap\Stage1_Panic.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage1\Spudder.cpp" />
@@ -324,7 +324,7 @@
     <ClCompile Include="Object\CupHeadObj\SceneMassage\WinScreen.cpp" />
     <ClCompile Include="Object\CupHeadObj\SceneMassage\ScoreScene.cpp" />
     <ClCompile Include="Object\CupHeadObj\Monster\Stage2\Vine.cpp" />
-    <ClCompile Include="Scene\ShopScene.cpp" />
+    <ClCompile Include="Scene\CupHead\ShopScene.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Shop\Shop.cpp" />
     <ClCompile Include="Object\UI\Slot.cpp" />
   </ItemGroup>

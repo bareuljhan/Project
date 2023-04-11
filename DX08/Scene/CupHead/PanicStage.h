@@ -4,7 +4,8 @@ class PanicStage : public Scene
 public:
 	PanicStage();
 	virtual ~PanicStage();
-	
+	virtual void Init() override;
+	virtual void Finalize() override;
 	virtual void Update() override;
 	virtual void Render() override;
 

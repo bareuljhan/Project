@@ -1,17 +1,10 @@
 #include "framework.h"
 #include "Program.h"
 
-#include "../Scene/Prologue.h"
-#include "../Scene/OverWorld.h"
-#include "../Scene/ShopScene.h"
-#include "../Scene/Tutorial.h"
-#include "../Scene/PanicStage.h"
-#include "../Scene/FloralFury.h"
-
 Program::Program()
 {
 	Timer::GetInstance()->SetLockFPS(120);
-	_scene = make_shared<Prologue>();
+	SCENE->Init();
 }
 
 Program::~Program()
@@ -28,7 +21,7 @@ void Program::Update()
 	AUDIO->Update();
 	CAMERA->Update();
 
-	_scene->Update();
+	SCENE->Update();
 	EFFECT->Update();
 }
 
@@ -39,7 +32,7 @@ void Program::Render()
 	CAMERA->SetProjectionBuffer();
 	CAMERA->SetCameraWorldBuffer();
 
-	_scene->PreRender();
+	SCENE->PreRender();
 
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();
@@ -49,7 +42,7 @@ void Program::Render()
 
 	ALPHA->SetState();
 
-	_scene->Render();
+	SCENE->Render();
 	EFFECT->Render();
 
 	DirectWrite::GetInstance()->GetDC()->BeginDraw();
@@ -59,7 +52,7 @@ void Program::Render()
 	DirectWrite::GetInstance()->RenderText(fps, rect);
 
 	CAMERA->PostRender();
-	_scene->PostRender();
+	SCENE->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 

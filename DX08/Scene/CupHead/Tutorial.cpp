@@ -54,6 +54,14 @@ void Tutorial::PreRender()
 	_player->Render();
 }
 
+void Tutorial::Init()
+{
+}
+
+void Tutorial::Finalize()
+{
+}
+
 void Tutorial::Render()
 {
 	_rtvQuad->Render();

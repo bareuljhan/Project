@@ -37,9 +37,13 @@ void StartScreen::Render()
 void StartScreen::PostRender()
 {
 
-	RECT rect = { 0,0,100,100 };
+	RECT rect;
+	rect.left = 350;
+	rect.right = 900;
+	rect.top = 550;
+	rect.bottom = 700;
 
-	DirectWrite::GetInstance()->RenderText(L"PRESS ENTER KEY", rect);
+	DirectWrite::GetInstance()->RenderText(L"PRESS ENTER KEY", rect, 60.0f, L"Yoon-Backjae M", {1,1,0,1});
 }
 
 void StartScreen::CreateAction(Action::Type type)

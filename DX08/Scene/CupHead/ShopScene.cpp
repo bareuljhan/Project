@@ -4,13 +4,22 @@
 ShopScene::ShopScene()
 {
 	DATA_M->LoadItemInfo();
-
-	_shop = make_shared<Shop>();
 	_inven = make_shared<Inventory>();
 	_inven->SetPannelPos(Vector2(1100, CENTER_Y + 100));
+
+	_shop = make_shared<Shop>();
+	_shop->SetInventory(_inven);
 }
 
 ShopScene::~ShopScene()
+{
+}
+
+void ShopScene::Init()
+{
+}
+
+void ShopScene::Finalize()
 {
 }
 
@@ -41,15 +50,5 @@ void ShopScene::PostRender()
 	if (KEY_PRESS('I') || KEY_PRESS('i'))
 	{
 		_inven->PostRender();
-	}
-
-
-	if (ImGui::Button("BUY", { 100, 100 }))
-	{
-		_inven->BuyItem("Postion");
-	}
-	if (ImGui::Button("SELL", { 100, 100 }))
-	{
-		_inven->SellItem();
 	}
 }

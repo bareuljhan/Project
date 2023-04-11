@@ -4,7 +4,8 @@ class OverWorld : public Scene
 public:
 	OverWorld();
 	virtual ~OverWorld();
-
+	virtual void Init() override;
+	virtual void Finalize() override;
 	virtual void Update() override;
 	virtual void Render() override;
 private:

@@ -56,6 +56,9 @@ Player::Player()
 	_muzzle->SetParent(_transform);
 	_muzzle->SetPosition(Vector2(50, 0));
 
+	_inven = make_shared<Inventory>();
+	_inven->SetPannelPos(Vector2(1100, CENTER_Y + 100));
+
 	_oldState = State::INTRO;
 	_actions[State::INTRO]->Play();
 
@@ -88,6 +91,9 @@ void Player::Update()
 {
 	_blockCollider->Update();
 	_hitCollider->Update();
+
+	if (KEY_PRESS('i') || KEY_PRESS('I'))
+		_inven->Update();
 
 	if (_transform->GetPos().y < 0)
 		_transform->SetPosition(Vector2(_transform->GetWorldPos().x, 155.0f));
@@ -137,7 +143,8 @@ void Player::Render()
 
 	_blockCollider->Render();
 	_hitCollider->Render();
-
+	if (KEY_PRESS('i') || KEY_PRESS('I'))
+		_inven->Render();
 }
 
 void Player::SetRight()
@@ -699,7 +706,7 @@ void Player::Revive()
 {
 	if (_curState == DEAD)
 	{
-		if (KEY_DOWN('I'))
+		if (KEY_DOWN('r') || KEY_DOWN('R'))
 		{
 			_hp = 4;
 			SetAction(REVIVE);

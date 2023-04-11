@@ -36,6 +36,14 @@ FloralFury::~FloralFury()
 {
 }
 
+void FloralFury::Init()
+{
+}
+
+void FloralFury::Finalize()
+{
+}
+
 void FloralFury::Update()
 {
 	if (_ready->isEnd == false)
