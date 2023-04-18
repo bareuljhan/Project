@@ -56,9 +56,6 @@ Player::Player()
 	_muzzle->SetParent(_transform);
 	_muzzle->SetPosition(Vector2(50, 0));
 
-	_inven = make_shared<Inventory>();
-	_inven->SetPannelPos(Vector2(1100, CENTER_Y + 100));
-
 	_oldState = State::INTRO;
 	_actions[State::INTRO]->Play();
 
@@ -93,11 +90,12 @@ void Player::Update()
 	_hitCollider->Update();
 
 	if (KEY_PRESS('i') || KEY_PRESS('I'))
-		_inven->Update();
+		INVEN_M->GetInven()->Update();
 
 	if (_transform->GetPos().y < 0)
 		_transform->SetPosition(Vector2(_transform->GetWorldPos().x, 155.0f));
 
+	UseItem();
 	SetColliderSize();
 	SkillAction();
 	DuckShot();
@@ -144,7 +142,7 @@ void Player::Render()
 	_blockCollider->Render();
 	_hitCollider->Render();
 	if (KEY_PRESS('i') || KEY_PRESS('I'))
-		_inven->Render();
+		INVEN_M->GetInven()->Render();
 }
 
 void Player::SetRight()
@@ -715,6 +713,21 @@ void Player::Revive()
 		}
 	}
 	_hitCollider->isActive = false;
+}
+
+void Player::UseItem()
+{
+	if (INVEN_M->GetInven()->hp == true)
+	{
+		_hp = 4;
+		_health->SetBack();
+		INVEN_M->GetInven()->hp = false;
+	}
+	if (INVEN_M->GetInven()->atk == true)
+	{
+		_atk += 5.0f;
+		INVEN_M->GetInven()->atk = false;
+	}
 }
 
 void Player::SetColliderSize()

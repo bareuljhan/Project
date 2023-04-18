@@ -4,12 +4,8 @@
 ShopScene::ShopScene()
 {
 	DATA_M->LoadItemInfo();
-	
-	_inven = INVEN_M->GetInven();
-	_inven->SetPannelPos(Vector2(1100, CENTER_Y + 100));
 
 	_shop = make_shared<Shop>();
-	_shop->SetInventory(_inven);
 
 	_button = make_shared<Button>(L"Resource/Texture/CupHead/Button/Exit.png");
 	_button->SetScale({ 0.4f, 0.35f });
@@ -36,7 +32,7 @@ void ShopScene::Update()
 
 	if (KEY_PRESS('I') || KEY_PRESS('i'))
 	{
-		_inven->Update();
+		INVEN_M->GetInven()->Update();
 	}
 }
 
@@ -45,7 +41,7 @@ void ShopScene::Render()
 	_shop->Render();
 	if (KEY_PRESS('I') || KEY_PRESS('i'))
 	{
-		_inven->Render();
+		INVEN_M->GetInven()->Render();
 	}
 }
 
@@ -55,7 +51,7 @@ void ShopScene::PostRender()
 
 	if (KEY_PRESS('I') || KEY_PRESS('i'))
 	{
-		_inven->PostRender();
+		INVEN_M->GetInven()->PostRender();
 	}
 	_button->PostRender();
 }

@@ -22,8 +22,12 @@ public:
 	virtual bool AddMoney(UINT amount) final;
 	virtual bool SubMoney(UINT amount) final;
 
-	bool ValideIndex() { return _curIndex >= 0 && _curIndex <= 8; }
+	void UseItem();
 
+	bool ValidIndex() { return _curIndex >= 0 && _curIndex <= 8; }
+
+	bool hp = false;
+	bool atk = false;
 protected:
 	void CreateAction(string name, Action::Type type);
 
@@ -42,6 +46,7 @@ protected:
 
 	vector<shared_ptr<ItemIconButton>> _icons;
 
+	shared_ptr<Button> _useButton;
 	int _curIndex = -1;
 
 	int _coin = 4;

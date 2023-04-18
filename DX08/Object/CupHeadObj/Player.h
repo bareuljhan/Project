@@ -49,13 +49,13 @@ public:
 
 	void Dead();
 	void Revive();
+	void UseItem();
 
 	void SetColliderSize();
 	void SetSpeed(float speed) { _speed = speed; }
 	void GetDamaged(float amount);
 
 	void ScreenHP();
-	void SetInven(shared_ptr<Inventory> inventory) { _inven = inventory; }
 
 	vector<shared_ptr<Bullet>> GetBullets() { return _bullets; }
 
@@ -84,8 +84,6 @@ protected:
 	vector<shared_ptr<Action>> _actions;
 
 	vector<shared_ptr<Bullet>> _bullets;
-
-	shared_ptr<Inventory> _inven;
 
 	shared_ptr<CircleCollider> _blockCollider;
 	shared_ptr<RectCollider> _hitCollider;

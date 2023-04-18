@@ -10,7 +10,7 @@ OverWorld::OverWorld()
 	
 	_button = make_shared<Button>(L"Resource/Texture/CupHead/Button/StartButton.png");
 	_button->SetScale({ 0.4f, 0.4f });
-	_button->SetPostion(Vector2(640, 350));
+	_button->SetPostion(Vector2(500, 50));
 	_button->SetEvent(std::bind(&OverWorld::NextScene, this));
 
 	_route = make_shared<Route>();

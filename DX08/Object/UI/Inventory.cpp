@@ -56,6 +56,13 @@ Inventory::Inventory()
 		_icons.push_back(icon);
 	}
 	_itemDates.resize(9);
+
+	_useButton = make_shared<Button>(L"Resource/Texture/CupHead/Button/UseButton.png");
+	_useButton->SetPostion(Vector2(200, -250));
+	_useButton->SetParent(_pannel->GetTransform());
+	_useButton->SetScale(Vector2(0.4f, 0.4f));
+	_useButton->SetEvent(std::bind(&Inventory::UseItem, this));
+
 #pragma endregion
 
 	Set();
@@ -79,6 +86,7 @@ void Inventory::Update()
 	for (auto slot : _slots)
 		slot->Update();
 	
+	_useButton->Update();
 	for (int i = 0; i < _coin; i++)
 	{
 		_coins[i]->Update();
@@ -99,6 +107,7 @@ void Inventory::Render()
 	{
 		_coins[i]->Render();
 	}
+	_useButton->PostRender();
 	for(auto icon : _icons)
 		icon->Render();
 }
@@ -177,9 +186,7 @@ void Inventory::SellItem(string name)
 		return;
 	AddMoney(iter->price);
 	iter->SetEmpty();
-
 	Set();
-
 }
 
 void Inventory::SellItem()
@@ -210,6 +217,27 @@ bool Inventory::SubMoney(UINT amount)
 		return false;
 	_coin -= amount;
 	return true;
+}
+
+void Inventory::UseItem()
+{
+	if (_curIndex < 0 || _curIndex > 8) return;
+
+	ItemInfo& info = _itemDates[_curIndex];
+
+	if (info.name == "Postion")
+		hp = true;
+	if (info.name == "Coffee")
+		atk = true;
+
+	if (info.name == "")
+		return;
+
+	info.SetEmpty();
+
+	_curIndex = -1;
+
+	Set();
 }
 
 void Inventory::CreateAction(string name, Action::Type type)

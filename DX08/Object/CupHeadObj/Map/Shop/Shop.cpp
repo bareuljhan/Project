@@ -223,20 +223,15 @@ void Shop::SetStoreItems()
 
 void Shop::Buy()
 {
-	if (!ValideIndex()) return;
+	if (!ValidIndex()) return;
 
-	if (!_inventory.expired())
-	{
-		if(_inventory.lock()->AddItem(_itemDates[_curIndex].name))
-			_inventory.lock()->SubMoney(_itemDates[_curIndex].price);
-	}
+	if (INVEN_M->GetInven()->AddItem(_itemDates[_curIndex].name))
+		INVEN_M->GetInven()->SubMoney(_itemDates[_curIndex].price);
 }
 
 void Shop::Sell()
 {
-	if (_inventory.expired())
-		return;
-	_inventory.lock()->SellItem();
+	INVEN_M->GetInven()->SellItem();
 }
 
 void Shop::CreateAction(string name, Action::Type type)

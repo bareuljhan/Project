@@ -26,7 +26,6 @@ public:
 
 	void Buy();	
 	void Sell();
-	void SetInventory(shared_ptr<Inventory> inven) { _inventory = inven; };
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
@@ -55,7 +54,6 @@ private:
 
 	vector<shared_ptr<ItemIconButton>> _icons;
 
-	weak_ptr<Inventory> _inventory;
 	shared_ptr<Button> _buyButton;
 	shared_ptr<Button> _sellButton;
 
