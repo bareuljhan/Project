@@ -79,7 +79,7 @@ void OverWorld_Player::Init()
 void OverWorld_Player::MoveTO()
 {
 	if (isRun == false) return;
-
+	if (isIn == true) return;
 	if (_posIndex == _path.size())
 	{
 		SetAction(State::IDLE);

@@ -270,6 +270,12 @@
     <ClInclude Include="Scene\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\CupHeadObj\SceneMassage\LoadingScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\UI\InvenManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX08.cpp">
@@ -512,6 +518,12 @@
     <ClCompile Include="Scene\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\CupHeadObj\SceneMassage\LoadingScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UI\InvenManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX08.rc">
@@ -560,6 +572,7 @@
     <FxCompile Include="Shader\MosaicPixelShader.hlsl" />
     <FxCompile Include="Shader\UI\ButtonPixelShader.hlsl" />
     <FxCompile Include="Shader\UI\HpSliderPixelShader.hlsl" />
+    <FxCompile Include="Shader\FadePixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\XML\Idle.xml" />

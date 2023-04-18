@@ -54,7 +54,6 @@ void DataManager::LoadItemInfo()
 		_itemTable[info.name] = info;
 		row = row->NextSiblingElement();
 	}
-
 }
 
 const ItemInfo& DataManager::GetItemByName(string name)

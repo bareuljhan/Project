@@ -121,17 +121,19 @@ using namespace DirectX;
 #include "Object/UI/Slot.h"
 #include "Object/UI/ItemIcon.h"
 #include "Object/UI/Inventory.h"
+#include "Object/UI/InvenManager.h"
+
+// Shop
+#include "Object/CupHeadObj/Map/Shop/Shop.h"
+#include "Object/CupHeadObj/Map/Shop/Coin.h"
 
 // GameObj
+#include "Object/CupHeadObj/SceneMassage/LoadingScreen.h"
 #include "Object/CupHeadObj/SceneMassage/WinScreen.h"
 #include "Object/CupHeadObj/SceneMassage/ReadyScreen.h"
 
 #include "Object/CupHeadObj/Bullet.h"
 #include "Object/CupHeadObj/Player.h"
-
-// Shop
-#include "Object/CupHeadObj/Map/Shop/Shop.h"
-#include "Object/CupHeadObj/Map/Shop/Coin.h"
 
 // ClearMessage
 #include "Object/CupHeadObj/Message/ClearMessage.h"

@@ -20,7 +20,6 @@ PanicStage::PanicStage()
 
 	_win = make_shared<WinScreen>();
 	_ready = make_shared<ReadyScreen>();
-
 }
 
 PanicStage::~PanicStage()

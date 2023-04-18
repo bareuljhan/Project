@@ -30,7 +30,6 @@ public:
 	void Init();
 
 	void SetScene(string name);
-
 private:
 	static SceneManager* _instance;
 	unordered_map<string, shared_ptr<Scene>> _sceneTable;

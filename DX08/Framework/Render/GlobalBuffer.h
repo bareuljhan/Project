@@ -201,3 +201,24 @@ public:
 
 	Data _data;
 };
+
+class FadeBuffer : public ConstantBuffer
+{
+public:
+	struct Data
+	{
+		float fadeValue = 0;
+		int padding[3];
+	};
+
+	// 상수버퍼 규칙
+	// 16바이트 배수로 올려야한다.
+	FadeBuffer()
+		: ConstantBuffer(&_data, sizeof(_data))
+	{
+	}
+
+	virtual ~FadeBuffer() {}
+
+	Data _data;
+};

@@ -24,7 +24,6 @@ public:
 
 	void SetStoreItems();
 
-
 	void Buy();	
 	void Sell();
 	void SetInventory(shared_ptr<Inventory> inven) { _inventory = inven; };

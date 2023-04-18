@@ -152,6 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Utillity\DataManager.h" />
+    <ClInclude Include="Object\UI\InvenManager.h" />
+    <ClInclude Include="Object\CupHeadObj\SceneMassage\LoadingScreen.h" />
     <ClInclude Include="Object\UI\ItemIcon.h" />
     <ClInclude Include="Object\CupHeadObj\Map\Shop\Coin.h" />
     <ClInclude Include="Framework\Utillity\DirectWrite.h" />
@@ -239,6 +241,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Utillity\DataManager.cpp" />
+    <ClCompile Include="Object\UI\InvenManager.cpp" />
+    <ClCompile Include="Object\CupHeadObj\SceneMassage\LoadingScreen.cpp" />
     <ClCompile Include="Object\UI\ItemIcon.cpp" />
     <ClCompile Include="Object\CupHeadObj\Map\Shop\Coin.cpp" />
     <ClCompile Include="Framework\Utillity\DirectWrite.cpp" />
@@ -356,6 +360,14 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shader\FadePixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shader\UI\ButtonPixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>

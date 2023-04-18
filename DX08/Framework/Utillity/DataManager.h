@@ -31,5 +31,7 @@ private:
 
 	unordered_map<string, ItemInfo> _itemTable;
 	shared_ptr<tinyxml2::XMLDocument> _document;
+
+	shared_ptr<class Inventory> _inven;
 };
 

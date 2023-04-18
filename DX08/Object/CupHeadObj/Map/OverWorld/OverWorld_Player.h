@@ -46,7 +46,9 @@ public:
 	void SetAction(State state);
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
+	shared_ptr<Collider> GetBodyCollider() { return _collider; }
 	bool isRun = false;
+	bool isIn = false;
 private:
 	void CreateAction(string name, Action::Type type);
 

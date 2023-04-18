@@ -6,6 +6,8 @@ Prologue::Prologue()
 	_startScreen = make_shared<StartScreen>();
 
 	_intro = make_shared<PrologueAni>();
+
+	_load = make_shared<LoadingScreen>();
 }
 
 Prologue::~Prologue()
@@ -22,6 +24,7 @@ void Prologue::Finalize()
 
 void Prologue::Update()
 {
+	_load->Update();
 	SetScreen();
 
 	if (isNext == true)
@@ -35,7 +38,7 @@ void Prologue::Update()
 
 void Prologue::Render()
 {
-
+	_load->Render();
 	if (isNext == true)
 	{
 		_intro->Render();
@@ -48,8 +51,7 @@ void Prologue::Render()
 	if (isNext == true && KEY_UP(VK_LBUTTON) || _intro->isEnd == true)
 	{
 		SCENE->SetScene("Tutorial");
-	}
-		
+	}	
 }
 
 void Prologue::PostRender()

@@ -55,6 +55,7 @@ public:
 	void GetDamaged(float amount);
 
 	void ScreenHP();
+	void SetInven(shared_ptr<Inventory> inventory) { _inven = inventory; }
 
 	vector<shared_ptr<Bullet>> GetBullets() { return _bullets; }
 

@@ -9,6 +9,8 @@ public:
 	virtual void Update() override;
 	virtual void Render() override;
 
+
+	shared_ptr<Player> GetPlayer() { return _player; }
 private:
 	shared_ptr<WinScreen> _win;
 	shared_ptr<ReadyScreen> _ready;

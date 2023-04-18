@@ -9,7 +9,7 @@ Tutorial::Tutorial()
 	_player->GetTransform()->SetPosition(Vector2(CENTER_X - 250, 150));
 	_player->GetTransform()->GetScale() *= 0.9f;
 
-	_player->SetSpeed(50.0f);
+	_player->SetSpeed(0.0f);
 
 	_iner = make_shared<Tutorial_Iner_BG>();
 	_iner->GetTransform()->SetPosition(CENTER);
@@ -24,6 +24,7 @@ Tutorial::Tutorial()
 	_rtvQuad->SetSRV(_renderTarget->GetSRV());
 	_rtvQuad->GetTransform()->SetPosition(CENTER);
 	_rtvQuad->Update();
+	_button->SetEvent(std::bind(&Tutorial::NextScene, this));
 }
 
 Tutorial::~Tutorial()
@@ -72,7 +73,12 @@ void Tutorial::PostRender()
 	_bg->Render();
 
 	if (_player->GetBlockCollider()->IsCollision(_iner->GetExitCol()))
-		_button->PostRender();	
+		_button->PostRender();
 	_player->GetHpPNG()->PostRender();
+}
+
+void Tutorial::NextScene()
+{
+	SCENE->SetScene("OverWorld");
 }
 

@@ -36,6 +36,7 @@
 
 #define SCENE SceneManager::GetInstance()
 #define DATA_M DataManager::GetInstance()
+#define INVEN_M InvenManager::GetInstance()
 
 #define EFFECT EffectManager::GetInstance()
 #define AUDIO Audio::GetInstance()

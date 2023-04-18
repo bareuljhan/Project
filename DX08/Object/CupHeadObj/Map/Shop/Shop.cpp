@@ -118,7 +118,6 @@ void Shop::Render()
 	_table->Render();
 	_cutton->Render();
 
-
 	_sprites[_curState]->SetActionClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Render();
 
@@ -208,7 +207,6 @@ void Shop::TableReturn()
 
 void Shop::SetStoreItems()
 {
-
 	for (int i = 0; i < 2; i++)
 	{
 		shared_ptr<ItemIconButton> icon = make_shared<ItemIconButton>();
@@ -232,7 +230,6 @@ void Shop::Buy()
 		if(_inventory.lock()->AddItem(_itemDates[_curIndex].name))
 			_inventory.lock()->SubMoney(_itemDates[_curIndex].price);
 	}
-
 }
 
 void Shop::Sell()

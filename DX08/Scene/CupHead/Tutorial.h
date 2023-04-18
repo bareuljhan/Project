@@ -12,6 +12,8 @@ public:
 	virtual void Render() override;
 	virtual void PostRender()override;
 
+	void NextScene();
+
 private:
 	shared_ptr<Tutorial_BG> _bg;
 	shared_ptr<Tutorial_Iner_BG> _iner;

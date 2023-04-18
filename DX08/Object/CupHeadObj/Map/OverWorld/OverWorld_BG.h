@@ -19,6 +19,10 @@ public:
 	void CreateNPCApple(string name);
 	void CreateNPCAxe(string name);
 
+
+	shared_ptr<Collider> OozeCol() { return _oozeCol; }
+	shared_ptr<Collider> PanicCol() { return _panicCol; }
+	shared_ptr<Collider> ShopCol() { return _shopCol; }
 private:
 
 	shared_ptr<Sprite> _home;
