@@ -10,7 +10,7 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
-	void NextScene() { SCENE->SetScene("OverWorld"); }
+	void NextScene();
 	
 private:
 	shared_ptr<Shop> _shop;

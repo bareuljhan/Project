@@ -10,6 +10,7 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
+	void NextScene();
 private:	
 	shared_ptr<WinScreen> _win;
 	shared_ptr<ReadyScreen> _ready;
@@ -19,5 +20,7 @@ private:
 	shared_ptr<Player> _player;
 
 	shared_ptr<Effect> _effect;
+
+	shared_ptr<Button> _button;
 };
 

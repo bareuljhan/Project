@@ -29,7 +29,7 @@ enum State
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	shared_ptr<Collider> GetBodyCollider() { return _collider; }
-
+	shared_ptr<Action> GetAction() { return _actions[_curState]; }
 	bool isDead = false;
 	bool isNextMonster = false;
 private:

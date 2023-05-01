@@ -97,6 +97,10 @@ void Action::Update()
 			{
 				_cupIntro();
 			}
+			if (_curClipIndex == 0 && _endClip != nullptr)
+			{
+				_endClip();
+			}
 
 
 			if (_curClipIndex >= _clips.size())
@@ -115,7 +119,10 @@ void Action::Update()
 			{
 				_spudderATKEvent();
 			}
-
+			if (_curClipIndex % 8 == 0 && _dash != nullptr)
+			{
+				_dash();
+			}
 		}
 			break;
 

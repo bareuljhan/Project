@@ -55,6 +55,8 @@ public:
 	void SetSpeed(float speed) { _speed = speed; }
 	void GetDamaged(float amount);
 
+	void Sound();
+
 	void ScreenHP();
 
 	vector<shared_ptr<Bullet>> GetBullets() { return _bullets; }

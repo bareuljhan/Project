@@ -33,6 +33,7 @@ Tutorial::~Tutorial()
 
 void Tutorial::Update()
 {
+
 	_bg->Update();
 	_player->Update();
 	_iner->Update();
@@ -53,6 +54,7 @@ void Tutorial::PreRender()
 	_renderTarget->Set();
 	_iner->Render();
 	_player->Render();
+
 }
 
 void Tutorial::Init()
@@ -75,10 +77,17 @@ void Tutorial::PostRender()
 	if (_player->GetBlockCollider()->IsCollision(_iner->GetExitCol()))
 		_button->PostRender();
 	_player->GetHpPNG()->PostRender();
+
+	_iner->PostRender();
 }
 
 void Tutorial::NextScene()
 {
 	SCENE->SetScene("OverWorld");
+	Audio::GetInstance()->Stop("MUS_Tutorial");
+	Audio::GetInstance()->Play("MUS_InkwellIsleOne_Piano");
+	Audio::GetInstance()->SetVolume("MUS_InkwellIsleOne_Piano", 0.5f);
+	Audio::GetInstance()->Play("amb_worldmap_daybirds");
+	Audio::GetInstance()->SetVolume("amb_worldmap_daybirds", 0.5f);
 }
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+Format:
+n  => name
+x  => x pos
+y  => y pos
+w  => width
+h  => height
+pX => x pos of the pivot point
+pY => y pos of the pivot point
+oX => x-corner offset
+oY => y-corner offset
+oW => original width
+oH => original height
+r => 'y' if sprite is rotated-->
+<TextureAtlas imagePath="LoadingAni.png" width="1976" height="1914" scale="1" format="RGBA8888">
+  <sprite n="HOURGLASS_001.png" x="0" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_002.png" x="0" y="174" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_003.png" x="0" y="348" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_004.png" x="0" y="522" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_005.png" x="0" y="696" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_006.png" x="0" y="870" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_007.png" x="0" y="1044" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_008.png" x="0" y="1218" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_009.png" x="0" y="1392" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_010.png" x="0" y="1566" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_011.png" x="0" y="1740" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_012.png" x="152" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_013.png" x="304" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_014.png" x="304" y="174" w="152" h="158" pX="0.5" pY="0.5" oX="0" oY="16" oW="152" oH="174"/>
+  <sprite n="HOURGLASS_015.png" x="456" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_016.png" x="608" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_017.png" x="760" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_018.png" x="912" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_019.png" x="1064" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_020.png" x="1216" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_021.png" x="1368" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_022.png" x="1520" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_023.png" x="1672" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_024.png" x="456" y="174" w="151" h="174" pX="0.5" pY="0.5" oX="1" oY="0" oW="152" oH="174"/>
+  <sprite n="HOURGLASS_025.png" x="1824" y="0" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_026.png" x="152" y="174" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_027.png" x="152" y="348" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_028.png" x="152" y="522" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_029.png" x="152" y="696" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_030.png" x="152" y="870" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_031.png" x="152" y="1044" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_032.png" x="152" y="1218" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_033.png" x="304" y="332" w="148" h="174" pX="0.5" pY="0.5" oX="4" oY="0" oW="152" oH="174"/>
+  <sprite n="HOURGLASS_034.png" x="152" y="1392" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_035.png" x="152" y="1566" w="152" h="174" pX="0.5" pY="0.5"/>
+  <sprite n="HOURGLASS_036.png" x="152" y="1740" w="152" h="174" pX="0.5" pY="0.5"/>
+</TextureAtlas>

@@ -30,9 +30,14 @@ public:
 	void Init();
 
 	void SetScene(string name);
+
+	float GetValue() { return _load->GetBuffer()->_data.fadeValue; }
+	unordered_map<string, shared_ptr<Scene>> GetSceneTable() { return _sceneTable; }
 private:
 	static SceneManager* _instance;
 	unordered_map<string, shared_ptr<Scene>> _sceneTable;
 	shared_ptr<Scene> _curScene;
+	shared_ptr<LoadingScreen> _load;
+	bool _isLoading = false;
 };
 

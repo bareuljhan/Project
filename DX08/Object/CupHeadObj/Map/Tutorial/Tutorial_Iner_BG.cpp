@@ -14,7 +14,7 @@ Tutorial_Iner_BG::Tutorial_Iner_BG()
 	_target = make_shared<Quad>(L"Resource/Texture/CupHead/Tutorial/tutorial_target.png");
 
 
-	_floorCol = make_shared<RectCollider>(Vector2(4000, 100));
+	_floorCol = make_shared<RectCollider>(Vector2(8000, 100));
 	_floorCol->GetTransform()->SetParent(_transform);
 	_floorCol->GetTransform()->SetPosition(Vector2(1400, -320));
 
@@ -47,7 +47,7 @@ Tutorial_Iner_BG::Tutorial_Iner_BG()
 	_targetCol->GetTransform()->SetParent(_target->GetTransform());
 	_targetCol->GetTransform()->SetPosition(_target->GetTransform()->GetPos());
 
-	_mainSheet->GetTransform()->GetScale() *= 7.0f;
+	_mainSheet->GetTransform()->SetScale(Vector2(9.0f, 2.0f));
 	_mainSheet->GetTransform()->SetPosition(Vector2(CENTER_X + 300, CENTER_Y -300));
 	_mainSheet->GetTransform()->SetParent(_transform);
 
@@ -157,6 +157,17 @@ void Tutorial_Iner_BG::Render()
 	_cylinder2Col->Render();
 	_cylinder3Col->Render();
 	_floorCol->Render();
+}
+
+void Tutorial_Iner_BG::PostRender()
+{
+	RECT rect;
+	rect.left = 500;
+	rect.right = 750;
+	rect.top = 100;
+	rect.bottom = 200;
+
+	DirectWrite::GetInstance()->RenderText(L"*TUTORIAL*", rect, 40.0f);
 }
 
 Vector2 Tutorial_Iner_BG::LeftBottom()

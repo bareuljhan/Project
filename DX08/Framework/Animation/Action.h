@@ -61,6 +61,8 @@ public:
 	void ReviveCallBack(function<void(void)> endEvent) { _revive = endEvent; }
 	void Ready(function<void(void)> endEvent) { _ready = endEvent; }
 	void CupIntro(function<void(void)> endEvent) { _cupIntro = endEvent; }
+	void LoopClipSound(function<void(void)> endEvent) { _dash = endEvent; }
+	void EndClipSound(function<void(void)> endEvent) { _endClip = endEvent; }
 	
 	bool isEnd = false;
 	UINT _curClipIndex = 0;
@@ -102,4 +104,7 @@ private:
 	function<void(void)> _puffBall = nullptr;
 	function<void(void)> _revive = nullptr;
 	function<void(void)> _cupIntro = nullptr;
+	function<void(void)> _dash = nullptr;
+	function<void(void)> _endClip = nullptr;
+	
 };

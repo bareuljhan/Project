@@ -9,6 +9,7 @@ public:
 	virtual void Update() override;
 	virtual void Render() override;
 
+	void NextScene();
 
 	shared_ptr<Player> GetPlayer() { return _player; }
 private:
@@ -20,6 +21,8 @@ private:
 	shared_ptr<Spudder> _boss1;
 	shared_ptr<Carrot> _monster;
 	shared_ptr<Vaggie_Carrot> _boss2;
+
+	shared_ptr<Button> _button;
 
 };
 

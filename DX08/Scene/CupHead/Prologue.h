@@ -16,6 +16,6 @@ public:
 private:
 	shared_ptr<PrologueAni> _intro;
 	shared_ptr<StartScreen> _startScreen;
-	shared_ptr<LoadingScreen> _load;
+
 };
 

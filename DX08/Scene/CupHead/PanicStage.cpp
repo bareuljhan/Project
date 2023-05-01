@@ -20,6 +20,13 @@ PanicStage::PanicStage()
 
 	_win = make_shared<WinScreen>();
 	_ready = make_shared<ReadyScreen>();
+
+
+	_button = make_shared<Button>(L"Resource/Texture/CupHead/Button/exitButton.png");
+	_button->SetScale({ 1.5f, 1.5f });
+	_button->SetPostion(Vector2(640, 350));
+
+	_button->SetEvent(std::bind(&PanicStage::NextScene, this));
 }
 
 PanicStage::~PanicStage()
@@ -36,12 +43,25 @@ void PanicStage::Finalize()
 
 void PanicStage::Update()
 {
-	if (_ready->isEnd == false)
-		_ready->Update();
+	if (SCENE->GetValue() >= 0.51f) return;
+
+	if (SCENE->GetValue() >= 0.5f)
+	{
+		_player->GetAction()->Pause();
+		_boss1->GetAction()->Pause();
+	}
+	else
+	{
+		if (_ready->isEnd == false)
+			_ready->Update();
+		_player->GetAction()->Start();
+		_boss1->GetAction()->Start();
+	}
 
 	if (_boss2->isDead == true)
 	{
 		_win->Update();
+		_button->Update();
 	}
 	if (_boss2->isDead == true && _win->isEnd == false)
 	{
@@ -154,10 +174,13 @@ void PanicStage::Update()
 			}
 		}
 	}
+
 }
 
 void PanicStage::Render()
 {
+	if (SCENE->GetValue() >= 0.51f) return;
+
 	_bg->PreRender();
 	_bg->Render();
 
@@ -184,7 +207,17 @@ void PanicStage::Render()
 	if (_boss2->isDead == true)
 	{
 		_win->Render();
+		_button->PostRender();
 	}
 	if (_ready->isEnd == false)
 		_ready->Render();
+}
+
+void PanicStage::NextScene()
+{
+	SCENE->SetScene("OverWorld");
+	Audio::GetInstance()->Play("MUS_InkwellIsleOne_Piano");
+	Audio::GetInstance()->SetVolume("MUS_InkwellIsleOne_Piano", 0.5f);
+	Audio::GetInstance()->Play("amb_worldmap_daybirds");
+	Audio::GetInstance()->SetVolume("amb_worldmap_daybirds", 0.5f);
 }

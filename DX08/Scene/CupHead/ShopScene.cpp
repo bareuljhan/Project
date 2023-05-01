@@ -47,6 +47,7 @@ void ShopScene::Render()
 
 void ShopScene::PostRender()
 {
+	if (SCENE->GetValue() >= 0.7f) return;
 	_shop->PostRender();
 
 	if (KEY_PRESS('I') || KEY_PRESS('i'))
@@ -54,4 +55,13 @@ void ShopScene::PostRender()
 		INVEN_M->GetInven()->PostRender();
 	}
 	_button->PostRender();
+}
+
+void ShopScene::NextScene()
+{
+	SCENE->SetScene("OverWorld"); 
+	Audio::GetInstance()->Play("MUS_InkwellIsleOne_Piano");
+	Audio::GetInstance()->SetVolume("MUS_InkwellIsleOne_Piano", 0.5f);
+	Audio::GetInstance()->Play("amb_worldmap_daybirds");
+	Audio::GetInstance()->SetVolume("amb_worldmap_daybirds", 0.5f);
 }

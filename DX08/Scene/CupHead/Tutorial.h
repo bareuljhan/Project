@@ -21,7 +21,6 @@ private:
 
 	shared_ptr<Button> _button;
 
-
 	shared_ptr<RenderTarget> _renderTarget;
 	shared_ptr<Quad> _rtvQuad;
 };

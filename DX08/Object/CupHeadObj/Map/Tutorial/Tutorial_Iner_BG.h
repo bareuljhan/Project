@@ -7,6 +7,8 @@ public:
 
 	void Update();
 	void Render();
+	void PostRender();
+
 
 	Vector2 LeftBottom();
 	Vector2 RightTop();

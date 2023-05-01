@@ -140,6 +140,12 @@ void OverWorld_Player::MoveTO()
 
 void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 {
+	for (int i = 0; i < _route->GetMapPos().size(); i++)
+	{
+		if (end.x - _route->GetMapPos()[i].x > -17 && end.x - _route->GetMapPos()[i].x < 17
+			&& end.y - _route->GetMapPos()[i].y > -17 && end.y - _route->GetMapPos()[i].y < 17 )
+			return;
+	}
 	_path.clear();
 	_pathPos.clear();
 
@@ -207,10 +213,9 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 			Vector2 rightTop = Vector2(block->GetVertex()[1].pos.x, block->GetVertex()[1].pos.y);
 			Vector2 leftBottom = Vector2(block->GetVertex()[2].pos.x, block->GetVertex()[2].pos.y);
 			Vector2 rightBottom = Vector2(block->GetVertex()[3].pos.x, block->GetVertex()[3].pos.y);
-			
+
 			if (_route->GetMapData()[thereIndex.x][thereIndex.y]->obticle == true)
-				return;
-							
+				continue;
 			if ((here.pos.y - there.y >= 0 && here.pos.y - there.y <= 16) && i == 0)
 				continue;	
 			if ((here.pos.x - there.x >= 0 && here.pos.x - there.x <= 16) && i == 1)
@@ -258,6 +263,8 @@ void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 
 	Vector2 endIndex = _targetIndex;
 	Vector2 temp = _targetIndex;
+	if (_route->GetMapData()[endIndex.x][endIndex.y]->obticle == true)
+		return;
 	_path.push_back(endIndex);
 	
 	while (true)

@@ -30,6 +30,12 @@ FloralFury::FloralFury()
 
 	file = L"Resource/Texture/CupHead/Effect/BoomerangDeath.png";
 	EFFECT->AddEffect(file, Vector2(2, 2), Vector2(120, 120), 0.05f);
+
+	_button = make_shared<Button>(L"Resource/Texture/CupHead/Button/exitButton.png");
+	_button->SetScale({ 1.5f, 1.5f });
+	_button->SetPostion(Vector2(640, 350));
+
+	_button->SetEvent(std::bind(&FloralFury::NextScene, this));
 }
 
 FloralFury::~FloralFury()
@@ -46,16 +52,30 @@ void FloralFury::Finalize()
 
 void FloralFury::Update()
 {
-	if (_ready->isEnd == false)
-		_ready->Update();
+	if (SCENE->GetValue() >= 0.51f) return;
+
+	if (SCENE->GetValue() >= 0.5f)
+	{
+		_player->GetAction()->Pause();
+		_boss1->GetAction()->Pause();
+	}
+	else
+	{
+		if (_ready->isEnd == false)
+			_ready->Update();
+		_player->GetAction()->Start();
+		_boss1->GetAction()->Start();
+	}
 
 	_map->Update();
 	_boss1->Update();
 	_player->Update();
 
+
 	_boss1->BallAttack(_player);
 	if (_boss1->isDead == true)
 	{
+		_button->Update();
 		_win->Update();
 	}
 	if (_boss1->isDead == true && _win->isEnd == false)
@@ -169,10 +189,13 @@ void FloralFury::Update()
 			ball->Disable();
 		}
 	}
+
 }
  
 void FloralFury::Render()
 {
+	if (SCENE->GetValue() >= 0.51f) return;
+
 	_map->PreRender();
 	_map->Render();
 	_boss1->Render();
@@ -182,14 +205,26 @@ void FloralFury::Render()
 	if (_boss1->isDead == true)
 	{
 		_win->Render();
+		_button->PostRender();
 	}
 	if (_ready->isEnd == false)
 		_ready->Render();
+
 }
 
 void FloralFury::PostRender()
 {
+	if (SCENE->GetValue() >= 0.51f) return;
 	_player->Render();
 	_player->GetHpPNG()->PostRender();
 	ImGui::SliderFloat("PlayerPosX", &_player->GetTransform()->GetPos().y, 0, 1000);
+}
+
+void FloralFury::NextScene()
+{
+	SCENE->SetScene("OverWorld");
+	Audio::GetInstance()->Play("MUS_InkwellIsleOne_Piano");
+	Audio::GetInstance()->SetVolume("MUS_InkwellIsleOne_Piano", 0.5f);
+	Audio::GetInstance()->Play("amb_worldmap_daybirds");
+	Audio::GetInstance()->SetVolume("amb_worldmap_daybirds", 0.5f);
 }

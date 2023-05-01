@@ -14,6 +14,7 @@ OverWorld::OverWorld()
 	_button->SetEvent(std::bind(&OverWorld::NextScene, this));
 
 	_route = make_shared<Route>();
+
 }
 
 OverWorld::~OverWorld()
@@ -77,6 +78,7 @@ void OverWorld::Render()
 		_button->PostRender();
 	}
 	//ImGui::InputFloat2("Mouse_POS", static_cast<float*>(MOUSE_POS.x), MOUSE_POS.y);
+
 }
 
 void OverWorld::NextScene()
@@ -85,17 +87,27 @@ void OverWorld::NextScene()
 
 	if (_isOoze == true)
 	{
-		SCENE->SetScene("FlowerFury");
+		SCENE->SetScene("FloralFury");
 		_player->isIn = false;
+		Audio::GetInstance()->Stop("MUS_InkwellIsleOne_Piano");
+		Audio::GetInstance()->Stop("amb_worldmap_daybirds");
+		Audio::GetInstance()->Play("bgm_level_flower(temp)");
+		Audio::GetInstance()->SetVolume("bgm_level_flower(temp)", 0.5f);
 	}
 	if (_isPanic == true)
 	{
 		SCENE->SetScene("PanicStage");
 		_player->isIn = false;
+		Audio::GetInstance()->Stop("MUS_InkwellIsleOne_Piano");
+		Audio::GetInstance()->Stop("amb_worldmap_daybirds");
+		Audio::GetInstance()->Play("bgm_level_veggies");
+		Audio::GetInstance()->SetVolume("bgm_level_veggies", 0.5f);	
 	}
 	if (_isShop == true)
 	{
 		SCENE->SetScene("ShopScene");
 		_player->isIn = false;
+		Audio::GetInstance()->Stop("MUS_InkwellIsleOne_Piano");
+		Audio::GetInstance()->Stop("amb_worldmap_daybirds");
 	}
 }

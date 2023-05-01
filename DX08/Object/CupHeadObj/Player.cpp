@@ -23,12 +23,23 @@ Player::Player()
 
 	_actions[State::INTRO]->CupIntro(std::bind(&Player::SetIDLE, this));
 	_actions[State::DUCKSHOT]->SetCallBack(std::bind(&Player::SetDUCK, this));
+	_actions[State::SHOT]->EndClipSound(std::bind(&Player::Sound, this));
 	_actions[State::SHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::SKILLSHOT]->SetCallBack_Skill(std::bind(&Player::SkillShot, this));
 	_actions[State::RUNSHOT]->SetCallBack(std::bind(&Player::SetRun, this));
 	_actions[State::HIT]->SetIDLE_CallBack(std::bind(&Player::SetIDLE, this));
 	_actions[State::REVIVE]->ReviveCallBack(std::bind(&Player::SetIDLE, this));
+	_actions[State::RUN]->LoopClipSound(std::bind(&Player::Sound, this));
+	_actions[State::AIMUPSHOT]->LoopClipSound(std::bind(&Player::Sound, this));
+	_actions[State::DIAGONALSHOT]->LoopClipSound(std::bind(&Player::Sound, this));
+	_actions[State::JUMP]->LoopClipSound(std::bind(&Player::Sound, this));
+	_actions[State::DUCKSHOT]->EndClipSound(std::bind(&Player::Sound, this));
+	_actions[State::RUNSHOT]->EndClipSound(std::bind(&Player::Sound, this));
+	_actions[State::SKILLSHOT]->EndClipSound(std::bind(&Player::Sound, this));
+	_actions[State::HIT]->EndClipSound(std::bind(&Player::Sound, this));
+	_actions[State::DEAD]->LoopClipSound(std::bind(&Player::Sound, this));
+	_actions[State::REVIVE]->EndClipSound(std::bind(&Player::Sound, this));
 
 	_blockCollider = make_shared<CircleCollider>(50);
 	_blockCollider->GetTransform()->SetPosition(Vector2(0, -120));
@@ -77,6 +88,14 @@ Player::Player()
 
 	_health = make_shared<Hp>(Vector2(80, 40));
 	_health->SetPosition(Vector2(50, 50));
+
+	Audio::GetInstance()->Add("sfx_player_land_ground_02", "Resource/Sound/sfx_player_land_ground_02.wav");
+	Audio::GetInstance()->Add("sfx_player_default_fire_loop_01", "Resource/Sound/sfx_player_default_fire_loop_01.wav");
+	Audio::GetInstance()->Add("sfx_player_jump_02", "Resource/Sound/sfx_player_jump_02.wav");
+	Audio::GetInstance()->Add("sfx_player_super_beam_start_03", "Resource/Sound/sfx_player_super_beam_start_03.wav");
+	Audio::GetInstance()->Add("sfx_player_hit_02", "Resource/Sound/sfx_player_hit_02.wav");
+	Audio::GetInstance()->Add("sfx_player_death_01", "Resource/Sound/sfx_player_death_01.wav");
+	Audio::GetInstance()->Add("sfx_player_revive_02", "Resource/Sound/sfx_player_revive_02.wav");
 }
 
 Player::~Player()
@@ -335,6 +354,7 @@ void Player::Jump()
 	temp.y += _jumpPower * DELTA_TIME;
 	_transform->SetPosition(temp);
 
+
 	if (KEY_PRESS('A') && _curState == State::JUMP)
 	{
 		Vector2 temp = _transform->GetPos();
@@ -369,6 +389,8 @@ void Player::Shot()
 	if (KEY_DOWN(VK_LBUTTON))
 	{
 		SetAction(State::SHOT);
+		Audio::GetInstance()->Play("sfx_player_default_fire_loop_01");
+		Audio::GetInstance()->SetVolume("sfx_player_default_fire_loop_01", 0.1f);
 		_atk = 10.0f;
 		if (_isRight)
 		{
@@ -595,6 +617,8 @@ void Player::SkillShot()
 	if (_curState == State::JUMP) return;
 	if (_curState == State::IDLE) return;
 	_atk = 40.0f;
+	Audio::GetInstance()->Play("sfx_player_super_beam_start_03");
+	Audio::GetInstance()->SetVolume("sfx_player_super_beam_start_03", 0.3f);
 		if (_isRight)
 		{
 			Vector2 dir = Vector2(1, 0);
@@ -677,6 +701,10 @@ void Player::SetAction(State state)
 
 void Player::SetIDLE()
 {
+	if (_curState == SHOT || _curState == AIMUPSHOT || _curState == DIAGONALSHOT || _curState == DUCKSHOT)
+		Audio::GetInstance()->Stop("sfx_player_default_fire_loop_01");
+	if (_curState == SKILLSHOT)
+		Audio::GetInstance()->Stop("sfx_player_default_fire_loop_01");
 	SetAction(State::IDLE);
 	if (_hitCollider->isActive == false)
 		_hitCollider->isActive = true;
@@ -761,6 +789,47 @@ void Player::GetDamaged(float amount)
 	}
 
 	EFFECT->Play("HitEffect", Vector2(_transform->GetPos().x, _transform->GetPos().y), false);
+}
+
+void Player::Sound()
+{
+	if (_curState == RUN)
+	{
+		Audio::GetInstance()->Play("sfx_player_land_ground_02");
+		Audio::GetInstance()->SetVolume("sfx_player_land_ground_02", 0.1f);
+	}
+	if (_curState == AIMUPSHOT || _curState == DIAGONALSHOT || _curState == DUCKSHOT)
+	{
+		Audio::GetInstance()->Play("sfx_player_default_fire_loop_01");
+		Audio::GetInstance()->SetVolume("sfx_player_default_fire_loop_01", 0.1f);
+	}
+	if (_curState == JUMP)
+	{
+		Audio::GetInstance()->Play("sfx_player_jump_02");
+		Audio::GetInstance()->SetVolume("sfx_player_jump_02", 0.1f);
+	}
+	if (_curState == RUNSHOT)
+	{
+		Audio::GetInstance()->Play("sfx_player_default_fire_loop_01");
+		Audio::GetInstance()->SetVolume("sfx_player_default_fire_loop_01", 0.1f);
+		Audio::GetInstance()->Play("sfx_player_land_ground_02");
+		Audio::GetInstance()->SetVolume("sfx_player_land_ground_02", 0.1f);
+	}
+	if (_curState == HIT)
+	{
+		Audio::GetInstance()->Play("sfx_player_hit_02");
+		Audio::GetInstance()->SetVolume("sfx_player_hit_02", 0.1f);
+	}
+	if (_curState == DEAD)
+	{
+		Audio::GetInstance()->Play("sfx_player_death_01");
+		Audio::GetInstance()->SetVolume("sfx_player_death_01", 0.1f);
+	}
+	if (_curState == REVIVE)
+	{
+		Audio::GetInstance()->Play("sfx_player_revive_02");
+		Audio::GetInstance()->SetVolume("sfx_player_revive_02", 0.1f);
+	}
 }
 
 void Player::ScreenHP()

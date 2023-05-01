@@ -64,7 +64,9 @@ public:
 		return _mapData;
 	}
 	vector<vector<Node*>> GetMapData() { return _mapData; }
+	vector<Vector2> GetMapPos() { return _mapPos; }
 
 private:
 	vector<vector<Node*>> _mapData;
+	vector<Vector2> _mapPos;
 };
