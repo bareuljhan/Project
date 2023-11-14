@@ -17,4 +17,3 @@ private:
 	shared_ptr<Sprite> _sprite;
 	shared_ptr<Button> _button;
 };
-

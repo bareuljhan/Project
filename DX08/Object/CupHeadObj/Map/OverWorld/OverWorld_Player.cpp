@@ -140,6 +140,9 @@ void OverWorld_Player::MoveTO()
 
 void OverWorld_Player::AStar(Vector2 start, Vector2 end)
 {
+	if (isRun == true) return;
+	if (isIn == true) return;
+
 	for (int i = 0; i < _route->GetMapPos().size(); i++)
 	{
 		if (end.x - _route->GetMapPos()[i].x > -17 && end.x - _route->GetMapPos()[i].x < 17
